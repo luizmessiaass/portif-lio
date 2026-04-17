@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-clash: var(--font-clash);
+  --font-general: var(--font-general);
+  --font-gloria: var(--font-gloria);
+  --color-bg: #f7f7f7;
+  --color-text: #111111;
+  --color-text-muted: #666666;
+  --color-dark: #111111;
+  --color-accent-orange: #ff6a00;
+  --color-white: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+}
+
+html { -webkit-font-smoothing: antialiased; }
+
+/* Global custom selection */
+::selection {
+  background-color: var(--color-accent-orange);
+  color: #fff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-general), system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Hide standard cursor on desktop — custom GSAP cursor takes over */
+@media (min-width: 769px) {
+  body * {
+    cursor: none !important;
+  }
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 0px; display: none; }
+
+/* Animated background orbs */
+@keyframes orb-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(40px, -60px) scale(1.06); }
+  66%       { transform: translate(-25px, 35px) scale(0.95); }
+}
+@keyframes orb-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-50px, 40px) scale(1.08); }
+  66%       { transform: translate(30px, -45px) scale(0.96); }
+}
+@keyframes orb-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(25px, 25px) scale(1.04); }
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+.orb-1 {
+  width: min(500px, 45vw);
+  height: min(500px, 45vw);
+  background: #ff6a00;
+  opacity: 0.08;
+  top: -8%;
+  right: -4%;
+  animation: orb-float-1 28s ease-in-out infinite;
+}
+.orb-2 {
+  width: min(420px, 40vw);
+  height: min(420px, 40vw);
+  background: #ffb347;
+  opacity: 0.06;
+  bottom: 15%;
+  left: -6%;
+  animation: orb-float-2 34s ease-in-out infinite;
+}
+.orb-3 {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .orb { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none; }
+}
+
+/* Mesh / Grain texture for the background */
+.bg-mesh {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 0;
 }

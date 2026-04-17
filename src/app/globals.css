@@ -29,13 +29,13 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-size: 16px;
-  letter-spacing: -0.5px;
+  letter-spacing: 0;
   line-height: 1.5;
   overflow-x: hidden;
 }
 
 /* Hide standard cursor on desktop — custom GSAP cursor takes over */
-@media (min-width: 769px) {
+@media (pointer: fine) and (hover: hover) {
   body * {
     cursor: none !important;
   }
@@ -68,22 +68,23 @@ html.lenis, html.lenis body { height: auto; }
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
+  filter: none;
+  will-change: transform;
 }
 .orb-1 {
-  width: min(500px, 45vw);
-  height: min(500px, 45vw);
-  background: #ff6a00;
-  opacity: 0.08;
+  width: min(440px, 40vw);
+  height: min(440px, 40vw);
+  background: radial-gradient(circle, rgba(255, 106, 0, 0.8) 0%, rgba(255, 106, 0, 0.28) 42%, rgba(255, 106, 0, 0) 72%);
+  opacity: 0.14;
   top: -8%;
-  right: -4%;
+  right: 0;
   animation: orb-float-1 28s ease-in-out infinite;
 }
 .orb-2 {
-  width: min(420px, 40vw);
-  height: min(420px, 40vw);
-  background: #ffb347;
-  opacity: 0.06;
+  width: min(360px, 34vw);
+  height: min(360px, 34vw);
+  background: radial-gradient(circle, rgba(255, 179, 71, 0.7) 0%, rgba(255, 179, 71, 0.22) 44%, rgba(255, 179, 71, 0) 72%);
+  opacity: 0.12;
   bottom: 15%;
   left: -6%;
   animation: orb-float-2 34s ease-in-out infinite;
@@ -93,7 +94,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @media (max-width: 768px) {
-  .orb { animation: none; }
+  .orb { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -102,8 +103,8 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Mesh / Grain texture for the background */
 .bg-mesh {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-  background-size: 200px;
+  background-image: radial-gradient(rgba(17, 17, 17, 0.08) 0.7px, transparent 0.7px);
+  background-size: 12px 12px;
   pointer-events: none;
   z-index: 0;
 }

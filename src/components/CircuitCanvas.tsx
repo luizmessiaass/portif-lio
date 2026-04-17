@@ -13,8 +13,7 @@ export function CircuitCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (window.innerWidth < 768) return;
+    if (window.matchMedia("(max-width: 1023px), (prefers-reduced-motion: reduce)").matches) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -22,8 +21,11 @@ export function CircuitCanvas() {
     if (!ctx) return;
 
     let animId: number;
+    let resizeId: number | undefined;
+    let lastFrame = 0;
 
-    const CELL = 120;
+    const CELL = 160;
+    const FRAME_MS = 1000 / 24;
     let cols = 0;
     let rows = 0;
     let nodes: { x: number; y: number; conn: number[] }[] = [];
@@ -47,12 +49,12 @@ export function CircuitCanvas() {
       for (let i = 0; i < nodes.length; i++) {
         const r = Math.floor(i / cols);
         const c = i % cols;
-        if (c < cols - 1 && Math.random() > 0.42) {
+        if (c < cols - 1 && Math.random() > 0.58) {
           edges.push([i, i + 1]);
           nodes[i].conn.push(i + 1);
           nodes[i + 1].conn.push(i);
         }
-        if (r < rows - 1 && Math.random() > 0.42) {
+        if (r < rows - 1 && Math.random() > 0.58) {
           edges.push([i, i + cols]);
           nodes[i].conn.push(i + cols);
           nodes[i + cols].conn.push(i);
@@ -64,7 +66,7 @@ export function CircuitCanvas() {
 
     // only a few slow pulses — very minimal
     const pulses: Pulse[] = [];
-    const MAX_PULSES = 6;
+    const MAX_PULSES = 4;
 
     const spawn = () => {
       if (pulses.length >= MAX_PULSES) return;
@@ -78,6 +80,10 @@ export function CircuitCanvas() {
     let lastSpawn = 0;
 
     const draw = (ts: number) => {
+      animId = requestAnimationFrame(draw);
+      if (ts - lastFrame < FRAME_MS) return;
+      lastFrame = ts;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // draw edges — very light
@@ -136,16 +142,20 @@ export function CircuitCanvas() {
         ctx.fill();
       }
 
-      if (ts - lastSpawn > 1800) { spawn(); lastSpawn = ts; }
-      animId = requestAnimationFrame(draw);
+      if (ts - lastSpawn > 2200) { spawn(); lastSpawn = ts; }
     };
 
     animId = requestAnimationFrame(draw);
-    window.addEventListener("resize", build);
+    const onResize = () => {
+      window.clearTimeout(resizeId);
+      resizeId = window.setTimeout(build, 120);
+    };
+    window.addEventListener("resize", onResize);
 
     return () => {
       cancelAnimationFrame(animId);
-      window.removeEventListener("resize", build);
+      window.clearTimeout(resizeId);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 

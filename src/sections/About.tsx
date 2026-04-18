@@ -31,35 +31,36 @@ export function About() {
   const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 1023px), (prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
     const ctx = gsap.context(() => {
 
       // 1. Label + H2 entrance
       gsap.from(".about-label", {
-        y: 24, opacity: 0, duration: 0.6, ease: "power2.out",
+        y: isMobile ? 16 : 24, opacity: 0, duration: isMobile ? 0.48 : 0.6, ease: "power2.out",
         scrollTrigger: { trigger: ".about-header", start: "top 88%" }
       });
 
       // Split H2 words — each word slides up from clip
       gsap.from(".about-h2-word", {
-        y: "110%", opacity: 0,
-        duration: 0.7, ease: "power3.out",
-        stagger: 0.06,
+        y: isMobile ? "70%" : "110%", opacity: 0,
+        duration: isMobile ? 0.58 : 0.7, ease: "power3.out",
+        stagger: isMobile ? 0.035 : 0.06,
         scrollTrigger: { trigger: ".about-header", start: "top 82%" }
       });
 
       // 2. Left column stagger
       gsap.from([".about-h3", ".about-body"], {
-        y: 40, opacity: 0, duration: 0.7, ease: "power2.out", stagger: 0.18,
+        y: isMobile ? 24 : 40, opacity: 0, duration: isMobile ? 0.58 : 0.7, ease: "power2.out", stagger: 0.14,
         scrollTrigger: { trigger: ".about-left", start: "top 80%" }
       });
 
       // 3. Service cards staggered entrance
       gsap.utils.toArray<HTMLElement>(".service-card").forEach((card, i) => {
         gsap.from(card, {
-          y: 70, opacity: 0, duration: 0.9, ease: "power3.out",
-          delay: i * 0.13,
+          y: isMobile ? 34 : 70, opacity: 0, duration: isMobile ? 0.62 : 0.9, ease: "power3.out",
+          delay: i * (isMobile ? 0.06 : 0.13),
           scrollTrigger: { trigger: card, start: "top 88%" }
         });
       });
@@ -109,7 +110,7 @@ export function About() {
             <div
               key={service.id}
               data-cursor="hover"
-              className="service-card sticky w-full rounded-[40px] p-8 sm:p-14 shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-black/5 bg-white flex flex-col justify-between overflow-hidden transition-all duration-500 min-h-[40vh]"
+              className="service-card w-full rounded-[40px] p-8 sm:p-14 shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-black/5 bg-white flex flex-col justify-between overflow-hidden transition-all duration-500 min-h-[40vh] lg:sticky"
               style={{
                 top: `calc(15vh + ${index * 40}px)`,
                 zIndex: index + 1

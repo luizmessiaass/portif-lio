@@ -9,11 +9,52 @@ export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 1023px), (prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
-    // Parallax on scroll for the hero elements
     const ctx = gsap.context(() => {
-      // Move text in different speeds
+      const introDelay = isMobile ? 1.05 : 0.35;
+
+      gsap.fromTo(
+        ".hero-image-pill",
+        { autoAlpha: 0, y: isMobile ? 22 : 32, scale: 0.96 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          duration: isMobile ? 0.7 : 0.8,
+          delay: introDelay,
+          ease: "power3.out",
+        }
+      );
+
+      gsap.fromTo(
+        ".text-left-part, .text-right-part, .hero-bottom-info",
+        { autoAlpha: 0, y: isMobile ? 18 : 28 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: isMobile ? 0.62 : 0.75,
+          delay: introDelay + 0.1,
+          stagger: 0.08,
+          ease: "power3.out",
+        }
+      );
+
+      if (isMobile) {
+        gsap.to(".hero-image-pill", {
+          y: -18,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.45,
+          },
+        });
+        return;
+      }
+
       gsap.to(".text-left-part", {
         y: "-15vh",
         ease: "none",
@@ -109,7 +150,7 @@ export function Hero() {
       </div>
 
       {/* Bottom Bar Info */}
-      <div className="absolute bottom-6 left-[5vw] right-[5vw] flex justify-between items-end z-40 opacity-60">
+      <div className="hero-bottom-info absolute bottom-6 left-[5vw] right-[5vw] flex justify-between items-end z-40 opacity-60">
         <span className="font-general uppercase tracking-widest text-xs font-semibold">
           Baseado em Balneário Camboriú, SC
         </span>

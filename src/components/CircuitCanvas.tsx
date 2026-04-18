@@ -13,7 +13,8 @@ export function CircuitCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 1023px), (prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -24,8 +25,8 @@ export function CircuitCanvas() {
     let resizeId: number | undefined;
     let lastFrame = 0;
 
-    const CELL = 160;
-    const FRAME_MS = 1000 / 24;
+    const CELL = isMobile ? 180 : 160;
+    const FRAME_MS = 1000 / (isMobile ? 18 : 24);
     let cols = 0;
     let rows = 0;
     let nodes: { x: number; y: number; conn: number[] }[] = [];
@@ -66,7 +67,7 @@ export function CircuitCanvas() {
 
     // only a few slow pulses — very minimal
     const pulses: Pulse[] = [];
-    const MAX_PULSES = 4;
+    const MAX_PULSES = isMobile ? 2 : 4;
 
     const spawn = () => {
       if (pulses.length >= MAX_PULSES) return;
@@ -142,7 +143,7 @@ export function CircuitCanvas() {
         ctx.fill();
       }
 
-      if (ts - lastSpawn > 2200) { spawn(); lastSpawn = ts; }
+      if (ts - lastSpawn > (isMobile ? 2800 : 2200)) { spawn(); lastSpawn = ts; }
     };
 
     animId = requestAnimationFrame(draw);

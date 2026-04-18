@@ -28,28 +28,29 @@ export function Projects() {
   const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 1023px), (prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
     const ctx = gsap.context(() => {
 
       // Section header reveal
       gsap.from(".projects-label", {
-        y: 20, opacity: 0, duration: 0.6, ease: "power2.out",
+        y: isMobile ? 14 : 20, opacity: 0, duration: isMobile ? 0.48 : 0.6, ease: "power2.out",
         scrollTrigger: { trigger: ".projects-header", start: "top 88%" }
       });
       gsap.from([".projects-h2", ".projects-body"], {
-        y: 50, opacity: 0, duration: 0.8, ease: "power3.out", stagger: 0.12,
+        y: isMobile ? 24 : 50, opacity: 0, duration: isMobile ? 0.58 : 0.8, ease: "power3.out", stagger: 0.1,
         scrollTrigger: { trigger: ".projects-header", start: "top 82%" }
       });
       gsap.from(".projects-cta", {
-        x: 30, opacity: 0, duration: 0.6, ease: "power2.out",
+        x: isMobile ? 0 : 30, y: isMobile ? 16 : 0, opacity: 0, duration: isMobile ? 0.5 : 0.6, ease: "power2.out",
         scrollTrigger: { trigger: ".projects-header", start: "top 75%" }
       });
 
       // Project items entrance
       gsap.utils.toArray<HTMLElement>(".project-item").forEach((item) => {
         gsap.from(item, {
-          y: 80, opacity: 0, duration: 1.1, ease: "power3.out",
+          y: isMobile ? 34 : 80, opacity: 0, duration: isMobile ? 0.68 : 1.1, ease: "power3.out",
           scrollTrigger: { trigger: item, start: "top 88%" }
         });
       });

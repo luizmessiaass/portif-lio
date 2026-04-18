@@ -94,7 +94,22 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @media (max-width: 768px) {
-  .orb { display: none; }
+  .orb { animation-duration: 38s; }
+  .orb-1 {
+    width: 240px;
+    height: 240px;
+    top: 8%;
+    right: 0;
+    opacity: 0.1;
+  }
+  .orb-2 {
+    width: 220px;
+    height: 220px;
+    top: 54%;
+    bottom: auto;
+    left: 0;
+    opacity: 0.08;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

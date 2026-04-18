@@ -10,11 +10,11 @@ export function Contact() {
 
   useEffect(() => {
     if (!textRef.current) return;
-    const canAnimate = window.matchMedia(
-      "(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)"
-    ).matches;
+    const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isFinePointer = window.matchMedia("(pointer: fine) and (hover: hover)").matches;
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
-    if (!canAnimate) return;
+    if (shouldReduceMotion) return;
 
     const ctx = gsap.context(() => {
 
@@ -23,26 +23,26 @@ export function Contact() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",
-          end: "top 40%",
-          scrub: 1,
+          end: isMobile ? "top 60%" : "top 40%",
+          scrub: isMobile ? false : 1,
         },
-        y: 100, opacity: 0, rotationZ: 2, duration: 1
+        y: isMobile ? 34 : 100, opacity: 0, rotationZ: isMobile ? 0 : 2, duration: isMobile ? 0.68 : 1
       });
 
       // Label + CTA button entrance
       gsap.from(".contact-label", {
-        y: 20, opacity: 0, duration: 0.6, ease: "power2.out",
+        y: isMobile ? 14 : 20, opacity: 0, duration: isMobile ? 0.48 : 0.6, ease: "power2.out",
         scrollTrigger: { trigger: containerRef.current, start: "top 85%" }
       });
       gsap.from(btnRef.current, {
-        y: 30, opacity: 0, scale: 0.95, duration: 0.7, ease: "back.out(1.4)",
+        y: isMobile ? 18 : 30, opacity: 0, scale: 0.95, duration: isMobile ? 0.56 : 0.7, ease: "back.out(1.4)",
         scrollTrigger: { trigger: btnRef.current, start: "top 90%" }
       });
 
     }, containerRef);
 
     const btn = btnRef.current;
-    if (!btn) return () => ctx.revert();
+    if (!btn || !isFinePointer) return () => ctx.revert();
 
     const onMove = (e: MouseEvent) => {
       const rect = btn.getBoundingClientRect();

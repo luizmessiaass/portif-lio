@@ -414,49 +414,51 @@ export const projects: Project[] = [
   {
     id: 4,
     slug: "next-hub-alunos",
-    title: "Hub de Alunos Next",
+    title: "Hub de Alunos",
     category: "Sistemas",
     shortCategory: "Edtech interno",
     description:
-      "Painel para mentores, CS e alunos acompanharem tarefas, histórico, alertas de inatividade e comunicações transacionais.",
-    impact: "Dá visibilidade para acompanhamento de alunos e reduz perdas por falta de follow-up.",
-    stack: ["Next.js 15", "Supabase", "Realtime", "RLS", "Resend", "Playwright"],
-    examples: ["Dashboard do aluno", "Painel de CS", "Tarefas estilo Monday"],
+      "Plataforma de gestão de mentorias para a Next Ecommerce: mentores acompanham a carteira de alunos, atribuem tarefas no estilo Monday com Kanban e prioridades, e visualizam progresso em tempo real via Supabase Realtime. Alunos recebem as demandas e atualizam status diretamente no painel.",
+    impact: "Elimina o acompanhamento por memória individual e mensagens soltas — cada mentor tem visibilidade total da carteira com histórico, alertas de inatividade e fluxo de tarefas rastreável.",
+    stack: ["Next.js 15", "TypeScript", "Supabase", "Realtime", "RLS", "Resend", "Playwright", "Vitest"],
+    examples: ["Kanban de tarefas com drag-and-drop", "Dashboard isolada por aluno", "Alertas de inatividade e emails transacionais"],
     featured: true,
     sourcePath: "NEXT-HUB-DE-ALUNOS",
     tone: "from-[#111827] via-[#365314] to-[#a3e635]",
     coverImage: "/projects/next-hub-alunos/cover.png",
-    coverAlt: "Logo do Hub de Alunos Next",
+    coverAlt: "Tela de login do Hub de Alunos",
     gallery: [
       {
         src: "/projects/next-hub-alunos/cover.png",
-        alt: "Marca do Hub de Alunos Next",
-        caption: "Asset de marca disponível no projeto.",
+        alt: "Login do Hub de Alunos",
+        caption: "Tela de acesso com redirecionamento condicional por perfil: mentor ou aluno.",
       },
     ],
     overview:
-      "Hub interno para operação educacional, com visões de aluno, mentor e CS. O foco é manter tarefas, histórico, alertas e notificações sob controle.",
+      "O Hub de Alunos é um painel interno desenvolvido para a operação de mentorias da Next Ecommerce. Mentores gerenciam a carteira de alunos, criam e acompanham tarefas no estilo Monday (Kanban com colunas Pendente, Em andamento, Concluído), e visualizam métricas de progresso. Alunos acessam o próprio painel, veem as demandas atribuídas e atualizam status. Toda a comunicação de dados acontece em tempo real via Supabase Realtime.",
     challenge:
-      "Mentorias e comunidades perdem qualidade quando o acompanhamento depende de memória individual ou mensagens soltas.",
+      "Operações de mentoria dependiam de mensagens manuais e memória individual para acompanhar alunos. Sem sistema, o mentor perde histórico, não detecta inatividade e não tem visibilidade do progresso real de cada aluno na carteira.",
     solution:
-      "O sistema organiza alunos, tarefas, alertas de inatividade, histórico e emails transacionais com perfis separados por papel.",
+      "Plataforma full stack com perfis separados por role (mentor/aluno), RBAC via RLS no Supabase, Kanban de tarefas com drag-and-drop, alertas automáticos de inatividade, emails transacionais via Resend e atualizações em tempo real para mentor e aluno simultaneamente.",
     highlights: [
-      "Rotas separadas para aluno, mentor e CS.",
-      "Alertas de inatividade e cron de email.",
-      "Testes unitários, RLS e suite E2E Playwright.",
-      "Supabase Realtime para fluxos colaborativos.",
+      "Dashboard isolada por aluno: mentor acessa a visão completa de cada aluno separadamente.",
+      "Kanban com colunas Pendente, Em andamento e Concluído — drag-and-drop com @dnd-kit.",
+      "Supabase Realtime: aluno vê nova tarefa ao vivo; mentor vê conclusão ao vivo.",
+      "Alertas de inatividade e cron de emails via Resend.",
+      "RLS granular: aluno só edita status/observação — não cria nem exclui tarefas.",
+      "Suite completa: testes unitários Vitest, RLS e E2E com Playwright.",
     ],
     detailSections: [
       {
-        title: "Operação",
-        body: "Mentores acompanham alunos e tarefas; CS acompanha alertas e carteira; alunos visualizam demandas e atualizam progresso.",
+        title: "Controle de Acesso",
+        body: "Mentores criam, editam e excluem tarefas dos próprios alunos. Alunos só atualizam status e observação. RLS no Supabase garante que nenhuma regra de negócio dependa apenas do front-end.",
       },
       {
         title: "Confiabilidade",
-        body: "O projeto tem runbook, seed, testes de RLS, CI e Playwright para reduzir risco em fluxos sensíveis.",
+        body: "O projeto tem runbook, seed de dados, testes de RLS, CI e suite E2E Playwright para cobrir fluxos críticos de mentor e aluno.",
       },
     ],
-    captureNote: "Nesta rodada havia apenas assets de marca disponíveis; as telas internas exigem ambiente Supabase configurado.",
+    captureNote: "Telas internas exigem ambiente Supabase configurado com seed de dados.",
   },
   {
     id: 5,
@@ -472,7 +474,7 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "AVANT-CHAMADOS",
     tone: "from-[#05070a] via-[#111827] to-[#10d7be]",
-    coverImage: "/projects/avant-chamados/desktop/01-dashboard.png",
+    coverImage: "/projects/avant-chamados/desktop/17-login.png",
     coverAlt: "Dashboard do AVANT Chamados com métricas de atendimento",
     intro:
       "O AVANT Chamados é um sistema de service desk criado para dar forma a uma operação de suporte: entrada de solicitações, triagem, responsáveis, prioridade, SLA, histórico, projetos, permissões e gestão administrativa. A interface trabalha com uma estética escura e premium, aproximando ferramenta interna de produto comercial.",
@@ -584,7 +586,7 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "Produção · elevax.net.br",
     tone: "from-[#111827] via-[#1d4ed8] to-[#60a5fa]",
-    coverImage: "/projects/digisac-squad/prod/02-inbox.png",
+    coverImage: "/projects/digisac-squad/prod/01-login.png",
     coverAlt: "Inbox Elevax com dados de conversas mascarados",
     gallery: [
       {
@@ -817,82 +819,44 @@ export const projects: Project[] = [
     captureNote: "Sem screenshot local nesta rodada; usei a estrutura e documentação técnica do monorepo.",
   },
   {
-    id: 13,
-    slug: "lead-router-meetime",
-    title: "Lead Router Meetime",
+    id: 14,
+    slug: "next-leads-meetime",
+    title: "Lead Meetime Integrator",
     category: "Automações/IA",
-    shortCategory: "Lead routing",
+    shortCategory: "Lead automation",
     description:
-      "Backend com API e worker para receber leads, normalizar dados, resolver cadência e integrar Meetime/GHL com fila e logs.",
-    impact: "Automatiza distribuição de leads e reduz falhas de handoff entre canais comerciais.",
-    stack: ["Node.js", "Workers", "Supabase", "Queues", "Meetime", "GHL"],
-    examples: ["Webhook interno", "Normalizador de leads", "Resolver de cadência com testes"],
+      "Automação que captura leads de formulários do GHL e anúncios do Meta Ads (tráfego orgânico e pago) e os envia automaticamente para o Meetime, eliminando entrada manual no CRM comercial.",
+    impact: "Zero entrada manual de lead: do formulário ou anúncio direto ao CRM com cadencia e distribuição automáticos.",
+    stack: ["Python", "Node.js", "GHL", "Meta Ads", "Meetime", "Webhooks", "Automação"],
+    examples: ["Captura de leads via webhook GHL", "Integração com formulários Meta Ads", "Envio automático ao Meetime"],
     featured: false,
     sourcePath: "leads-meetime",
     tone: "from-[#111827] via-[#713f12] to-[#f59e0b]",
     gallery: [],
     overview:
-      "Backend de roteamento de leads com API, worker, normalização, fila e integrações Meetime/GHL.",
+      "O projeto resolve a lacuna entre captura de lead e entrada no CRM. Toda vez que um lead preenche um formulário (GHL ou Meta Ads — tráfego pago ou orgânico), a automação recebe, normaliza e envia automaticamente para o Meetime, com cadencia correta e log rastreavel. Foi implantado para diferentes empresas, adaptando credenciais e configurações por ambiente.",
     challenge:
-      "Leads precisam chegar ao destino certo, na cadência certa, sem duplicidade e sem depender de intervenção manual.",
+      "Times comerciais perdem leads por atraso ou esquecimento na entrada manual no CRM. Leads vindos de tráfego pago e orgânico chegam por canais diferentes (Meta Ads, GHL) e precisam de tratamento padronizado.",
     solution:
-      "O projeto separa rotas de API, jobs, integrações, queue, logger e normalizador para processar leads de forma rastreável.",
+      "A automação recebe webhooks do GHL e Meta Ads, normaliza os dados de cada fonte e dispara a criação do lead no Meetime com a cadencia certa, sem intervenção humana.",
     highlights: [
-      "API server e worker separados.",
-      "Jobs para processamento de lead.",
-      "Cadence resolver com teste.",
-      "Integrações Meetime e GHL.",
+      "Captura de leads via webhook de formulários GHL.",
+      "Captura de leads de anúncios Meta Ads (tráfego pago e orgânico).",
+      "Normalização e envio automático para o Meetime.",
+      "Configurável por empresa: credenciais e ambientes isolados.",
+      "Logs e rastreabilidade do fluxo de cada lead.",
     ],
     detailSections: [
       {
         title: "Fluxo",
-        body: "Recebe lead, normaliza dados, resolve cadência, envia para integrações e registra logs/fila.",
+        body: "Lead preenche formulário ou interage com anúncio → webhook chega → dados normalizados → Meetime criado automaticamente com cadencia e distribuição configuradas.",
       },
       {
-        title: "Confiabilidade",
-        body: "A existencia de testes em cadenceResolver mostra atencao ao comportamento de distribuição.",
+        title: "Multi-empresa",
+        body: "O mesmo mecanismo foi adaptado para diferentes empresas, cada uma com suas próprias credenciais GHL/Meetime e configurações de ambiente isoladas.",
       },
     ],
-    captureNote: "Projeto backend/worker, sem interface visual para print.",
-  },
-  {
-    id: 14,
-    slug: "next-leads-meetime",
-    title: "Next Leads Meetime",
-    category: "Automações/IA",
-    shortCategory: "Python automation",
-    description:
-      "Automação Python para fluxo de leads Next/Meetime com credenciais separadas, exemplo de ambiente e requirements dedicados.",
-    impact: "Resolve integração pontual de leads sem depender de operação manual.",
-    stack: ["Python", "API Integration", "Credentials", "Automation"],
-    examples: ["Script de sincronização", "Arquivo de ambiente exemplo", "Integração Meetime"],
-    featured: false,
-    sourcePath: "NEXT-LEADS-MEETIME",
-    tone: "from-[#111111] via-[#1e40af] to-[#93c5fd]",
-    gallery: [],
-    overview:
-      "Automação Python curta e objetiva para integrar leads da Next com Meetime, usando requirements e exemplo de ambiente.",
-    challenge:
-      "Algumas integrações não precisam de um produto inteiro; precisam de um script confiável, com credenciais isoladas e execução previsível.",
-    solution:
-      "O projeto concentra a automação em um script Python com requirements e exemplos de configuração.",
-    highlights: [
-      "Script Python dedicado.",
-      "Requirements isolados.",
-      "Exemplo de variáveis de ambiente.",
-      "Fluxo orientado a integração de leads.",
-    ],
-    detailSections: [
-      {
-        title: "Papel no portfólio",
-        body: "Mostra capacidade de resolver problemas pequenos com automação direta, sem superdimensionar arquitetura.",
-      },
-      {
-        title: "Cuidado",
-        body: "A pasta contem arquivo de credenciais; esse conteúdo não foi copiado nem exposto no portfólio.",
-      },
-    ],
-    captureNote: "Automação sem interface visual.",
+    captureNote: "Automação backend sem interface visual.",
   },
   {
     id: 15,
@@ -946,97 +910,7 @@ export const projects: Project[] = [
     ],
     captureNote: "Rotas internas protegidas por autenticação; print capturado na tela pública.",
   },
-  {
-    id: 16,
-    slug: "next-hub",
-    title: "Next Hub",
-    category: "Sistemas",
-    shortCategory: "Business hub",
-    description:
-      "Hub com clientes, atividades, notificações, usuários e módulos de WhatsApp para áudios, grupos e mensagens.",
-    impact: "Concentra operação interna e comunicação em um painel administrativo.",
-    stack: ["Next.js", "Supabase", "WhatsApp", "TypeScript", "Tests"],
-    examples: ["Mensagens WhatsApp", "Gestão de grupos", "Atividades e clientes"],
-    featured: false,
-    sourcePath: "next-hub",
-    tone: "from-[#171717] via-[#14532d] to-[#86efac]",
-    coverImage: "/projects/next-hub/cover.png",
-    coverAlt: "Tela de login do Next Hub",
-    gallery: [
-      {
-        src: "/projects/next-hub/shot-1.png",
-        alt: "Login desktop Next Hub",
-        caption: "Tela pública capturada localmente.",
-      },
-      {
-        src: "/projects/next-hub/shot-mobile.png",
-        alt: "Login mobile Next Hub",
-        caption: "Versão mobile capturada localmente.",
-      },
-    ],
-    overview:
-      "Hub interno de clientes, atividades, notificações e comunicação por WhatsApp.",
-    challenge:
-      "Quando comunicação e operação ficam separadas, o time perde histórico e contexto.",
-    solution:
-      "O produto centraliza clientes, atividades e módulos de WhatsApp em um painel com Supabase e rotas administrativas.",
-    highlights: [
-      "Rotas de clientes, atividades, notificações e usuários.",
-      "Módulos WhatsApp para áudios, grupos e mensagens.",
-      "Testes de validação e Supabase.",
-      "Tela de login capturada localmente.",
-    ],
-    detailSections: [
-      {
-        title: "Módulo WhatsApp",
-        body: "O hub tem áreas específicas para áudios, grupos e mensagens, indicando uso operacional real.",
-      },
-      {
-        title: "Autenticação",
-        body: "Sem sessão, as rotas internas redirecionam para login; isso protege dados de clientes e mensagens.",
-      },
-    ],
-    captureNote: "Prints internos exigem login; usei a tela pública.",
-  },
-  {
-    id: 17,
-    slug: "sg-hub",
-    title: "SG Hub",
-    category: "Sistemas",
-    shortCategory: "Retail ops",
-    description:
-      "Hub operacional com integrações, agente Bling, testes e estrutura Supabase para rotinas de ecommerce e operação interna.",
-    impact: "Apoia sincronização e controle de processos ligados a varejo/ecommerce.",
-    stack: ["Vite", "Supabase", "Bling", "TypeScript", "Tests"],
-    examples: ["Agente Bling", "Rotinas de hub", "Testes automatizados"],
-    featured: false,
-    sourcePath: "sg-hub",
-    tone: "from-[#111111] via-[#422006] to-[#fb923c]",
-    gallery: [],
-    overview:
-      "Hub operacional para Saint Germain/retail, com integrações e agente Bling para automatizar rotinas.",
-    challenge:
-      "Operações de ecommerce precisam manter integrações como Bling funcionando sem depender de acompanhamento manual constante.",
-    solution:
-      "O projeto usa Vite/Supabase e ferramentas para agente Bling, com scripts de teste e validação.",
-    highlights: [
-      "Agente Bling documentado.",
-      "Supabase como base de dados.",
-      "Testes e lint.",
-      "Estrutura Vite leve para painel.",
-    ],
-    detailSections: [
-      {
-        title: "Observacao visual",
-        body: "A captura local retornou uma tela vazia/default, entao optei por não usar o print ruim no portfólio.",
-      },
-      {
-        title: "Valor técnico",
-        body: "O peso do projeto está na integração operacional e no agente Bling, mais do que no material visual disponível.",
-      },
-    ],
-    captureNote: "Print local descartado por estar vazio/default.",
-  },
+
   {
     id: 18,
     slug: "creative-dashboard",
@@ -1352,45 +1226,7 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    id: 24,
-    slug: "popozuda-hub",
-    title: "Popozuda Hub",
-    category: "Automações/IA",
-    shortCategory: "Scraper + worker",
-    description:
-      "Hub com frontend, scraper e worker para sincronização automatizada, execução cron e integrações com ambientes de automação.",
-    impact: "Combina coleta, processamento e interface em uma operação automatizada.",
-    stack: ["Vite", "Scraper", "Worker", "TypeScript", "Cron"],
-    examples: ["Scraper dedicado", "Worker de sync", "Frontend do hub"],
-    featured: false,
-    sourcePath: "popozuda-hub",
-    tone: "from-[#111827] via-[#581c87] to-[#e879f9]",
-    gallery: [],
-    overview:
-      "Hub com três partes: frontend, scraper e worker. O foco está em coleta, sincronização e execução recorrente.",
-    challenge:
-      "Quando uma operação depende de coleta e sync, a interface só resolve parte do problema; é preciso worker, cron e observabilidade mínima.",
-    solution:
-      "O projeto separa frontend, scraper e worker, com scripts para rodar sync, server, cron e runner.",
-    highlights: [
-      "Frontend Vite.",
-      "Scraper dedicado.",
-      "Worker com server, cron e runner.",
-      "Typecheck e scripts de automação.",
-    ],
-    detailSections: [
-      {
-        title: "Observacao visual",
-        body: "A captura local retornou tela branca/default, entao foi descartada para não enfraquecer o portfólio.",
-      },
-      {
-        title: "Valor técnico",
-        body: "O projeto entra como exemplo de automação com coleta, processamento e interface separadas.",
-      },
-    ],
-    captureNote: "Print local descartado por estar vazio/default.",
-  },
+
 ];
 
 export function getProjectBySlug(slug: string) {

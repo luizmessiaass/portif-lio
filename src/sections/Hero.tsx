@@ -17,7 +17,13 @@ export function Hero() {
 
     const ctx = gsap.context(() => {
       const introDelay = isMobile ? 1.05 : 0.35;
-      const imageExitX = isMobile ? "68vw" : "48vw";
+      const imageExitX = isMobile ? "74vw" : "52vw";
+
+      gsap.set(".hero-image-pill", {
+        force3D: true,
+        transformOrigin: "50% 50%",
+        willChange: "transform, opacity",
+      });
 
       gsap.fromTo(
         ".hero-image-pill",
@@ -51,15 +57,17 @@ export function Hero() {
         {
           x: imageExitX,
           autoAlpha: 0,
-          scale: isMobile ? 0.92 : 0.9,
-          rotate: isMobile ? 2 : 4,
+          scale: 0.96,
+          rotate: isMobile ? 0.8 : 1.5,
           ease: "none",
+          force3D: true,
           immediateRender: false,
+          overwrite: "auto",
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top top",
-            end: isMobile ? "65% top" : "bottom top",
-            scrub: 0.7,
+            end: isMobile ? "78% top" : "88% top",
+            scrub: isMobile ? 1.15 : 1.35,
           },
         }
       );
@@ -118,7 +126,7 @@ export function Hero() {
           data-cursor="hover"
           className="hero-image-anchor relative z-30 aspect-[4/5] w-[min(70vw,320px)] max-w-full lg:absolute lg:left-1/2 lg:top-[50%] lg:w-[min(32vw,480px)] lg:-translate-x-1/2 lg:-translate-y-1/2"
         >
-          <div className="hero-image-pill relative h-full w-full isolate overflow-hidden rounded-[36px] shadow-[0_34px_90px_rgba(0,0,0,0.18)] ring-1 ring-inset ring-white/15 sm:rounded-[44px] lg:rounded-[56px]">
+          <div className="hero-image-pill relative h-full w-full isolate transform-gpu overflow-hidden rounded-[36px] shadow-[0_34px_90px_rgba(0,0,0,0.18)] ring-1 ring-inset ring-white/15 will-change-transform sm:rounded-[44px] lg:rounded-[56px]">
             <div className="absolute inset-0 z-10 bg-gradient-to-tr from-black/10 via-transparent to-white/5 mix-blend-overlay pointer-events-none" />
             <Image
               src="/profile-enhanced.jpg"

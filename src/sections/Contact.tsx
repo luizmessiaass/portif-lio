@@ -77,7 +77,7 @@ export function Contact() {
 
         <h2
           ref={textRef}
-          className="mb-12 cursor-pointer font-clash text-[clamp(2.8rem,13vw,8.5rem)] font-semibold leading-[0.94] tracking-normal text-white transition-colors duration-500 hover:text-[#ff6a00] text-balance sm:text-[clamp(4rem,8vw,8.5rem)]"
+          className="mb-12 max-w-full cursor-pointer whitespace-nowrap font-clash text-[clamp(1.05rem,5.6vw,1.42rem)] font-semibold leading-none tracking-normal text-white transition-colors duration-500 hover:text-[#ff6a00] sm:text-[clamp(2.25rem,5vw,4.9rem)]"
         >
           Precisa tirar um sistema do papel?
         </h2>

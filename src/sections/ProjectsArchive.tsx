@@ -78,7 +78,7 @@ export function ProjectsArchive() {
               href={`/projetos/${project.slug}`}
               key={project.id}
               data-cursor="hover"
-              className="project-card group flex min-h-[560px] flex-col overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:min-h-[620px]"
+              className="project-card group flex min-h-[540px] flex-col overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:min-h-[600px]"
             >
               <div className={`relative aspect-[1850/872] overflow-hidden bg-gradient-to-br ${project.tone}`}>
                 {project.coverImage ? (
@@ -88,7 +88,7 @@ export function ProjectsArchive() {
                     fill
                     sizes="(max-width: 768px) 90vw, 45vw"
                     quality={95}
-                    className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                    className="object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
                   />
                 ) : (
                   <div className="absolute inset-0">
@@ -107,12 +107,9 @@ export function ProjectsArchive() {
                     </div>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/10 to-transparent" />
-                <span className="absolute left-6 top-6 rounded-full bg-black/45 px-3 py-1.5 font-general text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur sm:left-10 sm:top-10">
+                <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-transparent" />
+                <span className="absolute left-4 top-4 rounded-full bg-black/45 px-2.5 py-1 font-general text-[9px] font-semibold uppercase tracking-[0.13em] text-white/75 backdrop-blur sm:left-6 sm:top-6">
                   {project.shortCategory}
-                </span>
-                <span className="absolute bottom-6 left-5 right-5 max-w-[420px] font-clash text-3xl font-semibold leading-none tracking-normal text-white sm:bottom-8 sm:left-10 sm:text-5xl">
-                  {project.title}
                 </span>
               </div>
 

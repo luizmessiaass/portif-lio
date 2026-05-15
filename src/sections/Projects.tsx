@@ -89,9 +89,9 @@ export function Projects() {
             href={`/projetos/${project.slug}`}
             key={project.id}
             data-cursor="hover"
-            className="project-item group flex min-h-[500px] flex-col rounded-[28px] border border-black/5 bg-white p-3 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:p-4 lg:min-h-[520px]"
+            className="project-item group flex min-h-[470px] flex-col rounded-[28px] border border-black/5 bg-white p-3 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:p-4 lg:min-h-[500px]"
           >
-            <div className={`relative mb-6 aspect-[1850/872] overflow-hidden rounded-[24px] bg-gradient-to-br ${project.tone}`}>
+            <div className={`relative mb-6 aspect-[1850/872] overflow-hidden rounded-[22px] bg-gradient-to-br ${project.tone} ring-1 ring-black/5`}>
               {project.coverImage ? (
                 <Image
                   src={project.coverImage}
@@ -99,7 +99,7 @@ export function Projects() {
                   fill
                   sizes="(max-width: 1024px) 90vw, 30vw"
                   quality={95}
-                  className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                  className="object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
                 />
               ) : (
                 <div className="absolute inset-0">
@@ -112,12 +112,9 @@ export function Projects() {
                   </div>
                 </div>
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-              <span className="absolute left-6 top-6 rounded-full bg-black/45 px-3 py-1.5 font-general text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur">
+              <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-transparent" />
+              <span className="absolute left-4 top-4 rounded-full bg-black/45 px-2.5 py-1 font-general text-[9px] font-semibold uppercase tracking-[0.13em] text-white/75 backdrop-blur sm:left-5 sm:top-5">
                 {project.shortCategory}
-              </span>
-              <span className="absolute bottom-6 left-5 right-5 font-clash text-3xl font-semibold leading-none tracking-normal text-white sm:left-6 sm:right-6 sm:text-4xl">
-                {project.title}
               </span>
             </div>
 
@@ -126,7 +123,7 @@ export function Projects() {
                 <h3 className="font-clash text-[clamp(1.75rem,7vw,3rem)] font-semibold leading-tight tracking-normal text-[var(--color-dark)] transition-colors duration-300 group-hover:text-[#ff6a00] sm:text-3xl">
                   {project.title}
                 </h3>
-                <span className="text-3xl leading-none text-[#ff6a00] opacity-0 transition-all duration-500 group-hover:opacity-100">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-black/10 text-lg leading-none text-[#111] transition-all duration-300 group-hover:border-[#ff6a00] group-hover:bg-[#ff6a00] group-hover:text-white">
                   ↗
                 </span>
               </div>

@@ -105,55 +105,60 @@ export function Hero() {
       <div className="absolute inset-0 z-0 bg-mesh mix-blend-overlay opacity-50 pointer-events-none" />
       <CircuitCanvas />
 
-      <div
-        data-cursor="hover"
-        className="hero-image-pill absolute left-1/2 top-[46%] z-20 aspect-[3/4] w-[54vw] max-w-[360px] -translate-x-1/2 -translate-y-1/2 isolate overflow-hidden rounded-[34px] shadow-[0_50px_100px_rgba(0,0,0,0.20)] ring-1 ring-inset ring-white/10 sm:w-[28vw] sm:max-w-[400px] sm:rounded-[56px] lg:top-1/2"
-      >
-        <div className="absolute inset-0 z-10 bg-gradient-to-tr from-black/10 via-transparent to-white/5 mix-blend-overlay pointer-events-none" />
-        <Image
-          src="/profile.jpg"
-          alt="Luiz Messias"
-          fill
-          sizes="(max-width: 640px) 54vw, (max-width: 1024px) 28vw, 400px"
-          quality={95}
-          className="object-cover object-center transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110"
-          priority
-        />
-      </div>
-
-      <div className="hero-copy relative z-40 mt-12 flex flex-col items-start gap-4 sm:absolute sm:right-[5vw] sm:top-24 sm:mt-0 sm:flex-row sm:items-center sm:gap-3">
-        <Link
-          href="/projetos"
-          data-cursor="hover"
-          className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#111] px-6 font-general text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#ff6a00] sm:w-auto sm:px-5"
-        >
-          <BriefcaseBusiness size={17} />
-          Ver projetos
-        </Link>
-        <Link
-          href="#contact"
-          data-cursor="hover"
-          className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border border-black/10 bg-white/80 px-6 font-general text-sm font-semibold uppercase tracking-[0.14em] text-[#111] backdrop-blur transition-colors hover:border-[#ff6a00] hover:text-[#ff6a00] sm:w-auto sm:px-5"
-        >
-          <Mail size={17} />
-          Falar comigo
-        </Link>
-      </div>
-
-      <div className="absolute inset-x-[5vw] top-[14vh] z-30 flex flex-col justify-between gap-6 sm:top-[10vh] sm:gap-10">
-        <div className="text-left-part max-w-[980px]">
+      <div className="relative z-30 flex w-full flex-col items-center gap-6 pt-[8vh] pb-[5vh] lg:static lg:block">
+        
+        {/* LUIZ */}
+        <div className="text-left-part w-full text-center lg:absolute lg:inset-x-[5vw] lg:top-[14vh] lg:w-auto lg:text-left">
           <span className="mb-2 block font-gloria text-xl tracking-normal text-[var(--color-accent-orange)] sm:mb-3 sm:text-2xl">
             {profile.role}
           </span>
-          <h1 className="font-clash text-[clamp(5rem,18vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] text-[var(--color-dark)] lg:text-[13rem] xl:text-[16rem]">
+          <h1 className="font-clash text-[clamp(5.5rem,18vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] text-[var(--color-dark)] lg:text-[13rem] xl:text-[16rem]">
             Luiz
           </h1>
         </div>
 
-        <div className="text-right-part ml-auto mt-[38vh] max-w-[1040px] text-right sm:mt-[44vh] lg:mt-[42vh]">
-          <p className="font-clash text-[clamp(5rem,18vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] text-[var(--color-dark)] lg:text-[13rem] xl:text-[16rem]">
+        {/* IMAGE */}
+        <div
+          data-cursor="hover"
+          className="hero-image-pill relative z-20 aspect-[3/4] w-[55vw] max-w-[280px] isolate overflow-hidden rounded-[40px] shadow-[0_40px_80px_rgba(0,0,0,0.15)] ring-1 ring-inset ring-white/10 lg:absolute lg:left-1/2 lg:top-[46%] lg:w-[28vw] lg:max-w-[400px] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:rounded-[56px]"
+        >
+          <div className="absolute inset-0 z-10 bg-gradient-to-tr from-black/10 via-transparent to-white/5 mix-blend-overlay pointer-events-none" />
+          <Image
+            src="/profile.jpg"
+            alt="Luiz Messias"
+            fill
+            sizes="(max-width: 640px) 55vw, (max-width: 1024px) 28vw, 400px"
+            quality={95}
+            className="object-cover object-center transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110"
+            priority
+          />
+        </div>
+
+        {/* MESSIAS */}
+        <div className="text-right-part w-full text-center lg:absolute lg:inset-x-[5vw] lg:top-[14vh] lg:w-auto lg:text-right lg:mt-[42vh]">
+          <p className="font-clash text-[clamp(5.5rem,18vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] text-[var(--color-dark)] lg:text-[13rem] xl:text-[16rem]">
             Messias
           </p>
+        </div>
+
+        {/* BUTTONS */}
+        <div className="hero-copy mt-4 flex w-full flex-col items-center gap-4 px-4 lg:absolute lg:right-[5vw] lg:top-24 lg:mt-0 lg:w-auto lg:flex-row lg:gap-3 lg:px-0">
+          <Link
+            href="/projetos"
+            data-cursor="hover"
+            className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#111] px-6 font-general text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#ff6a00] lg:w-auto lg:px-5"
+          >
+            <BriefcaseBusiness size={17} />
+            Ver projetos
+          </Link>
+          <Link
+            href="#contact"
+            data-cursor="hover"
+            className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border border-black/10 bg-white/80 px-6 font-general text-sm font-semibold uppercase tracking-[0.14em] text-[#111] backdrop-blur transition-colors hover:border-[#ff6a00] hover:text-[#ff6a00] lg:w-auto lg:px-5"
+          >
+            <Mail size={17} />
+            Falar comigo
+          </Link>
         </div>
       </div>
 

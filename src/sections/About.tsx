@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import { ArrowRight } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import { capabilities, profile } from "@/lib/profile";
 
@@ -87,6 +88,11 @@ export function About() {
             <p className="about-body max-w-[460px] font-general text-[17px] leading-relaxed text-[#666] text-pretty sm:text-lg">
               {profile.summary}
             </p>
+            
+            <div className="about-body mt-2 flex items-center gap-2 text-[13px] font-bold uppercase tracking-widest text-[var(--color-accent-orange)] lg:hidden">
+              <ArrowRight size={16} className="animate-pulse" />
+              Arraste para ver os serviços
+            </div>
           </div>
         </div>
 

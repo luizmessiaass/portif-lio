@@ -90,13 +90,13 @@ export function CustomCursor() {
 
   return (
     <>
-      <div 
-        ref={cursorRef} 
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white/50 pointer-events-none z-[99999] mix-blend-difference hidden md:block" 
+      <div
+        ref={cursorRef}
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white/50 pointer-events-none z-[99999] mix-blend-difference hidden md:block"
       />
-      <div 
-        ref={cursorDotRef} 
-        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-white pointer-events-none z-[100000] mix-blend-difference hidden md:block" 
+      <div
+        ref={cursorDotRef}
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-white pointer-events-none z-[100000] mix-blend-difference hidden md:block"
       />
     </>
   );

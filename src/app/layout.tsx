@@ -8,7 +8,15 @@ import { CustomCursor } from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Luiz Messias | Desenvolvedor Full Stack",
-  description: "Portfólio pessoal construído com foco em design e performance premium.",
+  description:
+    "Portfólio de desenvolvimento full stack com sistemas SaaS, dashboards, automações, integrações, APIs, bancos de dados e IA aplicada a produto.",
+  openGraph: {
+    title: "Luiz Messias | Desenvolvedor Full Stack",
+    description:
+      "Sistemas full stack com Next.js, React, Node.js, PostgreSQL, Supabase, integrações externas, automações e IA aplicada.",
+    type: "website",
+    locale: "pt_BR",
+  },
 };
 
 export default function RootLayout({

@@ -1,0 +1,76 @@
+{
+  "baseUrl": "https://elevax.net.br",
+  "capturedAt": "2026-05-15T14:08:25.903Z",
+  "rule": "Somente leitura. Nenhum envio, criação, exclusão, atribuição, finalização, arquivamento ou sincronização foi acionado.",
+  "captured": [
+    {
+      "name": "02-inbox",
+      "url": "https://elevax.net.br/inbox",
+      "title": "Elevax",
+      "h1": ""
+    },
+    {
+      "name": "03-dashboard",
+      "url": "https://elevax.net.br/dashboard",
+      "title": "Elevax",
+      "h1": "Toque manual por squad"
+    },
+    {
+      "name": "04-groups",
+      "url": "https://elevax.net.br/groups",
+      "title": "Elevax",
+      "h1": "GRUPOS"
+    },
+    {
+      "name": "05-squads",
+      "url": "https://elevax.net.br/squads",
+      "title": "Elevax",
+      "h1": "SQUADS"
+    },
+    {
+      "name": "06-operations",
+      "url": "https://elevax.net.br/dashboard",
+      "title": "Elevax",
+      "h1": "Toque manual por squad"
+    },
+    {
+      "name": "07-settings",
+      "url": "https://elevax.net.br/settings",
+      "title": "Elevax",
+      "h1": "CONFIGURACOES"
+    }
+  ],
+  "skipped": [],
+  "links": [
+    {
+      "path": "/inbox",
+      "text": "Inbox",
+      "aria": "Inbox"
+    },
+    {
+      "path": "/squads",
+      "text": "Squads",
+      "aria": "Squads"
+    },
+    {
+      "path": "/groups",
+      "text": "Grupos",
+      "aria": "Grupos"
+    },
+    {
+      "path": "/admin/users",
+      "text": "Usuarios",
+      "aria": "Usuarios"
+    },
+    {
+      "path": "/dashboard",
+      "text": "Dashboard",
+      "aria": "Dashboard"
+    },
+    {
+      "path": "/settings",
+      "text": "",
+      "aria": "Abrir configuracoes"
+    }
+  ]
+}

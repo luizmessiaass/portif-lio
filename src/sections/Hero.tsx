@@ -2,8 +2,11 @@
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-import { gsap } from "@/lib/gsap";
+import Link from "next/link";
+import { ArrowDown, BriefcaseBusiness, Mail } from "lucide-react";
 import { CircuitCanvas } from "@/components/CircuitCanvas";
+import { gsap } from "@/lib/gsap";
+import { profile } from "@/lib/profile";
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -29,7 +32,7 @@ export function Hero() {
       );
 
       gsap.fromTo(
-        ".text-left-part, .text-right-part, .hero-bottom-info",
+        ".text-left-part, .text-right-part, .hero-bottom-info, .hero-copy",
         { autoAlpha: 0, y: isMobile ? 18 : 28 },
         {
           autoAlpha: 1,
@@ -62,10 +65,10 @@ export function Hero() {
           trigger: containerRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: true
-        }
+          scrub: true,
+        },
       });
-      
+
       gsap.to(".text-right-part", {
         y: "-25vh",
         ease: "none",
@@ -73,8 +76,8 @@ export function Hero() {
           trigger: containerRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: true
-        }
+          scrub: true,
+        },
       });
 
       gsap.to(".hero-image-pill", {
@@ -85,77 +88,79 @@ export function Hero() {
           trigger: containerRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: true
-        }
+          scrub: true,
+        },
       });
     }, containerRef);
+
     return () => ctx.revert();
   }, []);
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      id="hero" 
-      className="relative w-full h-[120vh] min-h-[900px] flex flex-col justify-center overflow-hidden bg-[var(--color-bg)] pt-20 pb-0"
+      id="hero"
+      className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[var(--color-bg)] px-[5vw] pb-32 pt-28 sm:min-h-[840px] lg:h-[112vh] lg:min-h-[900px]"
     >
-      <div className="absolute inset-0 bg-mesh mix-blend-overlay opacity-50 z-0 pointer-events-none" />
+      <div className="absolute inset-0 z-0 bg-mesh mix-blend-overlay opacity-50 pointer-events-none" />
       <CircuitCanvas />
 
       <div
         data-cursor="hover"
-        className="hero-image-pill absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55vw] sm:w-[28vw] max-w-[400px] aspect-[3/4] rounded-[40px] sm:rounded-[56px] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.20)] z-20 isolate"
+        className="hero-image-pill absolute left-1/2 top-[46%] z-20 aspect-[3/4] w-[54vw] max-w-[360px] -translate-x-1/2 -translate-y-1/2 isolate overflow-hidden rounded-[34px] shadow-[0_50px_100px_rgba(0,0,0,0.20)] ring-1 ring-inset ring-white/10 sm:w-[28vw] sm:max-w-[400px] sm:rounded-[56px] lg:top-1/2"
       >
+        <div className="absolute inset-0 z-10 bg-gradient-to-tr from-black/10 via-transparent to-white/5 mix-blend-overlay pointer-events-none" />
         <Image
           src="/profile.jpg"
           alt="Luiz Messias"
           fill
-          sizes="(max-width: 640px) 55vw, (max-width: 1024px) 28vw, 400px"
-          quality={85}
-          className="object-cover object-center transition-transform duration-1000 hover:scale-105"
+          sizes="(max-width: 640px) 54vw, (max-width: 1024px) 28vw, 400px"
+          quality={95}
+          className="object-cover object-center transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110"
           priority
         />
       </div>
 
-      {/* Text — justify-between: LUIZ no topo, MESSIAS na base */}
-      <div className="absolute inset-0 flex flex-col justify-between px-[5vw] pt-[8vh] pb-[8vh]">
-
-        {/* LUIZ — topo, z-30, passa na frente da foto */}
-        <div className="relative z-30">
-          <div className="text-left-part w-full flex items-center mb-2 pl-1 opacity-60">
-            <span className="font-gloria text-xl tracking-wider text-[var(--color-accent-orange)]">
-              Next.js · Node.js · PostgreSQL · GSAP
-            </span>
-          </div>
-          <div className="text-left-part w-full overflow-visible">
-            <h1 className="font-clash font-extrabold text-[clamp(5rem,16vw,19rem)] leading-[0.85] tracking-[-0.04em] text-[var(--color-dark)] uppercase">
-              LUIZ
-            </h1>
-          </div>
-        </div>
-
-        {/* MESSIAS — base, z-30, passa na frente da foto */}
-        <div className="relative z-30">
-          <div className="text-right-part w-full flex justify-end pr-[8vw] mb-2 opacity-60">
-            <span className="font-gloria text-xl tracking-wider text-[var(--color-accent-orange)] text-right">
-              Full Stack Developer · Balneário Camboriú
-            </span>
-          </div>
-          <div className="text-right-part w-full flex justify-end overflow-visible">
-            <p className="font-clash font-extrabold text-[clamp(5rem,16vw,19rem)] leading-[0.85] tracking-[-0.04em] text-[var(--color-dark)] uppercase m-0">
-              MESSIAS
-            </p>
-          </div>
-        </div>
-
+      <div className="hero-copy relative z-40 mt-12 flex flex-col items-start gap-4 sm:absolute sm:right-[5vw] sm:top-24 sm:mt-0 sm:flex-row sm:items-center sm:gap-3">
+        <Link
+          href="/projetos"
+          data-cursor="hover"
+          className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#111] px-6 font-general text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#ff6a00] sm:w-auto sm:px-5"
+        >
+          <BriefcaseBusiness size={17} />
+          Ver projetos
+        </Link>
+        <Link
+          href="#contact"
+          data-cursor="hover"
+          className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border border-black/10 bg-white/80 px-6 font-general text-sm font-semibold uppercase tracking-[0.14em] text-[#111] backdrop-blur transition-colors hover:border-[#ff6a00] hover:text-[#ff6a00] sm:w-auto sm:px-5"
+        >
+          <Mail size={17} />
+          Falar comigo
+        </Link>
       </div>
 
-      {/* Bottom Bar Info */}
-      <div className="hero-bottom-info absolute bottom-6 left-[5vw] right-[5vw] flex justify-between items-end z-40 opacity-60">
-        <span className="font-general uppercase tracking-widest text-xs font-semibold">
-          Baseado em Balneário Camboriú, SC
-        </span>
-        <span className="hidden sm:block font-general uppercase tracking-widest text-xs font-semibold">
-          Role para explorar ↓
+      <div className="absolute inset-x-[5vw] top-[14vh] z-30 flex flex-col justify-between gap-6 sm:top-[10vh] sm:gap-10">
+        <div className="text-left-part max-w-[980px]">
+          <span className="mb-2 block font-gloria text-xl tracking-normal text-[var(--color-accent-orange)] sm:mb-3 sm:text-2xl">
+            {profile.role}
+          </span>
+          <h1 className="font-clash text-[clamp(5rem,18vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] text-[var(--color-dark)] lg:text-[13rem] xl:text-[16rem]">
+            Luiz
+          </h1>
+        </div>
+
+        <div className="text-right-part ml-auto mt-[38vh] max-w-[1040px] text-right sm:mt-[44vh] lg:mt-[42vh]">
+          <p className="font-clash text-[clamp(5rem,18vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] text-[var(--color-dark)] lg:text-[13rem] xl:text-[16rem]">
+            Messias
+          </p>
+        </div>
+      </div>
+
+      <div className="hero-bottom-info absolute bottom-6 left-[5vw] right-[5vw] z-40 hidden items-end justify-between text-xs font-semibold uppercase tracking-widest text-[#888] opacity-80 sm:flex">
+        <span className="font-general max-w-[200px] text-left">{profile.stackLine}</span>
+        <span className="inline-flex items-center gap-2 font-general">
+          Role para explorar <ArrowDown size={14} />
         </span>
       </div>
     </section>

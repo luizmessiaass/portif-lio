@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Preloader />
-      
+
       <main className="relative">
         <Navbar />
         <Hero />

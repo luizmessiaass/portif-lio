@@ -1,28 +1,12 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
+import { projects } from "@/lib/projects";
 
-const projects = [
-  {
-    id: 1,
-    title: "Elevater",
-    category: "Sistema · Multi-tenant · MeLi + Shopee · Claude AI",
-    image: "/project-1.jpg"
-  },
-  {
-    id: 2,
-    title: "Project Beta",
-    category: "Frontend • React",
-    image: "/project-2.jpg"
-  },
-  {
-    id: 3,
-    title: "Project Gamma",
-    category: "Awwwards • GSAP",
-    image: "/project-3.jpg"
-  }
-];
+const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
 
 export function Projects() {
   const containerRef = useRef<HTMLElement>(null);
@@ -32,90 +16,135 @@ export function Projects() {
     const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
     const ctx = gsap.context(() => {
-
-      // Section header reveal
       gsap.from(".projects-label", {
-        y: isMobile ? 14 : 20, opacity: 0, duration: isMobile ? 0.48 : 0.6, ease: "power2.out",
-        scrollTrigger: { trigger: ".projects-header", start: "top 88%" }
-      });
-      gsap.from([".projects-h2", ".projects-body"], {
-        y: isMobile ? 24 : 50, opacity: 0, duration: isMobile ? 0.58 : 0.8, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: ".projects-header", start: "top 82%" }
-      });
-      gsap.from(".projects-cta", {
-        x: isMobile ? 0 : 30, y: isMobile ? 16 : 0, opacity: 0, duration: isMobile ? 0.5 : 0.6, ease: "power2.out",
-        scrollTrigger: { trigger: ".projects-header", start: "top 75%" }
+        y: isMobile ? 14 : 20,
+        opacity: 0,
+        duration: isMobile ? 0.48 : 0.6,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".projects-header", start: "top 88%" },
       });
 
-      // Project items entrance
+      gsap.from([".projects-h2", ".projects-body"], {
+        y: isMobile ? 24 : 50,
+        opacity: 0,
+        duration: isMobile ? 0.58 : 0.8,
+        ease: "power3.out",
+        stagger: 0.1,
+        scrollTrigger: { trigger: ".projects-header", start: "top 82%" },
+      });
+
+      gsap.from(".projects-cta", {
+        x: isMobile ? 0 : 30,
+        y: isMobile ? 16 : 0,
+        opacity: 0,
+        duration: isMobile ? 0.5 : 0.6,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".projects-header", start: "top 75%" },
+      });
+
       gsap.utils.toArray<HTMLElement>(".project-item").forEach((item) => {
         gsap.from(item, {
-          y: isMobile ? 34 : 80, opacity: 0, duration: isMobile ? 0.68 : 1.1, ease: "power3.out",
-          scrollTrigger: { trigger: item, start: "top 88%" }
+          y: isMobile ? 34 : 80,
+          opacity: 0,
+          duration: isMobile ? 0.68 : 1.1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: item, start: "top 88%" },
         });
       });
-
     }, containerRef);
+
     return () => ctx.revert();
   }, []);
 
   return (
     <section id="projects" className="relative w-full px-[5vw] py-32 bg-transparent" ref={containerRef}>
-
-      <div className="projects-header max-w-[1300px] mx-auto w-full mb-24 relative z-0 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-10 px-2 sm:px-6">
-        <div className="flex flex-col gap-4 max-w-[600px]">
+      <div className="projects-header max-w-[1300px] mx-auto w-full mb-20 relative z-0 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-10 px-2 sm:px-6">
+        <div className="flex flex-col gap-4 max-w-[640px]">
           <span className="projects-label text-[12px] uppercase tracking-[0.2em] font-semibold text-[#888] font-general">
-            / Projetos do Portfólio
+            / Cases full stack
           </span>
-          <h2 className="projects-h2 font-clash font-semibold text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-[var(--color-dark)] tracking-[-0.02em] text-balance">
-            O que já <span className="text-[#888]">construí</span>
+          <h2 className="projects-h2 font-clash font-semibold text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-[var(--color-dark)] tracking-[-0.03em] text-balance">
+            Sistemas que já <span className="text-[#888]">tirei do papel</span>
           </h2>
           <p className="projects-body font-general text-[17px] text-[#666] leading-relaxed mt-2 text-pretty">
-            Projetos que saíram da ideia e foram para produção. Cada um resolveu um problema real de alguém.
+            Uma seleção dos projetos que melhor mostram desenvolvimento full stack: interface, back-end, dados, autenticação, integrações, automações e deploy.
           </p>
         </div>
-        <button type="button" data-cursor="hover" className="projects-cta group flex items-center gap-2 border-b border-black pb-1 hover:border-[#ff6a00] transition-colors min-h-[44px]">
+
+        <Link
+          href="/projetos"
+          data-cursor="hover"
+          className="projects-cta group flex items-center gap-2 border-b border-black pb-1 hover:border-[#ff6a00] transition-colors min-h-[44px]"
+        >
           <span className="text-sm font-general uppercase tracking-widest text-[#111] group-hover:text-[#ff6a00] transition-colors font-semibold">
             Ver todos os projetos
           </span>
           <span className="transform group-hover:translate-x-2 transition-transform text-[#111] group-hover:text-[#ff6a00]">→</span>
-        </button>
+        </Link>
       </div>
 
-      <div className="max-w-[1300px] mx-auto w-full flex flex-col gap-24 sm:gap-32 px-2 sm:px-6">
-        {projects.map((project) => (
-          <div
+      <div className="max-w-[1300px] mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-6 px-2 sm:px-6">
+        {featuredProjects.map((project) => (
+          <Link
+            href={`/projetos/${project.slug}`}
             key={project.id}
-            className="project-item group flex flex-col gap-6 w-full cursor-pointer"
+            data-cursor="hover"
+            className="project-item group flex min-h-[520px] flex-col rounded-[32px] border border-black/5 bg-white p-4 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)]"
           >
-            {/* Image Container — scale + shadow on hover */}
-            <div
-              data-cursor="hover"
-              className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-[40px] overflow-hidden bg-white border border-black/5 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 ease-out group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.12)] group-hover:scale-[1.015]"
-            >
-              <div className="absolute inset-0 bg-[#e0e0e0] transition-transform duration-[1.5s] ease-out group-hover:scale-[1.04] flex items-center justify-center">
-                <span className="text-black/30 font-general uppercase tracking-widest text-xs">Imagem do Projeto</span>
-              </div>
+            <div className={`relative mb-6 aspect-[1850/872] overflow-hidden rounded-[24px] bg-gradient-to-br ${project.tone}`}>
+              {project.coverImage ? (
+                <Image
+                  src={project.coverImage}
+                  alt={project.coverAlt ?? project.title}
+                  fill
+                  sizes="(max-width: 1024px) 90vw, 30vw"
+                  quality={95}
+                  className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                />
+              ) : (
+                <div className="absolute inset-0">
+                  <div className="absolute inset-5 rounded-[18px] border border-white/20 bg-white/10 backdrop-blur-sm" />
+                  <div className="absolute left-8 right-8 top-8 h-3 rounded-full bg-white/20" />
+                  <div className="absolute bottom-8 left-8 right-8 grid grid-cols-3 gap-3">
+                    <div className="h-16 rounded-2xl bg-white/20" />
+                    <div className="h-16 rounded-2xl bg-white/10" />
+                    <div className="h-16 rounded-2xl bg-white/20" />
+                  </div>
+                </div>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+              <span className="absolute left-6 top-6 rounded-full bg-black/45 px-3 py-1.5 font-general text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur">
+                {project.shortCategory}
+              </span>
+              <span className="absolute bottom-6 left-6 right-6 font-clash text-4xl font-semibold leading-none tracking-normal text-white">
+                {project.title}
+              </span>
             </div>
 
-            {/* Info */}
-            <div className="flex flex-col gap-2 pt-2 px-2">
-              <div className="flex justify-between items-center w-full">
-                <h3 className="font-clash font-semibold text-3xl md:text-4xl text-[var(--color-dark)] tracking-[-0.01em] group-hover:text-[#ff6a00] transition-colors duration-300">
+            <div className="flex flex-1 flex-col px-2 pb-2">
+              <div className="mb-5 flex items-start justify-between gap-4">
+                <h3 className="font-clash text-3xl font-semibold tracking-[-0.01em] text-[var(--color-dark)] transition-colors duration-300 group-hover:text-[#ff6a00]">
                   {project.title}
                 </h3>
-                <span className="opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out text-[#ff6a00] text-3xl leading-none font-light">
+                <span className="text-3xl leading-none text-[#ff6a00] opacity-0 transition-all duration-500 group-hover:opacity-100">
                   ↗
                 </span>
               </div>
-              <span className="font-general uppercase tracking-[0.2em] text-[#888] text-xs font-semibold mt-1">
-                {project.category}
-              </span>
+              <p className="font-general text-[15px] leading-relaxed text-[#666] text-pretty">{project.description}</p>
+              <p className="mt-6 font-general text-sm font-semibold uppercase tracking-[0.16em] text-[#111]">
+                {project.impact}
+              </p>
+              <div className="mt-auto flex flex-wrap gap-2 pt-8">
+                {project.stack.slice(0, 4).map((tag) => (
+                  <span key={tag} className="rounded-full border border-black/10 bg-[#f9f9f9] px-3 py-1.5 font-general text-xs font-semibold text-[#333]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
-
     </section>
   );
 }

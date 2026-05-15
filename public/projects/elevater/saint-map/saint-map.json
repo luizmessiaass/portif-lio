@@ -1,0 +1,2324 @@
+{
+  "capturedAt": "2026-05-15T02:44:23.722Z",
+  "afterIngress": {
+    "title": "Elevater",
+    "url": "https://elevater.com.br/rentabilidade",
+    "headings": [
+      "Rentabilidade"
+    ],
+    "buttons": [
+      "MercadoLivre(158)",
+      "Shopee(33)",
+      "Amazon",
+      "IAInove Automationsmaster",
+      "Toggle Sidebar",
+      "11",
+      "Personalizado",
+      "16/04/2026",
+      "15/05/2026",
+      "Filtrar"
+    ],
+    "links": [
+      {
+        "text": "Carteira de Clientes",
+        "pathname": "/carteira"
+      },
+      {
+        "text": "Cadastro de Clientes",
+        "pathname": "/clientes"
+      },
+      {
+        "text": "Usuários",
+        "pathname": "/users"
+      },
+      {
+        "text": "Histórico",
+        "pathname": "/historico"
+      },
+      {
+        "text": "Alertas",
+        "pathname": "/configuracoes/alertas"
+      },
+      {
+        "text": "Logs do Sistema",
+        "pathname": "/sistema/logs"
+      },
+      {
+        "text": "Relatórios Gerais",
+        "pathname": "/sistema/relatorios"
+      },
+      {
+        "text": "Relatório da Equipe",
+        "pathname": "/sistema/relatorios/equipe"
+      },
+      {
+        "text": "Resumo",
+        "pathname": "/rentabilidade"
+      },
+      {
+        "text": "DRE",
+        "pathname": "/rentabilidade"
+      }
+    ],
+    "tableHeaders": [],
+    "hasSaint": true,
+    "numbers": [],
+    "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Rentabilidade Resumo DRE Período Personalizado Data desde 16/04/2026 Data ate 15/05/2026 Filtrar"
+  },
+  "results": [
+    {
+      "route": "/dashboard",
+      "label": "Dashboard geral",
+      "screenshot": "/projects/elevater/saint-map/02-dashboard-geral.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/dashboard?marketplace=meli",
+      "headings": [
+        "Ranking de campanhas",
+        "Ranking de campanhas — Brand Ads",
+        "Curva ABC"
+      ],
+      "buttons": [
+        "MercadoLivre",
+        "Shopee",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Personalizado",
+        "16/04/2026",
+        "15/05/2026",
+        "Filtrar",
+        "Impressoes",
+        "Investimento",
+        "ACOS",
+        "TACOS",
+        "Retorno",
+        "CTR",
+        "Cliques",
+        "⚙",
+        "⚙",
+        "⚙",
+        "⚙",
+        "⚙",
+        "⚙",
+        "⚙",
+        "⚙",
+        "⚙",
+        "⚙",
+        "‹",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "›",
+        "⚙",
+        "⚙",
+        "⚙",
+        "⚙",
+        "Curva A (70%) - 20 itens",
+        "Curva B (20%) - 38 itens",
+        "Curva C (10%) - 532 itens",
+        "Excel",
+        "«",
+        "‹",
+        "1",
+        "2",
+        "›",
+        "»"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [
+        "#",
+        "Nome da campanha",
+        "Competitividade",
+        "Orçamento mensal",
+        "Orçamento diario",
+        "ROAS",
+        "ACOS",
+        "TACOS",
+        "CPI",
+        "LISB",
+        "LISAR",
+        "Participacao",
+        "Vendas publicidade",
+        "Impressoes",
+        "Cliques",
+        "Investimento",
+        "CPC",
+        "CTR",
+        "Receita",
+        "Config.",
+        "#",
+        "Nome da campanha",
+        "Competitividade",
+        "Orçamento mensal",
+        "Orçamento diario",
+        "ROAS",
+        "ACOS",
+        "TACOS",
+        "CPI",
+        "LISB",
+        "LISAR",
+        "Participacao",
+        "Vendas publicidade",
+        "Impressoes",
+        "Cliques",
+        "Investimento",
+        "CPC",
+        "CTR",
+        "Receita",
+        "Config.",
+        "#",
+        "Produto",
+        "Unidades vendidas",
+        "Vendas brutas",
+        "Margem de lucro",
+        "Estoque",
+        "Dur. estoque",
+        "% participacao"
+      ],
+      "hasSaint": true,
+      "numbers": [
+        "R$ 3.588.900,11",
+        "944,20%",
+        "R$ 1.621.043,01",
+        "985,43%",
+        "R$ 198.244,42",
+        "94,10%",
+        "R$ 126,75",
+        "6,72%",
+        "R$ 996.696,45",
+        "689,44%",
+        "29,34%",
+        "150,91%",
+        "R$ 198.244,42",
+        "R$ 1.619.874,21",
+        "R$ 0,70",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 36.000,00",
+        "R$ 1.200,00",
+        "R$ 2.57",
+        "R$ 30.681,50",
+        "R$ 0,85",
+        "R$ 203.481,79",
+        "R$ 36.000,00",
+        "R$ 1.200,00",
+        "R$ 4.10",
+        "R$ 15.715,34",
+        "R$ 0,95",
+        "R$ 94.667,63",
+        "R$ 18.423,90",
+        "R$ 614,13",
+        "R$ 1.92",
+        "R$ 12.752,72",
+        "R$ 0,92",
+        "R$ 92.215,71",
+        "R$ 24.000,00",
+        "R$ 800,00",
+        "R$ 1.83",
+        "R$ 12.575,02",
+        "R$ 0,94"
+      ],
+      "textSample": "Elevater MARKETPLACES MercadoLivre Shopee Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Período Personalizado Data desde 16/04/2026 Data ate 15/05/2026 Filtrar FATURAMENTO BRUTO R$ 3.588.900,11 ▲ +2.944,20% CUSTOS TOTAIS R$ 1.621.043,01 ▲ +985,43% INVESTIMENTO R$ 198.244,42 ▲ +94,10% TICKET MEDIO R$ 126,75 ▲ +6,72% MARGEM DE CONTRIBUICAO R$ 996.696,45 ▲ +1.689,44% MARGEM % 29,34% ▲ +150,91% PRODUCT ADS INVESTIMENTO R$ 198.244,42 RECEITA R$ 1.619.874,21 CUSTO POR CLIQUE R$ 0,70 VENDAS 12.667 ACOS 12.24 % TACOS 5.52 % BRAND ADS INVESTIMENTO R$ 0,00 RECEITA R$ 0,00 CUSTO POR CLIQUE — VENDAS 0 ACOS — TACOS 0.00 % 16/04 20/04 24/04 28/04 02/05 06/05 10/05 14/05 0 4k 7k 11k 14k 0 2000k 4000k 6000k 8000k Impressoes Investimento ACOS TACOS Retorno CTR Cliques ALERTAS ✓ Nao ha anuncios proximos a serem pausados Ranking de campanhas 🔍 Todas Ativas Pausadas Mostrando 1-10 de 69 campanhas # Nome da campanha Competitividade Orçamento mensal Orçamento diario ROAS ACOS TACOS CPI LISB LISAR Participacao Vendas publicidade Impressoes Cliques Investimento CPC CTR Receita Config. 1 A - M-CLFB42 Ativo — R$ 36.000,00 R$ 1.200,00 Diário 6.63 15.08 % 0.90 % R$ 2.57 2.37 % 38.97 % 15.5 % 1.448 11.919.513 35.957 R$ 30.681,50 R$ 0,85 0.30 % R$ 203.481,79 ⚙ 2 A - M-KFGEN28 Ativo — R$ 36.000,00 R$ 1.200,00 Diário 6.02 16.60 % 0.46 % R$ 4.10 27.33 % 33.07 % 7.9 % 641 3.835.981 16.570 R$ 15.715,34 R$ 0,95 0.43 % R$ 94.667,63 ⚙ 3 A - MBH40 Ativo — R$ 18.423,90 R$ 614,13 Diário 7.23 13.83 % 0.37 % R$ 1.92 0.00 % 52.17 % 6.4 % 677 6.658.415 13.927 R$ 12.752,72 R$ 0,92 0.21 % R$ 92.215,71 ⚙ 4 HS32 Ativo — R$ 24.000,00 R$ 800,00 Diário 9.29 10.77 % 0.37 % R$ 1.83 1.27 % 52.97 % 6.3 % 835 6.885.555 13.424 R$ 12.575,02 R$ 0,94 0.19 % R$ 116.765,82 ⚙ 5 Óculos (Curva A) Ativo — R$ 43.350,00 R$ 1.445,00 Diário 9.77 10.24 % 0.36 % R$ 0.93 0.00 % 68.50 % 6.2 % 1.490 13.158.977 30.468 R$ 12.240,98 R$ 0,40 0.23 % R$ 119.564,68 ⚙ 6 A - M-KFSEN28 Ativo — R$ 30.000,00 R$ 1.000,00 Diário 6.59 15.18 % 0.35 % R$ 3.37 5.93 % 62.63 % 6.0 "
+    },
+    {
+      "route": "/painel",
+      "label": "Painel",
+      "screenshot": "/projects/elevater/saint-map/03-painel.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/painel",
+      "headings": [
+        "Painel da Agência",
+        "Ranking de Clientes"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "15/04/2026",
+        "14/05/2026",
+        "Filtrar",
+        "Métricas Gerais",
+        "Performance",
+        "Marketing"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [
+        "#",
+        "Cliente",
+        "Gestor",
+        "Faturamento",
+        "ACOS",
+        "ROAS",
+        "Margem"
+      ],
+      "hasSaint": true,
+      "numbers": [
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00",
+        "0.0%"
+      ],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Painel da Agência Visão agregada de todas as contas 7 dias 14 dias 30 dias 60 dias 90 dias Este mes Mes anterior Personalizado 15/04/2026 14/05/2026 Filtrar Total de contas: 0 Métricas Gerais Performance Marketing Faturamento Total R$ 0,00 0 contas Margem Total R$ 0,00 Investimento Ads R$ 0,00 Custos Totais R$ 0,00 ACOS Médio 0.0% Ranking de Clientes # CLIENTE GESTOR FATURAMENTO ACOS ROAS MARGEM Nenhuma conta encontrada para o periodo selecionado."
+    },
+    {
+      "route": "/rentabilidade",
+      "label": "Rentabilidade Mercado Livre",
+      "screenshot": "/projects/elevater/saint-map/04-rentabilidade-mercado-livre.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/rentabilidade",
+      "headings": [
+        "Rentabilidade",
+        "Todos os produtos(590 encontrados)"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Personalizado",
+        "16/04/2026",
+        "15/05/2026",
+        "Filtrar",
+        "Ações",
+        "Baixar relatório",
+        "Todos",
+        "Todos",
+        "Todos",
+        "Todas",
+        "Todos",
+        "Todos",
+        "Todos",
+        "Todos",
+        "Todas",
+        "Todos",
+        "Todos",
+        "Selecionar todos",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade",
+        "Selecionar linha",
+        "Publicidade"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        },
+        {
+          "text": "Resumo",
+          "pathname": "/rentabilidade"
+        },
+        {
+          "text": "DRE",
+          "pathname": "/rentabilidade"
+        }
+      ],
+      "tableHeaders": [
+        "Anúncio",
+        "Qualidade",
+        "CMV",
+        "Aliquota",
+        "Faturamento",
+        "Bonificações",
+        "Unid. vendidas",
+        "Ticket médio",
+        "Custo produto",
+        "Custo publicidade",
+        "Custo envio",
+        "Custo devolução",
+        "Impostos",
+        "Taxa venda",
+        "Margem contribuição",
+        "Margem s/ pub.",
+        "MC %",
+        "MC s/ ads %",
+        "Share lucro",
+        "Estoque",
+        "Duração estoque"
+      ],
+      "hasSaint": true,
+      "numbers": [
+        "R$ 3.588.900,11",
+        "R$ 3.396.517,32",
+        "R$ 192.382,79",
+        "R$ 281.109,48",
+        "R$ 198.244,42",
+        "R$ 746.959,42",
+        "R$ 414.363,99",
+        "R$ 778.777,86",
+        "R$ 0,00",
+        "R$ 977.062,15",
+        "R$ 316,22",
+        "R$ 38,82",
+        "22,0%",
+        "R$ 324.998,38",
+        "R$ 25.973,34",
+        "R$ 149,70",
+        "R$ 84.278,22",
+        "R$ 15.509,93",
+        "R$ 38.350,05",
+        "R$ 0,00",
+        "R$ 71.499,64",
+        "R$ 19.526,44",
+        "R$ 95.834,10",
+        "R$ 111.344,03",
+        "29,5%",
+        "34,3%",
+        "9,62%",
+        "R$ 259,90",
+        "R$ 139,90",
+        "R$ 32,01",
+        "22,0%",
+        "R$ 311.647,50",
+        "R$ 23.536,62",
+        "R$ 140,07",
+        "R$ 71.222,25",
+        "R$ 28.717,35",
+        "R$ 39.150,81",
+        "R$ 0,00",
+        "R$ 68.562,45",
+        "R$ 20.094,05"
+      ],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Rentabilidade Resumo DRE Período Personalizado Data desde 16/04/2026 Data ate 15/05/2026 Filtrar FATURAMENTO BRUTO R$ 3.588.900,11 ▲ 79,47 % FATURAMENTO LÍQUIDO R$ 3.396.517,32 ▲ 84,31 % VENDAS CANCELADAS R$ 192.382,79 ▲ 22,58 % TAXA DE VENDAS R$ 281.109,48 ▲ 42,20 % INVESTIMENTO R$ 198.244,42 ▲ 94,10 % IMPOSTOS R$ 746.959,42 22% ▲ 84,28 % CUSTO DE ENVIO R$ 414.363,99 ▲ 107,05 % CUSTO DO PRODUTO R$ 778.777,86 ▲ 109,92 % CUSTO DE DEVOLUÇÃO R$ 0,00 ▼ 100,00 % MARGEM DE CONTRIBUIÇÃO R$ 977.062,15(28,77 %) ▲ 72,51 % Todos os produtos(590 encontrados) Ações Baixar relatório BUSCADOR MARGEM DE LUCRO Todos VENDAS Todos ESTADO DO ITEM Todos CURVA Todas FRETE GRÁTIS Todos FULL Todos CATÁLOGO Todos PUBLICIDADE Todos CAMPANHA Todas PROMOÇÃO Todos GRUPO (SKU) Todos Ordenar por variação Somente sem custo Agrupar por família ANÚNCIO QUALIDADE CMV ALIQUOTA FATURAMENTO BONIFICAÇÕES UNID. VENDIDAS TICKET MÉDIO CUSTO PRODUTO CUSTO PUBLICIDADE CUSTO ENVIO CUSTO DEVOLUÇÃO IMPOSTOS TAXA VENDA MARGEM CONTRIBUIÇÃO MARGEM S/ PUB. MC % MC S/ ADS % SHARE LUCRO ESTOQUE DURAÇÃO ESTOQUE SKU: M-KFGEN28 ID: MLB5720585642 Curva A Kit Relógio Colar E Brincos Ponto De Luz Dourado Feminino Luxo Golden Saint Germain Presente Original Joias Elegante Clássico 28mm R$ 316,22 Histórico Publicidade Full Catálogo 100% Profissional R$ 38,82 22,0% R$ 324.998,38 R$ 25.973,34 2.171 R$ 149,70 R$ 84.278,22 R$ 15.509,93 R$ 38.350,05 R$ 0,00 R$ 71.499,64 R$ 19.526,44 R$ 95.834,10 R$ 111.344,03 29,5% 34,3% 9,62% 0 0 dias SKU: M-CLFB42 ID: MLB4264223185 Curva A Relógio Chroma Masculino Preto Saint Germain Clássico Caixa Preta Detalhes Prata 42mm R$ 259,90 R$ 139,90 Histórico Publicidade Promo Full Catálogo 90% Profissional R$ 32,01 22,0% R$ 311.647,50 R$ 23.536,62 2.225 R$ 140,07 R$ 71.222,25 R$ 28.717,35 R$ 39.150,81 R$ 0,00 R$ 68.562,45 R$ 20.094,05 R$ 83.900,59 R$ 112.617,94 26,9% 36,1% 8,42% 2.246 30 dias SKU: M-KBIGEN28 ID: MLB5780517622"
+    },
+    {
+      "route": "/anuncios",
+      "label": "Anuncios",
+      "screenshot": "/projects/elevater/saint-map/05-anuncios.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/anuncios",
+      "headings": [
+        "Gerenciar Anúncios"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "PlanilhaEdição em lote",
+        "Cadastro manualUm anúncio por vez",
+        "De catálogoModa / produto do MeLi",
+        "Rascunhos e históricoVisão detalhada",
+        "Selecionar categoria",
+        "Colar Excel",
+        "Exportar .xlsx",
+        "Nova linha",
+        "Guias de tamanhos ML",
+        "Publicar selecionadas",
+        "Duplicar selecionadas",
+        "Excluir selecionadas"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [
+        "Dados do produto",
+        "Publicação",
+        "Mercado Livre Classico",
+        "Mercado Livre Premium",
+        "Acoes",
+        "Imagem *",
+        "Codigo interno do produto *",
+        "Titulo do produto *",
+        "Custo do produto *",
+        "Comprimento *",
+        "Largura *",
+        "Altura *",
+        "Peso do pacote *",
+        "Peso cubado",
+        "Imposto (%) *",
+        "Tipo de anuncio *",
+        "Quantidade *",
+        "Guia de tamanhos ML",
+        "Status",
+        "Venda sugerida",
+        "Venda +30%",
+        "Margem alvo",
+        "Lucro estimado",
+        "Venda sugerida",
+        "Venda +30%",
+        "Margem alvo",
+        "Lucro estimado",
+        "Acoes da linha"
+      ],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Gerenciar Anúncios MASTER EM TRABALHO 0 PUBLICANDO 0 PUBLICADOS 0 Planilha EDIÇÃO EM LOTE Cadastro manual UM ANÚNCIO POR VEZ De catálogo MODA / PRODUTO DO MELI Rascunhos e histórico VISÃO DETALHADA Categoria: Selecionar categoria Selecione uma categoria para começar A categoria define quais atributos do produto aparecem na planilha e quais comissões Clássico/Premium são aplicadas nos cálculos. TAXAS TACOS * % MARGEM * % CUSTOS EMBALAGEM R$ Visíveis 0 Prontas 0 Sem preço 0 Pendências 0 DADOS DO PRODUTO PUBLICAÇÃO MERCADO LIVRE CLASSICO MERCADO LIVRE PREMIUM Acoes IMAGEM * CODIGO INTERNO DO PRODUTO * TITULO DO PRODUTO * CUSTO DO PRODUTO * COMPRIMENTO * LARGURA * ALTURA * PESO DO PACOTE * PESO CUBADO IMPOSTO (%) * TIPO DE ANUNCIO * QUANTIDADE * GUIA DE TAMANHOS ML STATUS VENDA SUGERIDA VENDA +30% MARGEM ALVO LUCRO ESTIMADO VENDA SUGERIDA VENDA +30% MARGEM ALVO LUCRO ESTIMADO ACOES DA LINHA Nenhum produto ainda Selecione uma categoria no topo e adicione sua primeira linha. Colar Excel Exportar .xlsx Nova linha Guias de tamanhos ML Publicar selecionadas Duplicar selecionadas Excluir selecionadas"
+    },
+    {
+      "route": "/product-ads",
+      "label": "Product Ads",
+      "screenshot": "/projects/elevater/saint-map/06-product-ads.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/product-ads",
+      "headings": [
+        "Product Ads"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Colunas",
+        "Ações",
+        "Excel",
+        "+ Nova Campanha",
+        "Personalizado",
+        "16/04/2026",
+        "15/05/2026",
+        "Filtrar",
+        "ROAS"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [
+        "Campanha",
+        "Status",
+        "Orc. Mensal",
+        "Orc. Diario",
+        "Disp. Diario",
+        "ROAS",
+        "ROAS Obj.",
+        "LISB",
+        "LISA",
+        "ACOS",
+        "TACOS",
+        "Margem Ads",
+        "Investimento",
+        "Receita Ads",
+        "CPI",
+        "Vendas",
+        "Impressoes",
+        "Cliques",
+        "CPC",
+        "CTR",
+        "Part.",
+        "Retornos"
+      ],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Product Ads Métricas de anúncios Colunas Ações Excel + Nova Campanha PERÍODO Personalizado DATA DESDE 16/04/2026 DATA ATÉ 15/05/2026 Filtrar ROAS - SEMAFORO Meta atingida / custo saudavel Atenção Fora da meta ROAS e ACOS usam o ROAS Obj. quando existir; sem meta, ficam neutros. CAMPANHA STATUS ORC. MENSAL ORC. DIARIO DISP. DIARIO ROAS ROAS OBJ. LISB LISA ACOS TACOS MARGEM ADS INVESTIMENTO RECEITA ADS CPI VENDAS IMPRESSOES CLIQUES CPC CTR PART. RETORNOS Nenhuma campanha encontrada As campanhas aparecerao aqui quando forem criadas. Nenhuma campanha 1/1"
+    },
+    {
+      "route": "/brand-ads",
+      "label": "Brand Ads",
+      "screenshot": "/projects/elevater/saint-map/07-brand-ads.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/brand-ads",
+      "headings": [
+        "Brand Ads"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Personalizado",
+        "16/04/2026",
+        "15/05/2026",
+        "Filtrar",
+        "ROAS",
+        "Expandir",
+        "Configurar campanha",
+        "Expandir",
+        "Configurar campanha",
+        "Expandir",
+        "Configurar campanha",
+        "Expandir",
+        "Configurar campanha"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [
+        "Campanha",
+        "Status",
+        "Orc. Mensal",
+        "Orc. Diario",
+        "Disp. Diario",
+        "ROAS",
+        "ROAS Obj.",
+        "LISB",
+        "LISA",
+        "ACOS",
+        "TACOS",
+        "Margem Ads",
+        "Investimento",
+        "Receita Ads",
+        "CPI",
+        "Vendas",
+        "Impressoes",
+        "Cliques",
+        "CPC",
+        "CTR",
+        "Part.",
+        "Retornos"
+      ],
+      "hasSaint": true,
+      "numbers": [
+        "0,00%",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00",
+        "0,00%",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00",
+        "0,00%",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00",
+        "0,00%",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00"
+      ],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Brand Ads Criar campanha Campanhas PERÍODO Personalizado DATA DESDE 16/04/2026 DATA ATÉ 15/05/2026 Filtrar ROAS - SEMAFORO Meta atingida / custo saudavel Atenção Fora da meta ROAS e ACOS usam o ROAS Obj. quando existir; sem meta, ficam neutros. CAMPANHA STATUS ORC. MENSAL ORC. DIARIO DISP. DIARIO ROAS ROAS OBJ. LISB LISA ACOS TACOS MARGEM ADS INVESTIMENTO RECEITA ADS CPI VENDAS IMPRESSOES CLIQUES CPC CTR PART. RETORNOS Automatica MELI 29 dias de dados PAUSED — — \\u2014 \\u2014 — — — \\u2014 0,00% \\u2014 R$ 0,00 R$ 0,00 — 0 0 0 — \\u2014 \\u2014 R$ 0,00 Teste kits 29 dias de dados PAUSED — — \\u2014 \\u2014 — — — \\u2014 0,00% \\u2014 R$ 0,00 R$ 0,00 — 0 0 0 — \\u2014 \\u2014 R$ 0,00 Kits 29 dias de dados ACTIVE — — \\u2014 \\u2014 — — — \\u2014 0,00% \\u2014 R$ 0,00 R$ 0,00 — 0 0 0 — \\u2014 \\u2014 R$ 0,00 Óculos 29 dias de dados PAUSED — — \\u2014 \\u2014 — — — \\u2014 0,00% \\u2014 R$ 0,00 R$ 0,00 — 0 0 0 — \\u2014 \\u2014 R$ 0,00 TOTAIS (4) Invest: R$ 0,00 Receita: R$ 0,00 Margem: R$ 0,00 Vendas: 0 1–4 de 4 1/1"
+    },
+    {
+      "route": "/comercial/catalogo",
+      "label": "Catalogo comercial",
+      "screenshot": "/projects/elevater/saint-map/08-catalogo-comercial.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/comercial/catalogo",
+      "headings": [
+        "404",
+        "This page could not be found."
+      ],
+      "buttons": [],
+      "links": [],
+      "tableHeaders": [],
+      "hasSaint": false,
+      "numbers": [],
+      "textSample": "404 This page could not be found."
+    },
+    {
+      "route": "/comercial/analises",
+      "label": "Analises comerciais",
+      "screenshot": "/projects/elevater/saint-map/09-analises-comerciais.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/comercial/analises",
+      "headings": [
+        "404",
+        "This page could not be found."
+      ],
+      "buttons": [],
+      "links": [],
+      "tableHeaders": [],
+      "hasSaint": false,
+      "numbers": [],
+      "textSample": "404 This page could not be found."
+    },
+    {
+      "route": "/comercial/promocoes",
+      "label": "Promocoes",
+      "screenshot": "/projects/elevater/saint-map/10-promocoes.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/comercial/promocoes",
+      "headings": [
+        "404",
+        "This page could not be found."
+      ],
+      "buttons": [],
+      "links": [],
+      "tableHeaders": [],
+      "hasSaint": false,
+      "numbers": [],
+      "textSample": "404 This page could not be found."
+    },
+    {
+      "route": "/comercial/check-in",
+      "label": "Check-in",
+      "screenshot": "/projects/elevater/saint-map/11-check-in.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/comercial/check-in",
+      "headings": [
+        "404",
+        "This page could not be found."
+      ],
+      "buttons": [],
+      "links": [],
+      "tableHeaders": [],
+      "hasSaint": false,
+      "numbers": [],
+      "textSample": "404 This page could not be found."
+    },
+    {
+      "route": "/analytics/live",
+      "label": "Live analytics",
+      "screenshot": "/projects/elevater/saint-map/12-live-analytics.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/analytics/live",
+      "headings": [
+        "404",
+        "This page could not be found."
+      ],
+      "buttons": [],
+      "links": [],
+      "tableHeaders": [],
+      "hasSaint": false,
+      "numbers": [],
+      "textSample": "404 This page could not be found."
+    },
+    {
+      "route": "/analytics/curva-abc",
+      "label": "Curva ABC",
+      "screenshot": "/projects/elevater/saint-map/13-curva-abc.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/analytics/curva-abc",
+      "headings": [
+        "Curva ABC"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Personalizado",
+        "16/04/2026",
+        "15/05/2026",
+        "Filtrar",
+        "Curva A31",
+        "Curva B52",
+        "Curva C507",
+        "Exportar",
+        "Anterior",
+        "Próximo"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [
+        "#",
+        "Produto",
+        "Receita",
+        "Unidades",
+        "Margem",
+        "Estoque",
+        "Contribuicao"
+      ],
+      "hasSaint": true,
+      "numbers": [
+        "R$0",
+        "R$700",
+        "R$1.4",
+        "R$2.1",
+        "R$2.8",
+        "R$ 316,22",
+        "R$ 324.998,38",
+        "29.5%",
+        "R$ 95.834,10",
+        "9.6%",
+        "R$ 139,90",
+        "R$ 259,90",
+        "R$ 311.647,50",
+        "26.9%",
+        "R$ 83.900,59",
+        "9.2%",
+        "R$ 129,90",
+        "R$ 316,41",
+        "R$ 299.506,66",
+        "32.5%",
+        "R$ 97.470,78",
+        "8.8%",
+        "R$ 139,90",
+        "R$ 269,90",
+        "R$ 172.482,30",
+        "28.4%",
+        "R$ 48.993,16",
+        "5.1%",
+        "R$ 129,90",
+        "R$ 286,41",
+        "R$ 164.372,20",
+        "36.1%",
+        "R$ 59.269,47",
+        "4.8%",
+        "R$ 134,90",
+        "R$ 249,90",
+        "R$ 150.630,60",
+        "28.0%",
+        "R$ 42.223,45",
+        "4.4%"
+      ],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Curva ABC Período Personalizado Data desde 16/04/2026 Data ate 15/05/2026 Filtrar Distribuicao por Curva A (5%) B (9%) C (86%) Faturamento por Curva A B C R$0 R$700k R$1.4M R$2.1M R$2.8M Curva A 31 Curva B 52 Curva C 507 Maior receita Maior margem % Menor estoque Mais vendidos Exportar # PRODUTO RECEITA UNIDADES MARGEM ESTOQUE CONTRIBUICAO 1 Kit Relógio Colar E Brincos Ponto De Luz Dourado Feminino Luxo Golden Saint Germain Presente Original Joias Elegante Clássico 28mm MLB MLB5720585642 | SKU: M-KFGEN28 R$ 316,22 FULL ADS CATALOGO R$ 324.998,38 2171 29.5% R$ 95.834,10 0d 0 un 9.6% 2 Relógio Chroma Masculino Preto Saint Germain Clássico Caixa Preta Detalhes Prata 42mm MLB MLB4264223185 | SKU: M-CLFB42 R$ 139,90R$ 259,90 FULL ADS CATALOGO R$ 311.647,50 2225 26.9% R$ 83.900,59 30d 2246 un 9.2% 3 Kit Relógio Colar E Brincos Ponto De Luz Dourado E Prateado Feminino Luxo Saint Germain 28mm MLB MLB5780517622 | SKU: M-KBIGEN28 R$ 129,90R$ 316,41 ADS CATALOGO R$ 299.506,66 2230 32.5% R$ 97.470,78 17d 1290 un 8.8% 4 Relógio Prateado Feminino Saint Germain Harlem Silver 32mm Fundo Branco MLB MLB5252165310 | SKU: HS32 R$ 139,90R$ 269,90 FULL ADS CATALOGO R$ 172.482,30 1233 28.4% R$ 48.993,16 25d 1031 un 5.1% 5 Kit Relógio Colar Brincos Prata Feminino Saint Germain 28 Mm Prateado MLB MLB5613336672 | SKU: M-KFSEN28 R$ 129,90R$ 286,41 FULL ADS CATALOGO R$ 164.372,20 1198 36.1% R$ 59.269,47 16d 645 un 4.8% 6 Relógio Masculino Saint Germain Murray De Quartzo Com Pulseira Preta E Caixa Prateada De 40mm Preto Prateado MLB MLB5270022730 | SKU: MBH40 R$ 134,90R$ 249,90 FULL ADS CATALOGO R$ 150.630,60 1116 28.0% R$ 42.223,45 28d 1062 un 4.4% 7 Relógio Feminino Dourado Chelsea Gold 32mm Fundo Branco Saint Germain MLB MLB3949599327 | SKU: CG32 R$ 306,39 FULL ADS CATALOGO R$ 137.431,56 914 27.8% R$ 38.259,41 0d 0 un 4.0% 8 Kit Relógio Colar E Brincos Ponto De Luz Feminino Luxo Silver Saint Germain Presente Original"
+    },
+    {
+      "route": "/analytics/heat-map",
+      "label": "Mapa de calor",
+      "screenshot": "/projects/elevater/saint-map/14-mapa-de-calor.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/analytics/heat-map",
+      "headings": [
+        "Mapa de Calor"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Personalizado",
+        "16/04/2026",
+        "15/05/2026",
+        "Filtrar"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Mapa de Calor PERÍODO Personalizado DATA DESDE 16/04/2026 DATA ATÉ 15/05/2026 Filtrar Seus melhores horarios sao 9h-12h, 16h e 20h de Terca e Quinta Menor atividade: 2h-6h de Segunda, Sexta, Sabado e Domingo Pedidos por hora e dia da semana 0h 4h 8h 12h 16h 20h Seg Ter Qua Qui Sex Sab Dom Qua, 16h: 232 pedidos (45% acima da media) Intensidade: Nenhum Baixo Médio Alto Muito Alto"
+    },
+    {
+      "route": "/automacao",
+      "label": "Automacao",
+      "screenshot": "/projects/elevater/saint-map/15-automacao.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/relatorios",
+      "headings": [
+        "Gerar Relatório"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "7ultimos 7 dias",
+        "15ultimas 2 semanas",
+        "mesmes anterior completo",
+        "08/05/2026",
+        "14/05/2026",
+        "Ocultar Margem de ContribuiçãoCards de margem, lucro e custos serão exibidos",
+        "Gerar relatorio",
+        "HBaixar HTML",
+        "PBaixar PDF"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 CENTRAL DE RELATÓRIOS Gerar Relatório Selecione o periodo e exporte quando pronto PERÍODO 7 ultimos 7 dias 15 ultimas 2 semanas mes mes anterior completo 08/05/2026 \\u2192 14/05/2026 OPÇÕES Ocultar Margem de Contribuição Cards de margem, lucro e custos serão exibidos Gerar relatorio H Baixar HTML P Baixar PDF"
+    },
+    {
+      "route": "/analise",
+      "label": "Analise com IA",
+      "screenshot": "/projects/elevater/saint-map/16-analise-com-ia.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/analise",
+      "headings": [
+        "Análise"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Nova Análise",
+        "Histórico",
+        "Catálogo",
+        "7 dias",
+        "15 dias",
+        "30 dias",
+        "60 dias",
+        "90 dias",
+        "2WAVEMC 25%",
+        "Atacadão da CVMC 25%",
+        "Agro LoveMC 25%",
+        "VX Alma e PéMC 25%",
+        "AETHIX DIGITAL SOLUCOESMC 25%",
+        "KNOWSMC 25%",
+        "RAFAÃOMC 30%",
+        "Power GummyMC 30%",
+        "Afeto Self CareMC 30%",
+        "VISÃO VERBOMC 30%",
+        "lev LizMC 30%",
+        "A3E Lentes de ContatoMC 25%",
+        "GAZELAMC 25%",
+        "ACRETEXTIL INDUSTRIA E COMERCIO DE CONFECCOES LTDA - MEMC 25%",
+        "AMO MACMC 25%",
+        "SensusMC 25%",
+        "APAIXONADAS POR TRICOTMC 25%",
+        "ARGENNTI JOIASMC 25%",
+        "ARIUM SUPLEMENTOS NUTRICIONAIS LTDAMC 25%",
+        "Foreli MC 25%",
+        "ArtelassêMC 25%",
+        "FART IMPORTSMC 25%",
+        "AVOZONMC 25%",
+        "BALUM BABYMC 25%",
+        "BELA BLUE BEAUTYMC 30%",
+        "Bendita LagartixaMC 25%",
+        "BLESSY BRASILMC 30%",
+        "BLUMIMC 30%",
+        "BONDAIMC 25%",
+        "BRILHANTE JOIASMC 25%",
+        "TIKTOK TESTEMC 30%",
+        "LAB 738MC 30%",
+        "OTICAS CANUCMC 25%",
+        "Carol StoreMC 25%",
+        "CAROLINA LUNAMC 30%",
+        "CASA LUFI COMERCIO DE ESTOFADOS LTDAMC 25%",
+        "MCA CONFECCOESMC 25%",
+        "COMPENSADOS IRMAOS FERNANDESMC 25%",
+        "TinkbinkMC 25%",
+        "COURO E CIAMC 25%",
+        "THABEAUTYMC 25%",
+        "D.E.A ROSA COSMÉTICOSMC 30%",
+        "DaduartMC 25%",
+        "DANI DECORACOESMC 25%",
+        "DERMOSEC BRASILMC 30%",
+        "DILLA MODA INTIMAMC 30%",
+        "Doce OpiumMC 25%",
+        "DOTTIEMC 30%",
+        "ELA UPMC 30%",
+        "Use ElizahMC 25%",
+        "FILAMENTOS 3D BRASILMC 25%",
+        "FALA COMIGOMC 30%",
+        "FEEL COSMÉTICOSMC 30%",
+        "FIT URBANMC 25%",
+        "FITA UPMC 25%",
+        "FLOR DE LIS ACESSORIOSMC 25%"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Nova Análise Histórico Catálogo Análise Análise inteligente de campanhas e margem com dados sincronizados Dados do Mercado Livre sincronizados Campanhas, pedidos e rentabilidade são coletados automaticamente do banco Período de análise 7 dias 15 dias 30 dias 60 dias 90 dias Cliente 2WAVE MC 25% Atacadão da CV MC 25% Agro Love MC 25% VX Alma e Pé MC 25% AETHIX DIGITAL SOLUCOES MC 25% KNOWS MC 25% RAFAÃO MC 30% Power Gummy MC 30% Afeto Self Care MC 30% VISÃO VERBO MC 30% lev Liz MC 30% A3E Lentes de Contato MC 25% GAZELA MC 25% ACRETEXTIL INDUSTRIA E COMERCIO DE CONFECCOES LTDA - ME MC 25% AMO MAC MC 25% Sensus MC 25% APAIXONADAS POR TRICOT MC 25% ARGENNTI JOIAS MC 25% ARIUM SUPLEMENTOS NUTRICIONAIS LTDA MC 25% Foreli MC 25% Artelassê MC 25% FART IMPORTS MC 25% AVOZON MC 25% BALUM BABY MC 25% BELA BLUE BEAUTY MC 30% Bendita Lagartixa MC 25% BLESSY BRASIL MC 30% BLUMI MC 30% BONDAI MC 25% BRILHANTE JOIAS MC 25% TIKTOK TESTE MC 30% LAB 738 MC 30% OTICAS CANUC MC 25% Carol Store MC 25% CAROLINA LUNA MC 30% CASA LUFI COMERCIO DE ESTOFADOS LTDA MC 25% MCA CONFECCOES MC 25% COMPENSADOS IRMAOS FERNANDES MC 25% Tinkbink MC 25% COURO E CIA MC 25% THABEAUTY MC 25% D.E.A ROSA COSMÉTICOS MC 30% Daduart MC 25% DANI DECORACOES MC 25% DERMOSEC BRASIL MC 30% DILLA MODA INTIMA MC 30% Doce Opium MC 25% DOTTIE MC 30% ELA UP MC 30% Use Elizah MC 25% FILAMENTOS 3D BRASIL MC 25% FALA COMIGO MC 30% FEEL COSMÉTICOS MC 30% FIT URBAN MC 25% FITA UP MC 25% FLOR DE LIS ACESSORIOS MC 25% FOCO LASER MC 30% FuckingBarba MC 25% FUN PERSONALIZE MC 30% Update MC 25% GATTABRAVA STUDIO WEAR MC 25% PetSkin MC 25% GRAN SERRAT MC 25% Popozuda MC 25% AQUILA BARONI MC 25% Biobone MC 30% GUAVA SKINCARE MC 25% HABITO VIDA MC 25% HAL NEGOCIOS DIGITAIS MC 25% Hiven Cosméticos MC 25% BELLA ENXOVAIS MC 25% Casa Encanto MC 30% JAVALI MC 25% JOYCE JOIAS MC 25% USE TRICÔ MC 30% KAILAH SEMIJOIAS MC 25% Pozze MC 30% Ladima MC 25% MARFIM COSMETI"
+    },
+    {
+      "route": "/relatorios",
+      "label": "Relatorios",
+      "screenshot": "/projects/elevater/saint-map/17-relatorios.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/relatorios",
+      "headings": [
+        "Gerar Relatório"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "7ultimos 7 dias",
+        "15ultimas 2 semanas",
+        "mesmes anterior completo",
+        "08/05/2026",
+        "14/05/2026",
+        "Ocultar Margem de ContribuiçãoCards de margem, lucro e custos serão exibidos",
+        "Gerar relatorio",
+        "HBaixar HTML",
+        "PBaixar PDF"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 CENTRAL DE RELATÓRIOS Gerar Relatório Selecione o periodo e exporte quando pronto PERÍODO 7 ultimos 7 dias 15 ultimas 2 semanas mes mes anterior completo 08/05/2026 \\u2192 14/05/2026 OPÇÕES Ocultar Margem de Contribuição Cards de margem, lucro e custos serão exibidos Gerar relatorio H Baixar HTML P Baixar PDF"
+    },
+    {
+      "route": "/notificacoes",
+      "label": "Notificacoes",
+      "screenshot": "/projects/elevater/saint-map/18-notificacoes.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/notificacoes",
+      "headings": [
+        "Notificacoes"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Todas",
+        "Nao lidas",
+        "Carregar mais"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/compliance"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "",
+          "pathname": "/clientes"
+        }
+      ],
+      "tableHeaders": [],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Notificacoes Acompanhe alertas, analises e eventos importantes das contas. Todas Nao lidas Vencimento hoje — PetSkin A mensalidade de PetSkin vence hoje. há 1 dia Vencimento hoje — BELLA ENXOVAIS A mensalidade de BELLA ENXOVAIS vence hoje. há 1 dia Vencimento hoje — HABITO VIDA A mensalidade de HABITO VIDA vence hoje. há 1 dia Resumo semanal de compliance Resumo semanal: 5 clientes analisados, 0% compliance medio. Menor compliance: USE POTERE (0%), CAROLINA LUNA (0%), Doce Opium (0%). há 1 dia Vencimento amanhã — PetSkin A mensalidade de PetSkin vence amanhã. há 3 dias Vencimento hoje — SUMAY A mensalidade de SUMAY vence hoje. há 3 dias Vencimento hoje — APAIXONADAS POR TRICOT A mensalidade de APAIXONADAS POR TRICOT vence hoje. há 3 dias Vencimento amanhã — HABITO VIDA A mensalidade de HABITO VIDA vence amanhã. há 3 dias Vencimento hoje — STIMA FASHION A mensalidade de STIMA FASHION vence hoje. há 3 dias Vencimento amanhã — BELLA ENXOVAIS A mensalidade de BELLA ENXOVAIS vence amanhã. há 3 dias Vencimento hoje — RIZZY A mensalidade de RIZZY vence hoje. há 3 dias Vencimento amanhã — SUMAY A mensalidade de SUMAY vence amanhã. há 4 dias Vencimento amanhã — STIMA FASHION A mensalidade de STIMA FASHION vence amanhã. há 4 dias Vencimento amanhã — APAIXONADAS POR TRICOT A mensalidade de APAIXONADAS POR TRICOT vence amanhã. há 4 dias Vencimento hoje — PERSONAL MIX SUPLEMENTOS A mensalidade de PERSONAL MIX SUPLEMENTOS vence hoje. há 4 dias Vencimento próximo — BELLA ENXOVAIS A mensalidade de BELLA ENXOVAIS vence em 2 dias. há 4 dias Vencimento próximo — PetSkin A mensalidade de PetSkin vence em 2 dias. há 4 dias Vencimento próximo — HABITO VIDA A mensalidade de HABITO VIDA vence em 2 dias. há 4 dias Vencimento amanhã — RIZZY A mensalidade de RIZZY vence amanhã. há 4 dias Vencimento hoje — PERFIT A mensalidade de PERFIT vence hoje. há 5 dias Carregar mais"
+    },
+    {
+      "route": "/sync-status",
+      "label": "Status de sync",
+      "screenshot": "/projects/elevater/saint-map/19-status-de-sync.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/sync-status",
+      "headings": [
+        "Status de Sincronizacao"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico(8)",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora",
+        "Status Atual",
+        "Historico",
+        "Sincronizar agora"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro",
+        "Tipo",
+        "Status",
+        "Ultima Sincronizacao",
+        "Registros",
+        "Erro"
+      ],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Status de Sincronizacao Acompanhe o status atual e o historico de sincronizacao de cada conta conectada. 2WAVE Desconectado Sincronizar agora Status Atual Historico Nenhuma sincronizacao registrada para esta conta. A3E Lentes de Contato MeLi ID: 765587019 Conectado Sincronizar agora Status Atual Historico Tipo Status Ultima Sincronizacao Registros Erro Pedidos Concluido 14/05/2026, 21:30 505 -- Envios Concluido 14/05/2026, 21:34 8 -- Catálogo Concluido 14/05/2026, 21:32 488 -- Promoções Concluido 14/05/2026, 21:35 346 -- Visitas Concluido 14/05/2026, 21:32 8 -- Saúde da Conta Concluido 14/05/2026, 21:32 1 -- Product Ads Concluido 14/05/2026, 21:34 2.635 -- Brand Ads Concluido 14/05/2026, 21:34 -- -- ACRETEXTIL INDUSTRIA E COMERCIO DE CONFECCOES LTDA - ME MeLi ID: 2653700106 Conectado Sincronizar agora Status Atual Historico Tipo Status Ultima Sincronizacao Registros Erro Pedidos Concluido 14/05/2026, 20:31 410 -- Envios Concluido 14/05/2026, 20:33 12 -- Catálogo Concluido 14/05/2026, 20:31 103 -- Promoções Concluido 14/05/2026, 20:33 83 -- Visitas Concluido 14/05/2026, 20:31 8 -- Saúde da Conta Concluido 14/05/2026, 20:31 1 -- Product Ads Concluido 14/05/2026, 20:33 341 -- Brand Ads Concluido 14/05/2026, 20:33 -- -- AETHIX DIGITAL SOLUCOES MeLi ID: 2511064158 Conectado Sincronizar agora Status Atual Historico Tipo Status Ultima Sincronizacao Registros Erro Pedidos Concluido 14/05/2026, 20:33 25 -- Envios Concluido 14/05/2026, 20:34 -- -- Catálogo Concluido 14/05/2026, 20:33 44 -- Promoções Concluido 14/05/2026, 20:34 19 -- Visitas Concluido 14/05/2026, 20:33 8 -- Saúde da Conta Concluido 14/05/2026, 20:33 1 -- Product Ads Concluido 14/05/2026, 20:34 465 -- Brand Ads Concluido 14/05/2026, 20:34 -- -- Afeto Self Care Desconectado Sincronizar agora Status Atual Historico Nenhuma sincronizacao registrada para esta conta. Agro Love MeLi ID: 1924465448 Conectado Sincronizar agora Status Atual Hist"
+    },
+    {
+      "route": "/sistema/logs",
+      "label": "Logs do sistema",
+      "screenshot": "/projects/elevater/saint-map/20-logs-do-sistema.png",
+      "ok": true,
+      "title": "Logs do Sistema | Elevater",
+      "url": "https://elevater.com.br/sistema/logs",
+      "headings": [
+        "Logs do Sistema"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Todos",
+        "Erros",
+        "Avisos",
+        "Info",
+        "Atualizar"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Logs do Sistema Erros e avisos dos workers de sincronizacao Worker Online Ultimo ping: 14/05, 23:41:00 (agora atras)Executando: hourly-sync, shopee-hourly-sync Uptime: desde 09/03, 13:26:02 Todos Erros Avisos Info Atualizar meli-token-refresh 14/05, 22:00:04 MeLi refresh 429 meli-token-refresh 14/05, 22:00:03 MeLi refresh 429 meli-token-refresh 14/05, 17:00:10 MeLi refresh 429 meli-token-refresh 14/05, 12:00:04 MeLi refresh 429 meli-token-refresh 14/05, 11:00:04 MeLi refresh 429 shopee-ads-permission-watcher 14/05, 07:30:22 Ads permission status: 0/33 success, 33/33 permission_denied, 0/33 other_failure meli-token-refresh 14/05, 07:00:03 MeLi refresh 429 sync-shopee-categories 14/05, 06:45:03 Synced 2038 categories in 2849ms meli-token-refresh 14/05, 01:00:03 MeLi refresh 429 weekly-analysis 13/05, 19:22:14 [meli] Client CAROLINA LUNA analyzed: 25 actions weekly-analysis 13/05, 19:12:11 [meli] Client CAROLINA LUNA analyzed: 22 actions meli-token-refresh 13/05, 19:00:02 MeLi refresh 429 weekly-analysis 13/05, 17:30:55 [meli] Client CAROLINA LUNA analyzed: 23 actions meli-token-refresh 13/05, 14:00:05 MeLi refresh 429 create-listing 13/05, 10:58:07 Published draft c80df14a-0c89-4f41-a564-fbb513c052ff as MLB6767169294 create-listing 13/05, 09:53:45 Published draft 88487ab7-d2f3-4304-9d93-98b8e400a1c0 as MLB6766645388 create-listing-88487ab7-d2f3-4304-9d93-98b8e400a1c0 13/05, 09:44:14 MeLi API error 400 for /items: {\"message\":\"body.required_fields\",\"error\":\"validation_error\",\"status\":400,\"cause\":[{\"department\":\"items\",\"cause_id\":374,\"type\":\"error\",\"code\":\"body.invalid_fields\",\"references\":[\"field.invalid\"],\"message\":\"The field variations is invalid with family name\"},{\"department\":\"items\",\"cause_id\":369,\"type\":\"error\",\"code\":\"body.required_fields\",\"references\":[\"body\"],\"message\":\"The body does not contains some or none of the following properties [family_name, price, available_quantity]\"}]} crea"
+    },
+    {
+      "route": "/sistema/relatorios",
+      "label": "Relatorios gerais",
+      "screenshot": "/projects/elevater/saint-map/21-relatorios-gerais.png",
+      "ok": true,
+      "title": "Relatórios Gerais | Elevater",
+      "url": "https://elevater.com.br/sistema/relatorios",
+      "headings": [
+        "Relatórios Gerais"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Itens sem promocao",
+        "Reputacao MeLi",
+        "Anterior",
+        "Proxima",
+        "Anterior",
+        "Proxima"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [
+        "Conta",
+        "Produto",
+        "Identificacao",
+        "Comercial",
+        "Operacao"
+      ],
+      "hasSaint": true,
+      "numbers": [
+        "81.5%",
+        "R$ 78,29",
+        "R$ 139,35",
+        "R$ 109,90",
+        "R$ 140,60",
+        "R$ 78,29",
+        "R$ 39,90",
+        "R$ 139,35",
+        "R$ 30,10",
+        "R$ 48,00",
+        "R$ 266,00",
+        "R$ 159,99",
+        "R$ 85,10"
+      ],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 SISTEMA Relatórios Gerais 158 contas MeLi Painel consolidado do Mercado Livre com leitura mais organizada para consulta e futura exportacao em HTML/PDF. Cobertura de promocao: 81.5% Com promocao: 10018 Itens sem promocao Reputacao MeLi SEM PROMOCAO DIRETA 2276 COM PROMOCAO DIRETA 10018 ITENS ATIVOS 12294 CONTAS MELI 158 RESUMO FILTRADO ITENS 2276 CONTAS 71 BUSCA ATIVA Sem filtro TOP CONTAS VERMONTH VERMONTH 305 KAILAH SEMIJOIAS KAILAH SEMIJOIAS 300 Daduart Daduart 294 Artelassê Artelassê 154 COURO E CIA COURO E CIA 95 FEEL COSMÉTICOS FEEL COSMÉTICOS 93 Mostrando 1-12 de 2276 itens Pagina 1 de 190 Anterior Proxima CONTA PRODUTO IDENTIFICACAO COMERCIAL OPERACAO SNOWDOG BRASIL SNOWDOG BRASIL Pasta Térmica Alto Desempenho Snowdog Husky 12,8w/m.k 3g Cinza Sem promocao direta MLB1941659086 HUSKY3GE-1 R$ 78,29 Preco original: - Estoque: 20 Vendidos: 4.608 Logistica: fulfillment VERMONTH VERMONTH Cola Adesivo Para Extensão De Cílios Smart+ O'clair 5g Sem promocao direta MLB3829789748 855923 R$ 139,35 Preco original: - Estoque: 51 Vendidos: 3.688 Logistica: fulfillment GUAVA SKINCARE GUAVA SKINCARE Máscara De Cílios Guava Skincare Alonga E Esculpe Preto 8ml Sem promocao direta MLB4226880229 GUAVA-MASCARA-CILIOS R$ 109,90 Preco original: - Estoque: 501 Vendidos: 3.393 Logistica: fulfillment NEW SHOES NEW SHOES Tênis Feminino Vizzano Samba Casual Confortável Original Sem promocao direta MLB5370540654 NEWS_022 R$ 140,60 Preco original: - Estoque: 349 Vendidos: 2.711 Logistica: fulfillment SNOWDOG BRASIL SNOWDOG BRASIL Pasta Térmica Alto Desempenho Snowdog Husky 12,8w/m.k 3g Cinza Sem promocao direta MLB4047128198 HUSKY3G R$ 78,29 Preco original: - Estoque: 20 Vendidos: 1.888 Logistica: fulfillment FITA UP FITA UP Kit 18 Tirinhas Dupla Face Para Roupas Toda Up Bege Sem promocao direta MLB4413418794 D18FAC R$ 39,90 Preco original: - Estoque: 222 Vendidos: 1.102 Logistica: fulfillment VERMONTH VERMONTH Col"
+    },
+    {
+      "route": "/shopee/rentabilidade",
+      "label": "Shopee rentabilidade",
+      "screenshot": "/projects/elevater/saint-map/22-shopee-rentabilidade.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/shopee/rentabilidade",
+      "headings": [
+        "Rentabilidade Shopee",
+        "Todos os produtos(136 encontrados)"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Personalizado",
+        "16/04/2026",
+        "15/05/2026",
+        "Filtrar",
+        "Ações",
+        "Baixar relatório",
+        "Todos",
+        "Todos",
+        "Todas",
+        "Todos",
+        "Todos",
+        "Selecionar todos",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Selecionar linha",
+        "Anterior",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "Próxima"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        },
+        {
+          "text": "Resumo",
+          "pathname": "/shopee/rentabilidade"
+        },
+        {
+          "text": "DRE",
+          "pathname": "/shopee/rentabilidade"
+        }
+      ],
+      "tableHeaders": [
+        "Anúncio",
+        "CMV",
+        "Aliquota",
+        "Faturamento",
+        "Unid. vendidas",
+        "Ticket médio",
+        "Custo produto",
+        "Custo publicidade",
+        "Frete Shopee",
+        "Custo devolução",
+        "Impostos",
+        "Custo Plataforma",
+        "Comissão Shopee",
+        "Taxa de Serviço Shopee",
+        "Desconto Shopee",
+        "Desconto Vendedor",
+        "Voucher Shopee",
+        "Voucher Vendedor",
+        "Margem contribuição",
+        "Margem s/ pub.",
+        "MC %",
+        "MC s/ ads %",
+        "Share lucro",
+        "Estoque",
+        "Duração estoque"
+      ],
+      "hasSaint": true,
+      "numbers": [
+        "R$ 671.986,45",
+        "R$ 553.289,09",
+        "R$ 118.697,36",
+        "R$ 112.102,80",
+        "R$ 125.980,95",
+        "R$ 0,00",
+        "R$ 110.887,37",
+        "R$ 15.499,79",
+        "R$ 208.169,79",
+        "R$ 183,42",
+        "R$ 78,90",
+        "R$ 13,77",
+        "22,0%",
+        "R$ 65.994,90",
+        "R$ 78,47",
+        "R$ 11.580,57",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 0,00",
+        "R$ 14.518,88",
+        "R$ 13.152,84",
+        "R$ 11.835,91",
+        "R$ 1.316,92",
+        "R$ 0,00",
+        "R$ 87.415,17",
+        "R$ 2.917,81",
+        "R$ 93,89",
+        "R$ 26.742,62",
+        "R$ 26.742,62",
+        "40,5%",
+        "40,5%",
+        "11,96%",
+        "R$ 239,90",
+        "R$ 134,90",
+        "R$ 27,87",
+        "22,0%",
+        "R$ 28.329,00",
+        "R$ 134,90",
+        "R$ 5.852,70",
+        "R$ 0,00"
+      ],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Rentabilidade Shopee Resumo DRE Período Personalizado Data desde 16/04/2026 Data ate 15/05/2026 Filtrar Shopee Ads sem permissao no app conectado A Shopee bloqueou a API de publicidade para este tipo de app. Os pedidos continuam sincronizados, mas investimento, ACOS, TACOS, CPC e ROAS ficam indisponiveis ate a permissao de Ads ser liberada na Shopee Open Platform. FATURAMENTO BRUTO R$ 671.986,45 ▲ 3,08 % FATURAMENTO LÍQUIDO R$ 553.289,09 ▼ 0,14 % VENDAS CANCELADAS R$ 118.697,36 ▲ 21,31 % TAXA DE VENDAS R$ 112.102,80 ▲ 2,41 % INVESTIMENTO Indisponivel Permissao de Ads pendente na Shopee IMPOSTOS R$ 125.980,95 22% ▼ 0,08 % CUSTO DE ENVIO R$ 0,00 ▲ 0,00 % CUSTO DO PRODUTO R$ 110.887,37 ▲ 0,61 % CUSTO DE DEVOLUÇÃO R$ 15.499,79 ▲ 656,46 % MARGEM DE CONTRIBUIÇÃO R$ 208.169,79(37,62 %) ▼ 7,60 % Todos os produtos(136 encontrados) Ações Baixar relatório BUSCADOR MARGEM DE LUCRO Todos VENDAS Todos CURVA Todas PROMOÇÃO Todos GRUPO (SKU) Todos Ordenar por variação Somente sem custo Agrupar por família ANÚNCIO CMV ALIQUOTA FATURAMENTO UNID. VENDIDAS TICKET MÉDIO CUSTO PRODUTO CUSTO PUBLICIDADE FRETE SHOPEE CUSTO DEVOLUÇÃO IMPOSTOS CUSTO PLATAFORMA COMISSÃO SHOPEE TAXA DE SERVIÇO SHOPEE DESCONTO SHOPEE DESCONTO VENDEDOR VOUCHER SHOPEE VOUCHER VENDEDOR MARGEM CONTRIBUIÇÃO MARGEM S/ PUB. MC % MC S/ ADS % SHARE LUCRO ESTOQUE DURAÇÃO ESTOQUE SKU: O-SNBT ID: 41310511491 Curva A Óculos De Sol Oval Feminino Saint Germain Siena Tartaruga R$ 183,42 R$ 78,90 Histórico Promo R$ 13,77 22,0% R$ 65.994,90 841 R$ 78,47 R$ 11.580,57 R$ 0,00 R$ 0,00 R$ 0,00 R$ 14.518,88 R$ 13.152,84 R$ 11.835,91 R$ 1.316,92 R$ 0,00 R$ 87.415,17 R$ 2.917,81 R$ 93,89 R$ 26.742,62 R$ 26.742,62 40,5% 40,5% 11,96% 0 0 dias SKU: MBH40 ID: 22826292398 Curva A Relógio Masculino Preto Murray Black Hill 40mm R$ 239,90 R$ 134,90 Histórico Promo R$ 27,87 22,0% R$ 28.329,00 210 R$ 134,90 R$ 5.852,70 R$ 0,00 R$ 0,00 R$ 0,00 R$ 6.232,38 R$ 5.512,01 R$ 4"
+    },
+    {
+      "route": "/shopee/ads",
+      "label": "Shopee ads",
+      "screenshot": "/projects/elevater/saint-map/23-shopee-ads.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/shopee/ads/comportamento",
+      "headings": [
+        "Comportamento das Campanhas"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Comportamento das Campanhas Em breve Visão do desempenho histórico das campanhas com filtro por status (ativas/pausadas), investimento, cliques, ROAS e tendências."
+    },
+    {
+      "route": "/shopee/promocoes",
+      "label": "Shopee promocoes",
+      "screenshot": "/projects/elevater/saint-map/24-shopee-promocoes.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/shopee/promocoes",
+      "headings": [
+        "Central de Promoções Shopee"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Personalizado",
+        "16/04/2026",
+        "15/05/2026",
+        "Filtrar",
+        "Anúncios",
+        "Campanhas",
+        "Vouchers",
+        "<",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "14",
+        ">",
+        "10 por pagina"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [
+        "Produto",
+        "Tipo",
+        "Preço Original",
+        "Preço Promo",
+        "Desconto",
+        "Faturamento",
+        "Unidades",
+        "Margem",
+        "Share Desc.",
+        "Curva"
+      ],
+      "hasSaint": true,
+      "numbers": [
+        "R$ 572.041,20",
+        "0,06%",
+        "17,95%",
+        "R$ 81.638,98",
+        "R$ 558.760,78",
+        "3,28%",
+        "R$ 572.041,20",
+        "0,06%",
+        "17,95%",
+        "R$ 183,42",
+        "R$ 78,90",
+        "R$ 65.994,90",
+        "R$ 239,90",
+        "R$ 139,15",
+        "R$ 28.329,00",
+        "R$ 259,90",
+        "R$ 159,90",
+        "R$ 23.643,10",
+        "R$ 183,42",
+        "R$ 78,90",
+        "R$ 19.062,70",
+        "R$ 259,90",
+        "R$ 129,90",
+        "R$ 17.537,55",
+        "R$ 360,00",
+        "R$ 169,90",
+        "R$ 16.929,40",
+        "R$ 370,00",
+        "R$ 175,80",
+        "R$ 16.431,39",
+        "R$ 183,42",
+        "R$ 78,90",
+        "R$ 16.082,10",
+        "R$ 229,90",
+        "R$ 78,90",
+        "R$ 12.932,51",
+        "R$ 299,90",
+        "R$ 269,90",
+        "R$ 12.740,00"
+      ],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Central de Promoções Shopee Período Personalizado Data desde 16/04/2026 Data ate 15/05/2026 Filtrar FLASH SALE FATURAMENTO - MARGEM - DESCONTO FATURAMENTO R$ 572.041,20 ▼ -0,06% MARGEM -18,37 % ▲ +17,95% VOUCHER FATURAMENTO R$ 81.638,98 MARGEM 0,00 % VALOR DE DESCONTO TOTAL VALOR R$ 558.760,78 ▼ -3,28% FATURAMENTO POR DESCONTOS VALOR R$ 572.041,20 ▼ -0,06% MARGEM TOTAL -18,37 % ▲ +17,95% Anúncios Campanhas Vouchers PRODUTO TIPO PREÇO ORIGINAL PREÇO PROMO DESCONTO FATURAMENTO UNIDADES MARGEM SHARE DESC. CURVA SKU: O-SNBT ID: 41310511491 Óculos De Sol Oval Feminino Saint Germain Siena Tartaruga Desconto R$ 183,42 R$ 78,90 56,98 % R$ 65.994,90 841 -52,39 % 15,73 % A SKU: MBH40 ID: 22826292398 Relógio Masculino Preto Murray Black Hill 40mm Desconto R$ 239,90 R$ 139,15 42,00 % R$ 28.329,00 210 4,53 % 3,79 % A SKU: HS32 ID: 23226245102 Relógio Feminino Prata Saint Germain Harlem Silver 32mm Desconto R$ 259,90 R$ 159,90 38,48 % R$ 23.643,10 169 -5,17 % 3,02 % A SKU: OG-MZTTL ID: 41563621694 Óculos de Grau Quadrado Mizu Tortoise Latte Armação Premium Retrô Unissex Leve Confortável Desconto R$ 183,42 R$ 78,90 56,98 % R$ 19.062,70 243 -52,18 % 4,55 % A SKU: M-CLFB42 ID: 27640245262 Relógio Masculino Chroma Preto Saint Germain Clássico Fundo Preto Desconto R$ 259,90 R$ 129,90 50,02 % R$ 17.537,55 117 7,45 % 2,72 % A SKU: NR32 ID: 26482580988 Relógio Feminino Nolita Saint Germain Rosé Gold 32mm Desconto R$ 360,00 R$ 169,90 52,81 % R$ 16.929,40 106 -38,84 % 3,61 % A SKU: CG32 ID: 24093742792 Relógio Feminino Dourado Saint Germain - Chelsea Gold 32mm Fundo Branco Desconto R$ 370,00 R$ 175,80 52,49 % R$ 16.431,39 94 -29,16 % 3,27 % A SKU: OG-SNWT ID: 40410502887 Óculos De Grau Oval Feminino Saint Germain Siena Tartaruga Desconto R$ 183,42 R$ 78,90 56,98 % R$ 16.082,10 210 -52,69 % 3,93 % A SKU: O-LNCBT ID: 28781739476 Óculos de Sol Saint Germain Tartaruga Clássico Redondo Lincoln Brown Turtle Desconto R$ 2"
+    },
+    {
+      "route": "/amazon/catalogo",
+      "label": "Amazon catalogo",
+      "screenshot": "/projects/elevater/saint-map/25-amazon-catalogo.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/amazon/catalogo",
+      "headings": [
+        "Catálogo Amazon"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        }
+      ],
+      "tableHeaders": [],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Catálogo Amazon Em breve — o catalogo de produtos da Amazon estara disponivel aqui. EM BREVE"
+    },
+    {
+      "route": "/amazon/rentabilidade",
+      "label": "Amazon rentabilidade",
+      "screenshot": "/projects/elevater/saint-map/26-amazon-rentabilidade.png",
+      "ok": true,
+      "title": "Elevater",
+      "url": "https://elevater.com.br/amazon/rentabilidade",
+      "headings": [
+        "Rentabilidade Amazon"
+      ],
+      "buttons": [
+        "MercadoLivre(158)",
+        "Shopee(33)",
+        "Amazon",
+        "IAInove Automationsmaster",
+        "Toggle Sidebar",
+        "11",
+        "Personalizado",
+        "16/04/2026",
+        "15/05/2026",
+        "Filtrar"
+      ],
+      "links": [
+        {
+          "text": "Carteira de Clientes",
+          "pathname": "/carteira"
+        },
+        {
+          "text": "Cadastro de Clientes",
+          "pathname": "/clientes"
+        },
+        {
+          "text": "Usuários",
+          "pathname": "/users"
+        },
+        {
+          "text": "Histórico",
+          "pathname": "/historico"
+        },
+        {
+          "text": "Alertas",
+          "pathname": "/configuracoes/alertas"
+        },
+        {
+          "text": "Logs do Sistema",
+          "pathname": "/sistema/logs"
+        },
+        {
+          "text": "Relatórios Gerais",
+          "pathname": "/sistema/relatorios"
+        },
+        {
+          "text": "Relatório da Equipe",
+          "pathname": "/sistema/relatorios/equipe"
+        },
+        {
+          "text": "Resumo",
+          "pathname": "/amazon/rentabilidade"
+        },
+        {
+          "text": "DRE",
+          "pathname": "/amazon/rentabilidade"
+        }
+      ],
+      "tableHeaders": [],
+      "hasSaint": true,
+      "numbers": [],
+      "textSample": "Elevater MARKETPLACES MercadoLivre (158) Shopee (33) Amazon NAVEGAÇÃO Carteira de Clientes Cadastro de Clientes Usuários Histórico Alertas Logs do Sistema Relatórios Gerais Relatório da Equipe Sincronizando... IA Inove Automations master Toggle Sidebar SAINT GERMAIN BRAND 11 Rentabilidade Amazon Selecione um cliente com conta Amazon conectada para ver a rentabilidade. Resumo DRE Período Personalizado Data desde 16/04/2026 Data ate 15/05/2026 Filtrar Selecione um cliente para ver a rentabilidade."
+    }
+  ]
+}

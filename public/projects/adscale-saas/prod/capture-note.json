@@ -1,0 +1,16 @@
+{
+  "capturedAt": "2026-05-15T13:49:29.808Z",
+  "note": "Capturas sanitizadas com dados de cliente, usuário, métricas sensíveis e informações comerciais mascaradas.",
+  "routes": [
+    "/login",
+    "/dashboard",
+    "/meta-ads",
+    "/ga4",
+    "/goals",
+    "/commercial-actions",
+    "/annual-planning",
+    "/reports",
+    "/clients/overview",
+    "/automation"
+  ]
+}

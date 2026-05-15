@@ -57,8 +57,8 @@ export function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="relative w-full px-[5vw] py-32 bg-transparent" ref={containerRef}>
-      <div className="projects-header max-w-[1300px] mx-auto w-full mb-20 relative z-0 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-10 px-2 sm:px-6">
+    <section id="projects" className="relative w-full px-[5vw] py-20 sm:py-32 bg-transparent" ref={containerRef}>
+      <div className="projects-header max-w-[1300px] mx-auto w-full mb-12 sm:mb-20 relative z-0 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-10 px-2 sm:px-6">
         <div className="flex flex-col gap-4 max-w-[640px]">
           <span className="projects-label text-[12px] uppercase tracking-[0.2em] font-semibold text-[#888] font-general">
             / Cases full stack

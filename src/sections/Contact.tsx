@@ -66,9 +66,9 @@ export function Contact() {
   }, []);
 
   return (
-    <section ref={containerRef} id="contact" className="relative w-full px-[5vw] pt-32 pb-10 bg-[#111] rounded-t-[40px] sm:rounded-t-[60px] flex flex-col items-center text-white mt-20">
+    <section ref={containerRef} id="contact" className="relative w-full px-[5vw] pt-20 sm:pt-32 pb-10 bg-[#111] rounded-t-[40px] sm:rounded-t-[60px] flex flex-col items-center text-white mt-10 sm:mt-20">
 
-      <div className="w-full max-w-[1300px] h-[1px] bg-white/10 mb-20" />
+      <div className="w-full max-w-[1300px] h-[1px] bg-white/10 mb-12 sm:mb-20" />
 
       <div className="max-w-[1300px] mx-auto w-full flex flex-col items-center text-center">
         <span className="contact-label text-[12px] uppercase tracking-[0.2em] font-semibold text-[#aaa] mb-8 block relative font-general">
@@ -95,7 +95,7 @@ export function Contact() {
         </a>
       </div>
 
-      <div className="w-full max-w-[1300px] mt-32 flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6 text-[#aaa] text-xs uppercase tracking-widest font-general border-t border-white/10 pt-8 font-semibold">
+      <div className="w-full max-w-[1300px] mt-20 sm:mt-32 flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6 text-[#aaa] text-xs uppercase tracking-widest font-general border-t border-white/10 pt-8 font-semibold">
         <div className="flex gap-6">
           {["LinkedIn", "GitHub"].map(social => (
             <a key={social} href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">

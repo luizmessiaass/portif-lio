@@ -58,8 +58,8 @@ export function About() {
   const h2Words2 = ["para", "tirar", "sistemas", "do", "papel."];
 
   return (
-    <section id="about" className="relative w-full rounded-[40px] bg-[#ededed] px-[5vw] py-32 sm:rounded-[60px]" ref={containerRef}>
-      <div className="about-header relative z-0 mx-auto mb-16 flex w-full max-w-[1300px] flex-col items-start px-2 sm:px-6">
+    <section id="about" className="relative w-full rounded-[40px] bg-[#ededed] px-[5vw] py-20 sm:py-32 sm:rounded-[60px]" ref={containerRef}>
+      <div className="about-header relative z-0 mx-auto mb-10 sm:mb-16 flex w-full max-w-[1300px] flex-col items-start px-2 sm:px-6">
         <span className="about-label mb-6 block font-general text-[12px] font-semibold uppercase tracking-[0.2em] text-[#888]">
           / Como posso te ajudar
         </span>

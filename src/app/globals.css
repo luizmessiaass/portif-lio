@@ -72,44 +72,60 @@ html.lenis, html.lenis body { height: auto; }
   will-change: transform;
 }
 .orb-1 {
-  width: min(440px, 40vw);
-  height: min(440px, 40vw);
+  width: 240px;
+  height: 240px;
   background: radial-gradient(circle, rgba(255, 106, 0, 0.8) 0%, rgba(255, 106, 0, 0.28) 42%, rgba(255, 106, 0, 0) 72%);
-  opacity: 0.14;
-  top: -8%;
+  opacity: 0.1;
+  top: 8%;
   right: 0;
-  animation: orb-float-1 28s ease-in-out infinite;
+  animation: orb-float-1 38s ease-in-out infinite;
 }
 .orb-2 {
-  width: min(360px, 34vw);
-  height: min(360px, 34vw);
+  width: 220px;
+  height: 220px;
   background: radial-gradient(circle, rgba(255, 179, 71, 0.7) 0%, rgba(255, 179, 71, 0.22) 44%, rgba(255, 179, 71, 0) 72%);
-  opacity: 0.12;
-  bottom: 15%;
-  left: -6%;
-  animation: orb-float-2 34s ease-in-out infinite;
+  opacity: 0.08;
+  top: 54%;
+  left: 0;
+  animation: orb-float-2 38s ease-in-out infinite;
 }
 .orb-3 {
   display: none;
 }
 
-@media (max-width: 768px) {
-  .orb { animation-duration: 38s; }
+@media (min-width: 768px) {
   .orb-1 {
-    width: 240px;
-    height: 240px;
-    top: 8%;
-    right: 0;
-    opacity: 0.1;
+    width: min(440px, 40vw);
+    height: min(440px, 40vw);
+    top: -8%;
+    opacity: 0.14;
+    animation-duration: 28s;
   }
   .orb-2 {
-    width: 220px;
-    height: 220px;
-    top: 54%;
-    bottom: auto;
-    left: 0;
-    opacity: 0.08;
+    width: min(360px, 34vw);
+    height: min(360px, 34vw);
+    top: auto;
+    bottom: 15%;
+    left: -6%;
+    opacity: 0.12;
+    animation-duration: 34s;
   }
+}
+
+/* Touch Targets e Proteção iOS */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+  font-size: 16px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button, a, [role="button"] {
+  touch-action: manipulation;
 }
 
 @media (prefers-reduced-motion: reduce) {

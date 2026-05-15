@@ -100,7 +100,7 @@ export function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[var(--color-bg)] px-[5vw] pb-32 pt-28 sm:min-h-[840px] lg:h-[112vh] lg:min-h-[900px]"
+      className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[var(--color-bg)] px-[5vw] pb-12 pt-24 sm:pb-32 sm:pt-28 sm:min-h-[840px] lg:h-[112vh] lg:min-h-[900px]"
     >
       <div className="absolute inset-0 z-0 bg-mesh mix-blend-overlay opacity-50 pointer-events-none" />
       <CircuitCanvas />

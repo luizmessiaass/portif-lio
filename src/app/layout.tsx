@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { clashDisplay, generalSans, gloriaHallelujah } from "./fonts";
 import "./globals.css";
 import { AppProviders } from "./providers/app-providers";
@@ -6,10 +6,22 @@ import { BackgroundNoise } from "@/components/BackgroundNoise";
 import { BackgroundOrbs } from "@/components/BackgroundOrbs";
 import { CustomCursor } from "@/components/CustomCursor";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  themeColor: "#f7f7f7",
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   title: "Luiz Messias | Desenvolvedor Full Stack",
   description:
     "Portfólio de desenvolvimento full stack com sistemas SaaS, dashboards, automações, integrações, APIs, bancos de dados e IA aplicada a produto.",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Luiz Messias",
+  },
   openGraph: {
     title: "Luiz Messias | Desenvolvedor Full Stack",
     description:

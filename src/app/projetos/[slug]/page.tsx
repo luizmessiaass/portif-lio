@@ -45,7 +45,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   return (
     <>
       <Navbar />
-      <main className="relative min-h-dvh px-[5vw] pb-36 pt-16 sm:pt-20">
+      <main className="relative min-h-dvh overflow-x-clip px-[clamp(1rem,5vw,5rem)] pb-36 pt-16 sm:pt-20">
         <article className="mx-auto flex w-full max-w-[1320px] flex-col gap-16 px-2 sm:px-6">
           <header className="flex flex-col gap-10 border-b border-black/10 pb-10">
             <Link
@@ -63,7 +63,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   <Layers3 size={15} />
                   {project.category} / {project.shortCategory}
                 </span>
-                <h1 className="font-clash text-[clamp(3.25rem,9vw,9rem)] font-semibold leading-[0.9] tracking-normal text-[var(--color-dark)] text-balance">
+                <h1 className="font-clash text-[clamp(2.75rem,13vw,9rem)] font-semibold leading-[0.96] tracking-normal text-[var(--color-dark)] text-balance sm:text-[clamp(4rem,9vw,9rem)]">
                   {project.title}
                 </h1>
               </div>
@@ -79,7 +79,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
           </header>
 
-          <section className={`relative overflow-hidden rounded-[32px] bg-gradient-to-br ${project.tone} shadow-[0_30px_90px_rgba(0,0,0,0.14)]`}>
+          <section className={`relative overflow-hidden rounded-[28px] bg-gradient-to-br ${project.tone} shadow-[0_30px_90px_rgba(0,0,0,0.14)]`}>
             <div className="relative aspect-[16/10] w-full md:aspect-[1850/872]">
               {heroImage ? (
                 <Image
@@ -109,7 +109,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <span className="mb-4 block font-general text-[12px] font-semibold uppercase tracking-[0.2em] text-[#888]">
                   / 01 Texto inicial
                 </span>
-                <h2 className="font-clash text-4xl font-semibold leading-tight tracking-normal text-[#111] sm:text-5xl">
+              <h2 className="font-clash text-[clamp(2rem,9vw,3rem)] font-semibold leading-tight tracking-normal text-[#111] sm:text-5xl">
                   Visão geral
                 </h2>
               </div>
@@ -126,7 +126,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
 
             <div className="flex flex-col gap-8">
-              <p className="font-general text-[clamp(1.35rem,2vw,2.15rem)] leading-[1.35] text-[#222] text-pretty">
+              <p className="font-general text-[clamp(1.18rem,5vw,2.15rem)] leading-[1.4] text-[#222] text-pretty sm:leading-[1.35]">
                 {intro}
               </p>
 
@@ -156,13 +156,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               <span className="mb-4 block font-general text-[12px] font-semibold uppercase tracking-[0.2em] text-[#888]">
                 / 02 Contexto
               </span>
-              <h2 className="font-clash text-4xl font-semibold leading-tight tracking-normal text-[#111] sm:text-5xl">
+              <h2 className="font-clash text-[clamp(2rem,9vw,3rem)] font-semibold leading-tight tracking-normal text-[#111] sm:text-5xl">
                 Por que o projeto existe
               </h2>
             </div>
 
             <div className="grid gap-5">
-              <article className="rounded-[26px] border border-black/5 bg-white p-7 shadow-[0_18px_50px_rgba(0,0,0,0.05)] sm:p-9">
+              <article className="rounded-[24px] border border-black/5 bg-white p-5 shadow-[0_18px_50px_rgba(0,0,0,0.05)] sm:p-9">
                 <span className="mb-4 block font-general text-[12px] font-semibold uppercase tracking-[0.18em] text-[#888]">
                   Contexto do projeto
                 </span>
@@ -171,7 +171,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 </p>
               </article>
 
-              <article className="rounded-[26px] border border-black/5 bg-white p-7 shadow-[0_18px_50px_rgba(0,0,0,0.05)] sm:p-9">
+              <article className="rounded-[24px] border border-black/5 bg-white p-5 shadow-[0_18px_50px_rgba(0,0,0,0.05)] sm:p-9">
                 <span className="mb-4 block font-general text-[12px] font-semibold uppercase tracking-[0.18em] text-[#888]">
                   Como nasceu
                 </span>
@@ -207,7 +207,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <span className="mb-4 block font-general text-[12px] font-semibold uppercase tracking-[0.2em] text-[#888]">
                   / 03 Telas do projeto
                 </span>
-                <h2 className="font-clash text-4xl font-semibold leading-tight tracking-normal text-[#111] sm:text-5xl">
+                <h2 className="font-clash text-[clamp(2rem,9vw,3rem)] font-semibold leading-tight tracking-normal text-[#111] sm:text-5xl">
                   {galleryLabel}
                 </h2>
                 {project.captureNote ? (
@@ -219,7 +219,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
               <div className="grid gap-8">
                 {project.gallery.map((image, index) => (
-                  <figure key={image.src} className="overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+                  <figure key={image.src} className="overflow-hidden rounded-[24px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)] sm:rounded-[28px]">
                     <div className="flex items-center justify-between gap-4 border-b border-black/5 px-5 py-4 sm:px-6">
                       <span className="font-general text-[11px] font-semibold uppercase tracking-[0.18em] text-[#888]">
                         Tela {String(index + 1).padStart(2, "0")}
@@ -251,13 +251,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               <span className="mb-4 block font-general text-[12px] font-semibold uppercase tracking-[0.2em] text-[#888]">
                 / 04 Detalhamento
               </span>
-              <h2 className="font-clash text-4xl font-semibold leading-tight tracking-normal text-[#111] sm:text-5xl">
+                <h2 className="font-clash text-[clamp(2rem,9vw,3rem)] font-semibold leading-tight tracking-normal text-[#111] sm:text-5xl">
                 O que o produto cobre
               </h2>
             </div>
 
             <div className="grid gap-5">
-              <div className="rounded-[26px] border border-black/5 bg-white p-7 shadow-[0_18px_50px_rgba(0,0,0,0.05)] sm:p-9">
+              <div className="rounded-[24px] border border-black/5 bg-white p-5 shadow-[0_18px_50px_rgba(0,0,0,0.05)] sm:p-9">
                 <span className="mb-5 block font-general text-[12px] font-semibold uppercase tracking-[0.18em] text-[#888]">
                   Destaques
                 </span>

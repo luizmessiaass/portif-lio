@@ -26,7 +26,7 @@ export function ProjectsArchive() {
   }, [visibleProjects]);
 
   return (
-    <main className="relative min-h-dvh px-[5vw] pb-36 pt-16 sm:pt-20">
+    <main className="relative min-h-dvh overflow-x-clip px-[clamp(1rem,5vw,5rem)] pb-36 pt-16 sm:pt-20">
       <section className="mx-auto flex w-full max-w-[1300px] flex-col gap-12 px-2 sm:px-6">
         <div className="flex flex-col gap-8 border-b border-black/10 pb-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-[760px]">
@@ -40,7 +40,7 @@ export function ProjectsArchive() {
             <span className="mb-5 block font-general text-[12px] font-semibold uppercase tracking-[0.2em] text-[#888]">
               / Cases full stack
             </span>
-            <h1 className="font-clash text-[clamp(3.25rem,8vw,8.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-[var(--color-dark)] text-balance">
+            <h1 className="font-clash text-[clamp(2.75rem,12vw,8.5rem)] font-semibold leading-[0.96] tracking-normal text-[var(--color-dark)] text-balance sm:text-[clamp(4rem,8vw,8.5rem)]">
               Sistemas, dashboards e automações em detalhe.
             </h1>
           </div>
@@ -50,7 +50,7 @@ export function ProjectsArchive() {
           </p>
         </div>
 
-        <div className="sticky top-4 z-40 -mx-2 flex gap-2 overflow-x-auto hide-scrollbar px-2 py-3 backdrop-blur-sm sm:top-6">
+        <div className="sticky top-4 z-40 -mx-2 flex max-w-[calc(100vw-2rem)] gap-2 overflow-x-auto overscroll-x-contain px-2 py-3 backdrop-blur-sm sm:top-6 sm:max-w-none hide-scrollbar">
           {projectFilters.map((filter) => {
             const isActive = activeFilter === filter;
 
@@ -78,7 +78,7 @@ export function ProjectsArchive() {
               href={`/projetos/${project.slug}`}
               key={project.id}
               data-cursor="hover"
-              className="project-card group flex min-h-[620px] flex-col overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)]"
+              className="project-card group flex min-h-[560px] flex-col overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:min-h-[620px]"
             >
               <div className={`relative aspect-[1850/872] overflow-hidden bg-gradient-to-br ${project.tone}`}>
                 {project.coverImage ? (
@@ -111,19 +111,19 @@ export function ProjectsArchive() {
                 <span className="absolute left-6 top-6 rounded-full bg-black/45 px-3 py-1.5 font-general text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur sm:left-10 sm:top-10">
                   {project.shortCategory}
                 </span>
-                <span className="absolute bottom-8 left-6 right-6 max-w-[420px] font-clash text-4xl font-semibold leading-none tracking-normal text-white sm:left-10 sm:text-5xl">
+                <span className="absolute bottom-6 left-5 right-5 max-w-[420px] font-clash text-3xl font-semibold leading-none tracking-normal text-white sm:bottom-8 sm:left-10 sm:text-5xl">
                   {project.title}
                 </span>
               </div>
 
-              <div className="flex flex-1 flex-col p-7 sm:p-8">
+              <div className="flex flex-1 flex-col p-5 sm:p-8">
                 <div className="mb-6 flex items-start justify-between gap-5">
                   <div>
                     <span className="mb-3 inline-flex items-center gap-2 font-general text-xs font-semibold uppercase tracking-[0.18em] text-[#888]">
                       <Layers3 size={15} />
                       {project.category}
                     </span>
-                    <h2 className="font-clash text-4xl font-semibold leading-tight tracking-[-0.01em] text-[#111] text-balance">
+                    <h2 className="font-clash text-[clamp(2rem,8vw,3rem)] font-semibold leading-tight tracking-normal text-[#111] text-balance sm:text-4xl">
                       {project.title}
                     </h2>
                   </div>

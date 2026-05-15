@@ -17,6 +17,7 @@ export function Hero() {
 
     const ctx = gsap.context(() => {
       const introDelay = isMobile ? 1.05 : 0.35;
+      const imageExitX = isMobile ? "68vw" : "48vw";
 
       gsap.fromTo(
         ".hero-image-pill",
@@ -44,22 +45,29 @@ export function Hero() {
         }
       );
 
-      if (isMobile) {
-        gsap.to(".hero-image-pill", {
-          y: -18,
+      gsap.fromTo(
+        ".hero-image-pill",
+        { x: 0, autoAlpha: 1, scale: 1 },
+        {
+          x: imageExitX,
+          autoAlpha: 0,
+          scale: isMobile ? 0.92 : 0.9,
+          rotate: isMobile ? 2 : 4,
           ease: "none",
+          immediateRender: false,
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top top",
-            end: "bottom top",
-            scrub: 0.45,
+            end: isMobile ? "65% top" : "bottom top",
+            scrub: 0.7,
           },
-        });
-        return;
-      }
+        }
+      );
+
+      if (isMobile) return;
 
       gsap.to(".text-left-part", {
-        y: "-15vh",
+        y: "-9vh",
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -70,19 +78,7 @@ export function Hero() {
       });
 
       gsap.to(".text-right-part", {
-        y: "-25vh",
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      gsap.to(".hero-image-pill", {
-        y: "5vh",
-        scale: 1.05,
+        y: "-14vh",
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -100,19 +96,19 @@ export function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[var(--color-bg)] px-[5vw] pb-12 pt-24 sm:pb-32 sm:pt-28 sm:min-h-[840px] lg:h-[112vh] lg:min-h-[900px]"
+      className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden overflow-x-clip bg-[var(--color-bg)] px-[clamp(1rem,5vw,5rem)] pb-28 pt-24 sm:min-h-[820px] sm:pb-32 sm:pt-28 lg:h-[108svh] lg:min-h-[840px] lg:pb-16 lg:pt-16"
     >
       <div className="absolute inset-0 z-0 bg-mesh mix-blend-overlay opacity-50 pointer-events-none" />
       <CircuitCanvas />
 
-      <div className="relative z-30 flex w-full flex-col items-center gap-6 pt-[8vh] pb-[5vh] lg:static lg:block">
+      <div className="relative z-30 mx-auto flex w-full max-w-[1500px] flex-col items-center justify-center gap-5 py-[4vh] lg:block lg:min-h-[760px] lg:py-0">
         
         {/* LUIZ */}
-        <div className="text-left-part w-full text-center lg:absolute lg:inset-x-[5vw] lg:top-[14vh] lg:w-auto lg:text-left">
+        <div className="text-left-part relative z-10 w-full max-w-full text-center lg:absolute lg:left-0 lg:top-[15%] lg:w-[58%] lg:text-left">
           <span className="mb-2 block font-gloria text-xl tracking-normal text-[var(--color-accent-orange)] sm:mb-3 sm:text-2xl">
             {profile.role}
           </span>
-          <h1 className="font-clash text-[clamp(5.5rem,18vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] text-[var(--color-dark)] lg:text-[13rem] xl:text-[16rem]">
+          <h1 className="max-w-full font-clash text-[clamp(4.2rem,20vw,8rem)] font-extrabold uppercase leading-[0.86] tracking-normal text-[var(--color-dark)] sm:text-[clamp(5.4rem,17vw,9rem)] lg:text-[clamp(8rem,14vw,14rem)]">
             Luiz
           </h1>
         </div>
@@ -120,33 +116,35 @@ export function Hero() {
         {/* IMAGE */}
         <div
           data-cursor="hover"
-          className="hero-image-pill relative z-20 aspect-[3/4] w-[55vw] max-w-[280px] isolate overflow-hidden rounded-[40px] shadow-[0_40px_80px_rgba(0,0,0,0.15)] ring-1 ring-inset ring-white/10 lg:absolute lg:left-1/2 lg:top-[46%] lg:w-[28vw] lg:max-w-[400px] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:rounded-[56px]"
+          className="hero-image-anchor relative z-30 aspect-[4/5] w-[min(70vw,320px)] max-w-full lg:absolute lg:left-1/2 lg:top-[50%] lg:w-[min(32vw,480px)] lg:-translate-x-1/2 lg:-translate-y-1/2"
         >
-          <div className="absolute inset-0 z-10 bg-gradient-to-tr from-black/10 via-transparent to-white/5 mix-blend-overlay pointer-events-none" />
-          <Image
-            src="/profile.jpg"
-            alt="Luiz Messias"
-            fill
-            sizes="(max-width: 640px) 55vw, (max-width: 1024px) 28vw, 400px"
-            quality={95}
-            className="object-cover object-center transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110"
-            priority
-          />
+          <div className="hero-image-pill relative h-full w-full isolate overflow-hidden rounded-[36px] shadow-[0_34px_90px_rgba(0,0,0,0.18)] ring-1 ring-inset ring-white/15 sm:rounded-[44px] lg:rounded-[56px]">
+            <div className="absolute inset-0 z-10 bg-gradient-to-tr from-black/10 via-transparent to-white/5 mix-blend-overlay pointer-events-none" />
+            <Image
+              src="/profile-enhanced.jpg"
+              alt="Luiz Messias"
+              fill
+              sizes="(max-width: 640px) 70vw, (max-width: 1024px) 320px, 480px"
+              quality={100}
+              className="object-cover object-[54%_44%] transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.04]"
+              priority
+            />
+          </div>
         </div>
 
         {/* MESSIAS */}
-        <div className="text-right-part w-full text-center lg:absolute lg:inset-x-[5vw] lg:top-[14vh] lg:w-auto lg:text-right lg:mt-[42vh]">
-          <p className="font-clash text-[clamp(5.5rem,18vw,8rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] text-[var(--color-dark)] lg:text-[13rem] xl:text-[16rem]">
+        <div className="text-right-part relative z-10 w-full max-w-full text-center lg:absolute lg:bottom-[1.5%] lg:right-0 lg:w-full lg:text-center xl:bottom-[-11%] 2xl:bottom-[-14%]">
+          <p className="max-w-full font-clash text-[clamp(4.2rem,20vw,8rem)] font-extrabold uppercase leading-[0.86] tracking-normal text-[var(--color-dark)] sm:text-[clamp(5.4rem,17vw,9rem)] lg:text-[clamp(8rem,14vw,14rem)]">
             Messias
           </p>
         </div>
 
         {/* BUTTONS */}
-        <div className="hero-copy mt-4 flex w-full flex-col items-center gap-4 px-4 lg:absolute lg:right-[5vw] lg:top-24 lg:mt-0 lg:w-auto lg:flex-row lg:gap-3 lg:px-0">
+        <div className="hero-copy mt-4 flex w-full max-w-[25rem] flex-col items-center gap-3 px-1 lg:absolute lg:right-0 lg:top-10 lg:mt-0 lg:w-auto lg:max-w-none lg:flex-row lg:gap-3 lg:px-0">
           <Link
             href="/projetos"
             data-cursor="hover"
-            className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#111] px-6 font-general text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#ff6a00] lg:w-auto lg:px-5"
+            className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#111] px-5 text-center font-general text-[13px] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#ff6a00] sm:text-sm lg:w-auto lg:px-5"
           >
             <BriefcaseBusiness size={17} />
             Ver projetos
@@ -154,7 +152,7 @@ export function Hero() {
           <Link
             href="#contact"
             data-cursor="hover"
-            className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border border-black/10 bg-white/80 px-6 font-general text-sm font-semibold uppercase tracking-[0.14em] text-[#111] backdrop-blur transition-colors hover:border-[#ff6a00] hover:text-[#ff6a00] lg:w-auto lg:px-5"
+            className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border border-black/10 bg-white/80 px-5 text-center font-general text-[13px] font-semibold uppercase tracking-[0.12em] text-[#111] backdrop-blur transition-colors hover:border-[#ff6a00] hover:text-[#ff6a00] sm:text-sm lg:w-auto lg:px-5"
           >
             <Mail size={17} />
             Falar comigo

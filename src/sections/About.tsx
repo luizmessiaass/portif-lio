@@ -58,12 +58,12 @@ export function About() {
   const h2Words2 = ["para", "tirar", "sistemas", "do", "papel."];
 
   return (
-    <section id="about" className="relative w-full rounded-[40px] bg-[#ededed] px-[5vw] py-20 sm:py-32 sm:rounded-[60px]" ref={containerRef}>
+    <section id="about" className="relative w-full overflow-x-clip rounded-[32px] bg-[#ededed] px-[clamp(1rem,5vw,5rem)] py-20 sm:rounded-[60px] sm:py-32" ref={containerRef}>
       <div className="about-header relative z-0 mx-auto mb-10 sm:mb-16 flex w-full max-w-[1300px] flex-col items-start px-2 sm:px-6">
         <span className="about-label mb-6 block font-general text-[12px] font-semibold uppercase tracking-[0.2em] text-[#888]">
           / Como posso te ajudar
         </span>
-        <h2 className="max-w-[920px] overflow-hidden font-clash text-5xl font-semibold leading-[1.05] tracking-normal text-[var(--color-dark)] text-balance sm:text-6xl lg:text-7xl">
+        <h2 className="max-w-[920px] overflow-hidden font-clash text-[clamp(2.55rem,11vw,4rem)] font-semibold leading-[1.08] tracking-normal text-[var(--color-dark)] text-balance sm:text-6xl lg:text-7xl">
           {h2Words1.map((word) => (
             <span key={word} className="about-h2-word mr-[0.25em] inline-block">
               {word}
@@ -82,7 +82,7 @@ export function About() {
       <div className="mx-auto flex w-full max-w-[1300px] flex-col gap-10 px-2 pt-10 sm:px-6 lg:flex-row lg:gap-20">
         <div className="about-left relative w-full lg:w-[35%]">
           <div className="flex flex-col gap-6 lg:sticky lg:top-40">
-            <h3 className="about-h3 font-clash text-3xl font-semibold leading-tight tracking-normal text-[var(--color-dark)] text-balance md:text-5xl">
+            <h3 className="about-h3 font-clash text-[clamp(2rem,8vw,3rem)] font-semibold leading-tight tracking-normal text-[var(--color-dark)] text-balance md:text-5xl">
               Full stack com visão de produto, dados e negócio.
             </h3>
             <p className="about-body max-w-[460px] font-general text-[17px] leading-relaxed text-[#666] text-pretty sm:text-lg">
@@ -96,12 +96,12 @@ export function About() {
           </div>
         </div>
 
-        <div className="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-12 lg:w-[65%] lg:flex-col lg:gap-8 lg:overflow-visible lg:pb-[10vh] hide-scrollbar -mx-[5vw] px-[5vw] lg:mx-0 lg:px-0">
+        <div className="-mx-[5vw] flex w-auto max-w-[100vw] snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-[5vw] pb-12 lg:mx-0 lg:w-[65%] lg:max-w-none lg:flex-col lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-[10vh] hide-scrollbar">
           {capabilities.map((service, index) => (
             <div
               key={service.id}
               data-cursor="hover"
-              className="service-card flex min-h-[42vh] w-[85vw] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[32px] border border-black/5 bg-white p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 sm:w-[60vw] sm:p-12 lg:sticky lg:w-full lg:min-h-[38vh]"
+              className="service-card flex min-h-[420px] w-[84vw] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[28px] border border-black/5 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 sm:w-[60vw] sm:p-12 lg:sticky lg:w-full lg:min-h-[38vh]"
               style={{
                 top: `calc(15vh + ${index * 40}px)`,
                 zIndex: index + 1,
@@ -112,10 +112,10 @@ export function About() {
                   {service.accent}
                 </span>
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <span className="font-clash text-4xl font-medium tracking-normal text-[var(--color-dark)] sm:text-5xl">
+                  <span className="font-clash text-[clamp(2rem,9vw,3rem)] font-medium tracking-normal text-[var(--color-dark)] sm:text-5xl">
                     {service.id}
                   </span>
-                  <h3 className="break-words font-clash text-4xl font-semibold leading-tight tracking-normal text-[var(--color-dark)] sm:text-5xl">
+                  <h3 className="break-words font-clash text-[clamp(2rem,9vw,3rem)] font-semibold leading-tight tracking-normal text-[var(--color-dark)] sm:text-5xl">
                     {service.title}
                   </h3>
                 </div>

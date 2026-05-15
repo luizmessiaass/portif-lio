@@ -46,7 +46,7 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Início", href: "/#hero" },
-    { name: "Full Stack", href: "/#about" },
+    { name: "Sobre", href: "/#about" },
     { name: "Projetos", href: "/projetos" },
     { name: "Contato", href: "/#contact" },
   ];
@@ -64,7 +64,7 @@ export function Navbar() {
 
       <nav
         data-cursor="hover"
-        className={`fixed bottom-8 left-2 right-2 z-[9999] translate-x-0 backdrop-blur-xl rounded-full p-2 shadow-2xl flex items-center justify-center gap-1 transition-all duration-500 hover:scale-[1.02] sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:gap-4 ${
+        className={`fixed bottom-5 left-2 right-2 z-[9999] max-w-[calc(100vw-1rem)] translate-x-0 overflow-hidden rounded-full p-1.5 shadow-2xl backdrop-blur-xl transition-all duration-500 sm:bottom-8 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:p-2 sm:hover:scale-[1.02] ${
           scrolled
             ? "bg-[#111]/90 border border-white/10"
             : "bg-[#111]/70 border border-white/15"
@@ -74,32 +74,34 @@ export function Navbar() {
             : "pointer-events-none opacity-0 translate-y-5"
         }`}
       >
-        <div className="pl-4 text-[#888] text-xs font-general tabular-nums whitespace-nowrap hidden sm:block tracking-widest">
-          {time || "00:00:00"} SP
+        <div className="flex min-w-0 items-center justify-center gap-0.5 sm:gap-4">
+          <div className="hidden whitespace-nowrap pl-4 font-general text-xs tabular-nums tracking-widest text-[#888] sm:block">
+            {time || "00:00:00"} SP
+          </div>
+
+          <div className="hidden h-4 w-[1px] bg-white/10 sm:block" />
+
+          <div className="flex min-w-0 items-center gap-0.5 sm:gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="flex min-h-[42px] min-w-0 items-center rounded-full px-2.5 font-general text-[12px] font-medium text-white transition-all duration-300 hover:bg-white/5 hover:text-[#ff4d00] sm:min-h-[44px] sm:px-5 sm:py-2.5 sm:text-[13px]"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+
+          <div className="h-4 w-[1px] shrink-0 bg-white/10" />
+
+          <button
+            onClick={handleCopyEmail}
+            className="min-h-[42px] shrink-0 rounded-full bg-white px-3 font-general text-[12px] font-medium text-black transition-all duration-300 hover:bg-[#ff4d00] hover:text-white sm:min-h-[44px] sm:px-5 sm:py-2.5 sm:text-[13px]"
+          >
+            Email
+          </button>
         </div>
-
-        <div className="w-[1px] h-4 bg-white/10 hidden sm:block" />
-
-        <div className="flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="px-3 py-3 sm:px-5 sm:py-2.5 text-[13px] font-general font-medium rounded-full text-white transition-all duration-300 hover:bg-white/5 hover:text-[#ff4d00] min-h-[44px] flex items-center"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
-
-        <div className="w-[1px] h-4 bg-white/10" />
-
-        <button
-          onClick={handleCopyEmail}
-          className="px-4 py-3 sm:px-5 sm:py-2.5 text-[13px] font-general font-medium rounded-full text-black bg-white transition-all duration-300 hover:bg-[#ff4d00] hover:text-white min-h-[44px]"
-        >
-          Email
-        </button>
       </nav>
     </>
   );

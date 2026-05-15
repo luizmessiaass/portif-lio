@@ -16,7 +16,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 }
 
-html { -webkit-font-smoothing: antialiased; }
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@supports (overflow: clip) {
+  html { overflow-x: clip; }
+}
 
 /* Global custom selection */
 ::selection {
@@ -31,7 +40,32 @@ body {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
+  text-rendering: optimizeLegibility;
+}
+
+@supports (overflow: clip) {
+  body { overflow-x: clip; }
+}
+
+main, section, header, footer {
+  max-width: 100%;
+}
+
+img, svg, canvas, video {
+  max-width: 100%;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Hide standard cursor on desktop — custom GSAP cursor takes over */

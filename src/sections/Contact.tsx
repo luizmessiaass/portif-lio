@@ -66,7 +66,7 @@ export function Contact() {
   }, []);
 
   return (
-    <section ref={containerRef} id="contact" className="relative w-full px-[5vw] pt-20 sm:pt-32 pb-10 bg-[#111] rounded-t-[40px] sm:rounded-t-[60px] flex flex-col items-center text-white mt-10 sm:mt-20">
+    <section ref={containerRef} id="contact" className="relative mt-10 flex w-full flex-col items-center overflow-x-clip rounded-t-[32px] bg-[#111] px-[clamp(1rem,5vw,5rem)] pb-28 pt-20 text-white sm:mt-20 sm:rounded-t-[60px] sm:pb-10 sm:pt-32">
 
       <div className="w-full max-w-[1300px] h-[1px] bg-white/10 mb-12 sm:mb-20" />
 
@@ -77,7 +77,7 @@ export function Contact() {
 
         <h2
           ref={textRef}
-          className="font-clash font-semibold text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.9] text-white tracking-[-0.03em] mb-12 hover:text-[#ff6a00] transition-colors duration-500 cursor-pointer text-balance"
+          className="mb-12 cursor-pointer font-clash text-[clamp(2.8rem,13vw,8.5rem)] font-semibold leading-[0.94] tracking-normal text-white transition-colors duration-500 hover:text-[#ff6a00] text-balance sm:text-[clamp(4rem,8vw,8.5rem)]"
         >
           Precisa tirar um sistema do papel?
         </h2>
@@ -86,7 +86,7 @@ export function Contact() {
           ref={btnRef}
           data-cursor="hover"
           href="mailto:Luiz.messiaass@gmail.com"
-          className="group relative inline-flex items-center justify-center px-12 py-6 rounded-full bg-white text-[#111] font-general font-semibold text-xl overflow-hidden shadow-2xl"
+          className="group relative inline-flex min-h-[56px] w-full max-w-[25rem] items-center justify-center overflow-hidden rounded-full bg-white px-6 py-5 text-center font-general text-base font-semibold text-[#111] shadow-2xl sm:w-auto sm:max-w-none sm:px-12 sm:py-6 sm:text-xl"
         >
           <div className="absolute inset-0 bg-[#ff6a00] transition-transform duration-500 transform translate-y-[101%] group-hover:translate-y-0" />
           <span className="relative z-10 group-hover:text-white transition-colors duration-300">

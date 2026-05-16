@@ -357,16 +357,16 @@ export function Journey() {
 
       if (viewportCenter < linceCenter) {
         const p = progressBetween(introCenter, linceCenter);
-        weights = [1 - p, p, 0, 0];
+        weights = [1 - p, p, 0.1, 0]; // Adiciona um leve overlap das outras cores
       } else if (viewportCenter < bungeCenter) {
         const p = progressBetween(linceCenter, bungeCenter);
-        weights = [0, 1 - p, p, 0];
+        weights = [0, 1 - p, p, 0.1];
       } else if (viewportCenter < mapfitCenter) {
         const p = progressBetween(bungeCenter, mapfitCenter);
-        weights = [0, 0, 1 - p, p];
+        weights = [0.1, 0, 1 - p, p];
       } else {
         const p = progressBetween(mapfitCenter, outroCenter);
-        weights = [p, 0, 0, 1 - p];
+        weights = [p, 0.1, 0, 1 - p];
       }
 
       layers.forEach((layer, index) => {
@@ -461,8 +461,8 @@ export function Journey() {
           <h2 className="font-clash text-[clamp(2rem,7vw,5rem)] font-semibold leading-tight tracking-tight text-[#111] text-pretty">
             A Trajetória <span className="text-[#ff6a00] italic">Escrita em Código.</span>
           </h2>
-          <p className="mt-6 max-w-[750px] font-general text-base leading-relaxed text-[#555] text-pretty sm:text-lg">
-            Me chamo Luiz Henrique, tenho 24 anos, sou de Santa Catarina, e minha trajetória profissional nunca foi exatamente linear — e foi justamente essa combinação de contextos que moldou a forma como penso tecnologia hoje.
+          <p className="mt-6 max-w-[750px] font-general text-base leading-relaxed text-[#111] text-pretty sm:text-lg">
+            Me chamo Luiz Henrique, tenho 24 anos, sou de Santa Catarina, e minha trajetória profissional nunca foi exatamente linear e foi justamente essa combinação de contextos que moldou a forma como penso tecnologia hoje.
           </p>
         </div>
 

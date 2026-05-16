@@ -40,7 +40,7 @@ export function ProjectsArchive() {
             <span className="mb-5 block font-general text-[12px] font-semibold uppercase tracking-[0.2em] text-[#888]">
               / Cases full stack
             </span>
-            <h1 className="font-clash text-[clamp(2.75rem,12vw,8.5rem)] font-semibold leading-[0.96] tracking-normal text-[var(--color-dark)] text-balance sm:text-[clamp(4rem,8vw,8.5rem)]">
+            <h1 className="font-clash text-[clamp(2.5rem,8vw,8.5rem)] font-semibold leading-[0.96] tracking-normal text-[var(--color-dark)] text-pretty">
               Sistemas, dashboards e automações em detalhe.
             </h1>
           </div>

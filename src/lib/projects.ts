@@ -425,13 +425,53 @@ export const projects: Project[] = [
     featured: true,
     sourcePath: "NEXT-HUB-DE-ALUNOS",
     tone: "from-[#111827] via-[#365314] to-[#a3e635]",
-    coverImage: "/projects/next-hub-alunos/cover.png",
+    coverImage: "/projects/next-hub-alunos/login-cover.png",
     coverAlt: "Tela de login do Hub de Alunos",
     gallery: [
       {
-        src: "/projects/next-hub-alunos/cover.png",
+        src: "/projects/next-hub-alunos/login-cover.png",
         alt: "Login do Hub de Alunos",
         caption: "Tela de acesso com redirecionamento condicional por perfil: mentor ou aluno.",
+      },
+      {
+        src: "/projects/next-hub-alunos/mobile.png",
+        alt: "Login mobile do Hub de Alunos",
+        caption: "Validação mobile do login, capturado localmente para garantir que a capa respire bem em telas menores.",
+      },
+      {
+        src: "/projects/next-hub-alunos/02-mentor-carteira.png",
+        alt: "Carteira de alunos do mentor",
+        caption: "Visão do mentor com busca, filtros, cards de alunos, progresso, tarefas atrasadas e atividade recente.",
+      },
+      {
+        src: "/projects/next-hub-alunos/03-mentor-dashboard.png",
+        alt: "Dashboard do mentor no Hub de Alunos",
+        caption: "Dashboard executivo com alunos, tarefas, taxa de conclusão, distribuição por status/prioridade e tendência semanal.",
+      },
+      {
+        src: "/projects/next-hub-alunos/04-aluno-dashboard.png",
+        alt: "Dashboard do aluno",
+        caption: "Área do aluno com indicadores próprios, progresso geral e próximos prazos atribuídos pelo mentor.",
+      },
+      {
+        src: "/projects/next-hub-alunos/05-aluno-tarefas.png",
+        alt: "Kanban de tarefas do aluno",
+        caption: "Kanban do aluno separado por Pendente, Em andamento e Concluído, com prioridade, categoria e prazo.",
+      },
+      {
+        src: "/projects/next-hub-alunos/06-cs-alunos.png",
+        alt: "Painel de Customer Success",
+        caption: "Visão CS cross-grupo com filtros por grupo, status e prazo, destacando alunos atrasados e acompanhamento por grupo.",
+      },
+      {
+        src: "/projects/next-hub-alunos/07-cs-alertas.png",
+        alt: "Alertas de inatividade do CS",
+        caption: "Tela de alertas para grupos sem atendimento, parte da rotina de acompanhamento preventivo.",
+      },
+      {
+        src: "/projects/next-hub-alunos/08-configuracoes.png",
+        alt: "Configurações de notificações do Hub",
+        caption: "Preferências de notificações por e-mail, prazos próximos, inatividade e resumo semanal.",
       },
     ],
     overview:
@@ -454,11 +494,20 @@ export const projects: Project[] = [
         body: "Mentores criam, editam e excluem tarefas dos próprios alunos. Alunos só atualizam status e observação. RLS no Supabase garante que nenhuma regra de negócio dependa apenas do front-end.",
       },
       {
+        title: "Fluxo mentor/aluno",
+        body: "O login identifica a role do usuário e direciona para a área correta: mentor acessa carteira, alunos e tarefas; aluno acessa o próprio dashboard e atualiza apenas o que foi atribuído.",
+      },
+      {
+        title: "Tempo real",
+        body: "Supabase Realtime sustenta a experiência de acompanhamento ao vivo: quando o mentor cria demanda ou o aluno conclui tarefa, os dois lados enxergam a mudança sem depender de atualização manual.",
+      },
+      {
         title: "Confiabilidade",
         body: "O projeto tem runbook, seed de dados, testes de RLS, CI e suite E2E Playwright para cobrir fluxos críticos de mentor e aluno.",
       },
     ],
-    captureNote: "Telas internas exigem ambiente Supabase configurado com seed de dados.",
+    captureNote:
+      "Projeto rodado localmente em Next.js com modo demo para capturar mentor, aluno e CS sem banco de produção. A galeria cobre login, carteira, dashboards, Kanban, painel CS, alertas e configurações.",
   },
   {
     id: 5,
@@ -661,45 +710,111 @@ export const projects: Project[] = [
     category: "Sistemas",
     shortCategory: "Returns portal",
     description:
-      "Portal de devoluções para Saint Germann com backend, frontend, Nuvemshop, Correios, rate limiting, smoke tests e runbook de produção.",
-    impact: "Transforma troca/devolução em fluxo rastreável, com validações e integrações reais.",
-    stack: ["Node.js", "React", "Supabase", "Railway", "Nuvemshop", "Correios"],
-    examples: ["Busca de pedido real", "Solicitação de devolução", "Checklist de go-live e smoke tests"],
+      "Portal RMA para Saint Germain com fluxo público de trocas/devoluções, rastreio, painel administrativo, criação de reversa e integrações com Nuvemshop, Correios e backend dedicado.",
+    impact:
+      "Transforma um processo sensível de pós-venda em jornada guiada, auditável e pronta para operação, reduzindo atendimento manual e risco de erro em pedido, endereço, item e regra de devolução.",
+    stack: ["React", "Vite", "Node.js", "Express", "Supabase", "Nuvemshop", "Correios", "Railway"],
+    examples: ["Wizard público de devolução", "Login e painel admin RMA", "Checklist de go-live, secrets e smoke tests"],
     featured: false,
     sourcePath: "Projeto-devolucao",
     tone: "from-[#111111] via-[#4c1d1d] to-[#ef4444]",
     coverImage: "/projects/rma-saint-germann/cover.png",
-    coverAlt: "Logo Saint Germann usado no portal RMA",
+    coverAlt: "Tela de login administrativo do sistema RMA Saint Germain",
     gallery: [
       {
         src: "/projects/rma-saint-germann/cover.png",
-        alt: "Logo Saint Germann",
-        caption: "Asset de marca do portal de devoluções.",
+        alt: "Login administrativo do RMA Saint Germain",
+        caption: "Capa refeita com a tela real de login administrativo, rodando localmente com variáveis demo.",
+      },
+      {
+        src: "/projects/rma-saint-germann/portal.png",
+        alt: "Tela inicial do portal público de trocas e devoluções",
+        caption: "Fluxo público de abertura de solicitação, capturado sem acionar APIs reais.",
+      },
+      {
+        src: "/projects/rma-saint-germann/mobile.png",
+        alt: "Login administrativo do RMA em mobile",
+        caption: "Validação mobile do login para manter a capa responsiva no portfólio.",
+      },
+      {
+        src: "/projects/rma-saint-germann/03-rastrear.png",
+        alt: "Tela de rastreio de solicitação RMA",
+        caption: "Página para acompanhar protocolo de troca/devolução pelo cliente.",
+      },
+      {
+        src: "/projects/rma-saint-germann/04-admin-pedidos.png",
+        alt: "Lista administrativa de pedidos RMA",
+        caption: "Backoffice de pedidos com busca, filtros por status, tipo de solicitação e logística.",
+      },
+      {
+        src: "/projects/rma-saint-germann/05-dashboard.png",
+        alt: "Dashboard administrativo do RMA",
+        caption: "Indicadores do RMA com totais, solicitações por mês e últimas solicitações.",
+      },
+      {
+        src: "/projects/rma-saint-germann/07-retencao.png",
+        alt: "Tela de estratégia de retenção",
+        caption: "Configuração de ofertas para tentar converter devolução em vale-compras ou troca.",
+      },
+      {
+        src: "/projects/rma-saint-germann/08-aparencias.png",
+        alt: "Configuração visual do portal RMA",
+        caption: "Área de aparência para ajustar portal, e-mails, selo, cores e imagem do fluxo público.",
+      },
+      {
+        src: "/projects/rma-saint-germann/09-usuarios.png",
+        alt: "Usuários e regras de acesso do RMA",
+        caption: "Gestão de acessos com regras por visão: dashboard, pedidos, reversa, estatísticas, configurações e usuários.",
+      },
+      {
+        src: "/projects/rma-saint-germann/10-criar-reversa.png",
+        alt: "Criação manual de reversa RMA",
+        caption: "Wizard administrativo para criar reversa manual, troca de presente ou ruptura operacional.",
+      },
+      {
+        src: "/projects/rma-saint-germann/11-excecoes.png",
+        alt: "Fila de exceções operacionais RMA",
+        caption: "Triagem de exceções financeiras, Appmax, Bling e falhas operacionais com caminho para retry/reconciliação.",
+      },
+      {
+        src: "/projects/rma-saint-germann/13-ui-playground.png",
+        alt: "UI playground do sistema RMA",
+        caption: "Página de referência dos tokens, componentes base e estados visuais usados no admin.",
       },
     ],
     overview:
-      "Sistema RMA para operacionalizar trocas e devoluções com busca de pedidos, integração Nuvemshop, Correios, backend e frontend separados.",
+      "Sistema RMA para operacionalizar trocas, devoluções e assistência da Saint Germain. O frontend em React/Vite oferece portal público com wizard, rastreio de solicitação e área administrativa com dashboard, configurações, retenção, exceções, usuários, conta digital e criação de logística reversa. O backend concentra regras, integrações e endpoints operacionais.",
     challenge:
-      "Devolução costuma ser um processo sensível: precisa validar pedido, cliente, itens, endereço, regras e comunicação sem expor dados indevidos.",
+      "Devolução é um fluxo sensível porque envolve pedido, cliente, item, motivo, endereço, política comercial, etiqueta e comunicação. Sem sistema, a operação vira troca manual de mensagens, com pouca rastreabilidade e alto risco de erro.",
     solution:
-      "O projeto cria um fluxo com backend em Node, frontend em React/Vite, Supabase e runbook de deploy com smoke tests.",
+      "O projeto separa portal público e painel interno, usa Supabase para autenticação/admin, backend Node para regras e integrações, e mantém runbook de deploy com variáveis, rate limiting, smoke tests, checagem de secrets e validações de produção.",
     highlights: [
-      "Runbook de go-live e smoke tests de produção.",
-      "Integração com Nuvemshop e Correios.",
-      "Rate limiting e checagem de segredos não expostos.",
-      "Backend e frontend separados para deploy em Railway.",
+      "Wizard público para iniciar solicitação de troca/devolução sem login.",
+      "Área admin com login, dashboard, configurações, retenção, aparência, usuários e exceções.",
+      "Integrações previstas com Nuvemshop, Correios e rotas de logística reversa.",
+      "Runbook de go-live com smoke tests, auditoria de variáveis e checagem de exposição de secrets.",
+      "Backend e frontend separados para deploy independente em Railway.",
     ],
     detailSections: [
       {
-        title: "Confiabilidade",
-        body: "O runbook é especialmente forte: documenta variáveis, deploy, smoke tests, rate limiting e validação de exposição de secrets.",
+        title: "Fluxo público",
+        body: "O usuário entra pela central de trocas, passa por uma jornada guiada, informa dados do pedido e acompanha o processo sem precisar acessar o painel administrativo.",
       },
       {
-        title: "Fluxo",
-        body: "O usuário busca o pedido, seleciona itens, informa motivo/endereço e o sistema registra o processo para acompanhamento.",
+        title: "Operação interna",
+        body: "O admin concentra acompanhamento, configurações, exceções, retenção, criação de reversa e estatísticas, separando a experiência do cliente da rotina operacional.",
+      },
+      {
+        title: "Confiabilidade",
+        body: "O runbook é especialmente forte: documenta variáveis, deploy, smoke tests, rate limiting, CORS, validação de produção e checagem para não expor segredos.",
+      },
+      {
+        title: "Dependência externa",
+        body: "Para a captura do portfólio, o frontend foi rodado com `.env.local` demo no `envDir` correto, evitando banco de produção e mantendo login/portal público renderizáveis localmente.",
       },
     ],
-    captureNote: "A captura local do frontend retornou tela vazia; mantive o asset real de marca e a descrição técnica do runbook.",
+    captureNote:
+      "Projeto rodado localmente em Vite com sessão demo e APIs interceptadas para captura limpa. A galeria cobre login, portal público, rastreio, pedidos, dashboard, retenção, aparência, usuários, reversa, exceções e UI base.",
   },
   {
     id: 10,
@@ -715,7 +830,35 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "sdr-platform-elevate",
     tone: "from-[#111827] via-[#1e3a8a] to-[#38bdf8]",
-    gallery: [],
+    coverImage: "/projects/sdr-platform-elevate/01-login.png",
+    coverAlt: "Tela de login do SDR Platform Elevate",
+    gallery: [
+      {
+        src: "/projects/sdr-platform-elevate/01-login.png",
+        alt: "Login do SDR Platform Elevate",
+        caption: "Tela de login capturada localmente no frontend Next do monorepo.",
+      },
+      {
+        src: "/projects/sdr-platform-elevate/02-admin-dashboard.png",
+        alt: "Dashboard da equipe no SDR Platform Elevate",
+        caption: "Dashboard gerencial com ligações, sessões ativas, WhatsApp enviados, performance por SDR e gráfico de ligações por hora.",
+      },
+      {
+        src: "/projects/sdr-platform-elevate/03-leads.png",
+        alt: "Lista de leads do SDR Platform Elevate",
+        caption: "Gestão de leads com filtros, SDR responsável, status, tentativas de ligação e ações administrativas.",
+      },
+      {
+        src: "/projects/sdr-platform-elevate/04-sdr-dashboard.png",
+        alt: "Dashboard individual de SDR",
+        caption: "Visão individual do SDR com chamadas, taxa de atendimento, fila, pendências, sessão ativa e atividades recentes.",
+      },
+      {
+        src: "/projects/sdr-platform-elevate/05-mobile-dashboard.png",
+        alt: "Dashboard SDR Platform em mobile",
+        caption: "Captura mobile do dashboard, validando adaptação da interface em viewport estreita.",
+      },
+    ],
     overview:
       "Plataforma SDR com monorepo, frontend Next, backend Node, shared package, workers e módulos de leads/cadências.",
     challenge:
@@ -738,7 +881,7 @@ export const projects: Project[] = [
         body: "A organização em apps/backend, apps/frontend e packages/shared mostra preocupação com escala e manutenção.",
       },
     ],
-    captureNote: "Sem print útil capturado nesta rodada; o projeto depende de ambiente pnpm/turbo e banco.",
+    captureNote: "Projeto rodado localmente com frontend Next, pnpm e modo demo para liberar dashboard, leads e telas SDR sem backend, Prisma, Redis ou banco.",
   },
   {
     id: 11,
@@ -754,7 +897,40 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "ZENDESK",
     tone: "from-[#111111] via-[#134e4a] to-[#2dd4bf]",
-    gallery: [],
+    coverImage: "/projects/avantdesk/01-login.png",
+    coverAlt: "Tela de login do Avantdesk",
+    gallery: [
+      {
+        src: "/projects/avantdesk/01-login.png",
+        alt: "Login do Avantdesk",
+        caption: "Tela de autenticação do helpdesk, com identidade AvantDesk e formulário de acesso.",
+      },
+      {
+        src: "/projects/avantdesk/02-tickets.png",
+        alt: "Visualizações de tickets do Avantdesk",
+        caption: "Workspace de tickets com views, filas, status, prioridade, solicitante, grupo, atribuição e modo Play.",
+      },
+      {
+        src: "/projects/avantdesk/03-agent-dashboard.png",
+        alt: "Dashboard do agente Avantdesk",
+        caption: "Painel inicial do agente dentro da navegação de suporte.",
+      },
+      {
+        src: "/projects/avantdesk/04-analytics.png",
+        alt: "Relatórios do Avantdesk",
+        caption: "Rota de analytics/relatórios dentro da suíte de atendimento.",
+      },
+      {
+        src: "/projects/avantdesk/05-assistente.png",
+        alt: "Configuração de assistente IA no Avantdesk",
+        caption: "Configuração de assistente IA, uma das frentes de automação do helpdesk.",
+      },
+      {
+        src: "/projects/avantdesk/06-mobile-tickets.png",
+        alt: "Avantdesk mobile",
+        caption: "Workspace de tickets validado em viewport mobile.",
+      },
+    ],
     overview:
       "Avantdesk é uma suite modular de atendimento inspirada em estruturas de helpdesk, com web app, worker, services e infra separados.",
     challenge:
@@ -774,10 +950,10 @@ export const projects: Project[] = [
       },
       {
         title: "Estado da captura",
-        body: "A tentativa local parou em um import ausente de '@/lib/agent-profile'. Usei a documentação e estrutura do repositório como evidência técnica.",
+        body: "A captura local exigiu criar o helper ausente de perfil de agente e ativar um modo demo para sessão e tickets. Com isso, login, views, dashboard, analytics e IA renderizaram sem banco externo.",
       },
     ],
-    captureNote: "Sem print válido: o dev server compilou parcialmente e falhou em um import local ausente.",
+    captureNote: "Projeto rodado localmente com modo demo para Supabase e tickets, liberando as rotas principais sem acessar banco de produção.",
   },
   {
     id: 12,
@@ -793,7 +969,15 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "agent-debugger",
     tone: "from-[#18181b] via-[#4c1d95] to-[#c084fc]",
-    gallery: [],
+    coverImage: "/projects/agent-debugger/01-analysis-board.png",
+    coverAlt: "Prancha de análise técnica do Agent Debugger",
+    gallery: [
+      {
+        src: "/projects/agent-debugger/01-analysis-board.png",
+        alt: "Prancha técnica do Agent Debugger",
+        caption: "Prancha gerada a partir da análise local do monorepo, resumindo dashboard, pacotes, auditorias, playbooks, incidentes e kill switch.",
+      },
+    ],
     overview:
       "Sistema de QA e operabilidade para agentes, com dashboard, pacotes internos, alertas, fila, banco, monitoramento e runbooks.",
     challenge:
@@ -816,7 +1000,7 @@ export const projects: Project[] = [
         body: "A pasta docs/validation tem registros de build, smoke, domínio Vercel, RLS e auditorias.",
       },
     ],
-    captureNote: "Sem screenshot local nesta rodada; usei a estrutura e documentação técnica do monorepo.",
+    captureNote: "Projeto sem UI pública navegável nesta rodada; foi criada uma prancha visual de análise com base na estrutura real do monorepo.",
   },
   {
     id: 14,
@@ -832,7 +1016,15 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "leads-meetime",
     tone: "from-[#111827] via-[#713f12] to-[#f59e0b]",
-    gallery: [],
+    coverImage: "/projects/next-leads-meetime/01-analysis-board.png",
+    coverAlt: "Prancha de análise técnica do Lead Meetime Integrator",
+    gallery: [
+      {
+        src: "/projects/next-leads-meetime/01-analysis-board.png",
+        alt: "Prancha técnica do Lead Meetime Integrator",
+        caption: "Prancha gerada a partir da análise local do backend, resumindo entrada por webhook, normalização, fila BullMQ, worker e envio ao Meetime.",
+      },
+    ],
     overview:
       "O projeto resolve a lacuna entre captura de lead e entrada no CRM. Toda vez que um lead preenche um formulário (GHL ou Meta Ads — tráfego pago ou orgânico), a automação recebe, normaliza e envia automaticamente para o Meetime, com cadencia correta e log rastreavel. Foi implantado para diferentes empresas, adaptando credenciais e configurações por ambiente.",
     challenge:
@@ -856,7 +1048,7 @@ export const projects: Project[] = [
         body: "O mesmo mecanismo foi adaptado para diferentes empresas, cada uma com suas próprias credenciais GHL/Meetime e configurações de ambiente isoladas.",
       },
     ],
-    captureNote: "Automação backend sem interface visual.",
+    captureNote: "Automação backend sem interface visual; foi criada uma prancha técnica para representar o fluxo real do projeto.",
   },
   {
     id: 15,
@@ -872,43 +1064,100 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "CADASTRO-UNIFICADO",
     tone: "from-[#111827] via-[#475569] to-[#cbd5e1]",
-    coverImage: "/projects/cadastro-unificado/cover.png",
-    coverAlt: "Tela de login do Cadastro Unificado",
+    coverImage: "/projects/cadastro-unificado/05-prod-login-next.png",
+    coverAlt: "Tela de login em producao do Cadastro Unificado",
     gallery: [
       {
-        src: "/projects/cadastro-unificado/shot-1.png",
-        alt: "Login desktop do Cadastro Unificado",
-        caption: "Tela pública capturada localmente após redirect de autenticação.",
+        src: "/projects/cadastro-unificado/05-prod-login-next.png",
+        alt: "Login desktop NEXT do Cadastro Unificado",
+        caption: "Login em producao com seletor de ambiente NEXT e formulario de acesso.",
       },
       {
-        src: "/projects/cadastro-unificado/shot-mobile.png",
-        alt: "Login mobile do Cadastro Unificado",
-        caption: "Versão mobile capturada localmente.",
+        src: "/projects/cadastro-unificado/06-prod-login-elevate.png",
+        alt: "Login desktop ELEVATE do Cadastro Unificado",
+        caption: "Troca de ambiente para ELEVATE antes da autenticacao, mantendo a identidade visual separada.",
+      },
+      {
+        src: "/projects/cadastro-unificado/07-prod-next-dashboard.png",
+        alt: "Dashboard NEXT do Cadastro Unificado",
+        caption: "Dashboard NEXT em producao com totais de clientes, status, usuarios ativos, ultimos cadastros e atividades.",
+      },
+      {
+        src: "/projects/cadastro-unificado/07-prod-next-clientes.png",
+        alt: "Clientes NEXT do Cadastro Unificado",
+        caption: "Base de clientes NEXT com tabela, filtros, paginacao, status, empresa e dados comerciais.",
+      },
+      {
+        src: "/projects/cadastro-unificado/08-prod-next-clientes-modal.png",
+        alt: "Modal de novo cliente no Cadastro Unificado",
+        caption: "Fluxo de cadastro aberto em producao para mapear campos e comportamento sem salvar alteracoes.",
+      },
+      {
+        src: "/projects/cadastro-unificado/07-prod-next-usuarios.png",
+        alt: "Usuarios NEXT do Cadastro Unificado",
+        caption: "Painel administrativo NEXT com usuarios, funcoes, status, criacao e acoes de gerenciamento.",
+      },
+      {
+        src: "/projects/cadastro-unificado/07-prod-next-atividades.png",
+        alt: "Atividades NEXT do Cadastro Unificado",
+        caption: "Log NEXT com filtros por tipo de acao e periodo, exibindo edicoes, criacoes, exclusoes e vinculacoes.",
+      },
+      {
+        src: "/projects/cadastro-unificado/12-prod-elevate-dashboard.png",
+        alt: "Dashboard ELEVATE do Cadastro Unificado",
+        caption: "Dashboard ELEVATE autenticado com metricas isoladas do ambiente e dados de clientes ativos.",
+      },
+      {
+        src: "/projects/cadastro-unificado/12-prod-elevate-clientes.png",
+        alt: "Clientes ELEVATE do Cadastro Unificado",
+        caption: "Clientes ELEVATE em producao com registros, CNPJ, nicho, sistema, status e dados de contato.",
+      },
+      {
+        src: "/projects/cadastro-unificado/12-prod-elevate-usuarios.png",
+        alt: "Usuarios ELEVATE do Cadastro Unificado",
+        caption: "Gerenciamento de usuarios ELEVATE com perfis comercial/admin e controle de status.",
+      },
+      {
+        src: "/projects/cadastro-unificado/12-prod-elevate-atividades.png",
+        alt: "Atividades ELEVATE do Cadastro Unificado",
+        caption: "Historico ELEVATE mostrando auditoria de edicoes, exclusoes e vinculacoes por usuario.",
+      },
+      {
+        src: "/projects/cadastro-unificado/17-prod-mobile-elevate-dashboard.png",
+        alt: "Dashboard mobile ELEVATE do Cadastro Unificado",
+        caption: "Dashboard ELEVATE em viewport mobile para validar reorganizacao de cards e navegacao.",
+      },
+      {
+        src: "/projects/cadastro-unificado/18-prod-mobile-elevate-clientes.png",
+        alt: "Clientes mobile ELEVATE do Cadastro Unificado",
+        caption: "Lista de clientes ELEVATE em mobile, com cards compactos e acoes principais acessiveis.",
       },
     ],
     overview:
-      "Sistema base para cadastro, clientes, usuários, aprovações e notificações com Supabase e RLS.",
+      "Sistema em producao para cadastro, clientes, usuarios, aprovacoes, logs e gestao multiambiente entre NEXT e ELEVATE.",
     challenge:
-      "Negócios com múltiplos usuários precisam de um cadastro central e controle de aprovação para evitar dados duplicados e acesso indevido.",
+      "Operacoes com mais de uma empresa precisam manter clientes, usuarios e historico separados por ambiente, sem perder rastreabilidade centralizada.",
     solution:
-      "O app usa rotas de auth, dashboard, usuários, clientes e notificações, com migrations e testes para a camada de dados.",
+      "O app combina login com seletor de ambiente, dashboards por empresa, CRUD de clientes, administracao de usuarios e log de atividades auditavel.",
     highlights: [
-      "Auth com login, register e estados de conta.",
-      "RLS e migrations Supabase.",
-      "Gestão de usuários/admin.",
-      "Captura desktop e mobile da tela pública.",
+      "Login em producao validado nos ambientes NEXT e ELEVATE.",
+      "Dashboard com clientes totais, ativos/inativos, compartilhados, usuarios ativos e graficos.",
+      "Gestao de clientes com filtros, tabela responsiva, modal de novo cadastro e acoes por registro.",
+      "Administracao de usuarios por funcao, empresa e status.",
+      "Log de atividades com filtros por acao e periodo para auditoria operacional.",
+      "Capturas desktop e mobile feitas com Playwright diretamente na URL publicada.",
     ],
     detailSections: [
       {
-        title: "Base reutilizavel",
-        body: "O projeto serve como fundação para sistemas internos que precisam de login, clientes, aprovações e perfis.",
+        title: "Ambientes",
+        body: "O seletor de login alterna entre NEXT e ELEVATE, carregando dados, usuarios e metricas de cada operacao de forma independente.",
       },
       {
-        title: "Rotas protegidas",
-        body: "As telas internas redirecionam para login sem sessão, por isso a captura segura e a porta de entrada.",
+        title: "Mapa validado",
+        body: "Foram navegadas as rotas de dashboard, clientes, usuarios e atividades nos dois ambientes, alem do comportamento mobile das telas principais.",
       },
     ],
-    captureNote: "Rotas internas protegidas por autenticação; print capturado na tela pública.",
+    captureNote: "Projeto mapeado em producao com Playwright nos ambientes NEXT e ELEVATE; as capturas incluem login, dashboard, clientes, usuarios, atividades, modal e mobile.",
   },
 
   {
@@ -925,18 +1174,33 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "creative-dashboard-next",
     tone: "from-[#111827] via-[#831843] to-[#f472b6]",
-    coverImage: "/projects/creative-dashboard/shot-1.png",
+    coverImage: "/projects/creative-dashboard/01-login.png",
     coverAlt: "Tela de login do Creative Dashboard",
     gallery: [
       {
-        src: "/projects/creative-dashboard/shot-1.png",
+        src: "/projects/creative-dashboard/01-login.png",
         alt: "Tela de login do Creative Dashboard",
-        caption: "Tela pública capturada localmente.",
+        caption: "Tela de login capturada localmente, usada como capa do projeto.",
       },
       {
-        src: "/projects/creative-dashboard/shot-mobile.png",
-        alt: "Tela mobile do Creative Dashboard",
-        caption: "Captura mobile.",
+        src: "/projects/creative-dashboard/02-dashboard.png",
+        alt: "Dashboard principal do Creative Dashboard",
+        caption: "Dashboard principal por tenant, com estrutura de filtros, período, leitura de criativos e auditoria de entrega.",
+      },
+      {
+        src: "/projects/creative-dashboard/03-dashboard-7d.png",
+        alt: "Dashboard Creative em período de 7 dias",
+        caption: "Variação de período nos filtros, mostrando a estrutura de análise temporal.",
+      },
+      {
+        src: "/projects/creative-dashboard/04-metas.png",
+        alt: "Tela de metas do Creative Dashboard",
+        caption: "Módulo de metas por tenant, ligado à rotina de performance e planejamento.",
+      },
+      {
+        src: "/projects/creative-dashboard/05-mobile-dashboard.png",
+        alt: "Creative Dashboard mobile",
+        caption: "Dashboard capturado em viewport mobile.",
       },
     ],
     overview:
@@ -950,6 +1214,7 @@ export const projects: Project[] = [
       "Scripts de sync Meta spend.",
       "Auditorias de dados e gates de entrega.",
       "Base Supabase.",
+      "Capturas de login, dashboard, filtros, metas e mobile em modo demo.",
     ],
     detailSections: [
       {
@@ -958,49 +1223,143 @@ export const projects: Project[] = [
       },
       {
         title: "Captura",
-        body: "Sem credenciais, o acesso cai na tela pública de login, que foi usada como evidência visual.",
+        body: "Para o portfólio, a camada Supabase foi substituída por um modo demo local. Isso permitiu renderizar dashboard por tenant, período, metas e mobile sem puxar dados reais.",
       },
     ],
-    captureNote: "Rotas internas dependem de login; captura pública usada.",
+    captureNote: "Projeto rodado localmente com Supabase demo para liberar login, dashboard, filtros, metas e mobile sem credenciais reais.",
   },
   {
     id: 19,
     slug: "marketing-next",
     title: "Marketing Next",
-    category: "Design/Marketing",
-    shortCategory: "Marketing suite",
+    category: "Automações/IA",
+    shortCategory: "Creative intelligence",
     description:
-      "Projeto de marketing com frontend, fluxos em Python e Supabase para operações e automações ligadas a campanhas.",
-    impact: "Une interface e scripts para acelerar execução de marketing com dados.",
-    stack: ["Frontend", "Python", "Supabase", "Automation"],
-    examples: ["Fluxos Python", "Frontend de operação", "Base Supabase"],
+      "Suite de inteligência criativa para pesquisar perfis, hashtags, criativos da Meta Ads Library, vídeos e carrosséis, transformando referências em transcrições, hooks, cortes e readaptações com IA.",
+    impact:
+      "Tira a pesquisa criativa do modo manual: coleta conteúdo, interpreta peças, organiza achados e entrega insumos prontos para pauta, roteiro e adaptação de anúncios.",
+    stack: ["React", "Vite", "Supabase", "Python", "Apify", "Claude", "Groq Whisper", "OpenRouter"],
+    examples: ["Scrapers Instagram estático, carrossel e vídeo", "Ad Intelligence com Meta Ads Library", "Hooks, transcrições e readaptações"],
     featured: false,
     sourcePath: "MARKETING-NEXT",
     tone: "from-[#18181b] via-[#7e22ce] to-[#f0abfc]",
-    gallery: [],
+    coverImage: "/projects/marketing-next/cover.png",
+    coverAlt: "Tela de login do Marketing Next",
+    gallery: [
+      {
+        src: "/projects/marketing-next/cover.png",
+        alt: "Login do Marketing Next",
+        caption: "Capa refeita com a tela de login real, rodando localmente sem conexão com banco de produção.",
+      },
+      {
+        src: "/projects/marketing-next/splash.png",
+        alt: "Splash de entrada do Marketing Next",
+        caption: "Abertura visual da ferramenta antes do formulário de acesso.",
+      },
+      {
+        src: "/projects/marketing-next/02-inspiracao-perfis.png",
+        alt: "Tela de perfis de inspiração do Marketing Next",
+        caption: "Gestão de perfis de referência, filtros por período e entrada para novas coletas de inspiração.",
+      },
+      {
+        src: "/projects/marketing-next/03-inspiracao-novo-perfil.png",
+        alt: "Modal de novo perfil de inspiração",
+        caption: "Cadastro de perfil com foto, Instagram próprio, quantidade de posts e lista de perfis-alvo para scrapping.",
+      },
+      {
+        src: "/projects/marketing-next/04-scrapping-especifico.png",
+        alt: "Tela de scrapping específico do Instagram",
+        caption: "Fluxo para colar URLs específicas de posts/reels, escolher perfil e enviar prompt personalizado de análise.",
+      },
+      {
+        src: "/projects/marketing-next/05-hashtags.png",
+        alt: "Tela de coleta por hashtags do Instagram",
+        caption: "Coleta por hashtags com perfil destino, período, limite de posts e prompt opcional para enriquecer a análise.",
+      },
+      {
+        src: "/projects/marketing-next/06-transcritor-instagram.png",
+        alt: "Transcritor Instagram do Marketing Next",
+        caption: "Transcritor em lote para vídeos/reels com importação por perfil, fila de links, histórico e geração de roteiros.",
+      },
+      {
+        src: "/projects/marketing-next/07-readaptados.png",
+        alt: "Tela de posts readaptados do Marketing Next",
+        caption: "Área de acompanhamento dos conteúdos readaptados, com exportação, métricas e filtros por usuário.",
+      },
+      {
+        src: "/projects/marketing-next/08-ad-intelligence.png",
+        alt: "Dashboard de Ad Intelligence",
+        caption: "Módulo de monitoramento de concorrentes da Meta Ads Library com busca e cadastro de páginas.",
+      },
+      {
+        src: "/projects/marketing-next/09-ad-intelligence-novo-concorrente.png",
+        alt: "Modal de novo concorrente do Ad Intelligence",
+        caption: "Cadastro de concorrente por nome, Page ID e agrupamento opcional para organizar análise competitiva.",
+      },
+      {
+        src: "/projects/marketing-next/10-comparar-concorrentes.png",
+        alt: "Tela de comparação de concorrentes",
+        caption: "Comparação lado a lado de concorrentes para leitura de volume, padrões e performance criativa.",
+      },
+      {
+        src: "/projects/marketing-next/11-tiktok-fontes.png",
+        alt: "Fontes TikTok no Marketing Next",
+        caption: "Módulo TikTok com cadastro de perfis e base para coleta e leitura de conteúdos curtos.",
+      },
+      {
+        src: "/projects/marketing-next/12-tiktok-conteudos.png",
+        alt: "Conteúdos TikTok coletados",
+        caption: "Listagem centralizada dos posts coletados no TikTok, pronta para filtros e reaproveitamento criativo.",
+      },
+      {
+        src: "/projects/marketing-next/13-youtube-fontes.png",
+        alt: "Fontes YouTube no Marketing Next",
+        caption: "Cadastro e gestão de canais do YouTube para ampliar a pesquisa de referências fora do Instagram.",
+      },
+      {
+        src: "/projects/marketing-next/14-jobs.png",
+        alt: "Painel de jobs do Marketing Next",
+        caption: "Monitor de coletas e transcrições em andamento, com status, erros, progresso e atualização automática.",
+      },
+      {
+        src: "/projects/marketing-next/15-usuarios.png",
+        alt: "Tela de usuários e permissões do Marketing Next",
+        caption: "Administração de usuários com permissões por módulo: Instagram, TikTok, YouTube e Facebook Ads.",
+      },
+    ],
     overview:
-      "Conjunto de frontend e automações Python para rotinas de marketing, com base Supabase.",
+      "O Marketing Next combina um frontend operacional em React/Vite com fluxos Python para inteligência de conteúdo. A base cobre captura de posts estáticos, carrosséis e vídeos do Instagram, busca por hashtags, transcrição com Whisper, análise visual/semântica com modelos de IA, leitura de criativos da Meta Ads Library e geração de hooks/readaptações para transformar referência em material acionável.",
     challenge:
-      "Rotinas de marketing costumam misturar execução manual, dados e scripts isolados.",
+      "Times de marketing perdem tempo alternando entre plataformas, salvando referências manualmente, transcrevendo vídeos e tentando extrair padrões criativos sem histórico centralizado. O risco é produzir a partir de inspiração solta, sem contexto, sem ranking e sem reaproveitamento consistente.",
     solution:
-      "A pasta organiza frontend e fluxos Python, permitindo operar campanhas e automações a partir de uma base mais consistente.",
+      "A solução cria uma camada única para coletar, interpretar e reaproveitar conteúdo. Scrapers buscam posts e anúncios, serviços de IA descrevem imagens, transcrevem vídeos, extraem hooks e salvam resultados em tabelas estruturadas para consulta e operação pelo painel.",
     highlights: [
-      "Frontend Vite.",
-      "Fluxos em Python.",
-      "Supabase.",
-      "Automações de marketing.",
+      "Fluxos separados para Instagram estático, carrossel e vídeo.",
+      "Pipeline de Ad Intelligence com Apify, Meta Ads Library, download de mídia, transcrição e análise criativa.",
+      "Transcrição de vídeos com Groq Whisper e interpretação visual com OpenRouter/Claude.",
+      "Persistência em Supabase para posts, anúncios, análises, hooks e readaptações.",
+      "Rotas de webhook e endpoints dedicados para coleta, ranking e geração de roteiro.",
     ],
     detailSections: [
       {
-        title: "Observacao visual",
-        body: "A captura local retornou tela branca/default, entao não foi usada no portfólio.",
+        title: "Coleta Instagram",
+        body: "O backend separa fluxos para imagens estáticas, carrosséis e vídeos. Cada tipo passa por extração própria, enriquecimento com IA e armazenamento dos textos, transcrições e versões readaptadas.",
       },
       {
-        title: "Valor",
-        body: "O projeto entra como evidência de automação aplicada a marketing, mesmo sem screenshot final útil nesta rodada.",
+        title: "Ad Intelligence",
+        body: "A camada de anúncios usa Apify e Meta Ads Library para coletar criativos, baixar mídias, transcrever vídeos quando necessário e gerar análise sobre formato, promessa, gancho, prova e ângulo de campanha.",
+      },
+      {
+        title: "IA aplicada",
+        body: "Modelos diferentes aparecem onde fazem sentido: Whisper para áudio, visão para carrosséis/imagens e LLMs para transformar conteúdo bruto em hooks, cortes, insights e roteiros reutilizáveis.",
+      },
+      {
+        title: "Dependência externa",
+        body: "Para o portfólio, a captura foi feita com variáveis locais de demonstração, sem acessar banco de produção ou APIs pagas. As rotas internas continuam documentadas como parte da análise técnica.",
       },
     ],
-    captureNote: "Print local descartado por estar vazio/default.",
+    captureNote:
+      "Projeto rodado localmente em Vite. A galeria agora reúne login, splash e 14 telas internas capturadas em modo demo, liberando navegação sem banco de produção e sem acionar APIs pagas.",
   },
   {
     id: 20,
@@ -1016,23 +1375,38 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "LP-adscale",
     tone: "from-[#0f172a] via-[#0e7490] to-[#67e8f9]",
-    coverImage: "/projects/lp-adscale/shot-1.png",
+    coverImage: "/projects/lp-adscale/01-home-hero.png",
     coverAlt: "Landing page Adscale capturada localmente",
     gallery: [
       {
-        src: "/projects/lp-adscale/shot-1.png",
+        src: "/projects/lp-adscale/01-home-hero.png",
         alt: "Hero da LP Adscale",
-        caption: "Print real capturado rodando o projeto localmente.",
+        caption: "Hero principal capturado localmente em desktop.",
       },
       {
-        src: "/projects/lp-adscale/cover.png",
-        alt: "Asset de criativos da LP Adscale",
-        caption: "Imagem de serviço usada como asset visual da landing page.",
+        src: "/projects/lp-adscale/02-home-full.png",
+        alt: "Página inicial completa da LP Adscale",
+        caption: "Página inicial completa com proposta, provas, serviços e CTA.",
       },
       {
-        src: "/projects/lp-adscale/shot-mobile.png",
+        src: "/projects/lp-adscale/03-cases.png",
+        alt: "Página de cases da LP Adscale",
+        caption: "Rota de cases com prova social e estrutura de resultados.",
+      },
+      {
+        src: "/projects/lp-adscale/04-servicos.png",
+        alt: "Página de serviços da LP Adscale",
+        caption: "Rota de serviços explicando as frentes comerciais da oferta.",
+      },
+      {
+        src: "/projects/lp-adscale/05-diagnostico-cro.png",
+        alt: "Diagnóstico CRO da LP Adscale",
+        caption: "Página de diagnóstico CRO com formulário e argumento de conversão.",
+      },
+      {
+        src: "/projects/lp-adscale/06-mobile-home.png",
         alt: "LP Adscale mobile",
-        caption: "Versão mobile capturada localmente.",
+        caption: "Página inicial completa capturada em viewport mobile.",
       },
     ],
     overview:
@@ -1072,18 +1446,33 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "AVANTIA-LP",
     tone: "from-[#111111] via-[#312e81] to-[#a78bfa]",
-    coverImage: "/projects/avantia-lp/shot-1.png",
+    coverImage: "/projects/avantia-lp/01-home-hero.png",
     coverAlt: "Landing page AVANT IA capturada localmente",
     gallery: [
       {
-        src: "/projects/avantia-lp/shot-1.png",
+        src: "/projects/avantia-lp/01-home-hero.png",
         alt: "Hero da landing AVANT IA",
-        caption: "Print real capturado rodando a landing page localmente.",
+        caption: "Hero principal da AVANT IA com identidade escura e chamada de influência por tecnologia.",
       },
       {
-        src: "/projects/avantia-lp/cover.png",
-        alt: "Logo AVANT IA",
-        caption: "Asset de marca do projeto.",
+        src: "/projects/avantia-lp/02-home-full.png",
+        alt: "Página completa AVANT IA",
+        caption: "Página completa capturada localmente, cobrindo proposta, serviços, sobre, resultados e contato.",
+      },
+      {
+        src: "/projects/avantia-lp/03-servicos.png",
+        alt: "Seção de serviços AVANT IA",
+        caption: "Recorte da navegação para serviços com cards de oferta.",
+      },
+      {
+        src: "/projects/avantia-lp/04-resultados.png",
+        alt: "Seção de resultados AVANT IA",
+        caption: "Seção de resultados e prova de valor dentro da landing.",
+      },
+      {
+        src: "/projects/avantia-lp/05-mobile-home.png",
+        alt: "AVANT IA mobile",
+        caption: "Página completa capturada em viewport mobile.",
       },
     ],
     overview:
@@ -1123,28 +1512,38 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "mgassessorialp",
     tone: "from-[#111111] via-[#713f12] to-[#fbbf24]",
-    coverImage: "/projects/mgassessorialp/shot-1.png",
+    coverImage: "/projects/mgassessorialp/01-home-hero.png",
     coverAlt: "Landing page MG Assessoria capturada localmente",
     gallery: [
       {
-        src: "/projects/mgassessorialp/shot-1.png",
+        src: "/projects/mgassessorialp/01-home-hero.png",
         alt: "Hero da LP MG Assessoria",
-        caption: "Print real capturado rodando o projeto localmente.",
+        caption: "Hero principal capturado em desktop, com oferta, prova visual e CTA.",
       },
       {
-        src: "/projects/mgassessorialp/cover.png",
-        alt: "Collage visual da MG Assessoria",
-        caption: "Asset de hero/collage usado no projeto.",
+        src: "/projects/mgassessorialp/02-home-full.png",
+        alt: "Página completa da MG Assessoria LP",
+        caption: "Landing completa com marcas atendidas, pilares, serviços, clientes, fundador, FAQ e contato.",
       },
       {
-        src: "/projects/mgassessorialp/shot-1.jpg",
-        alt: "Board Hypea",
-        caption: "Asset visual de apoio e prova social.",
+        src: "/projects/mgassessorialp/03-servicos.png",
+        alt: "Serviços da MG Assessoria LP",
+        caption: "Seção de serviços com blocos comerciais e diferenciais.",
       },
       {
-        src: "/projects/mgassessorialp/shot-mobile.png",
+        src: "/projects/mgassessorialp/04-clientes.png",
+        alt: "Clientes da MG Assessoria LP",
+        caption: "Prova social com clientes, marcas e materiais de autoridade.",
+      },
+      {
+        src: "/projects/mgassessorialp/05-formulario.png",
+        alt: "Formulário da MG Assessoria LP",
+        caption: "Seção final de conversão com formulário e chamada para diagnóstico.",
+      },
+      {
+        src: "/projects/mgassessorialp/06-mobile-home.png",
         alt: "LP MG Assessoria mobile",
-        caption: "Versão mobile capturada localmente.",
+        caption: "Página completa em viewport mobile.",
       },
     ],
     overview:
@@ -1184,23 +1583,38 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "ELEVATE-LP",
     tone: "from-[#111111] via-[#be123c] to-[#fb7185]",
-    coverImage: "/projects/elevate-lp/cover.png",
+    coverImage: "/projects/elevate-lp/01-home-hero.png",
     coverAlt: "Layout desktop da LP Elevate",
     gallery: [
       {
-        src: "/projects/elevate-lp/cover.png",
-        alt: "Layout completo desktop Elevate",
-        caption: "Export visual da landing page desktop.",
+        src: "/projects/elevate-lp/01-home-hero.png",
+        alt: "Hero da LP Elevate",
+        caption: "Hero principal capturado localmente em desktop.",
       },
       {
-        src: "/projects/elevate-lp/shot-1.png",
-        alt: "Print TikTok orgânico",
-        caption: "Asset de campanha TikTok orgânico.",
+        src: "/projects/elevate-lp/02-home-full.png",
+        alt: "Página principal completa da Elevate LP",
+        caption: "Landing principal completa com oferta, formulário, serviços, planos, cases e depoimentos.",
       },
       {
-        src: "/projects/elevate-lp/shot-2.png",
-        alt: "Segundo print TikTok orgânico",
-        caption: "Material visual usado na landing.",
+        src: "/projects/elevate-lp/03-marketplace-trafego.png",
+        alt: "LP Marketplace Tráfego da Elevate",
+        caption: "Variação de campanha para marketplace e tráfego pago.",
+      },
+      {
+        src: "/projects/elevate-lp/04-tiktok-organico.png",
+        alt: "LP TikTok Orgânico da Elevate",
+        caption: "Variação de campanha para TikTok orgânico.",
+      },
+      {
+        src: "/projects/elevate-lp/05-tiktok-trafego.png",
+        alt: "LP TikTok Tráfego da Elevate",
+        caption: "Variação de campanha para TikTok com mídia paga.",
+      },
+      {
+        src: "/projects/elevate-lp/06-mobile-home.png",
+        alt: "LP Elevate mobile",
+        caption: "Página principal completa capturada em viewport mobile.",
       },
     ],
     overview:

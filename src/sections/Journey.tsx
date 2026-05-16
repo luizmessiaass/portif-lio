@@ -536,34 +536,37 @@ export function Journey() {
       const avantCard = sceneCards.find((card) => card.dataset.journeyScene === "5");
       const studioCenter = studioCard ? studioCard.getBoundingClientRect().top + studioCard.getBoundingClientRect().height * 0.5 : mapfitCenter + 1000;
       const avantCenter = avantCard ? avantCard.getBoundingClientRect().top + avantCard.getBoundingClientRect().height * 0.5 : studioCenter + 1000;
-      const introCenter = firstCard.top - window.innerHeight * 0.8;
-      const outroCenter = nextCard ? nextCard.top + nextCard.height * 0.6 : sectionRect.bottom;
+      const introCenter = sectionRect.top + window.innerHeight * 0.2;
+      const outroCenter = sectionRect.bottom - window.innerHeight * 0.2;
 
       const progressBetween = (from: number, to: number) => {
+        if (to <= from) return 1;
         const val = (viewportCenter - from) / (to - from);
         return Math.max(0, Math.min(1, val * val * (3 - 2 * val)));
       };
 
       let weights = [1, 0, 0, 0, 0, 0];
 
-      if (viewportCenter < linceCenter) {
+      if (viewportCenter < introCenter) {
+        weights = [1, 0, 0, 0, 0, 0];
+      } else if (viewportCenter < linceCenter) {
         const p = progressBetween(introCenter, linceCenter);
-        weights = [1 - p, p, 0.1, 0, 0, 0];
+        weights = [1 - p, p, 0, 0, 0, 0];
       } else if (viewportCenter < bungeCenter) {
         const p = progressBetween(linceCenter, bungeCenter);
-        weights = [0, 1 - p, p, 0.1, 0, 0];
+        weights = [0, 1 - p, p, 0, 0, 0];
       } else if (viewportCenter < mapfitCenter) {
         const p = progressBetween(bungeCenter, mapfitCenter);
-        weights = [0, 0, 1 - p, p, 0.1, 0];
+        weights = [0, 0, 1 - p, p, 0, 0];
       } else if (viewportCenter < studioCenter) {
         const p = progressBetween(mapfitCenter, studioCenter);
-        weights = [0, 0, 0, 1 - p, p, 0.1];
+        weights = [0, 0, 0, 1 - p, p, 0];
       } else if (viewportCenter < avantCenter) {
         const p = progressBetween(studioCenter, avantCenter);
-        weights = [0.1, 0, 0, 0, 1 - p, p];
+        weights = [0, 0, 0, 0, 1 - p, p];
       } else {
         const p = progressBetween(avantCenter, outroCenter);
-        weights = [p, 0.1, 0, 0, 0, 1 - p];
+        weights = [p, 0, 0, 0, 0, 1 - p];
       }
 
       layers.forEach((layer, index) => {
@@ -604,7 +607,7 @@ export function Journey() {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top center",
-        end: "bottom center",
+        end: "bottom 30%",
         scrub: 1,
       },
     });
@@ -698,13 +701,10 @@ export function Journey() {
         </div>
 
         {/* Timeline Path */}
-        <div className="relative">
+        <div className="relative pb-24 sm:pb-40">
           {/* Main Line Path */}
           <div className="absolute left-4 top-0 h-full w-[2px] bg-black/5 sm:left-1/2 sm:-translate-x-1/2">
             <div ref={lineRef} className="h-0 w-full origin-top" style={{ backgroundColor: "#d90416", transition: "background-color 0.2s" }} />
-            <div ref={orbRef} className="absolute -left-[4px] top-0 z-20 h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: "#d90416", transition: "border-color 0.2s" }} />
-          </div>
-
           {/* Milestone List */}
           <div className="space-y-16 sm:space-y-32">
             {milestones.map((item, i) => (

@@ -519,7 +519,7 @@ export const projects: Project[] = [
     sourcePath: "AVANT-CHAMADOS",
     tone: "from-[#05070a] via-[#111827] to-[#10d7be]",
     coverImage: "/projects/avant-chamados/desktop/17-login.png",
-    coverAlt: "Dashboard do AVANT Chamados com métricas de atendimento",
+    coverAlt: "Tela de login do AVANT Chamados",
     intro:
       "O AVANT Chamados é um sistema de service desk criado para dar forma a uma operação de suporte: entrada de solicitações, triagem, responsáveis, prioridade, SLA, histórico, projetos, permissões e gestão administrativa. A interface trabalha com uma estética escura e premium, aproximando ferramenta interna de produto comercial.",
     context:
@@ -631,7 +631,7 @@ export const projects: Project[] = [
     sourcePath: "Produção · elevax.net.br",
     tone: "from-[#111827] via-[#1d4ed8] to-[#60a5fa]",
     coverImage: "/projects/digisac-squad/prod/01-login.png",
-    coverAlt: "Inbox Elevax com dados de conversas mascarados",
+    coverAlt: "Tela de login do Elevax Inbox",
     gallery: [
       {
         src: "/projects/digisac-squad/prod/01-login.png",

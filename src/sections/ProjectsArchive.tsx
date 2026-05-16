@@ -94,7 +94,7 @@ export function ProjectsArchive() {
                     fill
                     sizes="(max-width: 768px) 90vw, 45vw"
                     quality={95}
-                    className="object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+                    className="object-contain transition-transform duration-[1.6s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
                   />
                 ) : (
                   <div className="absolute inset-0">

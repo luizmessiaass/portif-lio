@@ -10,25 +10,28 @@ export function Preloader({ onComplete }: { onComplete?: () => void }) {
   const [index, setIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const completedRef = useRef(false);
 
   useEffect(() => {
     const shouldSkip = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    completedRef.current = false;
+
+    const finish = () => {
+      if (completedRef.current) return;
+      completedRef.current = true;
+      setVisible(false);
+      onComplete?.();
+    };
+
+    const fallbackId = window.setTimeout(finish, shouldSkip ? 0 : 2400);
 
     if (shouldSkip) {
-      const timeoutId = window.setTimeout(() => {
-        setVisible(false);
-        onComplete?.();
-      }, 0);
-
-      return () => window.clearTimeout(timeoutId);
+      return () => window.clearTimeout(fallbackId);
     }
 
     const tl = gsap.timeline({
-      onComplete: () => {
-        setVisible(false);
-        onComplete?.();
-      },
+      onComplete: finish,
     });
 
     gsap.set(containerRef.current, { yPercent: 0, autoAlpha: 1 });
@@ -73,6 +76,7 @@ export function Preloader({ onComplete }: { onComplete?: () => void }) {
       });
 
     return () => {
+      window.clearTimeout(fallbackId);
       tl.kill();
     };
   }, [onComplete]);
@@ -82,7 +86,7 @@ export function Preloader({ onComplete }: { onComplete?: () => void }) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[99999] flex min-h-dvh items-center justify-center bg-[#0b0b0b] text-white"
+      className="preloader-shell pointer-events-none fixed inset-0 z-[99999] flex min-h-dvh items-center justify-center bg-[#0b0b0b] text-white"
     >
       <div
         ref={textRef}

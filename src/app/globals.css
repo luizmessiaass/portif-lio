@@ -59,6 +59,23 @@ img, svg, canvas, video {
   max-width: 100%;
 }
 
+@keyframes preloader-shell-exit {
+  0%, 72% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+    visibility: hidden;
+  }
+}
+
+.preloader-shell {
+  animation: preloader-shell-exit 2.15s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

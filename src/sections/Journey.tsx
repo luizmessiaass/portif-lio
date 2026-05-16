@@ -151,7 +151,7 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
-      <div className="grid min-h-[560px] grid-cols-[30%_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-[80px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-3 py-7 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,.12),transparent_34%),radial-gradient(circle_at_38%_18%,rgba(255,255,255,.14),transparent_22%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/14" />
@@ -198,7 +198,7 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
-      <div className="grid min-h-[560px] grid-cols-[30%_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-[80px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-3 py-7 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,.14),transparent_24%),linear-gradient(140deg,rgba(255,255,255,.12),transparent_36%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/18" />
@@ -265,7 +265,7 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
-      <div className="grid min-h-[560px] grid-cols-[30%_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-[80px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-3 py-7 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_92%,rgba(209,155,45,.42),transparent_30%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_32%)]" />
           <div className="pointer-events-none absolute -right-28 top-44 h-72 w-72 rounded-full border border-[#d7a23a]/55" />
@@ -326,12 +326,6 @@ export function Journey() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
-    const smoothstep = (value: number) => {
-      const x = clamp01(value);
-      return x * x * (3 - 2 * x);
-    };
-
     const paintScene = () => {
       const layers = gsap.utils.toArray<HTMLElement>(".journey-bg-scene");
       const sceneCards = gsap.utils.toArray<HTMLElement>("[data-journey-scene]");
@@ -351,10 +345,13 @@ export function Journey() {
       const linceCenter = linceCard.top + linceCard.height * 0.5;
       const bungeCenter = bungeCard.top + bungeCard.height * 0.5;
       const mapfitCenter = mapfitCard.top + mapfitCard.height * 0.5;
-      const introCenter = Math.min(window.innerHeight * 0.22, firstCard.top - window.innerHeight * 0.45);
-      const outroCenter = nextCard ? nextCard.top + nextCard.height * 0.42 : sectionRect.bottom - window.innerHeight * 0.2;
+      const introCenter = firstCard.top - window.innerHeight * 0.8;
+      const outroCenter = nextCard ? nextCard.top + nextCard.height * 0.6 : sectionRect.bottom;
 
-      const progressBetween = (from: number, to: number) => smoothstep((viewportCenter - from) / (to - from));
+      const progressBetween = (from: number, to: number) => {
+        const val = (viewportCenter - from) / (to - from);
+        return Math.max(0, Math.min(1, val * val * (3 - 2 * val)));
+      };
 
       let weights = [1, 0, 0, 0];
 
@@ -374,6 +371,7 @@ export function Journey() {
 
       layers.forEach((layer, index) => {
         layer.style.opacity = `${weights[index] ?? 0}`;
+        layer.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
       });
     };
 
@@ -437,10 +435,17 @@ export function Journey() {
       <div className="pointer-events-none absolute inset-0">
         <div className="sticky top-0 h-screen overflow-hidden">
           <div className="journey-bg-scene absolute inset-0 bg-white opacity-100" />
-          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,255,255,.2),transparent_24%),radial-gradient(circle_at_84%_26%,rgba(255,140,140,.22),transparent_28%),linear-gradient(135deg,#fff2f2_0%,#f1323f_42%,#c90015_100%)]" />
-          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_20%_18%,rgba(255,255,255,.24),transparent_24%),radial-gradient(circle_at_86%_78%,rgba(255,106,0,.3),transparent_34%),linear-gradient(135deg,#eef6ff_0%,#0868d8_36%,#7e2aa1_68%,#ff5a12_100%)]" />
-          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_78%_22%,rgba(215,162,58,.24),transparent_32%),radial-gradient(circle_at_18%_86%,rgba(215,162,58,.38),transparent_34%),linear-gradient(135deg,#fff8eb_0%,#4b3919_30%,#1a1a1a_62%,#090909_100%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(rgba(17,17,17,0.07)_0.7px,transparent_0.7px)] [background-size:14px_14px] opacity-45" />
+          
+          {/* Lince Scene - Auras de Vermelho */}
+          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_20%_20%,rgba(241,50,63,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(201,0,21,0.1),transparent_50%),white]" />
+          
+          {/* Bunge Scene - Auras de Azul/Roxo/Laranja */}
+          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_30%_30%,rgba(8,104,216,0.12),transparent_45%),radial-gradient(circle_at_70%_70%,rgba(255,90,18,0.1),transparent_40%),white]" />
+          
+          {/* Mapfit Scene - Auras de Ouro/Escuro */}
+          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_50%_50%,rgba(215,162,58,0.08),transparent_60%),radial-gradient(circle_at_10%_90%,rgba(26,26,26,0.05),transparent_40%),white]" />
+          
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(17,17,17,0.05)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
         </div>
       </div>
 

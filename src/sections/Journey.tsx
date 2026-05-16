@@ -323,7 +323,7 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#a84ccf]/15 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#a84ccf]/40 sm:rounded-[30px]">
-      <div className="grid grid-cols-[118px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#111111] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_68%,rgba(145,42,182,.5),transparent_28%),linear-gradient(180deg,rgba(255,255,255,.035),transparent_36%)]" />
           <div className="pointer-events-none absolute -right-28 top-44 h-72 w-72 rounded-full border border-[#d779ff]/55" />
@@ -337,12 +337,12 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
               alt="Studio 416X"
               width={606}
               height={76}
-              className="h-auto w-28 invert sm:w-36"
-              sizes="(max-width: 640px) 112px, 144px"
+              className="h-auto w-20 invert sm:w-36"
+              sizes="(max-width: 640px) 80px, 144px"
               unoptimized
             />
             <span className="h-1 w-11 rounded-full bg-[#a84ccf] sm:w-16" />
-            <div className="relative w-[112px] sm:w-[176px]">
+            <div className="relative w-[72px] sm:w-[176px]">
               <Image
                 src="/brands/revenda-calcados-logo-transparent.png"
                 alt="Revenda de Calçados"
@@ -402,7 +402,7 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0d2635]/10 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#0d2635]/30 sm:rounded-[30px]">
-      <div className="grid grid-cols-[118px_1fr] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-[95px_1fr] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_54%,rgba(255,255,255,.34),transparent_26%),radial-gradient(circle_at_84%_78%,rgba(132,185,211,.32),transparent_42%)]" />
           <div className="pointer-events-none absolute -right-28 top-52 h-72 w-72 rounded-full border border-white/38" />
@@ -415,8 +415,8 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
               alt="Next Ecommerce"
               width={325}
               height={286}
-              className="h-auto w-[86px] brightness-0 invert drop-shadow-[0_16px_30px_rgba(0,0,0,.22)] sm:w-[120px]"
-              sizes="(max-width: 640px) 86px, 120px"
+              className="h-auto w-[64px] brightness-0 invert drop-shadow-[0_16px_30px_rgba(0,0,0,.22)] sm:w-[120px]"
+              sizes="(max-width: 640px) 64px, 120px"
               unoptimized
             />
 
@@ -427,8 +427,8 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
               alt="Avant I.A"
               width={405}
               height={406}
-              className="h-16 w-16 object-contain drop-shadow-[0_12px_28px_rgba(255,255,255,.18)] sm:h-20 sm:w-20"
-              sizes="(max-width: 640px) 64px, 80px"
+              className="h-14 w-14 object-contain drop-shadow-[0_12px_28px_rgba(255,255,255,.18)] sm:h-20 sm:w-20"
+              sizes="(max-width: 640px) 56px, 80px"
               unoptimized
             />
 
@@ -439,8 +439,8 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
               alt="Elevate Ecom."
               width={276}
               height={131}
-              className="h-auto w-[92px] drop-shadow-[0_16px_34px_rgba(0,0,0,.22)] sm:w-[132px]"
-              sizes="(max-width: 640px) 92px, 132px"
+              className="h-auto w-[72px] drop-shadow-[0_16px_34px_rgba(0,0,0,.22)] sm:w-[132px]"
+              sizes="(max-width: 640px) 72px, 132px"
               unoptimized
             />
           </div>

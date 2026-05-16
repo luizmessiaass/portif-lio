@@ -124,8 +124,8 @@ function LinceLogo() {
       alt="Lince Tech"
       width={900}
       height={394}
-      className="h-auto w-28 sm:w-36"
-      sizes="(max-width: 640px) 112px, 144px"
+      className="h-auto w-32 sm:w-36"
+      sizes="(max-width: 640px) 128px, 144px"
       unoptimized
     />
   );
@@ -151,7 +151,7 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
-      <div className="grid grid-cols-[65px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,.12),transparent_34%),radial-gradient(circle_at_38%_18%,rgba(255,255,255,.14),transparent_22%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/14" />
@@ -198,7 +198,7 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
-      <div className="grid grid-cols-[65px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,.14),transparent_24%),linear-gradient(140deg,rgba(255,255,255,.12),transparent_36%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/18" />
@@ -211,8 +211,8 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
               alt="Bunge"
               width={720}
               height={214}
-              className="h-auto w-24 sm:w-36"
-              sizes="(max-width: 640px) 96px, 144px"
+              className="h-auto w-28 sm:w-36"
+              sizes="(max-width: 640px) 112px, 144px"
               unoptimized
             />
             <span className="h-1 w-12 rounded-full bg-white/90 sm:w-16" />
@@ -221,8 +221,8 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
               alt="BRF"
               width={520}
               height={222}
-              className="h-auto w-20 sm:w-32"
-              sizes="(max-width: 640px) 80px, 128px"
+              className="h-auto w-24 sm:w-32"
+              sizes="(max-width: 640px) 96px, 128px"
               unoptimized
             />
           </div>
@@ -265,7 +265,7 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
-      <div className="grid grid-cols-[65px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_92%,rgba(209,155,45,.42),transparent_30%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_32%)]" />
           <div className="pointer-events-none absolute -right-28 top-44 h-72 w-72 rounded-full border border-[#d7a23a]/55" />
@@ -279,8 +279,8 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
               alt="Mapfit Group"
               width={900}
               height={325}
-              className="h-auto w-24 sm:w-36"
-              sizes="(max-width: 640px) 96px, 144px"
+              className="h-auto w-28 sm:w-36"
+              sizes="(max-width: 640px) 112px, 144px"
               unoptimized
             />
           </div>

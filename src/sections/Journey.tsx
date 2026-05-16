@@ -139,11 +139,11 @@ export function Journey() {
         { 
           opacity: 1, 
           y: 0, 
-          duration: 1,
+          duration: 0.8,
           ease: "power2.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 85%",
+            start: "top 90%",
             toggleActions: "play none none reverse"
           }
         }
@@ -156,96 +156,105 @@ export function Journey() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="journey" className="relative bg-white py-24 sm:py-32 selection:bg-[#ff6a00] selection:text-white overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="mb-24 sm:mb-32">
-          <div className="mb-8 flex items-center gap-3">
-            <div className="h-[1px] w-12 bg-black/20" />
-            <span className="font-general text-[12px] font-bold uppercase tracking-[0.2em] text-[#888]">
+    <section ref={sectionRef} id="journey" className="relative bg-white py-16 sm:py-32 selection:bg-[#ff6a00] selection:text-white overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Header Section */}
+        <div className="mb-16 sm:mb-32">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="h-[1px] w-8 sm:w-12 bg-black/20" />
+            <span className="font-general text-[10px] sm:text-[12px] font-bold uppercase tracking-[0.2em] text-[#888]">
               / Trajetória Profissional
             </span>
           </div>
-          <h2 className="font-clash text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[0.96] tracking-tight text-[#111]">
-            A Trajetória <br /> <span className="text-[#ff6a00]">(In)</span>comum.
+          <h2 className="font-clash text-[clamp(2rem,7vw,5rem)] font-semibold leading-tight tracking-tight text-[#111] text-pretty">
+            A Trajetória <span className="text-[#ff6a00] italic">Escrita em Código.</span>
           </h2>
-          <p className="mt-8 max-w-[800px] font-general text-lg leading-relaxed text-[#555]">
-            Me chamo Luiz Henrique, Tenho 24 anos, sou de Santa Catarina, e minha trajetória profissional nunca foi exatamente linear — e foi justamente essa combinação de contextos que moldou a forma como penso tecnologia hoje.
+          <p className="mt-6 max-w-[750px] font-general text-base sm:text-lg leading-relaxed text-[#555] text-pretty">
+            Me chamo Luiz Henrique, tenho 24 anos, sou de Santa Catarina, e minha trajetória profissional nunca foi exatamente linear — e foi justamente essa combinação de contextos que moldou a forma como penso tecnologia hoje.
           </p>
         </div>
 
+        {/* Timeline Path */}
         <div className="relative">
-          <div className="absolute left-6 top-0 h-full w-[2px] bg-black/5 sm:left-1/2 sm:-translate-x-1/2">
+          {/* Main Line Path */}
+          <div className="absolute left-4 top-0 h-full w-[2px] bg-black/5 sm:left-1/2 sm:-translate-x-1/2">
             <div ref={lineRef} className="h-0 w-full bg-[#ff6a00] origin-top" />
-            <div ref={orbRef} className="absolute -left-[4px] top-0 h-3 w-3 rounded-full bg-white border-2 border-[#ff6a00] shadow-[0_0_10px_rgba(255,106,0,0.5)] z-20" />
+            <div ref={orbRef} className="absolute -left-[4px] top-0 h-3 w-3 rounded-full bg-white border-2 border-[#ff6a00] shadow-[0_0_8px_rgba(255,106,0,0.4)] z-20" />
           </div>
 
-          <div className="space-y-24 sm:space-y-32">
+          {/* Milestone List */}
+          <div className="space-y-16 sm:space-y-32">
             {milestones.map((item, i) => (
               <div key={i} className={`relative flex flex-col sm:flex-row items-start ${
                 i % 2 === 0 ? "sm:flex-row-reverse" : ""
               }`}>
-                <div className="absolute left-6 z-10 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-[#ff6a00] bg-white sm:left-1/2" />
+                {/* Connector Marker */}
+                <div className="absolute left-4 z-10 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-[#ff6a00] bg-white sm:left-1/2" />
 
-                <div className="w-full sm:w-[45%] pl-16 sm:pl-0">
-                  <div className={`journey-card relative rounded-[32px] border ${
-                    item.type === 'cert-cluster' ? 'border-[#ff6a00]/10 bg-[#ff6a00]/5' : 'border-black/5 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.03)]'
-                  } p-6 sm:p-10 transition-all hover:border-[#ff6a00]/20`}>
+                {/* Content Card Container */}
+                <div className="w-full sm:w-[46%] pl-10 sm:pl-0">
+                  <div className={`journey-card relative rounded-[24px] sm:rounded-[32px] border ${
+                    item.type === 'cert-cluster' ? 'border-[#ff6a00]/10 bg-[#ff6a00]/5' : 'border-black/5 bg-white shadow-[0_15px_40px_rgba(0,0,0,0.02)]'
+                  } p-5 sm:p-10 transition-all hover:border-[#ff6a00]/20`}>
                     
-                    <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    {/* Card Header */}
+                    <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                       <div className="flex items-center gap-4">
-                        <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
+                        <div className={`flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl ${
                           item.type === 'cert-cluster' ? 'bg-[#ff6a00]/20 text-[#ff6a00]' : 'bg-[#fafafa] text-[#111]'
                         }`}>
-                          <item.icon size={24} strokeWidth={1.5} />
+                          <item.icon size={20} className="sm:w-6 sm:h-6" strokeWidth={1.5} />
                         </div>
                         <div>
-                          <span className="block font-general text-xs font-bold uppercase tracking-widest text-[#ff6a00]">
+                          <span className="block font-general text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#ff6a00]">
                             {item.subtitle}
                           </span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 font-general text-[11px] font-bold uppercase tracking-widest text-[#888]">
+                      <div className="flex items-center gap-2 font-general text-[10px] font-bold uppercase tracking-widest text-[#aaa]">
                         <Calendar size={12} />
                         {item.period}
                       </div>
                     </div>
 
-                    <h3 className="mb-4 font-clash text-2xl font-semibold text-[#111] sm:text-3xl">
+                    {/* Milestone Title */}
+                    <h3 className="mb-4 font-clash text-xl sm:text-3xl font-semibold text-[#111] leading-tight">
                       {item.title}
                     </h3>
 
+                    {/* Milestone Description or Certs */}
                     {item.type === 'job' ? (
                       <>
-                        <p className="font-general text-base leading-relaxed text-[#666]">
+                        <p className="font-general text-sm sm:text-base leading-relaxed text-[#666] text-pretty">
                           {item.description}
                         </p>
 
                         {item.impact && (
-                          <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-[#ff6a00]/5 px-5 py-2.5 border border-[#ff6a00]/10">
-                            <TrendingUp size={16} className="text-[#ff6a00]" />
-                            <span className="font-general text-sm font-bold text-[#ff6a00]">
+                          <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-[#ff6a00]/5 px-4 py-2 border border-[#ff6a00]/10">
+                            <TrendingUp size={14} className="text-[#ff6a00]" />
+                            <span className="font-general text-[11px] sm:text-xs font-bold text-[#ff6a00] uppercase tracking-tight">
                               {item.impact}
                             </span>
                           </div>
                         )}
 
-                        <div className="mt-8 flex flex-wrap gap-2">
+                        <div className="mt-6 flex flex-wrap gap-1.5">
                           {item.tech?.map((t) => (
-                            <span key={t} className="rounded-full bg-[#f5f5f5] px-3 py-1 font-general text-[10px] font-bold uppercase tracking-tight text-[#444]">
+                            <span key={t} className="rounded-full bg-[#f5f5f5] px-2.5 py-1 font-general text-[9px] font-bold uppercase tracking-tight text-[#666]">
                               {t}
                             </span>
                           ))}
                         </div>
                       </>
                     ) : (
-                      <div className="grid grid-cols-1 gap-3">
+                      <div className="grid grid-cols-1 gap-2.5">
                         {item.certs?.map((cert, idx) => (
-                          <div key={idx} className="flex items-center justify-between rounded-2xl bg-white/50 p-4 border border-black/5 hover:bg-white transition-colors">
-                            <div className="flex items-center gap-4">
-                              <div className="h-2 w-2 rounded-full" style={{ backgroundColor: cert.color }} />
-                              <span className="font-general text-sm font-medium text-[#444]">{cert.name}</span>
+                          <div key={idx} className="flex items-center justify-between rounded-xl bg-white/50 p-3 sm:p-4 border border-black/5 hover:bg-white transition-colors">
+                            <div className="flex items-center gap-3 sm:gap-4">
+                              <div className="h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: cert.color }} />
+                              <span className="font-general text-[12px] sm:text-sm font-medium text-[#444] leading-tight">{cert.name}</span>
                             </div>
-                            <span className="font-general text-[10px] font-bold text-[#999]">{cert.date}</span>
+                            <span className="font-general text-[9px] font-bold text-[#aaa] shrink-0">{cert.date}</span>
                           </div>
                         ))}
                       </div>
@@ -257,18 +266,18 @@ export function Journey() {
           </div>
         </div>
 
-        {/* Smooth Transition to Next Section */}
-        <div className="mt-48 pb-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-12 flex justify-center">
-              <div className="h-24 w-[2px] bg-gradient-to-b from-[#ff6a00] to-transparent" />
+        {/* Ending Vision Section */}
+        <div className="mt-32 sm:mt-48 pb-10">
+          <div className="mx-auto max-w-3xl text-center px-4">
+            <div className="mb-10 flex justify-center">
+              <div className="h-20 w-[2px] bg-gradient-to-b from-[#ff6a00] to-transparent" />
             </div>
             
-            <h3 className="font-clash text-4xl font-semibold text-[#111] sm:text-5xl">
+            <h3 className="font-clash text-3xl sm:text-5xl font-semibold text-[#111]">
               Visão de <span className="text-[#ff6a00]">Tech Lead</span>
             </h3>
             
-            <div className="mt-10 font-general text-lg leading-relaxed text-[#555]">
+            <div className="mt-8 font-general text-base sm:text-lg leading-relaxed text-[#555] text-pretty">
               <p>
                 Hoje, me vejo como um profissional em transição natural para uma atuação de <span className="text-[#111] font-bold">Tech Lead</span>: alguém que continua próximo ao código, mas que também pensa em arquitetura, produto, operação, pessoas e escala. 
               </p>

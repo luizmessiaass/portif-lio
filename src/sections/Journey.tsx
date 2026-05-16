@@ -151,8 +151,8 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
-      <div className="grid grid-cols-[80px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-3 py-7 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-[65px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,.12),transparent_34%),radial-gradient(circle_at_38%_18%,rgba(255,255,255,.14),transparent_22%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/14" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/12" />
@@ -169,16 +169,16 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
           </div>
         </aside>
 
-        <div className="min-w-0 px-4 py-8 sm:px-9 sm:py-12 lg:px-11">
+        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
           <p className="font-general text-[11px] font-bold uppercase tracking-[0.14em] text-[#ff4d00] sm:text-sm">
             {item.subtitle}
           </p>
-          <h3 className="mt-7 max-w-[420px] break-words font-clash text-[clamp(1.45rem,6.5vw,2.55rem)] font-semibold leading-[1.05] tracking-normal text-[#111] text-balance">
+          <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#ff4d00]" />
 
-          <p className="mt-8 font-general text-[13px] leading-[1.85] text-[#242424] text-pretty sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
@@ -198,8 +198,8 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
-      <div className="grid grid-cols-[80px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-3 py-7 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-[65px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,.14),transparent_24%),linear-gradient(140deg,rgba(255,255,255,.12),transparent_36%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/18" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/14" />
@@ -234,16 +234,16 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
           </div>
         </aside>
 
-        <div className="min-w-0 px-4 py-8 sm:px-9 sm:py-12 lg:px-11">
+        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
           <p className="font-general text-[11px] font-bold uppercase tracking-[0.14em] text-[#0c63c7] sm:text-sm">
             {item.subtitle}
           </p>
-          <h3 className="mt-7 max-w-[420px] break-words font-clash text-[clamp(1.45rem,6.5vw,2.55rem)] font-semibold leading-[1.05] tracking-normal text-[#111] text-balance">
+          <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#0c63c7] to-[#ff6a00]" />
 
-          <p className="mt-8 font-general text-[13px] leading-[1.85] text-[#242424] text-pretty sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
@@ -265,8 +265,8 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
-      <div className="grid grid-cols-[80px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-3 py-7 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-[65px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_92%,rgba(209,155,45,.42),transparent_30%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_32%)]" />
           <div className="pointer-events-none absolute -right-28 top-44 h-72 w-72 rounded-full border border-[#d7a23a]/55" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-[#d7a23a]/45" />
@@ -292,16 +292,16 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
           </div>
         </aside>
 
-        <div className="min-w-0 px-4 py-8 sm:px-9 sm:py-12 lg:px-11">
+        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
           <p className="font-general text-[11px] font-bold uppercase tracking-[0.14em] text-[#b88319] sm:text-sm">
             {item.subtitle}
           </p>
-          <h3 className="mt-7 max-w-[420px] break-words font-clash text-[clamp(1.45rem,6.5vw,2.55rem)] font-semibold leading-[1.05] tracking-normal text-[#111] text-balance">
+          <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#d7a23a]" />
 
-          <p className="mt-8 font-general text-[13px] leading-[1.85] text-[#242424] text-pretty sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
@@ -513,9 +513,9 @@ export function Journey() {
                       <MapfitFeaturedCard item={item} />
                     </div>
                   ) : (
-                    <div data-journey-scene="0" className={`journey-card relative rounded-[24px] border ${
+                    <div data-journey-scene="0" className={`journey-card relative rounded-[20px] border ${
                       item.type === "cert-cluster" ? "border-[#ff6a00]/10 bg-[#ff6a00]/5" : "border-black/5 bg-white shadow-[0_15px_40px_rgba(0,0,0,0.02)]"
-                    } p-5 transition-all hover:border-[#ff6a00]/20 sm:rounded-[32px] sm:p-10`}>
+                    } p-4 transition-all hover:border-[#ff6a00]/20 sm:rounded-[32px] sm:p-10`}>
                       {/* Card Header */}
                       <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center gap-4">

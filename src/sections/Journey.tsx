@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -195,7 +195,7 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d90416]/10 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] sm:rounded-[30px] hover:border-[#d90416]/30 transition-all duration-500">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d90416]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#d90416]/60 sm:rounded-[30px]">
       <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,.12),transparent_34%),radial-gradient(circle_at_38%_18%,rgba(255,255,255,.14),transparent_22%)]" />
@@ -253,7 +253,7 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0c63c7]/10 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] sm:rounded-[30px] hover:border-[#0c63c7]/30 transition-all duration-500">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0c63c7]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#ff4d00]/55 sm:rounded-[30px]">
       <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,.14),transparent_24%),linear-gradient(140deg,rgba(255,255,255,.12),transparent_36%)]" />
@@ -339,7 +339,7 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d7a23a]/15 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] sm:rounded-[30px] hover:border-[#d7a23a]/40 transition-all duration-500">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d7a23a]/40 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#d7a23a]/65 sm:rounded-[30px]">
       <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_92%,rgba(209,155,45,.42),transparent_30%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_32%)]" />
@@ -408,7 +408,7 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#a84ccf]/15 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#a84ccf]/40 sm:rounded-[30px]">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#a84ccf]/40 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#a84ccf]/65 sm:rounded-[30px]">
       <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#111111] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_68%,rgba(145,42,182,.5),transparent_28%),linear-gradient(180deg,rgba(255,255,255,.035),transparent_36%)]" />
@@ -506,7 +506,7 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0d2635]/10 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#0d2635]/30 sm:rounded-[30px]">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0d2635]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#4f7487]/65 sm:rounded-[30px]">
       <div className="grid grid-cols-[95px_1fr] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_54%,rgba(255,255,255,.34),transparent_26%),radial-gradient(circle_at_84%_78%,rgba(132,185,211,.32),transparent_42%)]" />
@@ -558,21 +558,37 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
         </aside>
 
         <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#f1f1f1] text-[#111] sm:h-14 sm:w-14">
-              <Image
-                src="/brands/avant-mark-transparent.png"
-                alt=""
-                width={405}
-                height={406}
-                className="h-6 w-6 object-contain sm:h-7 sm:w-7"
-                sizes="(max-width: 640px) 24px, 28px"
-                unoptimized
-              />
-            </div>
-            <p className="font-general text-[10px] font-bold uppercase tracking-[0.16em] text-[#ff6a00] sm:text-sm">
-              {item.subtitle}
-            </p>
+          <div className="mb-5">
+            <CompanyHeader
+              label={item.subtitle}
+              textClassName="text-[#ff6a00]"
+              logos={[
+                {
+                  src: "/brands/next-ecommerce-logo-transparent.png",
+                  width: 325,
+                  height: 286,
+                  imageClassName: "h-7 w-7 brightness-0 invert sm:h-8 sm:w-8",
+                  badgeClassName: "bg-[#06111a]",
+                  sizes: "(max-width: 640px) 28px, 32px",
+                },
+                {
+                  src: "/brands/avant-mark-transparent.png",
+                  width: 405,
+                  height: 406,
+                  imageClassName: "h-6 w-6 sm:h-7 sm:w-7",
+                  badgeClassName: "bg-[#eef4f3]",
+                  sizes: "(max-width: 640px) 24px, 28px",
+                },
+                {
+                  src: "/brands/elevate-ecom-logo-transparent.png",
+                  width: 276,
+                  height: 131,
+                  imageClassName: "h-auto w-9 sm:w-11",
+                  badgeClassName: "bg-[#07111b]",
+                  sizes: "(max-width: 640px) 36px, 44px",
+                },
+              ]}
+            />
           </div>
 
           <div className="mb-6 flex items-center gap-2 font-general text-[10px] font-bold uppercase tracking-widest text-[#8a8a8a] sm:text-xs">
@@ -614,23 +630,21 @@ export function Journey() {
   const sectionRef = useRef<HTMLElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const orbRef = useRef<HTMLDivElement>(null);
+  const colorTrailRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const paintScene = () => {
-      const layers = gsap.utils.toArray<HTMLElement>(".journey-bg-scene");
       const sceneCards = gsap.utils.toArray<HTMLElement>("[data-journey-scene]");
 
-      if (!sectionRef.current || layers.length === 0 || sceneCards.length === 0) return;
+      if (!sectionRef.current || sceneCards.length === 0) return;
 
       const viewportCenter = window.innerHeight * 0.5;
       const sectionRect = sectionRef.current.getBoundingClientRect();
-      const firstCard = sceneCards[0].getBoundingClientRect();
       const linceCard = sceneCards.find((card) => card.dataset.journeyScene === "1")?.getBoundingClientRect();
       const bungeCard = sceneCards.find((card) => card.dataset.journeyScene === "2")?.getBoundingClientRect();
       const mapfitCard = sceneCards.find((card) => card.dataset.journeyScene === "3")?.getBoundingClientRect();
-      const nextCard = sceneCards.find((card) => card.dataset.journeyScene === "0")?.getBoundingClientRect();
 
       if (!linceCard || !bungeCard || !mapfitCard) return;
 
@@ -674,10 +688,7 @@ export function Journey() {
         weights = [p, 0, 0, 0, 0, 1 - p];
       }
 
-      layers.forEach((layer, index) => {
-        const finalWeight = index === 0 ? weights[index] : (weights[index] ?? 0) * 0.6;
-        layer.style.opacity = `${finalWeight}`;
-      });
+      
 
       const colors = [
         { r: 217, g: 4, b: 22 },    // 0: Vermelho (Início)
@@ -718,6 +729,7 @@ export function Journey() {
 
     tl.to(lineRef.current, { height: "100%", ease: "none" }, 0);
     tl.to(orbRef.current, { top: "100%", ease: "none" }, 0);
+    tl.to(colorTrailRef.current, { clipPath: "inset(0 0 0% 0)", ease: "none" }, 0);
 
     const cards = gsap.utils.toArray<HTMLElement>(".journey-card");
     cards.forEach((card) => {
@@ -764,28 +776,10 @@ export function Journey() {
 
   return (
     <section ref={sectionRef} id="journey" className="relative overflow-hidden bg-white py-16 selection:bg-[#ff6a00] selection:text-white sm:py-32">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="sticky top-0 h-screen overflow-hidden">
-          <div className="journey-bg-scene absolute inset-0 bg-white opacity-100" />
-          
-          {/* Lince Scene - Auras de Vermelho */}
-          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_20%_30%,rgba(217,4,22,0.22),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(138,0,10,0.18),transparent_60%),white]" />
-          
-          {/* Bunge Scene - Auras de Azul/Roxo/Laranja */}
-          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_30%_30%,rgba(8,104,216,0.12),transparent_45%),radial-gradient(circle_at_70%_70%,rgba(255,90,18,0.1),transparent_40%),white]" />
-          
-          {/* Mapfit Scene - Auras de Ouro/Escuro */}
-          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_50%_50%,rgba(215,162,58,0.08),transparent_60%),radial-gradient(circle_at_10%_90%,rgba(26,26,26,0.05),transparent_40%),white]" />
-          
-          {/* Studio Scene - Auras de Roxo */}
-          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_70%_30%,rgba(168,76,207,0.12),transparent_50%),radial-gradient(circle_at_30%_80%,rgba(116,31,154,0.1),transparent_40%),white]" />
-          
-          {/* Avant Scene - Auras Laranja/Escuro */}
-          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_30%_60%,rgba(255,106,0,0.12),transparent_50%),radial-gradient(circle_at_70%_40%,rgba(13,38,53,0.1),transparent_40%),white]" />
-          
-          <div className="absolute inset-0 bg-[radial-gradient(rgba(17,17,17,0.05)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
-        </div>
-      </div>
+      
+
+      {/* Grid Pattern global de fundo */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(17,17,17,0.05)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
 
       <div className="container relative mx-auto px-4 sm:px-6">
         {/* Header Section */}
@@ -807,9 +801,23 @@ export function Journey() {
         {/* Timeline Path */}
         <div className="relative pb-24 sm:pb-40">
           {/* Main Line Path */}
-          <div className="absolute left-4 top-0 h-full w-[2px] bg-black/5 sm:left-1/2 sm:-translate-x-1/2">
+          <div className="absolute left-4 top-0 h-full w-[2px] bg-black/5 sm:left-1/2 sm:-translate-x-1/2 z-20">
             <div ref={lineRef} className="h-0 w-full origin-top" style={{ backgroundColor: "#d90416" }} />
             <div ref={orbRef} className="absolute -left-[4px] top-0 z-20 h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: "#d90416" }} />
+          </div>
+
+          {/* COLOR TRAIL MASK */}
+          <div ref={colorTrailRef} className="absolute inset-0 pointer-events-none z-0 overflow-hidden" style={{ clipPath: "inset(0 0 100% 0)" }}>
+             {/* Lince Aura */}
+             <div className="absolute top-[3%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(217,4,22,0.18)_0%,transparent_60%)] blur-[80px]" />
+             {/* Bunge Aura */}
+             <div className="absolute top-[20%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(12,99,199,0.15)_0%,transparent_60%)] blur-[80px]" />
+             {/* Mapfit Aura */}
+             <div className="absolute top-[40%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(215,162,58,0.15)_0%,transparent_60%)] blur-[80px]" />
+             {/* Studio Aura */}
+             <div className="absolute top-[60%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(168,76,207,0.15)_0%,transparent_60%)] blur-[80px]" />
+             {/* Avant Aura */}
+             <div className="absolute top-[85%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(255,106,0,0.15)_0%,transparent_60%)] blur-[80px]" />
           </div>
 
           {/* Milestone List */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -146,6 +146,51 @@ function splitPeriod(period: string) {
   return period.split(/\s+[–-]\s+/);
 }
 
+type CompanyHeaderLogo = {
+  src: string;
+  width: number;
+  height: number;
+  imageClassName: string;
+  badgeClassName: string;
+  sizes: string;
+};
+
+function CompanyHeader({
+  label,
+  logos,
+  textClassName,
+}: {
+  label: string;
+  logos: CompanyHeaderLogo[];
+  textClassName: string;
+}) {
+  return (
+    <div className="flex min-w-0 items-center gap-3">
+      <div className={`flex shrink-0 ${logos.length > 1 ? "-space-x-2" : ""}`}>
+        {logos.map((logo) => (
+          <div
+            key={logo.src}
+            className={`grid h-11 w-11 place-items-center rounded-2xl shadow-[0_12px_28px_rgba(0,0,0,.08)] ring-1 ring-white/75 sm:h-14 sm:w-14 ${logo.badgeClassName}`}
+          >
+            <Image
+              src={logo.src}
+              alt=""
+              width={logo.width}
+              height={logo.height}
+              className={`object-contain ${logo.imageClassName}`}
+              sizes={logo.sizes}
+              unoptimized
+            />
+          </div>
+        ))}
+      </div>
+      <p className={`min-w-0 break-words font-general text-[10px] font-bold uppercase leading-snug tracking-[0.16em] sm:text-sm ${textClassName}`}>
+        {label}
+      </p>
+    </div>
+  );
+}
+
 function LinceFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
@@ -170,9 +215,20 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
         </aside>
 
         <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
-          <p className="font-general text-[11px] font-bold uppercase tracking-[0.14em] text-[#ff4d00] sm:text-sm">
-            {item.subtitle}
-          </p>
+          <CompanyHeader
+            label={item.subtitle}
+            textClassName="text-[#ff4d00]"
+            logos={[
+              {
+                src: "/brands/lince-logo-white-solid.png",
+                width: 900,
+                height: 394,
+                imageClassName: "h-auto w-8 sm:w-10",
+                badgeClassName: "bg-[#d90416]",
+                sizes: "(max-width: 640px) 32px, 40px",
+              },
+            ]}
+          />
           <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
@@ -235,9 +291,28 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
         </aside>
 
         <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
-          <p className="font-general text-[11px] font-bold uppercase tracking-[0.14em] text-[#0c63c7] sm:text-sm">
-            {item.subtitle}
-          </p>
+          <CompanyHeader
+            label={item.subtitle}
+            textClassName="text-[#0c63c7]"
+            logos={[
+              {
+                src: "/brands/bunge-logo-white.png",
+                width: 720,
+                height: 214,
+                imageClassName: "h-auto w-8 sm:w-10",
+                badgeClassName: "bg-[#005dcc]",
+                sizes: "(max-width: 640px) 32px, 40px",
+              },
+              {
+                src: "/brands/brf-logo-color-white.png",
+                width: 520,
+                height: 222,
+                imageClassName: "h-auto w-8 sm:w-10",
+                badgeClassName: "bg-[#ff4d00]",
+                sizes: "(max-width: 640px) 32px, 40px",
+              },
+            ]}
+          />
           <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
@@ -293,9 +368,20 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
         </aside>
 
         <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
-          <p className="font-general text-[11px] font-bold uppercase tracking-[0.14em] text-[#b88319] sm:text-sm">
-            {item.subtitle}
-          </p>
+          <CompanyHeader
+            label={item.subtitle}
+            textClassName="text-[#b88319]"
+            logos={[
+              {
+                src: "/brands/mapfit-logo-color.png",
+                width: 900,
+                height: 325,
+                imageClassName: "h-auto w-9 sm:w-11",
+                badgeClassName: "bg-[#171717]",
+                sizes: "(max-width: 640px) 36px, 44px",
+              },
+            ]}
+          />
           <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
@@ -363,9 +449,28 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
         </aside>
 
         <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
-          <p className="font-general text-[11px] font-bold uppercase tracking-[0.14em] text-[#9a35b8] sm:text-sm">
-            {item.subtitle}
-          </p>
+          <CompanyHeader
+            label={item.subtitle}
+            textClassName="text-[#9a35b8]"
+            logos={[
+              {
+                src: "/brands/studio416x-logo-transparent.png",
+                width: 606,
+                height: 76,
+                imageClassName: "h-auto w-9 sm:w-11",
+                badgeClassName: "bg-white",
+                sizes: "(max-width: 640px) 36px, 44px",
+              },
+              {
+                src: "/brands/revenda-calcados-logo-transparent.png",
+                width: 873,
+                height: 313,
+                imageClassName: "h-auto w-9 sm:w-11",
+                badgeClassName: "bg-[#111111]",
+                sizes: "(max-width: 640px) 36px, 44px",
+              },
+            ]}
+          />
           <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
@@ -572,7 +677,6 @@ export function Journey() {
       layers.forEach((layer, index) => {
         const finalWeight = index === 0 ? weights[index] : (weights[index] ?? 0) * 0.6;
         layer.style.opacity = `${finalWeight}`;
-        layer.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
       });
 
       const colors = [
@@ -665,7 +769,7 @@ export function Journey() {
           <div className="journey-bg-scene absolute inset-0 bg-white opacity-100" />
           
           {/* Lince Scene - Auras de Vermelho */}
-          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_20%_20%,rgba(241,50,63,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(201,0,21,0.1),transparent_50%),white]" />
+          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_20%_30%,rgba(217,4,22,0.22),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(138,0,10,0.18),transparent_60%),white]" />
           
           {/* Bunge Scene - Auras de Azul/Roxo/Laranja */}
           <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_30%_30%,rgba(8,104,216,0.12),transparent_45%),radial-gradient(circle_at_70%_70%,rgba(255,90,18,0.1),transparent_40%),white]" />
@@ -704,7 +808,10 @@ export function Journey() {
         <div className="relative pb-24 sm:pb-40">
           {/* Main Line Path */}
           <div className="absolute left-4 top-0 h-full w-[2px] bg-black/5 sm:left-1/2 sm:-translate-x-1/2">
-            <div ref={lineRef} className="h-0 w-full origin-top" style={{ backgroundColor: "#d90416", transition: "background-color 0.2s" }} />
+            <div ref={lineRef} className="h-0 w-full origin-top" style={{ backgroundColor: "#d90416" }} />
+            <div ref={orbRef} className="absolute -left-[4px] top-0 z-20 h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: "#d90416" }} />
+          </div>
+
           {/* Milestone List */}
           <div className="space-y-16 sm:space-y-32">
             {milestones.map((item, i) => (

@@ -26,7 +26,7 @@ export function ProjectsArchive() {
   }, [visibleProjects]);
 
   return (
-    <main className="relative min-h-dvh overflow-x-clip px-[clamp(1rem,5vw,5rem)] pb-36 pt-16 sm:pt-20">
+    <main className="relative min-h-dvh overflow-x-clip px-[clamp(1rem,5vw,5rem)] pb-40 pt-16 sm:pt-20">
       <section className="mx-auto flex w-full max-w-[1300px] flex-col gap-12 px-2 sm:px-6">
         <div className="flex flex-col gap-8 border-b border-black/10 pb-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-[760px]">
@@ -56,7 +56,7 @@ export function ProjectsArchive() {
           </div>
         </div>
 
-        <div className="sticky top-4 z-40 -mx-2 flex max-w-[calc(100vw-2rem)] gap-2 overflow-x-auto overscroll-x-contain px-2 py-3 backdrop-blur-sm sm:top-6 sm:max-w-none hide-scrollbar">
+        <div className="sticky top-4 z-40 -mx-2 flex max-w-[calc(100vw-2rem)] scroll-px-2 gap-2 overflow-x-auto overscroll-x-contain px-2 py-3 backdrop-blur-sm sm:top-6 sm:max-w-none hide-scrollbar">
           {projectFilters.map((filter) => {
             const isActive = activeFilter === filter;
 
@@ -66,7 +66,7 @@ export function ProjectsArchive() {
                 type="button"
                 data-cursor="hover"
                 onClick={() => setActiveFilter(filter)}
-                className={`min-h-[44px] shrink-0 rounded-full border px-5 font-general text-sm font-semibold transition-all ${
+                className={`min-h-[42px] shrink-0 rounded-full border px-4 font-general text-[13px] font-semibold transition-all sm:min-h-[44px] sm:px-5 sm:text-sm ${
                   isActive
                     ? "border-[#111] bg-[#111] text-white shadow-[0_14px_30px_rgba(0,0,0,0.18)]"
                     : "border-black/10 bg-white/70 text-[#444] hover:border-[#ff6a00] hover:text-[#ff6a00]"
@@ -84,7 +84,7 @@ export function ProjectsArchive() {
               href={`/projetos/${project.slug}`}
               key={project.id}
               data-cursor="hover"
-              className="project-card group flex min-h-[420px] flex-col overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:min-h-[480px]"
+              className="project-card group flex min-h-[390px] flex-col overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:min-h-[480px]"
             >
               <div className={`relative aspect-[1850/872] overflow-hidden bg-gradient-to-br ${project.tone}`}>
                 {project.coverImage ? (
@@ -119,7 +119,7 @@ export function ProjectsArchive() {
                 </span>
               </div>
 
-              <div className="flex flex-1 flex-col p-5 sm:p-8">
+              <div className="flex flex-1 flex-col p-5 pb-8 sm:p-8">
                 <div className="mb-6 flex items-start justify-between gap-5">
                   <div>
                     <span className="mb-3 inline-flex items-center gap-2 font-general text-xs font-semibold uppercase tracking-[0.18em] text-[#888]">

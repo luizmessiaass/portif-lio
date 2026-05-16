@@ -532,6 +532,10 @@ export function Journey() {
       const linceCenter = linceCard.top + linceCard.height * 0.5;
       const bungeCenter = bungeCard.top + bungeCard.height * 0.5;
       const mapfitCenter = mapfitCard.top + mapfitCard.height * 0.5;
+      const studioCard = sceneCards.find((card) => card.dataset.journeyScene === "4");
+      const avantCard = sceneCards.find((card) => card.dataset.journeyScene === "5");
+      const studioCenter = studioCard ? studioCard.getBoundingClientRect().top + studioCard.getBoundingClientRect().height * 0.5 : mapfitCenter + 1000;
+      const avantCenter = avantCard ? avantCard.getBoundingClientRect().top + avantCard.getBoundingClientRect().height * 0.5 : studioCenter + 1000;
       const introCenter = firstCard.top - window.innerHeight * 0.8;
       const outroCenter = nextCard ? nextCard.top + nextCard.height * 0.6 : sectionRect.bottom;
 
@@ -540,28 +544,60 @@ export function Journey() {
         return Math.max(0, Math.min(1, val * val * (3 - 2 * val)));
       };
 
-      let weights = [1, 0, 0, 0];
+      let weights = [1, 0, 0, 0, 0, 0];
 
       if (viewportCenter < linceCenter) {
         const p = progressBetween(introCenter, linceCenter);
-        weights = [1 - p, p, 0.1, 0]; // Adiciona um leve overlap das outras cores
+        weights = [1 - p, p, 0.1, 0, 0, 0];
       } else if (viewportCenter < bungeCenter) {
         const p = progressBetween(linceCenter, bungeCenter);
-        weights = [0, 1 - p, p, 0.1];
+        weights = [0, 1 - p, p, 0.1, 0, 0];
       } else if (viewportCenter < mapfitCenter) {
         const p = progressBetween(bungeCenter, mapfitCenter);
-        weights = [0.1, 0, 1 - p, p];
+        weights = [0, 0, 1 - p, p, 0.1, 0];
+      } else if (viewportCenter < studioCenter) {
+        const p = progressBetween(mapfitCenter, studioCenter);
+        weights = [0, 0, 0, 1 - p, p, 0.1];
+      } else if (viewportCenter < avantCenter) {
+        const p = progressBetween(studioCenter, avantCenter);
+        weights = [0.1, 0, 0, 0, 1 - p, p];
       } else {
-        const p = progressBetween(mapfitCenter, outroCenter);
-        weights = [p, 0.1, 0, 1 - p];
+        const p = progressBetween(avantCenter, outroCenter);
+        weights = [p, 0.1, 0, 0, 0, 1 - p];
       }
 
       layers.forEach((layer, index) => {
-        // Reduz a intensidade das camadas coloridas (índices 1, 2, 3) para não ofuscar o texto
         const finalWeight = index === 0 ? weights[index] : (weights[index] ?? 0) * 0.6;
         layer.style.opacity = `${finalWeight}`;
         layer.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
       });
+
+      const colors = [
+        { r: 217, g: 4, b: 22 },    // 0: Vermelho (Início)
+        { r: 217, g: 4, b: 22 },    // 1: Vermelho (Lince)
+        { r: 12, g: 99, b: 199 },   // 2: Azul (Bunge)
+        { r: 215, g: 162, b: 58 },  // 3: Dourado (Mapfit)
+        { r: 168, g: 76, b: 207 },  // 4: Roxo (Studio)
+        { r: 255, g: 106, b: 0 }    // 5: Laranja (Avant)
+      ];
+
+      let r = 0, g = 0, b = 0;
+      weights.forEach((w, i) => {
+        if (i < colors.length) {
+          r += w * colors[i].r;
+          g += w * colors[i].g;
+          b += w * colors[i].b;
+        }
+      });
+      const rgbColor = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+
+      if (lineRef.current) {
+        lineRef.current.style.backgroundColor = rgbColor;
+      }
+      if (orbRef.current) {
+        orbRef.current.style.borderColor = rgbColor;
+        orbRef.current.style.boxShadow = `0 0 12px rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, 0.4)`;
+      }
     };
 
     const tl = gsap.timeline({
@@ -634,6 +670,12 @@ export function Journey() {
           {/* Mapfit Scene - Auras de Ouro/Escuro */}
           <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_50%_50%,rgba(215,162,58,0.08),transparent_60%),radial-gradient(circle_at_10%_90%,rgba(26,26,26,0.05),transparent_40%),white]" />
           
+          {/* Studio Scene - Auras de Roxo */}
+          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_70%_30%,rgba(168,76,207,0.12),transparent_50%),radial-gradient(circle_at_30%_80%,rgba(116,31,154,0.1),transparent_40%),white]" />
+          
+          {/* Avant Scene - Auras Laranja/Escuro */}
+          <div className="journey-bg-scene absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_30%_60%,rgba(255,106,0,0.12),transparent_50%),radial-gradient(circle_at_70%_40%,rgba(13,38,53,0.1),transparent_40%),white]" />
+          
           <div className="absolute inset-0 bg-[radial-gradient(rgba(17,17,17,0.05)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
         </div>
       </div>
@@ -659,8 +701,8 @@ export function Journey() {
         <div className="relative">
           {/* Main Line Path */}
           <div className="absolute left-4 top-0 h-full w-[2px] bg-black/5 sm:left-1/2 sm:-translate-x-1/2">
-            <div ref={lineRef} className="h-0 w-full origin-top bg-[#ff6a00]" />
-            <div ref={orbRef} className="absolute -left-[4px] top-0 z-20 h-3 w-3 rounded-full border-2 border-[#ff6a00] bg-white shadow-[0_0_8px_rgba(255,106,0,0.4)]" />
+            <div ref={lineRef} className="h-0 w-full origin-top" style={{ backgroundColor: "#d90416", transition: "background-color 0.2s" }} />
+            <div ref={orbRef} className="absolute -left-[4px] top-0 z-20 h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: "#d90416", transition: "border-color 0.2s" }} />
           </div>
 
           {/* Milestone List */}
@@ -689,7 +731,7 @@ export function Journey() {
                 )}
 
                 {/* Connector Marker */}
-                <div className="absolute left-4 z-10 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-[#ff6a00] bg-white sm:left-1/2" />
+                <div className="absolute left-4 z-10 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-black/10 bg-white sm:left-1/2" />
 
                 {/* Content Card Container */}
                 <div className="relative z-10 w-full pl-10 sm:w-[46%] sm:pl-0">
@@ -706,11 +748,11 @@ export function Journey() {
                       <MapfitFeaturedCard item={item} />
                     </div>
                   ) : i === 3 ? (
-                    <div data-journey-scene="0">
+                    <div data-journey-scene="4">
                       <StudioFeaturedCard item={item} />
                     </div>
                   ) : i === 5 ? (
-                    <div data-journey-scene="0">
+                    <div data-journey-scene="5">
                       <AvantFeaturedCard item={item} />
                     </div>
                   ) : (

@@ -44,8 +44,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   return (
     <>
       <Navbar />
-      <main className="relative min-h-dvh overflow-x-clip px-[clamp(1rem,5vw,5rem)] pb-36 pt-16 sm:pt-20">
-        <article className="mx-auto flex w-full max-w-[1320px] flex-col gap-16 px-2 sm:px-6">
+      <main className="relative min-h-dvh overflow-x-clip px-[clamp(1rem,5vw,5rem)] pb-40 pt-16 sm:pt-20">
+        <article className="mx-auto flex w-full max-w-[1320px] flex-col gap-12 px-2 sm:gap-16 sm:px-6">
           <header className="flex flex-col gap-10 border-b border-black/10 pb-10">
             <Link
               href="/projetos"
@@ -62,16 +62,16 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   <Layers3 size={15} />
                   {project.category} / {project.shortCategory}
                 </span>
-                <h1 className="font-clash text-[clamp(2.75rem,13vw,9rem)] font-semibold leading-[0.96] tracking-normal text-[var(--color-dark)] text-balance sm:text-[clamp(4rem,9vw,9rem)]">
+                <h1 className="font-clash text-[clamp(2.7rem,12vw,9rem)] font-semibold leading-[0.98] tracking-normal text-[var(--color-dark)] text-balance sm:text-[clamp(4rem,9vw,9rem)]">
                   {project.title}
                 </h1>
               </div>
 
               <div className="flex flex-col gap-5">
-                <p className="font-general text-[18px] leading-relaxed text-[#555] text-pretty">
+                <p className="font-general text-[17px] leading-relaxed text-[#555] text-pretty sm:text-[18px]">
                   {project.description}
                 </p>
-                <p className="border-l-2 border-[#ff6a00] pl-4 font-general text-sm font-semibold uppercase tracking-[0.14em] text-[#111]">
+                <p className="border-l-2 border-[#ff6a00] pl-4 font-general text-[12px] font-semibold uppercase leading-relaxed tracking-[0.14em] text-[#111] sm:text-sm">
                   {project.impact}
                 </p>
               </div>
@@ -125,7 +125,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
 
             <div className="flex flex-col gap-8">
-              <p className="font-general text-[clamp(1.18rem,5vw,2.15rem)] leading-[1.4] text-[#222] text-pretty sm:leading-[1.35]">
+              <p className="font-general text-[clamp(1.08rem,4.8vw,2.15rem)] leading-[1.45] text-[#222] text-pretty sm:leading-[1.35]">
                 {intro}
               </p>
 
@@ -165,7 +165,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <span className="mb-4 block font-general text-[12px] font-semibold uppercase tracking-[0.18em] text-[#888]">
                   Contexto do projeto
                 </span>
-                <p className="font-general text-[18px] leading-relaxed text-[#444] text-pretty">
+                <p className="font-general text-[16px] leading-relaxed text-[#444] text-pretty sm:text-[18px]">
                   {context}
                 </p>
               </article>
@@ -174,7 +174,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <span className="mb-4 block font-general text-[12px] font-semibold uppercase tracking-[0.18em] text-[#888]">
                   Como nasceu
                 </span>
-                <p className="font-general text-[18px] leading-relaxed text-[#444] text-pretty">
+                <p className="font-general text-[16px] leading-relaxed text-[#444] text-pretty sm:text-[18px]">
                   {origin}
                 </p>
               </article>
@@ -184,7 +184,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   <span className="mb-3 block font-general text-[12px] font-semibold uppercase tracking-[0.18em] text-[#888]">
                     Problema
                   </span>
-                  <p className="font-general text-[16px] leading-relaxed text-[#555]">
+                  <p className="font-general text-[15px] leading-relaxed text-[#555] sm:text-[16px]">
                     {project.challenge}
                   </p>
                 </article>
@@ -192,7 +192,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   <span className="mb-3 block font-general text-[12px] font-semibold uppercase tracking-[0.18em] text-[#888]">
                     Solução
                   </span>
-                  <p className="font-general text-[16px] leading-relaxed text-[#555]">
+                  <p className="font-general text-[15px] leading-relaxed text-[#555] sm:text-[16px]">
                     {project.solution}
                   </p>
                 </article>
@@ -236,7 +236,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                         className="object-contain"
                       />
                     </div>
-                    <figcaption className="border-t border-black/5 p-5 font-general text-sm leading-relaxed text-[#555] sm:p-6">
+                    <figcaption className="border-t border-black/5 p-5 font-general text-[13px] leading-relaxed text-[#555] sm:p-6 sm:text-sm">
                       {image.caption}
                     </figcaption>
                   </figure>

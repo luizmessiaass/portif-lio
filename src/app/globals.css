@@ -20,6 +20,7 @@ html {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  scroll-padding-bottom: 7rem;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -178,6 +179,18 @@ select {
 button, a, [role="button"] {
   touch-action: manipulation;
 }
+
+.line-clamp-2,
+.line-clamp-3,
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 { -webkit-line-clamp: 2; line-clamp: 2; }
+.line-clamp-3 { -webkit-line-clamp: 3; line-clamp: 3; }
+.line-clamp-4 { -webkit-line-clamp: 4; line-clamp: 4; }
 
 @media (prefers-reduced-motion: reduce) {
   .orb { animation: none; }

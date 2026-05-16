@@ -89,7 +89,7 @@ export function Projects() {
             href={`/projetos/${project.slug}`}
             key={project.id}
             data-cursor="hover"
-            className="project-item group flex min-h-[470px] flex-col rounded-[28px] border border-black/5 bg-white p-3 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:p-4 lg:min-h-[500px]"
+            className="project-item group flex min-h-[430px] flex-col rounded-[28px] border border-black/5 bg-white p-3 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:p-4 lg:min-h-[500px]"
           >
             <div className={`relative mb-6 aspect-[1850/872] overflow-hidden rounded-[22px] bg-gradient-to-br ${project.tone} ring-1 ring-black/5`}>
               {project.coverImage ? (

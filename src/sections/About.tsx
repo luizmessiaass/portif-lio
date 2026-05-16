@@ -96,12 +96,12 @@ export function About() {
           </div>
         </div>
 
-        <div className="-mx-[5vw] flex w-auto max-w-[100vw] snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-[5vw] pb-12 lg:mx-0 lg:w-[65%] lg:max-w-none lg:flex-col lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-[10vh] hide-scrollbar">
+        <div className="-mx-[5vw] flex w-auto max-w-[100vw] snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-[5vw] pb-28 lg:mx-0 lg:w-[65%] lg:max-w-none lg:flex-col lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-[10vh] hide-scrollbar">
           {capabilities.map((service, index) => (
             <div
               key={service.id}
               data-cursor="hover"
-              className="service-card flex min-h-[420px] w-[84vw] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[28px] border border-black/5 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 sm:w-[60vw] sm:p-12 lg:sticky lg:w-full lg:min-h-[38vh]"
+              className="service-card flex min-h-[390px] w-[84vw] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[28px] border border-black/5 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 sm:w-[60vw] sm:p-12 lg:sticky lg:w-full lg:min-h-[38vh]"
               style={{
                 top: `calc(15vh + ${index * 40}px)`,
                 zIndex: index + 1,
@@ -122,7 +122,7 @@ export function About() {
               </div>
 
               <div className="relative z-10 flex w-full max-w-[560px] flex-col">
-                <p className="mb-8 font-general text-[17px] leading-relaxed text-[#444] text-pretty sm:text-[19px]">
+                <p className="mb-8 font-general text-[16px] leading-relaxed text-[#444] text-pretty sm:text-[19px]">
                   {service.description}
                 </p>
                 <div className="flex flex-wrap gap-2">

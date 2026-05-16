@@ -370,7 +370,9 @@ export function Journey() {
       }
 
       layers.forEach((layer, index) => {
-        layer.style.opacity = `${weights[index] ?? 0}`;
+        // Reduz a intensidade das camadas coloridas (índices 1, 2, 3) para não ofuscar o texto
+        const finalWeight = index === 0 ? weights[index] : (weights[index] ?? 0) * 0.6;
+        layer.style.opacity = `${finalWeight}`;
         layer.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
       });
     };
@@ -461,7 +463,7 @@ export function Journey() {
           <h2 className="font-clash text-[clamp(2rem,7vw,5rem)] font-semibold leading-tight tracking-tight text-[#111] text-pretty">
             A Trajetória <span className="text-[#ff6a00] italic">Escrita em Código.</span>
           </h2>
-          <p className="mt-6 max-w-[750px] font-general text-base leading-relaxed text-[#111] text-pretty sm:text-lg">
+          <p className="mt-6 max-w-[800px] font-general text-lg font-medium leading-relaxed text-[#000] text-pretty sm:text-xl">
             Me chamo Luiz Henrique, tenho 24 anos, sou de Santa Catarina, e minha trajetória profissional nunca foi exatamente linear e foi justamente essa combinação de contextos que moldou a forma como penso tecnologia hoje.
           </p>
         </div>

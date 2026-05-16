@@ -40,7 +40,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const intro = project.intro ?? project.description;
   const context = project.context ?? project.overview;
   const origin = project.origin ?? project.solution;
-  const galleryLabel = project.gallery.length === 1 ? "1 tela mapeada" : `${project.gallery.length} telas mapeadas`;
 
   return (
     <>
@@ -208,7 +207,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   / 03 Telas do projeto
                 </span>
                 <h2 className="font-clash text-[clamp(2rem,9vw,3rem)] font-semibold leading-tight tracking-normal text-[#111] sm:text-5xl">
-                  {galleryLabel}
+                  Telas do projeto
                 </h2>
                 {project.captureNote ? (
                   <p className="mt-5 font-general text-[15px] leading-relaxed text-[#666] text-pretty">

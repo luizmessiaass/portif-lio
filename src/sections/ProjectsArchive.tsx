@@ -45,9 +45,15 @@ export function ProjectsArchive() {
             </h1>
           </div>
 
-          <p className="max-w-[420px] font-general text-[17px] leading-relaxed text-[#666] text-pretty">
-            Uma visão organizada dos projetos por tipo de entrega, stack, impacto e evidências visuais de desenvolvimento full stack.
-          </p>
+          <div className="flex flex-col gap-4">
+            <p className="max-w-[420px] font-general text-[17px] leading-relaxed text-[#666] text-pretty">
+              Uma visão organizada dos projetos por tipo de entrega, stack, impacto e evidências visuais de desenvolvimento full stack.
+            </p>
+            <div className="flex items-center gap-2 font-general text-xs font-bold uppercase tracking-widest text-[#111]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#ff6a00]" />
+              {visibleProjects.length} {visibleProjects.length === 1 ? 'Projeto encontrado' : 'Projetos encontrados'}
+            </div>
+          </div>
         </div>
 
         <div className="sticky top-4 z-40 -mx-2 flex max-w-[calc(100vw-2rem)] gap-2 overflow-x-auto overscroll-x-contain px-2 py-3 backdrop-blur-sm sm:top-6 sm:max-w-none hide-scrollbar">
@@ -78,7 +84,7 @@ export function ProjectsArchive() {
               href={`/projetos/${project.slug}`}
               key={project.id}
               data-cursor="hover"
-              className="project-card group flex min-h-[540px] flex-col overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:min-h-[600px]"
+              className="project-card group flex min-h-[420px] flex-col overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_35px_80px_rgba(0,0,0,0.12)] sm:min-h-[480px]"
             >
               <div className={`relative aspect-[1850/872] overflow-hidden bg-gradient-to-br ${project.tone}`}>
                 {project.coverImage ? (
@@ -132,24 +138,7 @@ export function ProjectsArchive() {
                   </span>
                 </div>
 
-                <p className="font-general text-[16px] leading-relaxed text-[#555] text-pretty">{project.description}</p>
-                <p className="mt-6 border-l-2 border-[#ff6a00] pl-4 font-general text-sm font-semibold uppercase tracking-[0.14em] text-[#111]">
-                  {project.impact}
-                </p>
-
-                <div className="mt-6 rounded-[22px] border border-black/5 bg-[#fafafa] p-5">
-                  <span className="mb-3 block font-general text-[11px] font-semibold uppercase tracking-[0.18em] text-[#888]">
-                    O que aparece no projeto
-                  </span>
-                  <ul className="space-y-2">
-                    {project.examples.map((example) => (
-                      <li key={example} className="flex gap-3 font-general text-sm leading-relaxed text-[#444]">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff6a00]" />
-                        <span>{example}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <p className="line-clamp-2 font-general text-[16px] leading-relaxed text-[#555] text-pretty">{project.description}</p>
 
                 <div className="mt-auto flex flex-wrap gap-2 pt-8">
                   {project.stack.map((tag) => (

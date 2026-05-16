@@ -409,7 +409,7 @@ export const projects: Project[] = [
       },
     ],
     captureNote:
-      "Capturas refeitas em desktop no modo local fictício do projeto. Foram mapeadas rotas internas e fluxos de criação; os prints mobile antigos foram removidos da galeria detalhada.",
+      "Capturas refeitas em desktop no modo local fictício do projeto. Foram mapeadas rotas internas e fluxos de criação.",
   },
   {
     id: 4,
@@ -432,11 +432,6 @@ export const projects: Project[] = [
         src: "/projects/next-hub-alunos/login-cover.png",
         alt: "Login do Hub de Alunos",
         caption: "Tela de acesso com redirecionamento condicional por perfil: mentor ou aluno.",
-      },
-      {
-        src: "/projects/next-hub-alunos/mobile.png",
-        alt: "Login mobile do Hub de Alunos",
-        caption: "Validação mobile do login, capturado localmente para garantir que a capa respire bem em telas menores.",
       },
       {
         src: "/projects/next-hub-alunos/02-mentor-carteira.png",
@@ -732,11 +727,6 @@ export const projects: Project[] = [
         caption: "Fluxo público de abertura de solicitação, capturado sem acionar APIs reais.",
       },
       {
-        src: "/projects/rma-saint-germann/mobile.png",
-        alt: "Login administrativo do RMA em mobile",
-        caption: "Validação mobile do login para manter a capa responsiva no portfólio.",
-      },
-      {
         src: "/projects/rma-saint-germann/03-rastrear.png",
         alt: "Tela de rastreio de solicitação RMA",
         caption: "Página para acompanhar protocolo de troca/devolução pelo cliente.",
@@ -853,11 +843,6 @@ export const projects: Project[] = [
         alt: "Dashboard individual de SDR",
         caption: "Visão individual do SDR com chamadas, taxa de atendimento, fila, pendências, sessão ativa e atividades recentes.",
       },
-      {
-        src: "/projects/sdr-platform-elevate/05-mobile-dashboard.png",
-        alt: "Dashboard SDR Platform em mobile",
-        caption: "Captura mobile do dashboard, validando adaptação da interface em viewport estreita.",
-      },
     ],
     overview:
       "Plataforma SDR com monorepo, frontend Next, backend Node, shared package, workers e módulos de leads/cadências.",
@@ -924,11 +909,6 @@ export const projects: Project[] = [
         src: "/projects/avantdesk/05-assistente.png",
         alt: "Configuração de assistente IA no Avantdesk",
         caption: "Configuração de assistente IA, uma das frentes de automação do helpdesk.",
-      },
-      {
-        src: "/projects/avantdesk/06-mobile-tickets.png",
-        alt: "Avantdesk mobile",
-        caption: "Workspace de tickets validado em viewport mobile.",
       },
     ],
     overview:
@@ -1122,16 +1102,6 @@ export const projects: Project[] = [
         alt: "Atividades ELEVATE do Cadastro Unificado",
         caption: "Historico ELEVATE mostrando auditoria de edicoes, exclusoes e vinculacoes por usuario.",
       },
-      {
-        src: "/projects/cadastro-unificado/17-prod-mobile-elevate-dashboard.png",
-        alt: "Dashboard mobile ELEVATE do Cadastro Unificado",
-        caption: "Dashboard ELEVATE em viewport mobile para validar reorganizacao de cards e navegacao.",
-      },
-      {
-        src: "/projects/cadastro-unificado/18-prod-mobile-elevate-clientes.png",
-        alt: "Clientes mobile ELEVATE do Cadastro Unificado",
-        caption: "Lista de clientes ELEVATE em mobile, com cards compactos e acoes principais acessiveis.",
-      },
     ],
     overview:
       "Sistema em producao para cadastro, clientes, usuarios, aprovacoes, logs e gestao multiambiente entre NEXT e ELEVATE.",
@@ -1145,7 +1115,7 @@ export const projects: Project[] = [
       "Gestao de clientes com filtros, tabela responsiva, modal de novo cadastro e acoes por registro.",
       "Administracao de usuarios por funcao, empresa e status.",
       "Log de atividades com filtros por acao e periodo para auditoria operacional.",
-      "Capturas desktop e mobile feitas com Playwright diretamente na URL publicada.",
+      "Capturas desktop feitas com Playwright diretamente na URL publicada.",
     ],
     detailSections: [
       {
@@ -1154,10 +1124,10 @@ export const projects: Project[] = [
       },
       {
         title: "Mapa validado",
-        body: "Foram navegadas as rotas de dashboard, clientes, usuarios e atividades nos dois ambientes, alem do comportamento mobile das telas principais.",
+        body: "Foram navegadas as rotas de dashboard, clientes, usuarios e atividades nos dois ambientes.",
       },
     ],
-    captureNote: "Projeto mapeado em producao com Playwright nos ambientes NEXT e ELEVATE; as capturas incluem login, dashboard, clientes, usuarios, atividades, modal e mobile.",
+    captureNote: "Projeto mapeado em producao com Playwright nos ambientes NEXT e ELEVATE; as capturas incluem login, dashboard, clientes, usuarios, atividades e modal.",
   },
 
   {
@@ -1197,11 +1167,6 @@ export const projects: Project[] = [
         alt: "Tela de metas do Creative Dashboard",
         caption: "Módulo de metas por tenant, ligado à rotina de performance e planejamento.",
       },
-      {
-        src: "/projects/creative-dashboard/05-mobile-dashboard.png",
-        alt: "Creative Dashboard mobile",
-        caption: "Dashboard capturado em viewport mobile.",
-      },
     ],
     overview:
       "Dashboard de marketing criativo com app Next e webhook receiver para sincronizar dados de spend e auditar entrega.",
@@ -1214,7 +1179,7 @@ export const projects: Project[] = [
       "Scripts de sync Meta spend.",
       "Auditorias de dados e gates de entrega.",
       "Base Supabase.",
-      "Capturas de login, dashboard, filtros, metas e mobile em modo demo.",
+      "Capturas de login, dashboard, filtros e metas em modo demo.",
     ],
     detailSections: [
       {
@@ -1223,10 +1188,10 @@ export const projects: Project[] = [
       },
       {
         title: "Captura",
-        body: "Para o portfólio, a camada Supabase foi substituída por um modo demo local. Isso permitiu renderizar dashboard por tenant, período, metas e mobile sem puxar dados reais.",
+        body: "Para o portfólio, a camada Supabase foi substituída por um modo demo local. Isso permitiu renderizar dashboard por tenant, período e metas sem puxar dados reais.",
       },
     ],
-    captureNote: "Projeto rodado localmente com Supabase demo para liberar login, dashboard, filtros, metas e mobile sem credenciais reais.",
+    captureNote: "Projeto rodado localmente com Supabase demo para liberar login, dashboard, filtros e metas sem credenciais reais.",
   },
   {
     id: 19,
@@ -1375,38 +1340,33 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "LP-adscale",
     tone: "from-[#0f172a] via-[#0e7490] to-[#67e8f9]",
-    coverImage: "/projects/lp-adscale/01-home-hero.png",
+    coverImage: "/projects/lp-adscale/01-section-hero.png",
     coverAlt: "Landing page Adscale capturada localmente",
     gallery: [
       {
-        src: "/projects/lp-adscale/01-home-hero.png",
+        src: "/projects/lp-adscale/01-section-hero.png",
         alt: "Hero da LP Adscale",
-        caption: "Hero principal capturado localmente em desktop.",
+        caption: "Hero desktop com proposta central, CTA e posicionamento comercial da Adscale.",
       },
       {
-        src: "/projects/lp-adscale/02-home-full.png",
-        alt: "Página inicial completa da LP Adscale",
-        caption: "Página inicial completa com proposta, provas, serviços e CTA.",
+        src: "/projects/lp-adscale/02-section-servicos.png",
+        alt: "Seção de serviços da LP Adscale",
+        caption: "Bloco de serviços com as frentes de growth, tráfego, CRM e otimização.",
       },
       {
-        src: "/projects/lp-adscale/03-cases.png",
-        alt: "Página de cases da LP Adscale",
-        caption: "Rota de cases com prova social e estrutura de resultados.",
+        src: "/projects/lp-adscale/03-section-comparativo.png",
+        alt: "Comparativo Agência Comum versus Adscale",
+        caption: "Seção comparativa que diferencia a proposta da Adscale de uma agência tradicional.",
       },
       {
-        src: "/projects/lp-adscale/04-servicos.png",
-        alt: "Página de serviços da LP Adscale",
-        caption: "Rota de serviços explicando as frentes comerciais da oferta.",
+        src: "/projects/lp-adscale/04-section-cases.png",
+        alt: "Cases da LP Adscale",
+        caption: "Recorte de cases com prova social, resultados e estrutura de autoridade.",
       },
       {
-        src: "/projects/lp-adscale/05-diagnostico-cro.png",
+        src: "/projects/lp-adscale/05-section-diagnostico.png",
         alt: "Diagnóstico CRO da LP Adscale",
-        caption: "Página de diagnóstico CRO com formulário e argumento de conversão.",
-      },
-      {
-        src: "/projects/lp-adscale/06-mobile-home.png",
-        alt: "LP Adscale mobile",
-        caption: "Página inicial completa capturada em viewport mobile.",
+        caption: "Formulário de diagnóstico CRO como ponto de conversão da landing.",
       },
     ],
     overview:
@@ -1418,13 +1378,13 @@ export const projects: Project[] = [
     highlights: [
       "Next.js com landing page responsiva.",
       "Assets ricos de serviços e cases.",
-      "Captura real desktop e mobile.",
+      "Capturas por seção em desktop.",
       "Foco em conversão e posicionamento.",
     ],
     detailSections: [
       {
         title: "Visual",
-        body: "A captura local trouxe o hero real da página. Tambem foram usados assets de serviços presentes no projeto.",
+        body: "A captura local agora mostra seções individuais, evitando prints longos e mantendo foco em oferta, serviços, prova e conversão.",
       },
       {
         title: "Marketing",
@@ -1446,33 +1406,33 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "AVANTIA-LP",
     tone: "from-[#111111] via-[#312e81] to-[#a78bfa]",
-    coverImage: "/projects/avantia-lp/01-home-hero.png",
+    coverImage: "/projects/avantia-lp/01-section-hero.png",
     coverAlt: "Landing page AVANT IA capturada localmente",
     gallery: [
       {
-        src: "/projects/avantia-lp/01-home-hero.png",
+        src: "/projects/avantia-lp/01-section-hero.png",
         alt: "Hero da landing AVANT IA",
-        caption: "Hero principal da AVANT IA com identidade escura e chamada de influência por tecnologia.",
+        caption: "Hero da AVANT IA com identidade escura, marca, promessa e CTAs principais.",
       },
       {
-        src: "/projects/avantia-lp/02-home-full.png",
-        alt: "Página completa AVANT IA",
-        caption: "Página completa capturada localmente, cobrindo proposta, serviços, sobre, resultados e contato.",
+        src: "/projects/avantia-lp/02-section-servicos.png",
+        alt: "Serviços da AVANT IA",
+        caption: "Seção de serviços recortada para mostrar as ofertas sem arrastar a página inteira.",
       },
       {
-        src: "/projects/avantia-lp/03-servicos.png",
-        alt: "Seção de serviços AVANT IA",
-        caption: "Recorte da navegação para serviços com cards de oferta.",
+        src: "/projects/avantia-lp/03-section-sobre.png",
+        alt: "Sobre a AVANT IA",
+        caption: "Bloco institucional explicando posicionamento, tecnologia e contexto da empresa.",
       },
       {
-        src: "/projects/avantia-lp/04-resultados.png",
+        src: "/projects/avantia-lp/04-section-resultados.png",
         alt: "Seção de resultados AVANT IA",
-        caption: "Seção de resultados e prova de valor dentro da landing.",
+        caption: "Resultados e indicadores como prova de valor dentro da narrativa da landing.",
       },
       {
-        src: "/projects/avantia-lp/05-mobile-home.png",
-        alt: "AVANT IA mobile",
-        caption: "Página completa capturada em viewport mobile.",
+        src: "/projects/avantia-lp/05-section-contato.png",
+        alt: "Contato da AVANT IA",
+        caption: "Seção final de contato, fechando a jornada de conversão.",
       },
     ],
     overview:
@@ -1483,7 +1443,7 @@ export const projects: Project[] = [
       "A página usa estrutura enxuta em Next para mostrar proposta, diferenciais e CTA.",
     highlights: [
       "Projeto Next simples e deployável.",
-      "Print real capturado localmente.",
+      "Prints reais por seção capturados localmente.",
       "Identidade visual própria.",
       "Foco em oferta de IA.",
     ],
@@ -1512,38 +1472,33 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "mgassessorialp",
     tone: "from-[#111111] via-[#713f12] to-[#fbbf24]",
-    coverImage: "/projects/mgassessorialp/01-home-hero.png",
+    coverImage: "/projects/mgassessorialp/01-section-hero.png",
     coverAlt: "Landing page MG Assessoria capturada localmente",
     gallery: [
       {
-        src: "/projects/mgassessorialp/01-home-hero.png",
+        src: "/projects/mgassessorialp/01-section-hero.png",
         alt: "Hero da LP MG Assessoria",
-        caption: "Hero principal capturado em desktop, com oferta, prova visual e CTA.",
+        caption: "Hero desktop com oferta, prova visual e CTA principal da MG Assessoria.",
       },
       {
-        src: "/projects/mgassessorialp/02-home-full.png",
-        alt: "Página completa da MG Assessoria LP",
-        caption: "Landing completa com marcas atendidas, pilares, serviços, clientes, fundador, FAQ e contato.",
+        src: "/projects/mgassessorialp/02-section-pilares.png",
+        alt: "Pilares da MG Assessoria LP",
+        caption: "Pilares e marcas atendidas, separados da página inteira para dar contexto visual limpo.",
       },
       {
-        src: "/projects/mgassessorialp/03-servicos.png",
+        src: "/projects/mgassessorialp/03-section-servicos.png",
         alt: "Serviços da MG Assessoria LP",
-        caption: "Seção de serviços com blocos comerciais e diferenciais.",
+        caption: "Serviços e diferenciais comerciais em bloco próprio.",
       },
       {
-        src: "/projects/mgassessorialp/04-clientes.png",
+        src: "/projects/mgassessorialp/04-section-clientes.png",
         alt: "Clientes da MG Assessoria LP",
         caption: "Prova social com clientes, marcas e materiais de autoridade.",
       },
       {
-        src: "/projects/mgassessorialp/05-formulario.png",
+        src: "/projects/mgassessorialp/05-section-formulario.png",
         alt: "Formulário da MG Assessoria LP",
-        caption: "Seção final de conversão com formulário e chamada para diagnóstico.",
-      },
-      {
-        src: "/projects/mgassessorialp/06-mobile-home.png",
-        alt: "LP MG Assessoria mobile",
-        caption: "Página completa em viewport mobile.",
+        caption: "Formulário final de conversão com chamada para diagnóstico.",
       },
     ],
     overview:
@@ -1555,7 +1510,7 @@ export const projects: Project[] = [
     highlights: [
       "Vite/React leve.",
       "Assets otimizados e muitos materiais visuais.",
-      "Capturas reais desktop e mobile.",
+      "Capturas reais por seção em desktop.",
       "Prova social com feedbacks e clientes.",
     ],
     detailSections: [
@@ -1583,38 +1538,43 @@ export const projects: Project[] = [
     featured: false,
     sourcePath: "ELEVATE-LP",
     tone: "from-[#111111] via-[#be123c] to-[#fb7185]",
-    coverImage: "/projects/elevate-lp/01-home-hero.png",
+    coverImage: "/projects/elevate-lp/01-section-hero.png",
     coverAlt: "Layout desktop da LP Elevate",
     gallery: [
       {
-        src: "/projects/elevate-lp/01-home-hero.png",
+        src: "/projects/elevate-lp/01-section-hero.png",
         alt: "Hero da LP Elevate",
-        caption: "Hero principal capturado localmente em desktop.",
+        caption: "Hero desktop da landing principal com promessa, CTA e fotografia da operação.",
       },
       {
-        src: "/projects/elevate-lp/02-home-full.png",
-        alt: "Página principal completa da Elevate LP",
-        caption: "Landing principal completa com oferta, formulário, serviços, planos, cases e depoimentos.",
+        src: "/projects/elevate-lp/02-section-formulario.png",
+        alt: "Formulário da LP Elevate",
+        caption: "Bloco de diagnóstico/formulário, o principal ponto de conversão da campanha.",
       },
       {
-        src: "/projects/elevate-lp/03-marketplace-trafego.png",
-        alt: "LP Marketplace Tráfego da Elevate",
-        caption: "Variação de campanha para marketplace e tráfego pago.",
+        src: "/projects/elevate-lp/03-section-servicos.png",
+        alt: "Serviços da LP Elevate",
+        caption: "Serviços principais da assessoria de marketplace apresentados em seção própria.",
       },
       {
-        src: "/projects/elevate-lp/04-tiktok-organico.png",
+        src: "/projects/elevate-lp/04-section-resultados.png",
+        alt: "Resultados da LP Elevate",
+        caption: "Recorte de resultados e métricas para sustentar a prova de valor.",
+      },
+      {
+        src: "/projects/elevate-lp/05-section-cases.png",
+        alt: "Cases da LP Elevate",
+        caption: "Cases de clientes com narrativa de resultado dentro da landing principal.",
+      },
+      {
+        src: "/projects/elevate-lp/06-section-tiktok-organico.png",
         alt: "LP TikTok Orgânico da Elevate",
-        caption: "Variação de campanha para TikTok orgânico.",
+        caption: "Hero da variação TikTok orgânico, capturado como seção e não como página longa.",
       },
       {
-        src: "/projects/elevate-lp/05-tiktok-trafego.png",
-        alt: "LP TikTok Tráfego da Elevate",
-        caption: "Variação de campanha para TikTok com mídia paga.",
-      },
-      {
-        src: "/projects/elevate-lp/06-mobile-home.png",
-        alt: "LP Elevate mobile",
-        caption: "Página principal completa capturada em viewport mobile.",
+        src: "/projects/elevate-lp/07-section-marketplace-trafego.png",
+        alt: "LP Marketplace Tráfego da Elevate",
+        caption: "Hero da variação marketplace/tráfego, mantendo a leitura da primeira dobra.",
       },
     ],
     overview:
@@ -1624,7 +1584,7 @@ export const projects: Project[] = [
     solution:
       "O projeto separa LPs, assets, prints e materiais de campanha para validar funis distintos.",
     highlights: [
-      "Export desktop completo da landing.",
+      "Recortes por seção da landing principal.",
       "Assets específicos para TikTok orgânico e tráfego.",
       "Imagens de equipe, depoimentos, gráficos e serviços.",
       "Boa base visual para portfólio.",

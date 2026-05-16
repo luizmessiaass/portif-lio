@@ -2,6 +2,7 @@ import { Preloader } from "@/components/Preloader";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
+import { Journey } from "@/sections/Journey";
 import { Projects } from "@/sections/Projects";
 import { Contact } from "@/sections/Contact";
 
@@ -14,6 +15,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <About />
+        <Journey />
         <Projects />
         <Contact />
       </main>

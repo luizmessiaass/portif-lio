@@ -47,6 +47,7 @@ export function Navbar() {
   const navLinks = [
     { name: "Início", href: "/#hero" },
     { name: "Sobre", href: "/#about" },
+    { name: "Jornada", href: "/#journey" },
     { name: "Projetos", href: "/projetos" },
     { name: "Contato", href: "/#contact" },
   ];

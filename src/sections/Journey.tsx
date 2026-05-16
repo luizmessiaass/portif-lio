@@ -318,6 +318,193 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
   );
 }
 
+function StudioFeaturedCard({ item }: { item: Milestone }) {
+  const [start, end] = splitPeriod(item.period);
+
+  return (
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#a84ccf]/15 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#a84ccf]/40 sm:rounded-[30px]">
+      <div className="grid grid-cols-[118px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#111111] px-3 py-6 text-white sm:px-7 sm:py-10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_68%,rgba(145,42,182,.5),transparent_28%),linear-gradient(180deg,rgba(255,255,255,.035),transparent_36%)]" />
+          <div className="pointer-events-none absolute -right-28 top-44 h-72 w-72 rounded-full border border-[#d779ff]/55" />
+          <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-[#d779ff]/45" />
+          <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-[#d779ff]/36" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-[radial-gradient(circle_at_12%_70%,rgba(116,31,154,.46),transparent_58%)]" />
+
+          <div className="relative mt-8 flex flex-col items-center gap-7 text-center sm:mt-14 sm:gap-10">
+            <Image
+              src="/brands/studio416x-logo-transparent.png"
+              alt="Studio 416X"
+              width={606}
+              height={76}
+              className="h-auto w-28 invert sm:w-36"
+              sizes="(max-width: 640px) 112px, 144px"
+              unoptimized
+            />
+            <span className="h-1 w-11 rounded-full bg-[#a84ccf] sm:w-16" />
+            <div className="relative w-[112px] sm:w-[176px]">
+              <Image
+                src="/brands/revenda-calcados-logo-transparent.png"
+                alt="Revenda de Calçados"
+                width={873}
+                height={313}
+                className="h-auto w-full drop-shadow-[0_18px_34px_rgba(0,0,0,.34)]"
+                sizes="(max-width: 640px) 112px, 176px"
+                unoptimized
+              />
+            </div>
+          </div>
+
+          <div className="relative font-general text-[10px] font-bold uppercase leading-relaxed tracking-[0.1em] sm:text-base">
+            <span className="block text-[#c657de]">{start}</span>
+            <span className="my-1 block text-[#c657de]">-</span>
+            <span className="block text-white">{end}</span>
+          </div>
+        </aside>
+
+        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
+          <p className="font-general text-[11px] font-bold uppercase tracking-[0.14em] text-[#9a35b8] sm:text-sm">
+            {item.subtitle}
+          </p>
+          <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
+            {item.title}
+          </h3>
+          <div className="mt-5 h-1 w-16 rounded-full bg-[#a84ccf]" />
+
+          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+            {item.description}
+          </p>
+
+          {item.impact && (
+            <div className="mt-6 inline-flex items-center gap-3 rounded-[16px] border border-[#a84ccf]/20 bg-[#a84ccf]/5 px-4 py-3">
+              <TrendingUp size={18} className="shrink-0 text-[#9a35b8]" />
+              <span className="font-general text-[11px] font-bold uppercase leading-snug tracking-[0.05em] text-[#111] sm:text-xs">
+                {item.impact}
+              </span>
+            </div>
+          )}
+
+          <div className="mt-7 flex flex-wrap gap-2 sm:gap-3">
+            {item.tech?.map((tag) => (
+              <span key={tag} className="inline-flex min-h-9 items-center rounded-full bg-[#fbf0ff] px-3 font-general text-[9px] font-bold uppercase tracking-[0.06em] text-[#8d2ca9] shadow-[inset_0_0_0_1px_rgba(141,44,169,.08)] sm:min-h-10 sm:px-4 sm:text-xs">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AvantFeaturedCard({ item }: { item: Milestone }) {
+  const [start, end] = splitPeriod(item.period);
+
+  return (
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0d2635]/10 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#0d2635]/30 sm:rounded-[30px]">
+      <div className="grid grid-cols-[118px_1fr] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-3 py-6 text-white sm:px-7 sm:py-10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_54%,rgba(255,255,255,.34),transparent_26%),radial-gradient(circle_at_84%_78%,rgba(132,185,211,.32),transparent_42%)]" />
+          <div className="pointer-events-none absolute -right-28 top-52 h-72 w-72 rounded-full border border-white/38" />
+          <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/28" />
+          <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-white/24" />
+
+          <div className="relative mt-7 flex flex-col items-center gap-7 text-center sm:mt-14 sm:gap-10">
+            <Image
+              src="/brands/next-ecommerce-logo-transparent.png"
+              alt="Next Ecommerce"
+              width={325}
+              height={286}
+              className="h-auto w-[86px] brightness-0 invert drop-shadow-[0_16px_30px_rgba(0,0,0,.22)] sm:w-[120px]"
+              sizes="(max-width: 640px) 86px, 120px"
+              unoptimized
+            />
+
+            <span className="h-px w-12 bg-white/50 sm:w-16" />
+
+            <Image
+              src="/brands/avant-mark-transparent.png"
+              alt="Avant I.A"
+              width={405}
+              height={406}
+              className="h-16 w-16 object-contain drop-shadow-[0_12px_28px_rgba(255,255,255,.18)] sm:h-20 sm:w-20"
+              sizes="(max-width: 640px) 64px, 80px"
+              unoptimized
+            />
+
+            <span className="h-px w-12 bg-white/50 sm:w-16" />
+
+            <Image
+              src="/brands/elevate-ecom-logo-transparent.png"
+              alt="Elevate Ecom."
+              width={276}
+              height={131}
+              className="h-auto w-[92px] drop-shadow-[0_16px_34px_rgba(0,0,0,.22)] sm:w-[132px]"
+              sizes="(max-width: 640px) 92px, 132px"
+              unoptimized
+            />
+          </div>
+
+          <div className="relative font-general text-[10px] font-bold uppercase leading-relaxed tracking-[0.1em] sm:text-base">
+            <span className="block">{start}</span>
+            <span className="my-1 block">-</span>
+            <span className="block">{end}</span>
+          </div>
+        </aside>
+
+        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
+          <div className="mb-5 flex items-center gap-3">
+            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#f1f1f1] text-[#111] sm:h-14 sm:w-14">
+              <Image
+                src="/brands/avant-mark-transparent.png"
+                alt=""
+                width={405}
+                height={406}
+                className="h-6 w-6 object-contain sm:h-7 sm:w-7"
+                sizes="(max-width: 640px) 24px, 28px"
+                unoptimized
+              />
+            </div>
+            <p className="font-general text-[10px] font-bold uppercase tracking-[0.16em] text-[#ff6a00] sm:text-sm">
+              {item.subtitle}
+            </p>
+          </div>
+
+          <div className="mb-6 flex items-center gap-2 font-general text-[10px] font-bold uppercase tracking-widest text-[#8a8a8a] sm:text-xs">
+            <Calendar size={14} />
+            {item.period}
+          </div>
+
+          <h3 className="max-w-[480px] break-words font-clash text-[clamp(1.45rem,6vw,2.8rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance">
+            {item.title}
+          </h3>
+          <div className="mt-5 h-1 w-16 rounded-full bg-[#0d2635]" />
+
+          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+            {item.description}
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-2 sm:gap-3">
+            {item.tech?.map((tag) => (
+              <span key={tag} className="inline-flex min-h-8 items-center rounded-full bg-[#f1f3f4] px-3 font-general text-[9px] font-bold uppercase tracking-[0.06em] text-[#242424] shadow-[inset_0_0_0_1px_rgba(0,0,0,.04)] sm:min-h-9 sm:px-4 sm:text-xs">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {["Operations", "Performance", "Scale"].map((label) => (
+              <span key={label} className="inline-flex min-h-10 items-center justify-center rounded-full bg-[#f5f5f5] px-3 text-center font-general text-[9px] font-bold uppercase tracking-[0.04em] text-[#1b1b1b] sm:text-xs">
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Journey() {
   const sectionRef = useRef<HTMLElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
@@ -485,14 +672,18 @@ export function Journey() {
                   i % 2 === 0 ? "sm:flex-row-reverse" : ""
                 }`}
               >
-                {i <= 2 && (
+                {(i <= 3 || i === 5) && (
                   <div
                     className={`pointer-events-none absolute left-1/2 top-1/2 z-0 h-[calc(100%+130vh)] w-screen -translate-x-1/2 -translate-y-1/2 blur-0 ${
                       i === 0
                         ? "bg-[radial-gradient(circle_at_18%_16%,rgba(255,255,255,.32),transparent_24%),radial-gradient(circle_at_86%_26%,rgba(255,180,180,.18),transparent_30%),linear-gradient(135deg,#fff4f4_0%,#f1323f_42%,#c90015_100%)]"
                         : i === 1
                           ? "bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,.3),transparent_24%),radial-gradient(circle_at_86%_78%,rgba(255,106,0,.28),transparent_34%),linear-gradient(135deg,#eef6ff_0%,#0868d8_34%,#7e2aa1_68%,#ff5a12_100%)]"
-                          : "bg-[radial-gradient(circle_at_78%_22%,rgba(215,162,58,.26),transparent_32%),radial-gradient(circle_at_18%_86%,rgba(215,162,58,.34),transparent_34%),linear-gradient(135deg,#fff8eb_0%,#4b3919_30%,#1a1a1a_62%,#090909_100%)]"
+                          : i === 2
+                            ? "bg-[radial-gradient(circle_at_78%_22%,rgba(215,162,58,.26),transparent_32%),radial-gradient(circle_at_18%_86%,rgba(215,162,58,.34),transparent_34%),linear-gradient(135deg,#fff8eb_0%,#4b3919_30%,#1a1a1a_62%,#090909_100%)]"
+                            : i === 3
+                              ? "bg-[radial-gradient(circle_at_18%_64%,rgba(168,76,207,.36),transparent_32%),radial-gradient(circle_at_86%_24%,rgba(255,255,255,.22),transparent_28%),linear-gradient(135deg,#fff5ff_0%,#7d318f_42%,#111111_100%)]"
+                              : "bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,.42),transparent_30%),radial-gradient(circle_at_82%_74%,rgba(132,185,211,.32),transparent_40%),linear-gradient(135deg,#eef4f3_0%,#6f8796_32%,#1c3342_68%,#07111b_100%)]"
                     } opacity-70 [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,.25)_12%,black_34%,black_66%,rgba(0,0,0,.25)_88%,transparent_100%)]`}
                   />
                 )}
@@ -513,6 +704,14 @@ export function Journey() {
                   ) : i === 2 ? (
                     <div data-journey-scene="3">
                       <MapfitFeaturedCard item={item} />
+                    </div>
+                  ) : i === 3 ? (
+                    <div data-journey-scene="0">
+                      <StudioFeaturedCard item={item} />
+                    </div>
+                  ) : i === 5 ? (
+                    <div data-journey-scene="0">
+                      <AvantFeaturedCard item={item} />
                     </div>
                   ) : (
                     <div data-journey-scene="0" className={`journey-card relative rounded-[20px] border-2 ${

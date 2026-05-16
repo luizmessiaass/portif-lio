@@ -150,7 +150,7 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d90416]/10 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] sm:rounded-[30px] hover:border-[#d90416]/30 transition-all duration-500">
       <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,.12),transparent_34%),radial-gradient(circle_at_38%_18%,rgba(255,255,255,.14),transparent_22%)]" />
@@ -197,7 +197,7 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0c63c7]/10 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] sm:rounded-[30px] hover:border-[#0c63c7]/30 transition-all duration-500">
       <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,.14),transparent_24%),linear-gradient(140deg,rgba(255,255,255,.12),transparent_36%)]" />
@@ -264,7 +264,7 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border border-black/5 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:rounded-[30px]">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d7a23a]/15 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] sm:rounded-[30px] hover:border-[#d7a23a]/40 transition-all duration-500">
       <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-3 py-6 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_92%,rgba(209,155,45,.42),transparent_30%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_32%)]" />
@@ -515,9 +515,13 @@ export function Journey() {
                       <MapfitFeaturedCard item={item} />
                     </div>
                   ) : (
-                    <div data-journey-scene="0" className={`journey-card relative rounded-[20px] border ${
-                      item.type === "cert-cluster" ? "border-[#ff6a00]/10 bg-[#ff6a00]/5" : "border-black/5 bg-white shadow-[0_15px_40px_rgba(0,0,0,0.02)]"
-                    } p-4 transition-all hover:border-[#ff6a00]/20 sm:rounded-[32px] sm:p-10`}>
+                    <div data-journey-scene="0" className={`journey-card relative rounded-[20px] border-2 ${
+                      item.type === "cert-cluster" 
+                        ? "border-[#ff6a00]/20 bg-[#ff6a00]/5" 
+                        : item.subtitle.includes("Avant") 
+                          ? "border-[#ff6a00]/15 bg-white" 
+                          : "border-black/5 bg-white"
+                    } p-4 shadow-[0_15px_40px_rgba(0,0,0,0.02)] transition-all hover:border-[#ff6a00]/40 sm:rounded-[32px] sm:p-10`}>
                       {/* Card Header */}
                       <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center gap-4">

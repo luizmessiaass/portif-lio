@@ -133,7 +133,7 @@ export function Hero() {
               alt="Luiz Messias"
               fill
               sizes="(max-width: 640px) 70vw, (max-width: 1024px) 320px, 480px"
-              quality={100}
+              quality={82}
               className="object-cover object-[54%_44%] transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.04]"
               priority
             />

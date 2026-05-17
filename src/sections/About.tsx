@@ -98,6 +98,7 @@ export function About() {
 
       if (isMobile && servicesTrackRef.current) {
         const track = servicesTrackRef.current;
+        let carouselFrame = 0;
 
         gsap.set(serviceCards, {
           x: 34,
@@ -118,6 +119,7 @@ export function About() {
         });
 
         const renderCarouselDepth = () => {
+          carouselFrame = 0;
           const trackRect = track.getBoundingClientRect();
           const trackCenter = trackRect.left + trackRect.width / 2;
 
@@ -138,13 +140,19 @@ export function About() {
           });
         };
 
-        track.addEventListener("scroll", renderCarouselDepth, { passive: true });
-        window.addEventListener("resize", renderCarouselDepth);
-        requestAnimationFrame(renderCarouselDepth);
+        const requestCarouselDepth = () => {
+          if (carouselFrame) return;
+          carouselFrame = requestAnimationFrame(renderCarouselDepth);
+        };
+
+        track.addEventListener("scroll", requestCarouselDepth, { passive: true });
+        window.addEventListener("resize", requestCarouselDepth);
+        requestCarouselDepth();
 
         cleanupCarousel = () => {
-          track.removeEventListener("scroll", renderCarouselDepth);
-          window.removeEventListener("resize", renderCarouselDepth);
+          if (carouselFrame) cancelAnimationFrame(carouselFrame);
+          track.removeEventListener("scroll", requestCarouselDepth);
+          window.removeEventListener("resize", requestCarouselDepth);
         };
       } else {
         serviceCards.forEach((card, index) => {

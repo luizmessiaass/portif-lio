@@ -19,10 +19,11 @@ export function ProjectsArchive() {
   useEffect(() => {
     // Animação leve sempre que os projetos visíveis mudarem (ao filtrar)
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(max-width: 767px)").matches) return;
     
     gsap.fromTo(".project-card",
-      { opacity: 0, y: 20, scale: 0.98 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.05, ease: "power2.out" }
+      { opacity: 0, y: 16, scale: 0.985 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.28, stagger: 0.025, ease: "power2.out", overwrite: "auto" }
     );
   }, [visibleProjects]);
 
@@ -80,7 +81,7 @@ export function ProjectsArchive() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {visibleProjects.map((project) => (
+          {visibleProjects.map((project, index) => (
             <Link
               href={`/projetos/${project.slug}`}
               key={project.id}
@@ -94,7 +95,8 @@ export function ProjectsArchive() {
                     alt={project.coverAlt ?? project.title}
                     fill
                     sizes="(max-width: 768px) 90vw, 45vw"
-                    quality={95}
+                    quality={index < 2 ? 76 : 70}
+                    loading={index < 2 ? "eager" : "lazy"}
                     className="object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
                   />
                 ) : (

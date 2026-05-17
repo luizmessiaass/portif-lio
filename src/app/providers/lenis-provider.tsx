@@ -13,7 +13,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     if (!shouldSmoothScroll) return;
 
     const lenis = new Lenis({
-      lerp: 0.08,
+      lerp: 0.13,
       smoothWheel: true,
     });
 

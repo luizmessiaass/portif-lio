@@ -272,8 +272,8 @@ const certificationAssets: Record<
     accent: "#f05a1a",
     topIcon: BrainCircuit,
     minHeight: "sm:min-h-[560px]",
-    cardClass: "border-[#a9ccff] bg-[#fbfdff] shadow-[0_24px_70px_rgba(66,133,244,.13)]",
-    glowClass: "bg-[radial-gradient(circle_at_14%_12%,rgba(66,133,244,.16),transparent_28%),radial-gradient(circle_at_92%_14%,rgba(234,67,53,.14),transparent_27%),radial-gradient(circle_at_10%_88%,rgba(251,188,4,.16),transparent_30%),radial-gradient(circle_at_92%_86%,rgba(52,168,83,.14),transparent_32%)]",
+    cardClass: "border-[#a9ccff] bg-[linear-gradient(135deg,#f8fbff_0%,#edf5ff_45%,#f7fff9_100%)] shadow-[0_24px_70px_rgba(66,133,244,.13)]",
+    glowClass: "bg-[radial-gradient(circle_at_14%_12%,rgba(66,133,244,.2),transparent_28%),radial-gradient(circle_at_92%_14%,rgba(234,67,53,.16),transparent_27%),radial-gradient(circle_at_10%_88%,rgba(251,188,4,.18),transparent_30%),radial-gradient(circle_at_92%_86%,rgba(52,168,83,.16),transparent_32%)]",
     patternClass: "bg-[repeating-linear-gradient(135deg,rgba(66,133,244,.08)_0,rgba(66,133,244,.08)_1px,transparent_1px,transparent_8px)]",
     iconClass: "border-[#d6e4ff] bg-[#e8f0fe] text-[#4285f4] shadow-[inset_0_1px_0_rgba(255,255,255,.9),0_12px_26px_rgba(66,133,244,.16)]",
     eyebrowClass: "text-[#4285f4]",
@@ -299,8 +299,8 @@ const certificationAssets: Record<
     accent: "#f05a1a",
     topIcon: Award,
     minHeight: "sm:min-h-[560px]",
-    cardClass: "border-[#9ed0ff] bg-[#fbfdff] shadow-[0_24px_70px_rgba(0,120,212,.15)]",
-    glowClass: "bg-[radial-gradient(circle_at_12%_13%,rgba(242,80,34,.16),transparent_27%),radial-gradient(circle_at_88%_12%,rgba(127,186,0,.14),transparent_26%),radial-gradient(circle_at_12%_88%,rgba(0,164,239,.17),transparent_30%),radial-gradient(circle_at_88%_86%,rgba(255,185,0,.18),transparent_32%)]",
+    cardClass: "border-[#9ed0ff] bg-[linear-gradient(135deg,#f5fbff_0%,#eaf6ff_42%,#fff8df_100%)] shadow-[0_24px_70px_rgba(0,120,212,.15)]",
+    glowClass: "bg-[radial-gradient(circle_at_12%_13%,rgba(242,80,34,.18),transparent_27%),radial-gradient(circle_at_88%_12%,rgba(127,186,0,.16),transparent_26%),radial-gradient(circle_at_12%_88%,rgba(0,164,239,.2),transparent_30%),radial-gradient(circle_at_88%_86%,rgba(255,185,0,.2),transparent_32%)]",
     patternClass: "bg-[linear-gradient(90deg,rgba(242,80,34,.10)_0_25%,rgba(127,186,0,.10)_25%_50%,rgba(0,164,239,.10)_50%_75%,rgba(255,185,0,.12)_75%_100%)]",
     iconClass: "border-[#cfe7ff] bg-[#eaf5ff] text-[#0078d4] shadow-[inset_0_1px_0_rgba(255,255,255,.9),0_12px_26px_rgba(0,120,212,.18)]",
     eyebrowClass: "text-[#0078d4]",
@@ -813,8 +813,8 @@ function ColcciAmcFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#c8b177]/45 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] transition-all duration-500 hover:border-[#c8b177]/70 sm:rounded-[30px]">
-      <div className="grid grid-cols-1 sm:min-h-[660px] sm:grid-cols-[220px_1fr]">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#c8b177]/45 bg-[#fbf8ef] p-0 shadow-[0_24px_70px_rgba(132,105,45,0.12)] transition-all duration-500 hover:border-[#c8b177]/70 sm:rounded-[30px]">
+      <div className="grid grid-cols-1 bg-[radial-gradient(circle_at_86%_12%,rgba(200,177,119,.18),transparent_28%),linear-gradient(135deg,#fffdf7_0%,#f8f0dc_48%,#fffaf0_100%)] sm:min-h-[660px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#080807] px-3 py-4 text-white max-sm:min-h-[92px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_18%,rgba(255,255,255,.08),transparent_26%),linear-gradient(180deg,rgba(255,255,255,.05),transparent_30%)]" />
           <div className="pointer-events-none absolute -right-24 top-28 h-72 w-72 rounded-[48%] border border-[#c8b177]/38 sm:-right-28 sm:top-48" />
@@ -902,11 +902,48 @@ function ColcciAmcFeaturedCard({ item }: { item: Milestone }) {
 
 type MarketplaceKind = "shopee" | "tiktok" | "mercado-livre" | "amazon";
 
-const elevaterMarketplaces: { name: string; kind: MarketplaceKind; labelColor: string }[] = [
-  { name: "Shopee", kind: "shopee", labelColor: "#ee4d2d" },
-  { name: "TikTok Shop", kind: "tiktok", labelColor: "#25f4ee" },
-  { name: "Mercado Livre", kind: "mercado-livre", labelColor: "#f2d600" },
-  { name: "Amazon", kind: "amazon", labelColor: "#ff9900" },
+type ElevaterMarketplace = {
+  name: string;
+  kind: MarketplaceKind;
+  labelColor: string;
+  headline: string;
+  body: string;
+  bullets: string[];
+};
+
+const elevaterMarketplaces: ElevaterMarketplace[] = [
+  {
+    name: "Mercado Livre",
+    kind: "mercado-livre",
+    labelColor: "#f2d600",
+    headline: "Ads, margem e decisão por SKU",
+    body: "Centralizou a leitura comercial do Mercado Livre com anúncios, rentabilidade e sinais para priorizar produto vencedor.",
+    bullets: ["Product Ads e Brand Ads", "Curva ABC e mapa de calor", "Relatórios por cliente"],
+  },
+  {
+    name: "Shopee",
+    kind: "shopee",
+    labelColor: "#ee4d2d",
+    headline: "Promoções e rentabilidade",
+    body: "Organizou vendas, descontos e margem para o time entender o impacto real das promoções sem depender de planilha.",
+    bullets: ["Central de promoções", "Rentabilidade por produto", "Alertas de permissão Ads"],
+  },
+  {
+    name: "TikTok Shop",
+    kind: "tiktok",
+    labelColor: "#25f4ee",
+    headline: "Base para operação social commerce",
+    body: "Preparou a estrutura para acompanhar catálogo, campanhas e rotinas comerciais em um canal mais rápido e criativo.",
+    bullets: ["Arquitetura de canal", "Fluxo de catálogo", "Medição de performance"],
+  },
+  {
+    name: "Amazon",
+    kind: "amazon",
+    labelColor: "#ff9900",
+    headline: "Catálogo e margem em expansão",
+    body: "Criou o caminho para conectar catálogo, rentabilidade e leitura operacional da Amazon dentro da mesma plataforma.",
+    bullets: ["Módulo de catálogo", "Rentabilidade planejada", "Operação multi-marketplace"],
+  },
 ];
 
 function MarketplaceLogo({ kind, className = "" }: { kind: MarketplaceKind; className?: string }) {
@@ -965,13 +1002,7 @@ function MarketplaceLogo({ kind, className = "" }: { kind: MarketplaceKind; clas
   );
 }
 
-function MarketplaceBadge({
-  kind,
-}: {
-  name: string;
-  kind: MarketplaceKind;
-  labelColor: string;
-}) {
+function MarketplaceBadge({ kind }: { kind: MarketplaceKind }) {
   const badgeClassName =
     kind === "shopee"
       ? "bg-[#ee4d2d] text-white"
@@ -982,16 +1013,58 @@ function MarketplaceBadge({
           : "bg-white text-[#111]";
 
   return (
-    <div className="min-w-0 text-center">
+    <span
+      className={`grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-[14px] shadow-[0_10px_22px_rgba(0,0,0,.09)] ring-1 ring-black/5 sm:h-12 sm:w-12 ${badgeClassName}`}
+    >
+      <MarketplaceLogo
+        kind={kind}
+        className={kind === "mercado-livre" ? "h-full w-full object-cover" : "h-6 w-6 sm:h-7 sm:w-7"}
+      />
+    </span>
+  );
+}
+
+function MarketplaceContributionCard({ marketplace }: { marketplace: ElevaterMarketplace }) {
+  return (
+    <article
+      className="relative min-w-0 overflow-hidden rounded-[18px] border bg-white p-4 shadow-[0_14px_28px_rgba(0,116,133,.06)] sm:p-5"
+      style={{ borderColor: `${marketplace.labelColor}55` } as CSSProperties}
+    >
       <span
-        className={`mx-auto grid h-12 w-12 place-items-center overflow-hidden rounded-[14px] shadow-[0_10px_22px_rgba(0,0,0,.09)] ring-1 ring-black/5 sm:h-14 sm:w-14 ${badgeClassName}`}
-      >
-        <MarketplaceLogo
-          kind={kind}
-          className={kind === "mercado-livre" ? "h-full w-full object-cover" : "h-7 w-7 sm:h-8 sm:w-8"}
-        />
-      </span>
-    </div>
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-1"
+        style={{ backgroundColor: marketplace.labelColor } as CSSProperties}
+      />
+      <div className="flex items-start gap-3">
+        <MarketplaceBadge kind={marketplace.kind} />
+        <div className="min-w-0">
+          <p className="font-general text-[10px] font-bold uppercase tracking-[0.16em] text-[#63757a]">
+            {marketplace.name}
+          </p>
+          <h4 className="mt-1 font-clash text-[1.05rem] font-semibold leading-tight tracking-normal text-[#101010] sm:text-[1.18rem]">
+            {marketplace.headline}
+          </h4>
+        </div>
+      </div>
+
+      <p className="mt-3 font-general text-[12px] leading-relaxed text-[#425156] text-pretty sm:text-[13px]">
+        {marketplace.body}
+      </p>
+
+      <div className="mt-4 grid gap-2">
+        {marketplace.bullets.map((bullet) => (
+          <div key={bullet} className="flex items-start gap-2">
+            <span
+              className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+              style={{ backgroundColor: marketplace.labelColor } as CSSProperties}
+            />
+            <span className="font-general text-[11px] font-semibold leading-snug text-[#1c2b31] sm:text-[12px]">
+              {bullet}
+            </span>
+          </div>
+        ))}
+      </div>
+    </article>
   );
 }
 
@@ -1054,24 +1127,21 @@ function ElevaterCaseCard({ item }: { item: Milestone }) {
           )}
 
           <div className="mt-5 overflow-hidden rounded-[18px] border border-[#9fd8df] bg-[#f7feff] shadow-[0_16px_34px_rgba(0,116,133,.07)] sm:mt-7">
-            <div className="flex items-start gap-3 border-b border-[#d1eef2] px-4 py-4">
+            <div className="flex items-start gap-3 border-b border-[#d1eef2] px-4 py-4 sm:px-5">
               <TrendingUp size={22} strokeWidth={2.1} className="mt-0.5 shrink-0 text-[#007485]" />
-              <p className="font-general text-[11px] font-bold uppercase leading-relaxed tracking-[0.12em] text-[#111] sm:text-[13px]">
-                Economia e escala em{" "}
-                <span style={{ color: elevaterMarketplaces[0].labelColor } as CSSProperties}>Shopee</span>
-                <span>, </span>
-                <span style={{ color: elevaterMarketplaces[1].labelColor } as CSSProperties}>TikTok Shop</span>
-                <span>, </span>
-                <span style={{ color: elevaterMarketplaces[2].labelColor } as CSSProperties}>Mercado Livre</span>
-                <span> e </span>
-                <span style={{ color: elevaterMarketplaces[3].labelColor } as CSSProperties}>Amazon</span>
-                <span>.</span>
-              </p>
+              <div className="min-w-0">
+                <p className="font-general text-[11px] font-bold uppercase leading-relaxed tracking-[0.12em] text-[#111] sm:text-[13px]">
+                  Marketplace OS: automações e leitura operacional por canal.
+                </p>
+                <p className="mt-1 font-general text-[11px] leading-relaxed text-[#51666b] sm:text-[12px]">
+                  O Elevater separa cada marketplace em uma rotina própria, sem perder o painel único da operação.
+                </p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 px-4 py-4 sm:grid-cols-4">
+            <div className="grid grid-cols-1 gap-3 p-3 sm:grid-cols-2 sm:p-4">
               {elevaterMarketplaces.map((marketplace) => (
-                <MarketplaceBadge key={marketplace.kind} {...marketplace} />
+                <MarketplaceContributionCard key={marketplace.kind} marketplace={marketplace} />
               ))}
             </div>
 
@@ -1110,8 +1180,8 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
   return (
-    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0d2635]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#4f7487]/65 sm:rounded-[30px]">
-      <div className="grid grid-cols-1 sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0d2635]/35 bg-[#eef4f3] p-0 shadow-[0_24px_70px_rgba(13,38,53,0.12)] transition-all duration-500 hover:border-[#4f7487]/65 sm:rounded-[30px]">
+      <div className="grid grid-cols-1 bg-[radial-gradient(circle_at_82%_14%,rgba(79,116,135,.18),transparent_28%),radial-gradient(circle_at_10%_86%,rgba(255,106,0,.12),transparent_30%),linear-gradient(135deg,#fbfdfc_0%,#edf4f5_46%,#f8faf8_100%)] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
         <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-3 py-4 text-white max-sm:min-h-[84px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_54%,rgba(255,255,255,.34),transparent_26%),radial-gradient(circle_at_84%_78%,rgba(132,185,211,.32),transparent_42%)]" />
           <div className="pointer-events-none absolute -right-28 top-52 h-72 w-72 rounded-full border border-white/38" />
@@ -1252,7 +1322,92 @@ export function Journey() {
   });
 
   useEffect(() => {
+    const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+    if (shouldReduceMotion) {
+      if (lineRef.current) {
+        lineRef.current.style.height = "100%";
+        lineRef.current.style.background = timelineGradient;
+      }
+      if (paintCoverRef.current) {
+        paintCoverRef.current.style.display = "none";
+      }
+      return;
+    }
+
+    if (isMobile) {
+      const cards = gsap.utils.toArray<HTMLElement>(".journey-card");
+      let scrollFrame = 0;
+
+      if (paintCoverRef.current) {
+        paintCoverRef.current.style.display = "";
+        paintCoverRef.current.style.transform = "translate3d(-50%, 0%, 0)";
+      }
+
+      cards.forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translate3d(0, 18px, 0)";
+        card.style.transition = "opacity 520ms ease, transform 520ms ease";
+        card.style.willChange = "opacity, transform";
+      });
+
+      const cardObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const card = entry.target as HTMLElement;
+
+            if (entry.isIntersecting) {
+              card.style.opacity = "1";
+              card.style.transform = "translate3d(0, 0, 0)";
+              window.setTimeout(() => {
+                card.style.willChange = "auto";
+              }, 560);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },
+      );
+
+      cards.forEach((card) => cardObserver.observe(card));
+
+      const paintMobileLine = () => {
+        scrollFrame = 0;
+
+        if (!lineRef.current || !lineTrackRef.current || !sectionRef.current) return;
+
+        const trackRect = lineTrackRef.current.getBoundingClientRect();
+        const progress = clamp01((window.innerHeight * 0.56 - trackRect.top) / Math.max(trackRect.height, 1));
+        const theme = getComputedStyle(document.documentElement).getPropertyValue("--color-accent-orange").trim() || "#ff6a00";
+
+        lineRef.current.style.height = `${progress * 100}%`;
+        lineRef.current.style.background = `linear-gradient(to bottom, ${theme}55, ${theme})`;
+        lineRef.current.style.boxShadow = `0 0 14px ${theme}40`;
+
+        if (paintCoverRef.current) {
+          paintCoverRef.current.style.transform = `translate3d(-50%, ${progress * 100}%, 0)`;
+        }
+      };
+
+      const requestMobileLinePaint = () => {
+        if (scrollFrame) return;
+        scrollFrame = requestAnimationFrame(paintMobileLine);
+      };
+
+      requestMobileLinePaint();
+      window.addEventListener("scroll", requestMobileLinePaint, { passive: true });
+      window.addEventListener("resize", requestMobileLinePaint, { passive: true });
+
+      return () => {
+        if (scrollFrame) cancelAnimationFrame(scrollFrame);
+        window.removeEventListener("scroll", requestMobileLinePaint);
+        window.removeEventListener("resize", requestMobileLinePaint);
+        cardObserver.disconnect();
+      };
+    }
+
     gsap.registerPlugin(ScrollTrigger);
+    const initialTriggers = new Set(ScrollTrigger.getAll());
 
     const getLineSections = () => gsap.utils.toArray<HTMLElement>("[data-journey-line]");
 
@@ -1358,21 +1513,52 @@ export function Journey() {
     });
 
     let rafId = 0;
-    const renderLoop = () => {
-      updateLineTargets();
-      paintLine();
+    let lastPaint = 0;
+    let isSectionActive = true;
+    const renderLoop = (ts: number) => {
+      if (!isSectionActive) {
+        rafId = 0;
+        return;
+      }
+
+      if (ts - lastPaint > 1000 / 30) {
+        updateLineTargets();
+        paintLine();
+        lastPaint = ts;
+      }
+
       rafId = requestAnimationFrame(renderLoop);
     };
 
-    rafId = requestAnimationFrame(renderLoop);
-    window.addEventListener("scroll", updateLineTargets, { passive: true });
+    const startRenderLoop = () => {
+      if (!rafId) rafId = requestAnimationFrame(renderLoop);
+    };
+
+    const stopRenderLoop = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = 0;
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isSectionActive = entry.isIntersecting;
+        if (isSectionActive) startRenderLoop();
+        else stopRenderLoop();
+      },
+      { rootMargin: "240px" },
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    startRenderLoop();
     window.addEventListener("resize", updateLineTargets, { passive: true });
 
     return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", updateLineTargets);
+      stopRenderLoop();
+      observer.disconnect();
       window.removeEventListener("resize", updateLineTargets);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (!initialTriggers.has(trigger)) trigger.kill();
+      });
     };
   }, []);
 

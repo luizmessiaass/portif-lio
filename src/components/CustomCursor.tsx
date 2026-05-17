@@ -23,6 +23,7 @@ export function CustomCursor() {
 
     const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     const mouse = { x: pos.x, y: pos.y };
+    let isCursorVisible = false;
 
     const xSet = gsap.quickSetter(cursor, "x", "px");
     const ySet = gsap.quickSetter(cursor, "y", "px");
@@ -54,7 +55,10 @@ export function CustomCursor() {
       dotXSet(mouse.x);
       dotYSet(mouse.y);
       requestTick();
-      gsap.to([cursor, dot], { opacity: 1, duration: 0.1, overwrite: "auto" });
+      if (!isCursorVisible) {
+        isCursorVisible = true;
+        gsap.to([cursor, dot], { opacity: 1, duration: 0.1, overwrite: "auto" });
+      }
     };
 
     const handleHoverEnter = () => {
@@ -84,6 +88,10 @@ export function CustomCursor() {
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
+      document.querySelectorAll('a, button, [data-cursor="hover"], input, textarea, select').forEach(el => {
+        el.removeEventListener('mouseenter', handleHoverEnter as EventListener);
+        el.removeEventListener('mouseleave', handleHoverLeave as EventListener);
+      });
       if (frameId !== null) cancelAnimationFrame(frameId);
     };
   }, []);

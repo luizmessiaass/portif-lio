@@ -88,6 +88,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   fill
                   priority
                   sizes="90vw"
+                  quality={82}
                   className="object-cover"
                 />
               ) : (
@@ -231,7 +232,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                         src={image.src}
                         alt={image.alt}
                         fill
-                        sizes="90vw"
+                        sizes="(max-width: 768px) 92vw, 62vw"
+                        quality={72}
+                        loading="lazy"
                         className="object-contain"
                       />
                     </div>

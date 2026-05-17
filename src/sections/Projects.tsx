@@ -85,7 +85,7 @@ export function Projects() {
       </div>
 
       <div className="max-w-[1300px] mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-6 px-2 sm:px-6">
-        {featuredProjects.map((project) => (
+        {featuredProjects.map((project, index) => (
           <Link
             href={`/projetos/${project.slug}`}
             key={project.id}
@@ -99,7 +99,8 @@ export function Projects() {
                   alt={project.coverAlt ?? project.title}
                   fill
                   sizes="(max-width: 1024px) 90vw, 30vw"
-                  quality={95}
+                  quality={index === 0 ? 78 : 72}
+                  loading="lazy"
                   className="object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
                 />
               ) : (

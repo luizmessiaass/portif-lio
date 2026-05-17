@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRef, useEffect } from "react";
+import { StackChip } from "@/components/StackChip";
 import { gsap } from "@/lib/gsap";
 import { projects } from "@/lib/projects";
 
@@ -133,9 +134,7 @@ export function Projects() {
               </p>
               <div className="mt-auto flex flex-wrap gap-2 pt-8">
                 {project.stack.slice(0, 4).map((tag) => (
-                  <span key={tag} className="rounded-full border border-black/10 bg-[#f9f9f9] px-3 py-1.5 font-general text-xs font-semibold text-[#333]">
-                    {tag}
-                  </span>
+                  <StackChip key={tag} label={tag} />
                 ))}
               </div>
             </div>

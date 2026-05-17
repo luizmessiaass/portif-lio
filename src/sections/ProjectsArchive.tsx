@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Layers3 } from "lucide-react";
 import { useMemo, useState, useEffect } from "react";
+import { StackChip } from "@/components/StackChip";
 import { gsap } from "@/lib/gsap";
 import { projectFilters, projects, type ProjectFilter } from "@/lib/projects";
 
@@ -142,9 +143,7 @@ export function ProjectsArchive() {
 
                 <div className="mt-auto flex flex-wrap gap-2 pt-8">
                   {project.stack.map((tag) => (
-                    <span key={tag} className="rounded-full border border-black/10 bg-[#f9f9f9] px-3 py-1.5 font-general text-xs font-semibold text-[#333]">
-                      {tag}
-                    </span>
+                    <StackChip key={tag} label={tag} />
                   ))}
                 </div>
               </div>

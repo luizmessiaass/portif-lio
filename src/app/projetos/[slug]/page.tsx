@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, FolderGit2, Layers3, Monitor } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
+import { StackChip } from "@/components/StackChip";
 import { getProjectBySlug, projects } from "@/lib/projects";
 
 type ProjectPageProps = {
@@ -142,9 +143,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
               <div className="flex flex-wrap gap-2">
                 {project.stack.map((tag) => (
-                  <span key={tag} className="rounded-full border border-black/10 bg-[#f9f9f9] px-3 py-2 font-general text-xs font-semibold text-[#333]">
-                    {tag}
-                  </span>
+                  <StackChip key={tag} label={tag} className="py-2" />
                 ))}
               </div>
             </div>

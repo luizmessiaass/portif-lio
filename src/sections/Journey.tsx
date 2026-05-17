@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { StackChip } from "@/components/StackChip";
 import { gsap } from "@/lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -191,6 +192,219 @@ function CompanyHeader({
   );
 }
 
+type CertificationVariant = "ai-cloud" | "microsoft";
+
+const certificationAssets: Record<
+  CertificationVariant,
+  {
+    eyebrow: string;
+    headline: string;
+    period: string;
+    accent: string;
+    topIcon: LucideIcon;
+    minHeight: string;
+    headerLogos: { kind: "google" | "oracle" | "couchbase" | "microsoft" }[];
+    certLogos: { kind: "google" | "oracle" | "couchbase" | "azure" }[];
+  }
+> = {
+  "ai-cloud": {
+    eyebrow: "Google, Oracle & Couchbase",
+    headline: "Especialização em IA & Cloud Foundation",
+    period: "SET - NOV 2025",
+    accent: "#f05a1a",
+    topIcon: BrainCircuit,
+    minHeight: "sm:min-h-[640px]",
+    headerLogos: [
+      { kind: "google" },
+      { kind: "oracle" },
+      { kind: "couchbase" },
+    ],
+    certLogos: [
+      { kind: "google" },
+      { kind: "oracle" },
+      { kind: "couchbase" },
+    ],
+  },
+  microsoft: {
+    eyebrow: "Microsoft Certified",
+    headline: "Microsoft Cloud & Data Expert Path",
+    period: "JAN - ABR 2026",
+    accent: "#f05a1a",
+    topIcon: Award,
+    minHeight: "sm:min-h-[690px]",
+    headerLogos: [
+      { kind: "microsoft" },
+    ],
+    certLogos: [
+      { kind: "azure" },
+      { kind: "azure" },
+      { kind: "azure" },
+      { kind: "azure" },
+      { kind: "azure" },
+    ],
+  },
+};
+
+function MaskLogo({
+  src,
+  color,
+  className,
+}: {
+  src: string;
+  color: string;
+  className: string;
+}) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`block bg-current ${className}`}
+      style={{
+        color,
+        mask: `url(${src}) center / contain no-repeat`,
+        WebkitMask: `url(${src}) center / contain no-repeat`,
+      }}
+    />
+  );
+}
+
+function MicrosoftLogo({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`flex items-center ${compact ? "gap-2" : "gap-3"}`}>
+      <span className={`${compact ? "h-8 w-8" : "h-10 w-10"} grid grid-cols-2 gap-1`}>
+        <span className="bg-[#f25022]" />
+        <span className="bg-[#7fba00]" />
+        <span className="bg-[#00a4ef]" />
+        <span className="bg-[#ffb900]" />
+      </span>
+      <span className={`font-general font-semibold tracking-normal text-[#5f6368] ${compact ? "text-[20px]" : "text-[26px]"}`}>Microsoft</span>
+    </div>
+  );
+}
+
+function CertificationBrandLogo({
+  kind,
+  compact = false,
+}: {
+  kind: "google" | "oracle" | "couchbase" | "microsoft" | "azure";
+  compact?: boolean;
+}) {
+  if (kind === "microsoft") return <MicrosoftLogo compact={compact} />;
+
+  if (kind === "oracle") {
+    return (
+      <MaskLogo
+        src="/stack/oracle.svg"
+        color="#f80000"
+        className={compact ? "h-5 w-16" : "h-8 w-24"}
+      />
+    );
+  }
+
+  if (kind === "couchbase") {
+    return (
+      <div className="flex items-center gap-2">
+        <MaskLogo
+          src="/stack/couchbase.svg"
+          color="#ed1f24"
+          className={compact ? "h-8 w-8" : "h-10 w-10"}
+        />
+        {!compact ? (
+          <span className="font-general text-[18px] font-bold tracking-[0.04em] text-[#101010]">COUCHBASE</span>
+        ) : null}
+      </div>
+    );
+  }
+
+  if (kind === "azure") {
+    return (
+      <MaskLogo
+        src="/stack/microsoftazure.svg"
+        color="#0078d4"
+        className={compact ? "h-8 w-8" : "h-10 w-10"}
+      />
+    );
+  }
+
+  return (
+    <MaskLogo
+      src="/stack/google.svg"
+      color="#4285f4"
+      className={compact ? "h-8 w-8" : "h-10 w-10"}
+    />
+  );
+}
+
+function CertificationFeaturedCard({ item, variant }: { item: Milestone; variant: CertificationVariant }) {
+  const config = certificationAssets[variant];
+  const TopIcon = config.topIcon;
+
+  return (
+    <div className="journey-card relative min-w-0 max-w-full rounded-[28px] bg-transparent sm:rounded-[34px]">
+      <div className="pointer-events-none absolute -left-8 -top-12 hidden h-[calc(100%+6rem)] w-[3px] rounded-full bg-[#f05a1a] sm:block">
+        <span className="absolute -left-[11px] top-9 h-7 w-7 rounded-full border-[5px] border-[#f05a1a] bg-white shadow-[0_0_0_6px_rgba(240,90,26,.08)]" />
+        <span className="absolute -left-[11px] bottom-14 h-7 w-7 rounded-full border-[5px] border-[#f05a1a] bg-white shadow-[0_0_0_6px_rgba(240,90,26,.08)]" />
+      </div>
+
+      <div className={`relative overflow-hidden rounded-[28px] border border-[#f3d9c9] bg-[#fffdf9] p-5 shadow-[0_26px_80px_rgba(140,82,36,.12)] sm:rounded-[34px] sm:p-8 lg:p-10 ${config.minHeight}`}>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_10%,rgba(255,138,73,.08),transparent_30%),radial-gradient(circle_at_96%_84%,rgba(255,138,73,.08),transparent_36%)]" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-48 w-64 rounded-tl-full bg-[repeating-linear-gradient(135deg,rgba(240,90,26,.05)_0,rgba(240,90,26,.05)_1px,transparent_1px,transparent_7px)]" />
+
+        <div className="relative flex items-center gap-5">
+          <div className="grid h-20 w-20 shrink-0 place-items-center rounded-[24px] border border-[#f3d9c9] bg-[#fff2e9] text-[#f05a1a] shadow-[inset_0_1px_0_rgba(255,255,255,.85),0_14px_30px_rgba(240,90,26,.14)]">
+            <TopIcon size={38} strokeWidth={1.55} />
+          </div>
+          <span className="h-12 w-px bg-black/12" />
+          <div className="flex min-w-0 flex-wrap items-center gap-5">
+            {config.headerLogos.map((logo) => (
+              <CertificationBrandLogo key={logo.kind} kind={logo.kind} />
+            ))}
+          </div>
+        </div>
+
+        <div className="relative mt-9">
+          <p className="font-general text-[13px] font-bold uppercase tracking-[0.42em] text-[#e85a1b] sm:text-[15px]">
+            {config.eyebrow}
+          </p>
+
+          <div className="mt-7 flex items-center gap-4 font-general text-[22px] font-semibold uppercase tracking-[0.28em] text-[#8b8b8b]">
+            <Calendar size={26} strokeWidth={1.8} />
+            {config.period}
+          </div>
+
+          <h3 className="mt-7 max-w-[720px] font-clash text-[clamp(2.05rem,8vw,4.4rem)] font-semibold leading-[1.05] tracking-normal text-[#08090c] text-balance">
+            {config.headline}
+          </h3>
+          <span className="mt-8 block h-[3px] w-16 bg-[#f05a1a]" />
+        </div>
+
+        <div className="relative mt-9 grid gap-5">
+          {item.certs?.map((cert, index) => {
+            const logo = config.certLogos[index] ?? config.certLogos[0];
+
+            return (
+              <div
+                key={cert.name}
+                className="grid min-h-[78px] grid-cols-[64px_1px_minmax(0,1fr)_auto] items-center gap-4 rounded-[22px] border border-[#efd8c9] bg-white/82 px-4 shadow-[0_14px_34px_rgba(140,82,36,.11)] sm:min-h-[86px] sm:grid-cols-[74px_1px_minmax(0,1fr)_auto] sm:gap-5 sm:px-6"
+              >
+                <span className="grid h-14 w-14 place-items-center rounded-full border border-[#efd8c9] bg-white shadow-[0_8px_18px_rgba(140,82,36,.12)] sm:h-16 sm:w-16">
+                  <CertificationBrandLogo kind={logo.kind} compact />
+                </span>
+                <span className="h-10 w-px bg-black/12" />
+                <span className="min-w-0 font-general text-[16px] font-medium leading-tight text-[#08090c] sm:text-[24px]">
+                  {cert.name}
+                </span>
+                <span className="shrink-0 font-general text-[15px] font-medium text-[#909090] sm:text-[22px]">
+                  {cert.date}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function LinceFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
@@ -324,9 +538,11 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
 
           <div className="mt-9 flex flex-wrap gap-2 sm:gap-3">
             {item.tech?.map((tag) => (
-              <span key={tag} className="inline-flex min-h-9 items-center rounded-full bg-[#f3f7ff] px-3 font-general text-[9px] font-bold uppercase tracking-[0.06em] text-[#0c63c7] shadow-[inset_0_0_0_1px_rgba(12,99,199,.08)] sm:min-h-10 sm:px-4 sm:text-xs">
-                {tag}
-              </span>
+              <StackChip
+                key={tag}
+                label={tag}
+                className="min-h-9 border-transparent bg-[#f3f7ff] text-[9px] font-bold uppercase tracking-[0.06em] text-[#0c63c7] shadow-[inset_0_0_0_1px_rgba(12,99,199,.08)] sm:min-h-10 sm:px-4 sm:text-xs"
+              />
             ))}
           </div>
         </div>
@@ -393,9 +609,11 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
 
           <div className="mt-9 flex flex-wrap gap-2 sm:gap-3">
             {item.tech?.map((tag) => (
-              <span key={tag} className="inline-flex min-h-9 items-center rounded-full bg-[#fff7e8] px-3 font-general text-[9px] font-bold uppercase tracking-[0.06em] text-[#a56f10] shadow-[inset_0_0_0_1px_rgba(165,111,16,.1)] sm:min-h-10 sm:px-4 sm:text-xs">
-                {tag}
-              </span>
+              <StackChip
+                key={tag}
+                label={tag}
+                className="min-h-9 border-transparent bg-[#fff7e8] text-[9px] font-bold uppercase tracking-[0.06em] text-[#a56f10] shadow-[inset_0_0_0_1px_rgba(165,111,16,.1)] sm:min-h-10 sm:px-4 sm:text-xs"
+              />
             ))}
           </div>
         </div>
@@ -491,9 +709,11 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
 
           <div className="mt-7 flex flex-wrap gap-2 sm:gap-3">
             {item.tech?.map((tag) => (
-              <span key={tag} className="inline-flex min-h-9 items-center rounded-full bg-[#fbf0ff] px-3 font-general text-[9px] font-bold uppercase tracking-[0.06em] text-[#8d2ca9] shadow-[inset_0_0_0_1px_rgba(141,44,169,.08)] sm:min-h-10 sm:px-4 sm:text-xs">
-                {tag}
-              </span>
+              <StackChip
+                key={tag}
+                label={tag}
+                className="min-h-9 border-transparent bg-[#fbf0ff] text-[9px] font-bold uppercase tracking-[0.06em] text-[#8d2ca9] shadow-[inset_0_0_0_1px_rgba(141,44,169,.08)] sm:min-h-10 sm:px-4 sm:text-xs"
+              />
             ))}
           </div>
         </div>
@@ -564,12 +784,12 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
               textClassName="text-[#ff6a00]"
               logos={[
                 {
-                  src: "/brands/next-ecommerce-logo-transparent.png",
-                  width: 325,
-                  height: 286,
-                  imageClassName: "h-7 w-7 brightness-0 invert sm:h-8 sm:w-8",
-                  badgeClassName: "bg-[#06111a]",
-                  sizes: "(max-width: 640px) 28px, 32px",
+                  src: "/brands/next-ecommerce-badge.png",
+                  width: 400,
+                  height: 400,
+                  imageClassName: "h-full w-full rounded-2xl object-cover",
+                  badgeClassName: "overflow-hidden bg-transparent",
+                  sizes: "(max-width: 640px) 44px, 56px",
                 },
                 {
                   src: "/brands/avant-mark-transparent.png",
@@ -580,12 +800,12 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
                   sizes: "(max-width: 640px) 24px, 28px",
                 },
                 {
-                  src: "/brands/elevate-ecom-logo-transparent.png",
-                  width: 276,
-                  height: 131,
-                  imageClassName: "h-auto w-9 sm:w-11",
-                  badgeClassName: "bg-[#07111b]",
-                  sizes: "(max-width: 640px) 36px, 44px",
+                  src: "/brands/elevate-ecom-badge.png",
+                  width: 447,
+                  height: 447,
+                  imageClassName: "h-full w-full rounded-2xl object-cover",
+                  badgeClassName: "overflow-hidden bg-transparent",
+                  sizes: "(max-width: 640px) 44px, 56px",
                 },
               ]}
             />
@@ -607,9 +827,11 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
 
           <div className="mt-7 flex flex-wrap gap-2 sm:gap-3">
             {item.tech?.map((tag) => (
-              <span key={tag} className="inline-flex min-h-8 items-center rounded-full bg-[#f1f3f4] px-3 font-general text-[9px] font-bold uppercase tracking-[0.06em] text-[#242424] shadow-[inset_0_0_0_1px_rgba(0,0,0,.04)] sm:min-h-9 sm:px-4 sm:text-xs">
-                {tag}
-              </span>
+              <StackChip
+                key={tag}
+                label={tag}
+                className="min-h-8 border-transparent bg-[#f1f3f4] text-[9px] font-bold uppercase tracking-[0.06em] text-[#242424] shadow-[inset_0_0_0_1px_rgba(0,0,0,.04)] sm:min-h-9 sm:px-4 sm:text-xs"
+              />
             ))}
           </div>
 
@@ -630,7 +852,7 @@ export function Journey() {
   const sectionRef = useRef<HTMLElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const orbRef = useRef<HTMLDivElement>(null);
-  const colorTrailRef = useRef<HTMLDivElement>(null);
+  const paintCoverRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -691,12 +913,12 @@ export function Journey() {
       
 
       const colors = [
-        { r: 217, g: 4, b: 22 },    // 0: Vermelho (Início)
-        { r: 217, g: 4, b: 22 },    // 1: Vermelho (Lince)
-        { r: 12, g: 99, b: 199 },   // 2: Azul (Bunge)
-        { r: 215, g: 162, b: 58 },  // 3: Dourado (Mapfit)
-        { r: 168, g: 76, b: 207 },  // 4: Roxo (Studio)
-        { r: 255, g: 106, b: 0 }    // 5: Laranja (Avant)
+        { r: 255, g: 255, b: 255 }, // 0: Branco inicial
+        { r: 229, g: 31, b: 52 }, // 1: Vermelho (Lince)
+        { r: 12, g: 99, b: 199 }, // 2: Azul (Bunge)
+        { r: 215, g: 162, b: 58 }, // 3: Dourado (Mapfit)
+        { r: 168, g: 76, b: 207 }, // 4: Roxo (Studio)
+        { r: 255, g: 106, b: 0 }, // 5: Laranja (Avant)
       ];
 
       let r = 0, g = 0, b = 0;
@@ -727,9 +949,13 @@ export function Journey() {
       },
     });
 
+    if (paintCoverRef.current) {
+      gsap.set(paintCoverRef.current, { yPercent: 0 });
+    }
+
     tl.to(lineRef.current, { height: "100%", ease: "none" }, 0);
     tl.to(orbRef.current, { top: "100%", ease: "none" }, 0);
-    tl.to(colorTrailRef.current, { clipPath: "inset(0 0 0% 0)", ease: "none" }, 0);
+    tl.to(paintCoverRef.current, { yPercent: 100, ease: "none" }, 0);
 
     const cards = gsap.utils.toArray<HTMLElement>(".journey-card");
     cards.forEach((card) => {
@@ -802,22 +1028,13 @@ export function Journey() {
         <div className="relative pb-24 sm:pb-40">
           {/* Main Line Path */}
           <div className="absolute left-4 top-0 h-full w-[2px] bg-black/5 sm:left-1/2 sm:-translate-x-1/2 z-20">
-            <div ref={lineRef} className="h-0 w-full origin-top" style={{ backgroundColor: "#d90416" }} />
-            <div ref={orbRef} className="absolute -left-[4px] top-0 z-20 h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: "#d90416" }} />
+            <div ref={lineRef} className="h-0 w-full origin-top" style={{ backgroundColor: "#ffffff" }} />
+            <div ref={orbRef} className="absolute -left-[4px] top-0 z-20 h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: "#ffffff" }} />
           </div>
 
-          {/* COLOR TRAIL MASK */}
-          <div ref={colorTrailRef} className="absolute inset-0 pointer-events-none z-0 overflow-hidden" style={{ clipPath: "inset(0 0 100% 0)" }}>
-             {/* Lince Aura */}
-             <div className="absolute top-[3%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(217,4,22,0.18)_0%,transparent_60%)] blur-[80px]" />
-             {/* Bunge Aura */}
-             <div className="absolute top-[20%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(12,99,199,0.15)_0%,transparent_60%)] blur-[80px]" />
-             {/* Mapfit Aura */}
-             <div className="absolute top-[40%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(215,162,58,0.15)_0%,transparent_60%)] blur-[80px]" />
-             {/* Studio Aura */}
-             <div className="absolute top-[60%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(168,76,207,0.15)_0%,transparent_60%)] blur-[80px]" />
-             {/* Avant Aura */}
-             <div className="absolute top-[85%] left-1/2 w-[200vw] sm:w-[120vw] h-[100vh] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(255,106,0,0.15)_0%,transparent_60%)] blur-[80px]" />
+          <div ref={paintCoverRef} className="pointer-events-none absolute left-1/2 top-0 z-[1] h-[125%] w-[220vw] -translate-x-1/2 bg-white will-change-transform">
+            <div className="absolute -top-40 left-0 h-40 w-full bg-gradient-to-b from-transparent via-white/85 to-white blur-sm" />
+            <div className="absolute -top-72 left-1/2 h-72 w-full -translate-x-1/2 bg-[radial-gradient(ellipse_at_16%_64%,rgba(255,255,255,.95),transparent_42%),radial-gradient(ellipse_at_48%_44%,rgba(255,255,255,.9),transparent_48%),radial-gradient(ellipse_at_82%_58%,rgba(255,255,255,.96),transparent_40%)] blur-[32px]" />
           </div>
 
           {/* Milestone List */}
@@ -831,17 +1048,17 @@ export function Journey() {
               >
                 {(i <= 3 || i === 5) && (
                   <div
-                    className={`pointer-events-none absolute left-1/2 top-1/2 z-0 h-[calc(100%+130vh)] w-screen -translate-x-1/2 -translate-y-1/2 blur-0 ${
+                    className={`pointer-events-none absolute left-1/2 top-1/2 z-0 h-[calc(100%+80vh)] w-screen -translate-x-1/2 -translate-y-1/2 blur-[18px] ${
                       i === 0
-                        ? "bg-[radial-gradient(circle_at_18%_16%,rgba(255,255,255,.32),transparent_24%),radial-gradient(circle_at_86%_26%,rgba(255,180,180,.18),transparent_30%),linear-gradient(135deg,#fff4f4_0%,#f1323f_42%,#c90015_100%)]"
+                        ? "bg-[radial-gradient(circle_at_18%_16%,rgba(255,255,255,.36),transparent_24%),radial-gradient(circle_at_86%_26%,rgba(255,132,142,.3),transparent_30%),linear-gradient(135deg,#fff7f8_0%,rgba(238,49,68,.82)_42%,rgba(179,16,34,.72)_100%)]"
                         : i === 1
-                          ? "bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,.3),transparent_24%),radial-gradient(circle_at_86%_78%,rgba(255,106,0,.28),transparent_34%),linear-gradient(135deg,#eef6ff_0%,#0868d8_34%,#7e2aa1_68%,#ff5a12_100%)]"
+                          ? "bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,.3),transparent_24%),radial-gradient(circle_at_86%_78%,rgba(255,106,0,.28),transparent_34%),linear-gradient(135deg,#eef6ff_0%,rgba(8,104,216,.72)_34%,rgba(126,42,161,.66)_68%,rgba(255,90,18,.62)_100%)]"
                           : i === 2
-                            ? "bg-[radial-gradient(circle_at_78%_22%,rgba(215,162,58,.26),transparent_32%),radial-gradient(circle_at_18%_86%,rgba(215,162,58,.34),transparent_34%),linear-gradient(135deg,#fff8eb_0%,#4b3919_30%,#1a1a1a_62%,#090909_100%)]"
+                            ? "bg-[radial-gradient(circle_at_78%_22%,rgba(215,162,58,.28),transparent_32%),radial-gradient(circle_at_18%_86%,rgba(215,162,58,.36),transparent_34%),linear-gradient(135deg,#fff8eb_0%,rgba(75,57,25,.64)_30%,rgba(26,26,26,.58)_62%,rgba(9,9,9,.52)_100%)]"
                             : i === 3
-                              ? "bg-[radial-gradient(circle_at_18%_64%,rgba(168,76,207,.36),transparent_32%),radial-gradient(circle_at_86%_24%,rgba(255,255,255,.22),transparent_28%),linear-gradient(135deg,#fff5ff_0%,#7d318f_42%,#111111_100%)]"
-                              : "bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,.42),transparent_30%),radial-gradient(circle_at_82%_74%,rgba(132,185,211,.32),transparent_40%),linear-gradient(135deg,#eef4f3_0%,#6f8796_32%,#1c3342_68%,#07111b_100%)]"
-                    } opacity-70 [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,.25)_12%,black_34%,black_66%,rgba(0,0,0,.25)_88%,transparent_100%)]`}
+                              ? "bg-[radial-gradient(circle_at_18%_64%,rgba(168,76,207,.38),transparent_32%),radial-gradient(circle_at_86%_24%,rgba(255,255,255,.23),transparent_28%),linear-gradient(135deg,#fff5ff_0%,rgba(125,49,143,.68)_42%,rgba(17,17,17,.6)_100%)]"
+                              : "bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,.42),transparent_30%),radial-gradient(circle_at_82%_74%,rgba(132,185,211,.35),transparent_40%),linear-gradient(135deg,#eef4f3_0%,rgba(111,135,150,.7)_32%,rgba(28,51,66,.66)_68%,rgba(7,17,27,.62)_100%)]"
+                    } opacity-75 [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,.38)_16%,black_36%,black_64%,rgba(0,0,0,.32)_84%,transparent_100%)]`}
                   />
                 )}
 
@@ -866,9 +1083,17 @@ export function Journey() {
                     <div data-journey-scene="4">
                       <StudioFeaturedCard item={item} />
                     </div>
+                  ) : i === 4 ? (
+                    <div data-journey-scene="0">
+                      <CertificationFeaturedCard item={item} variant="ai-cloud" />
+                    </div>
                   ) : i === 5 ? (
                     <div data-journey-scene="5">
                       <AvantFeaturedCard item={item} />
+                    </div>
+                  ) : i === 7 ? (
+                    <div data-journey-scene="0">
+                      <CertificationFeaturedCard item={item} variant="microsoft" />
                     </div>
                   ) : (
                     <div data-journey-scene="0" className={`journey-card relative rounded-[20px] border-2 ${
@@ -921,9 +1146,11 @@ export function Journey() {
 
                           <div className="mt-6 flex flex-wrap gap-1.5">
                             {item.tech?.map((t) => (
-                              <span key={t} className="rounded-full bg-[#f5f5f5] px-2.5 py-1 font-general text-[9px] font-bold uppercase tracking-tight text-[#666]">
-                                {t}
-                              </span>
+                              <StackChip
+                                key={t}
+                                label={t}
+                                className="min-h-6 border-transparent bg-[#f5f5f5] px-2.5 py-1 text-[9px] font-bold uppercase tracking-tight text-[#666]"
+                              />
                             ))}
                           </div>
                         </>

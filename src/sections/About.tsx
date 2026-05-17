@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, type CSSProperties } from "react";
 import {
-  ArrowRight,
   ArrowUpRight,
   BarChart3,
   Bot,
@@ -141,24 +140,19 @@ export function About() {
             <p className="about-body max-w-[460px] font-general text-[17px] leading-relaxed text-[#666] text-pretty sm:text-lg">
               {profile.summary}
             </p>
-            
-            <div className="about-body mt-2 flex items-center gap-2 text-[13px] font-bold uppercase tracking-widest text-[var(--color-accent-orange)] lg:hidden">
-              <ArrowRight size={16} className="animate-pulse" />
-              Arraste para ver os serviços
-            </div>
           </div>
         </div>
 
-        <div className="-mx-[5vw] flex w-auto max-w-[100vw] snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-[5vw] pb-28 lg:mx-0 lg:w-[65%] lg:max-w-none lg:flex-col lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-[10vh] hide-scrollbar">
+        <div className="flex w-full flex-col gap-5 pb-12 sm:gap-6 sm:pb-20 lg:w-[65%] lg:gap-8 lg:pb-[10vh]">
           {capabilities.map((service, index) => (
             <div
               key={service.id}
               data-cursor="hover"
-              className="service-card group relative flex min-h-[390px] w-[84vw] shrink-0 snap-center flex-col overflow-hidden rounded-[28px] border border-white/90 bg-[#fffefd] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 sm:w-[60vw] sm:rounded-[34px] sm:p-8 lg:sticky lg:w-full lg:min-h-[38vh] lg:p-9 xl:p-10"
+              className="service-card group relative flex w-full flex-col overflow-hidden rounded-[24px] border border-white/90 bg-[#fffefd] p-5 shadow-[0_16px_34px_rgba(0,0,0,0.07)] transition-all duration-500 sm:rounded-[30px] sm:p-7 lg:sticky lg:top-[var(--service-top)] lg:min-h-[38vh] lg:p-9 lg:shadow-[0_20px_50px_rgba(0,0,0,0.08)] xl:p-10"
               style={{
-                top: `calc(15vh + ${index * 40}px)`,
+                "--service-top": `calc(15vh + ${index * 40}px)`,
                 zIndex: index + 1,
-              }}
+              } as CSSProperties}
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_7%,rgba(255,106,0,.16),transparent_24%),linear-gradient(120deg,rgba(255,255,255,.94)_0%,rgba(255,250,246,.86)_58%,rgba(255,238,225,.58)_100%)]" />
               <div className="pointer-events-none absolute right-7 top-24 hidden h-28 w-24 bg-[radial-gradient(rgba(255,106,0,.18)_1px,transparent_1px)] opacity-55 [background-size:10px_10px] sm:block" />
@@ -167,33 +161,33 @@ export function About() {
                 {service.id.replace(".", "")}
               </div>
 
-              <div className="relative z-10 flex items-center justify-between gap-5">
-                <div className="flex min-w-0 flex-1 items-center gap-3">
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-[12px] border-2 border-[#ff6a00] bg-white/70 text-[#ff6a00] sm:h-11 sm:w-11">
+              <div className="relative z-10 flex items-start justify-between gap-3 sm:items-center sm:gap-5">
+                <div className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-[11px] border-2 border-[#ff6a00] bg-white/70 text-[#ff6a00] sm:h-11 sm:w-11">
                     <Code2 size={22} strokeWidth={2.2} />
                   </span>
-                  <span className="min-w-0 break-words font-gloria text-[clamp(1.15rem,4.7vw,1.65rem)] leading-tight text-[#ff6a00] sm:text-[1.75rem]">
+                  <span className="min-w-0 break-words font-gloria text-[clamp(1.05rem,7vw,1.45rem)] leading-tight text-[#ff6a00] sm:text-[1.75rem]">
                     {service.accent}
                   </span>
                 </div>
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#ff6a00]/15 bg-[#fff3ea] text-[#ff6a00] shadow-[0_14px_30px_rgba(255,106,0,.12)] sm:h-12 sm:w-12">
-                  <ArrowUpRight size={22} strokeWidth={2} />
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#ff6a00]/15 bg-[#fff3ea] text-[#ff6a00] shadow-[0_14px_30px_rgba(255,106,0,.12)] sm:h-12 sm:w-12">
+                  <ArrowUpRight size={20} strokeWidth={2} />
                 </span>
               </div>
 
               <div className="relative z-10 mt-4 h-px w-[76%] bg-[#ff6a00]/45 sm:mt-5" />
 
-              <div className="relative z-10 mt-5 flex items-center gap-4 sm:mt-6">
-                <span className="block shrink-0 font-clash text-[clamp(3.15rem,13vw,5rem)] font-semibold leading-[.78] tracking-normal text-[#ff6a00] drop-shadow-[0_12px_18px_rgba(255,106,0,.12)] lg:text-[5.3rem]">
+              <div className="relative z-10 mt-5 flex flex-wrap items-center gap-3 sm:mt-6 sm:gap-4">
+                <span className="block shrink-0 font-clash text-[clamp(3rem,17vw,4.6rem)] font-semibold leading-[.78] tracking-normal text-[#ff6a00] drop-shadow-[0_12px_18px_rgba(255,106,0,.12)] lg:text-[5.3rem]">
                   {service.id}
                 </span>
-                <span className="inline-flex rounded-full bg-[#fff7f1]/90 px-3 py-1.5 font-general text-[9px] font-bold uppercase tracking-[0.14em] text-[#ff6a00] shadow-[inset_0_0_0_1px_rgba(255,106,0,.08),0_10px_24px_rgba(255,106,0,.07)] sm:px-4 sm:text-[10px]">
+                <span className="inline-flex max-w-full rounded-full bg-[#fff7f1]/90 px-3 py-1.5 font-general text-[9px] font-bold uppercase tracking-[0.14em] text-[#ff6a00] shadow-[inset_0_0_0_1px_rgba(255,106,0,.08),0_10px_24px_rgba(255,106,0,.07)] sm:px-4 sm:text-[10px]">
                   {service.badge}
                 </span>
               </div>
 
               <div className="relative z-10 mt-5 max-w-[640px] sm:mt-6">
-                <h3 className="break-words font-clash text-[clamp(2.05rem,8.7vw,3.35rem)] font-semibold leading-[.98] tracking-normal text-[#050505] text-balance lg:text-[3.25rem] xl:text-[3.7rem]">
+                <h3 className="break-words font-clash text-[clamp(1.85rem,9vw,3.15rem)] font-semibold leading-[1.02] tracking-normal text-[#050505] text-balance lg:text-[3.25rem] xl:text-[3.7rem]">
                   {service.title}
                 </h3>
                 <p className="mt-4 max-w-[560px] font-general text-[clamp(.88rem,3.6vw,1rem)] leading-[1.55] text-[#252525] text-pretty sm:text-[1.05rem]">
@@ -207,12 +201,12 @@ export function About() {
                 <span className="font-general text-[10px] font-bold uppercase tracking-[0.26em] text-[#ff6a00]">
                   Inclui:
                 </span>
-                <div className="mt-3 grid gap-x-4 gap-y-2 sm:grid-cols-2">
+                <div className="mt-3 grid gap-x-4 gap-y-2.5 sm:grid-cols-2">
                   {service.includes.map((item, itemIndex) => {
                     const IncludeIcon = includeIcons[itemIndex] ?? Code2;
 
                     return (
-                      <div key={item} className="flex items-center gap-2.5 font-general text-[11px] leading-snug text-[#1f1f1f] sm:text-[12px]">
+                      <div key={item} className="flex items-start gap-2.5 font-general text-[12px] leading-snug text-[#1f1f1f] sm:items-center">
                         <IncludeIcon size={17} strokeWidth={2.1} className="shrink-0 text-[#ff6a00]" />
                         <span>{item}</span>
                       </div>

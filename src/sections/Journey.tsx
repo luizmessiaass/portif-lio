@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 import Image from "next/image";
 import { StackChip } from "@/components/StackChip";
 import { gsap } from "@/lib/gsap";
@@ -195,6 +195,43 @@ function CompanyHeader({
 
 type CertificationVariant = "ai-cloud" | "microsoft";
 
+const timelineColors = [
+  "#e51f34",
+  "#0c63c7",
+  "#d7a23a",
+  "#a84ccf",
+  "#c8b177",
+  "#4285f4",
+  "#ff6a00",
+  "#007485",
+  "#00a4ef",
+];
+
+const timelineGradient = `linear-gradient(180deg, ${timelineColors
+  .map((color, index) => `${color} ${(index / (timelineColors.length - 1)) * 100}%`)
+  .join(", ")})`;
+
+const timelineBackgroundClasses = [
+  "bg-[radial-gradient(circle_at_18%_16%,rgba(255,255,255,.36),transparent_24%),radial-gradient(circle_at_86%_26%,rgba(255,132,142,.3),transparent_30%),linear-gradient(135deg,#fff7f8_0%,rgba(238,49,68,.82)_42%,rgba(179,16,34,.72)_100%)]",
+  "bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,.3),transparent_24%),radial-gradient(circle_at_86%_78%,rgba(255,106,0,.28),transparent_34%),linear-gradient(135deg,#eef6ff_0%,rgba(8,104,216,.72)_34%,rgba(126,42,161,.66)_68%,rgba(255,90,18,.62)_100%)]",
+  "bg-[radial-gradient(circle_at_78%_22%,rgba(215,162,58,.28),transparent_32%),radial-gradient(circle_at_18%_86%,rgba(215,162,58,.36),transparent_34%),linear-gradient(135deg,#fff8eb_0%,rgba(75,57,25,.64)_30%,rgba(26,26,26,.58)_62%,rgba(9,9,9,.52)_100%)]",
+  "bg-[radial-gradient(circle_at_18%_64%,rgba(168,76,207,.38),transparent_32%),radial-gradient(circle_at_86%_24%,rgba(255,255,255,.23),transparent_28%),linear-gradient(135deg,#fff5ff_0%,rgba(125,49,143,.68)_42%,rgba(17,17,17,.6)_100%)]",
+  "bg-[radial-gradient(circle_at_78%_22%,rgba(200,177,119,.25),transparent_34%),radial-gradient(circle_at_16%_86%,rgba(200,177,119,.34),transparent_36%),linear-gradient(135deg,#fffaf0_0%,rgba(43,38,25,.58)_34%,rgba(7,7,7,.62)_100%)]",
+  "bg-[radial-gradient(circle_at_14%_16%,rgba(66,133,244,.34),transparent_30%),radial-gradient(circle_at_88%_26%,rgba(234,67,53,.28),transparent_30%),radial-gradient(circle_at_22%_86%,rgba(251,188,4,.3),transparent_34%),linear-gradient(135deg,#f5f9ff_0%,rgba(66,133,244,.5)_38%,rgba(52,168,83,.42)_100%)]",
+  "bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,.42),transparent_30%),radial-gradient(circle_at_82%_74%,rgba(255,128,38,.35),transparent_40%),linear-gradient(135deg,#fff4ec_0%,rgba(255,106,0,.66)_38%,rgba(17,17,17,.58)_100%)]",
+  "bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,.42),transparent_30%),radial-gradient(circle_at_82%_74%,rgba(0,201,216,.34),transparent_40%),linear-gradient(135deg,#eefafa_0%,rgba(0,116,133,.7)_36%,rgba(7,17,27,.62)_100%)]",
+  "bg-[radial-gradient(circle_at_12%_16%,rgba(242,80,34,.28),transparent_30%),radial-gradient(circle_at_86%_16%,rgba(127,186,0,.26),transparent_30%),radial-gradient(circle_at_18%_86%,rgba(0,164,239,.34),transparent_34%),linear-gradient(135deg,#f5fbff_0%,rgba(0,120,212,.58)_46%,rgba(255,185,0,.4)_100%)]",
+];
+
+function hexToRgb(hex: string) {
+  const value = hex.replace("#", "");
+  return {
+    r: parseInt(value.slice(0, 2), 16),
+    g: parseInt(value.slice(2, 4), 16),
+    b: parseInt(value.slice(4, 6), 16),
+  };
+}
+
 const certificationAssets: Record<
   CertificationVariant,
   {
@@ -204,6 +241,15 @@ const certificationAssets: Record<
     accent: string;
     topIcon: LucideIcon;
     minHeight: string;
+    cardClass: string;
+    glowClass: string;
+    patternClass: string;
+    iconClass: string;
+    eyebrowClass: string;
+    dateClass: string;
+    dividerClass: string;
+    certCardClass: string;
+    certIconClass: string;
     headerLogos: { kind: "google" | "oracle" | "couchbase" | "microsoft" }[];
     certLogos: { kind: "google" | "oracle" | "couchbase" | "azure" }[];
   }
@@ -215,6 +261,15 @@ const certificationAssets: Record<
     accent: "#f05a1a",
     topIcon: BrainCircuit,
     minHeight: "sm:min-h-[560px]",
+    cardClass: "border-[#a9ccff] bg-[#fbfdff] shadow-[0_24px_70px_rgba(66,133,244,.13)]",
+    glowClass: "bg-[radial-gradient(circle_at_14%_12%,rgba(66,133,244,.16),transparent_28%),radial-gradient(circle_at_92%_14%,rgba(234,67,53,.14),transparent_27%),radial-gradient(circle_at_10%_88%,rgba(251,188,4,.16),transparent_30%),radial-gradient(circle_at_92%_86%,rgba(52,168,83,.14),transparent_32%)]",
+    patternClass: "bg-[repeating-linear-gradient(135deg,rgba(66,133,244,.08)_0,rgba(66,133,244,.08)_1px,transparent_1px,transparent_8px)]",
+    iconClass: "border-[#d6e4ff] bg-[#e8f0fe] text-[#4285f4] shadow-[inset_0_1px_0_rgba(255,255,255,.9),0_12px_26px_rgba(66,133,244,.16)]",
+    eyebrowClass: "text-[#4285f4]",
+    dateClass: "text-[#5f6368]",
+    dividerClass: "bg-[linear-gradient(90deg,#4285f4_0%,#ea4335_33%,#fbbc04_66%,#34a853_100%)]",
+    certCardClass: "border-[#b8d6ff] bg-white/90 shadow-[0_12px_26px_rgba(66,133,244,.11)]",
+    certIconClass: "border-[#b8d6ff] bg-[#f8fbff] shadow-[0_8px_18px_rgba(66,133,244,.12)]",
     headerLogos: [
       { kind: "google" },
       { kind: "oracle" },
@@ -233,6 +288,15 @@ const certificationAssets: Record<
     accent: "#f05a1a",
     topIcon: Award,
     minHeight: "sm:min-h-[560px]",
+    cardClass: "border-[#9ed0ff] bg-[#fbfdff] shadow-[0_24px_70px_rgba(0,120,212,.15)]",
+    glowClass: "bg-[radial-gradient(circle_at_12%_13%,rgba(242,80,34,.16),transparent_27%),radial-gradient(circle_at_88%_12%,rgba(127,186,0,.14),transparent_26%),radial-gradient(circle_at_12%_88%,rgba(0,164,239,.17),transparent_30%),radial-gradient(circle_at_88%_86%,rgba(255,185,0,.18),transparent_32%)]",
+    patternClass: "bg-[linear-gradient(90deg,rgba(242,80,34,.10)_0_25%,rgba(127,186,0,.10)_25%_50%,rgba(0,164,239,.10)_50%_75%,rgba(255,185,0,.12)_75%_100%)]",
+    iconClass: "border-[#cfe7ff] bg-[#eaf5ff] text-[#0078d4] shadow-[inset_0_1px_0_rgba(255,255,255,.9),0_12px_26px_rgba(0,120,212,.18)]",
+    eyebrowClass: "text-[#0078d4]",
+    dateClass: "text-[#5f6368]",
+    dividerClass: "bg-[linear-gradient(90deg,#f25022_0%,#7fba00_33%,#00a4ef_66%,#ffb900_100%)]",
+    certCardClass: "border-[#acd7ff] bg-white/92 shadow-[0_12px_26px_rgba(0,120,212,.12)]",
+    certIconClass: "border-[#acd7ff] bg-[#f7fbff] shadow-[0_8px_18px_rgba(0,120,212,.13)]",
     headerLogos: [
       { kind: "microsoft" },
     ],
@@ -349,12 +413,12 @@ function CertificationFeaturedCard({ item, variant }: { item: Milestone; variant
 
   return (
     <div className="journey-card relative min-w-0 max-w-full rounded-[28px] bg-transparent sm:rounded-[34px]">
-      <div className={`relative overflow-hidden rounded-[24px] border border-[#f3d9c9] bg-[#fffdf9] p-4 shadow-[0_24px_70px_rgba(140,82,36,.1)] sm:rounded-[30px] sm:p-6 lg:p-7 ${config.minHeight}`}>
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_10%,rgba(255,138,73,.08),transparent_30%),radial-gradient(circle_at_96%_84%,rgba(255,138,73,.08),transparent_36%)]" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-48 w-64 rounded-tl-full bg-[repeating-linear-gradient(135deg,rgba(240,90,26,.05)_0,rgba(240,90,26,.05)_1px,transparent_1px,transparent_7px)]" />
+      <div className={`relative overflow-hidden rounded-[24px] border-2 p-4 sm:rounded-[30px] sm:p-6 lg:p-7 ${config.minHeight} ${config.cardClass}`}>
+        <div className={`pointer-events-none absolute inset-0 ${config.glowClass}`} />
+        <div className={`pointer-events-none absolute bottom-0 right-0 h-48 w-64 rounded-tl-full opacity-80 ${config.patternClass}`} />
 
         <div className="relative flex items-center gap-3 sm:gap-4">
-          <div className="grid h-14 w-14 shrink-0 place-items-center rounded-[18px] border border-[#f3d9c9] bg-[#fff2e9] text-[#f05a1a] shadow-[inset_0_1px_0_rgba(255,255,255,.85),0_12px_26px_rgba(240,90,26,.12)] sm:h-16 sm:w-16 sm:rounded-[20px]">
+          <div className={`grid h-14 w-14 shrink-0 place-items-center rounded-[18px] border sm:h-16 sm:w-16 sm:rounded-[20px] ${config.iconClass}`}>
             <TopIcon size={30} strokeWidth={1.55} />
           </div>
           <span className="h-9 w-px bg-black/12 sm:h-10" />
@@ -366,11 +430,11 @@ function CertificationFeaturedCard({ item, variant }: { item: Milestone; variant
         </div>
 
         <div className="relative mt-6">
-          <p className="font-general text-[11px] font-bold uppercase tracking-[0.32em] text-[#e85a1b] sm:text-[12px]">
+          <p className={`font-general text-[11px] font-bold uppercase tracking-[0.32em] sm:text-[12px] ${config.eyebrowClass}`}>
             {config.eyebrow}
           </p>
 
-          <div className="mt-5 flex items-center gap-3 font-general text-[14px] font-semibold uppercase tracking-[0.24em] text-[#8b8b8b] sm:text-[16px]">
+          <div className={`mt-5 flex items-center gap-3 font-general text-[14px] font-semibold uppercase tracking-[0.24em] sm:text-[16px] ${config.dateClass}`}>
             <Calendar size={18} strokeWidth={1.8} />
             {config.period}
           </div>
@@ -378,7 +442,7 @@ function CertificationFeaturedCard({ item, variant }: { item: Milestone; variant
           <h3 className="mt-5 max-w-full whitespace-pre-line break-words font-clash text-[clamp(1.05rem,3.95vw,1.42rem)] font-semibold leading-[1.08] tracking-normal text-[#08090c] text-balance sm:text-[clamp(1.32rem,2.15vw,1.82rem)]">
             {config.headline}
           </h3>
-          <span className="mt-5 block h-[3px] w-14 bg-[#f05a1a]" />
+          <span className={`mt-5 block h-[3px] w-20 rounded-full ${config.dividerClass}`} />
         </div>
 
         <div className="relative mt-6 grid gap-3">
@@ -388,9 +452,13 @@ function CertificationFeaturedCard({ item, variant }: { item: Milestone; variant
             return (
               <div
                 key={cert.name}
-                className="grid min-h-[58px] grid-cols-[44px_1px_minmax(0,1fr)_auto] items-center gap-3 rounded-[18px] border border-[#efd8c9] bg-white/82 px-3 shadow-[0_12px_26px_rgba(140,82,36,.09)] sm:min-h-[64px] sm:grid-cols-[52px_1px_minmax(0,1fr)_auto] sm:gap-4 sm:px-4"
+                className={`relative grid min-h-[58px] grid-cols-[44px_1px_minmax(0,1fr)_auto] items-center gap-3 overflow-hidden rounded-[18px] border-2 px-3 sm:min-h-[64px] sm:grid-cols-[52px_1px_minmax(0,1fr)_auto] sm:gap-4 sm:px-4 ${config.certCardClass}`}
               >
-                <span className="grid h-10 w-10 place-items-center rounded-full border border-[#efd8c9] bg-white shadow-[0_8px_18px_rgba(140,82,36,.1)] sm:h-12 sm:w-12">
+                <span
+                  className="absolute inset-y-0 left-0 w-1.5"
+                  style={{ backgroundColor: cert.color } as CSSProperties}
+                />
+                <span className={`grid h-10 w-10 place-items-center rounded-full border-2 sm:h-12 sm:w-12 ${config.certIconClass}`}>
                   <CertificationBrandLogo kind={logo.kind} compact />
                 </span>
                 <span className="h-8 w-px bg-black/12" />
@@ -821,6 +889,200 @@ function ColcciAmcFeaturedCard({ item }: { item: Milestone }) {
   );
 }
 
+function ElevaterWordmark({ className = "" }: { className?: string }) {
+  return (
+    <span className={`font-general font-light leading-none tracking-normal ${className}`}>
+      Elevater
+    </span>
+  );
+}
+
+function ElevaterBanner({ period }: { period: string }) {
+  return (
+    <div className="relative h-full min-h-[240px] overflow-hidden bg-[#001015] text-white sm:min-h-full">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_12%,rgba(0,105,140,.22),transparent_30%),linear-gradient(180deg,#00070b_0%,#001625_34%,#004d63_69%,#007181_100%)]" />
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 360 1536"
+        preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-0 h-full w-full"
+      >
+        <defs>
+          <linearGradient id="elevaterArc" x1="0" x2="360" y1="900" y2="600" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#13e5f3" stopOpacity="0.02" />
+            <stop offset="0.58" stopColor="#20e8f7" stopOpacity="0.9" />
+            <stop offset="1" stopColor="#20e8f7" stopOpacity="0.02" />
+          </linearGradient>
+          <linearGradient id="elevaterArcSoft" x1="0" x2="360" y1="1210" y2="1040" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#16e5f2" stopOpacity="0.02" />
+            <stop offset="0.5" stopColor="#16e5f2" stopOpacity="0.84" />
+            <stop offset="1" stopColor="#16e5f2" stopOpacity="0.04" />
+          </linearGradient>
+        </defs>
+        <path d="M0 0H360V398C255 352 152 310 0 258V0Z" fill="#000912" opacity="0.98" />
+        <path d="M0 400C112 466 221 526 360 574V768C218 722 101 654 0 608V400Z" fill="#00364e" opacity="0.76" />
+        <path d="M0 565C108 640 234 703 360 744V957C214 913 106 834 0 781V565Z" fill="#00465d" opacity="0.72" />
+        <path d="M0 744C122 802 222 858 360 879V1138C223 1125 101 1055 0 1007V744Z" fill="#006478" opacity="0.72" />
+        <path d="M0 956C118 1016 232 1065 360 1078V1536H0V956Z" fill="#007d8b" opacity="0.78" />
+        <path d="M-24 1022C64 847 186 752 392 702" fill="none" stroke="url(#elevaterArc)" strokeWidth="3.2" />
+        <path d="M-35 1268C68 1122 174 1056 392 1017" fill="none" stroke="url(#elevaterArcSoft)" strokeWidth="3.1" />
+        <path d="M-38 1314C92 1214 225 1161 392 1144" fill="none" stroke="#64edf7" strokeOpacity="0.12" strokeWidth="1.2" />
+        <path d="M-10 1424C95 1366 217 1330 384 1316" fill="none" stroke="#a7f8ff" strokeOpacity="0.09" strokeWidth="1" />
+      </svg>
+
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.3),transparent_28%,transparent_76%,rgba(0,0,0,.16))]" />
+
+      <div className="relative z-10 flex h-full min-h-[240px] flex-col items-center px-5 text-center sm:min-h-full">
+        <div className="mt-[14%] flex flex-col items-center max-sm:mt-9 sm:mt-[clamp(5rem,6.6vw,7rem)]">
+          <ElevaterWordmark className="text-[42px] text-white/95 drop-shadow-[0_0_18px_rgba(255,255,255,.12)] sm:text-[clamp(1.9rem,2.3vw,3.3rem)]" />
+          <span className="mt-8 h-[2px] w-28 rounded-full bg-[radial-gradient(circle,#3cf6ff_0%,#00bed0_34%,rgba(0,190,208,0)_72%)] shadow-[0_0_18px_rgba(25,232,245,.9)] sm:mt-[15%]" />
+          <p className="mt-7 max-w-[190px] font-general text-[13px] font-light leading-[1.45] text-white/58 sm:mt-[12%] sm:text-[clamp(.68rem,.86vw,1rem)]">
+            Gestão inteligente de campanhas no Mercado Livre
+          </p>
+        </div>
+
+        <div className="relative mt-auto hidden w-full pb-[13%] sm:block">
+          <div className="flex items-center justify-center gap-4 text-left">
+            <Calendar size={29} strokeWidth={1.35} className="shrink-0 text-[#12b8c9]" />
+            <div className="font-general text-[clamp(.8rem,1vw,1.15rem)] font-semibold uppercase leading-[1.95] tracking-[0.03em] text-white">
+              <span className="block">{period.split(" ")[0]}</span>
+              <span className="my-1 block h-[3px] w-10 rounded-full bg-[#0ea6b9]" />
+              <span className="block">{period.split(" ").slice(1).join(" ")}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ElevaterCaseCard({ item }: { item: Milestone }) {
+  return (
+    <div data-elevater-case-card className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[30px] border-[3px] border-[#007887] bg-[#f8fafb] p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#0096a6] sm:rounded-[42px]">
+      <div className="grid grid-cols-1 bg-[#f8fafb] sm:aspect-[2/3] sm:grid-cols-[35%_65%]">
+        <aside className="relative min-w-0 overflow-hidden max-sm:min-h-[240px]">
+          <ElevaterBanner period={item.period} />
+        </aside>
+
+        <div className="min-w-0 px-7 py-9 text-[#071533] sm:px-[7.5%] sm:pb-[5.8%] sm:pt-[clamp(3rem,3.4vw,4rem)]">
+          <div className="flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              <div className="inline-flex min-h-14 items-center rounded-[18px] border border-[#6fcbd3] bg-white px-4 shadow-[0_14px_28px_rgba(0,120,135,.08)]">
+                <ElevaterWordmark className="text-[28px] text-[#071533] sm:text-[clamp(1.5rem,2vw,2.2rem)]" />
+              </div>
+              <p className="mt-4 font-general text-[11px] font-bold uppercase leading-none tracking-[0.22em] text-[#007887] sm:text-[clamp(.62rem,.72vw,.82rem)]">
+                {item.period}
+              </p>
+            </div>
+
+            <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-[#007887] text-[#071533] sm:h-[clamp(3.35rem,3.8vw,4.6rem)] sm:w-[clamp(3.35rem,3.8vw,4.6rem)]">
+              <svg aria-hidden="true" viewBox="0 0 64 64" className="h-[54%] w-[54%]">
+                <path d="M10 47V34h10v13H10Z" fill="none" stroke="currentColor" strokeWidth="3" />
+                <path d="M28 47V25h10v22H28Z" fill="none" stroke="currentColor" strokeWidth="3" />
+                <path d="M46 47V18h10v29H46Z" fill="none" stroke="currentColor" strokeWidth="3" />
+                <path d="M9 28 24 13l11 9L55 2" fill="none" stroke="currentColor" strokeLinecap="square" strokeWidth="3" />
+                <path d="M43 2h12v12" fill="none" stroke="currentColor" strokeWidth="3" />
+              </svg>
+            </div>
+          </div>
+
+          <h3 className="mt-[8%] font-general text-[clamp(2.25rem,2.75vw,4rem)] font-light leading-[1.08] tracking-normal text-[#071533] text-balance">
+            {item.title}
+          </h3>
+          <span className="mt-[5%] block h-[2px] w-[96px] rounded-full bg-[radial-gradient(circle,#00a8b8_0%,#00a8b8_40%,rgba(0,168,184,0)_72%)]" />
+
+          <p className="mt-[5%] font-general text-[15px] font-normal leading-[1.5] tracking-normal text-[#15213a] sm:text-[clamp(.78rem,.88vw,1rem)]">
+            {item.description}
+          </p>
+
+          <div className="mt-[6%] overflow-hidden rounded-[18px] border border-[#67cbd4] bg-white shadow-[0_16px_34px_rgba(0,120,135,.07)]">
+            <div className="flex items-center justify-between gap-3 border-b border-[#c6edf1] px-4 py-3">
+              <span className="font-general text-[9px] font-bold uppercase tracking-[0.18em] text-[#007887]">
+                Produto em operação
+              </span>
+              <span className="rounded-full bg-[#e6fbfd] px-2 py-1 font-general text-[8px] font-bold uppercase tracking-[0.12em] text-[#007887]">
+                Mercado Livre
+              </span>
+            </div>
+
+            <div className="grid grid-cols-[1fr_.75fr] gap-0">
+              <div className="border-r border-[#c6edf1] p-4">
+                <p className="font-general text-[9px] font-bold uppercase tracking-[0.12em] text-[#6d8192]">
+                  Economia direta
+                </p>
+                <p className="mt-2 font-general text-[22px] font-bold leading-none tracking-normal text-[#071533]">
+                  R$ 30k
+                </p>
+                <p className="mt-1 font-general text-[9px] font-bold uppercase tracking-[0.16em] text-[#007887]">
+                  por mês
+                </p>
+                <div className="mt-4 grid gap-1.5">
+                  {[82, 64, 91].map((width, index) => (
+                    <span key={index} className="h-1.5 rounded-full bg-[#e0f6f8]">
+                      <span
+                        className="block h-full rounded-full bg-[#0aa9bb]"
+                        style={{ width: `${width}%` }}
+                      />
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid content-center gap-2 p-4">
+                {["Carteira", "Ads", "DRE"].map((label) => (
+                  <div key={label} className="flex items-center justify-between gap-2 rounded-[10px] bg-[#f2fbfc] px-3 py-2">
+                    <span className="font-general text-[8px] font-bold uppercase tracking-[0.12em] text-[#071533]">
+                      {label}
+                    </span>
+                    <span className="h-2 w-2 rounded-full bg-[#08b6c8] shadow-[0_0_10px_rgba(8,182,200,.7)]" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-[5%] grid grid-cols-2 gap-2">
+            {[
+              { label: item.tech?.[0] ?? "Product Architecture", kind: "target" },
+              { label: item.tech?.[1] ?? "Cost Optimization", kind: "chart" },
+              { label: item.tech?.[2] ?? "VPS", kind: "rocket" },
+            ].map((chip, index) => (
+              <span
+                key={chip.label}
+                className={`inline-flex min-h-10 min-w-0 items-center justify-center gap-1 rounded-full border border-[#071533] px-2 font-general text-[8px] font-semibold uppercase tracking-[0.04em] text-[#071533] sm:min-h-10 sm:text-[clamp(.5rem,.58vw,.7rem)] ${index === 2 ? "col-span-2" : ""}`}
+              >
+                {chip.kind === "target" ? (
+                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3 w-3 shrink-0">
+                    <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
+                  </svg>
+                ) : chip.kind === "chart" ? (
+                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3 w-3 shrink-0">
+                    <path d="M4 19V9M10 19V5M16 19v-7M4 19h16M13 8l4-4h3v3" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                  </svg>
+                ) : (
+                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3 w-3 shrink-0">
+                    <path d="M12 3c3 1 5 3 6 6l-6 6-6-6c1-3 3-5 6-6Z" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                    <path d="M9 15 6 18M15 15l3 3M10 9h4" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
+                  </svg>
+                )}
+                <span className="whitespace-nowrap">{chip.label}</span>
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-6 flex items-center justify-center gap-4 font-general text-[12px] font-semibold uppercase tracking-[0.08em] text-[#071533] sm:hidden">
+            <Calendar size={18} strokeWidth={1.5} className="text-[#12b8c9]" />
+            <span>{item.period}</span>
+            <span className="h-[2px] w-6 bg-[#0ea6b9]" />
+            <span>{item.impact}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function AvantFeaturedCard({ item }: { item: Milestone }) {
   const [start, end] = splitPeriod(item.period);
 
@@ -951,8 +1213,8 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
 
 export function Journey() {
   const sectionRef = useRef<HTMLElement>(null);
+  const lineTrackRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
-  const orbRef = useRef<HTMLDivElement>(null);
   const paintCoverRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -965,19 +1227,7 @@ export function Journey() {
 
       const viewportCenter = window.innerHeight * 0.5;
       const sectionRect = sectionRef.current.getBoundingClientRect();
-      const linceCard = sceneCards.find((card) => card.dataset.journeyScene === "1")?.getBoundingClientRect();
-      const bungeCard = sceneCards.find((card) => card.dataset.journeyScene === "2")?.getBoundingClientRect();
-      const mapfitCard = sceneCards.find((card) => card.dataset.journeyScene === "3")?.getBoundingClientRect();
-
-      if (!linceCard || !bungeCard || !mapfitCard) return;
-
-      const linceCenter = linceCard.top + linceCard.height * 0.5;
-      const bungeCenter = bungeCard.top + bungeCard.height * 0.5;
-      const mapfitCenter = mapfitCard.top + mapfitCard.height * 0.5;
-      const studioCard = sceneCards.find((card) => card.dataset.journeyScene === "4");
-      const avantCard = sceneCards.find((card) => card.dataset.journeyScene === "5");
-      const studioCenter = studioCard ? studioCard.getBoundingClientRect().top + studioCard.getBoundingClientRect().height * 0.5 : mapfitCenter + 1000;
-      const avantCenter = avantCard ? avantCard.getBoundingClientRect().top + avantCard.getBoundingClientRect().height * 0.5 : studioCenter + 1000;
+      const milestoneNodes = gsap.utils.toArray<HTMLElement>("[data-journey-index]");
       const introCenter = sectionRect.top + window.innerHeight * 0.2;
       const outroCenter = sectionRect.bottom - window.innerHeight * 0.2;
 
@@ -987,57 +1237,37 @@ export function Journey() {
         return Math.max(0, Math.min(1, val * val * (3 - 2 * val)));
       };
 
-      let weights = [1, 0, 0, 0, 0, 0];
-
-      if (viewportCenter < introCenter) {
-        weights = [1, 0, 0, 0, 0, 0];
-      } else if (viewportCenter < linceCenter) {
-        const p = progressBetween(introCenter, linceCenter);
-        weights = [1 - p, p, 0, 0, 0, 0];
-      } else if (viewportCenter < bungeCenter) {
-        const p = progressBetween(linceCenter, bungeCenter);
-        weights = [0, 1 - p, p, 0, 0, 0];
-      } else if (viewportCenter < mapfitCenter) {
-        const p = progressBetween(bungeCenter, mapfitCenter);
-        weights = [0, 0, 1 - p, p, 0, 0];
-      } else if (viewportCenter < studioCenter) {
-        const p = progressBetween(mapfitCenter, studioCenter);
-        weights = [0, 0, 0, 1 - p, p, 0];
-      } else if (viewportCenter < avantCenter) {
-        const p = progressBetween(studioCenter, avantCenter);
-        weights = [0, 0, 0, 0, 1 - p, p];
-      } else {
-        const p = progressBetween(avantCenter, outroCenter);
-        weights = [p, 0, 0, 0, 0, 1 - p];
-      }
-
-      
-
-      const colors = [
-        { r: 255, g: 255, b: 255 }, // 0: Branco inicial
-        { r: 229, g: 31, b: 52 }, // 1: Vermelho (Lince)
-        { r: 12, g: 99, b: 199 }, // 2: Azul (Bunge)
-        { r: 215, g: 162, b: 58 }, // 3: Dourado (Mapfit)
-        { r: 168, g: 76, b: 207 }, // 4: Roxo (Studio)
-        { r: 255, g: 106, b: 0 }, // 5: Laranja (Avant)
-      ];
-
-      let r = 0, g = 0, b = 0;
-      weights.forEach((w, i) => {
-        if (i < colors.length) {
-          r += w * colors[i].r;
-          g += w * colors[i].g;
-          b += w * colors[i].b;
-        }
+      const milestoneCenters = milestoneNodes.map((node) => {
+        const rect = node.getBoundingClientRect();
+        return rect.top + 24;
       });
-      const rgbColor = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
-
-      if (lineRef.current) {
-        lineRef.current.style.backgroundColor = rgbColor;
+      if (lineTrackRef.current && lineRef.current && milestoneCenters.length > 1) {
+        const trackRect = lineTrackRef.current.getBoundingClientRect();
+        const stops = milestoneCenters.map((center, index) => {
+          const percent = Math.max(0, Math.min(100, ((center - trackRect.top) / trackRect.height) * 100));
+          return `${timelineColors[index] ?? timelineColors[timelineColors.length - 1]} ${percent}%`;
+        });
+        lineRef.current.style.background = `linear-gradient(180deg, ${stops.join(", ")})`;
       }
-      if (orbRef.current) {
-        orbRef.current.style.borderColor = rgbColor;
-        orbRef.current.style.boxShadow = `0 0 12px rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, 0.4)`;
+
+      let activeIndex = 0;
+      for (let index = 0; index < milestoneCenters.length - 1; index += 1) {
+        if (viewportCenter >= milestoneCenters[index] && viewportCenter <= milestoneCenters[index + 1]) {
+          activeIndex = index;
+          break;
+        }
+        if (viewportCenter > milestoneCenters[index + 1]) activeIndex = index + 1;
+      }
+      const fromColor = hexToRgb(timelineColors[activeIndex] ?? timelineColors[0]);
+      const toColor = hexToRgb(timelineColors[Math.min(activeIndex + 1, timelineColors.length - 1)] ?? timelineColors[activeIndex] ?? timelineColors[0]);
+      const fromCenter = milestoneCenters[activeIndex] ?? introCenter;
+      const toCenter = milestoneCenters[Math.min(activeIndex + 1, milestoneCenters.length - 1)] ?? outroCenter;
+      const colorProgress = progressBetween(fromCenter, toCenter);
+      const r = fromColor.r + (toColor.r - fromColor.r) * colorProgress;
+      const g = fromColor.g + (toColor.g - fromColor.g) * colorProgress;
+      const b = fromColor.b + (toColor.b - fromColor.b) * colorProgress;
+      if (lineRef.current) {
+        lineRef.current.style.boxShadow = `0 0 20px rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, 0.2)`;
       }
     };
 
@@ -1055,7 +1285,6 @@ export function Journey() {
     }
 
     tl.to(lineRef.current, { height: "100%", ease: "none" }, 0);
-    tl.to(orbRef.current, { top: "100%", ease: "none" }, 0);
     tl.to(paintCoverRef.current, { yPercent: 100, ease: "none" }, 0);
 
     const cards = gsap.utils.toArray<HTMLElement>(".journey-card");
@@ -1120,17 +1349,22 @@ export function Journey() {
           <h2 className="font-clash text-[clamp(2rem,7vw,5rem)] font-semibold leading-tight tracking-tight text-[#111] text-pretty">
             A Trajetória <span className="text-[#ff6a00] italic">Escrita em Código.</span>
           </h2>
-          <p className="mt-6 max-w-[800px] font-general text-lg font-medium leading-relaxed text-[#000] text-pretty sm:text-xl">
-            Me chamo Luiz Henrique, tenho 24 anos, sou de Santa Catarina, e minha trajetória profissional nunca foi exatamente linear e foi justamente essa combinação de contextos que moldou a forma como penso tecnologia hoje.
-          </p>
+          <div className="mt-7 max-w-[920px] border-l-4 border-[#ff6a00] bg-[#fff7f1] px-5 py-5 shadow-[0_18px_50px_rgba(255,106,0,.08)] sm:px-7 sm:py-6">
+            <p className="font-general text-[clamp(1.05rem,2.4vw,1.55rem)] font-semibold leading-relaxed text-[#111] text-pretty">
+              Me chamo <span className="text-[#ff6a00]">Luiz Henrique</span>, tenho 24 anos, sou de Santa Catarina, e minha trajetória profissional nunca foi exatamente linear. Foi justamente essa combinação de contextos que moldou a forma como penso tecnologia hoje.
+            </p>
+          </div>
         </div>
 
         {/* Timeline Path */}
         <div className="relative pb-24 sm:pb-40">
           {/* Main Line Path */}
-          <div className="absolute left-4 top-0 h-full w-[2px] bg-black/5 sm:left-1/2 sm:-translate-x-1/2 z-20">
-            <div ref={lineRef} className="h-0 w-full origin-top" style={{ backgroundColor: "#ffffff" }} />
-            <div ref={orbRef} className="absolute -left-[4px] top-0 z-20 h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: "#ffffff" }} />
+          <div ref={lineTrackRef} className="absolute left-4 top-6 z-20 h-[calc(100%-1.5rem)] w-[3px] overflow-visible rounded-full bg-black/5 sm:left-1/2 sm:-translate-x-1/2">
+            <div
+              ref={lineRef}
+              className="h-0 w-full origin-top rounded-full"
+              style={{ background: timelineGradient }}
+            />
           </div>
 
           <div ref={paintCoverRef} className="pointer-events-none absolute left-1/2 top-0 z-[1] h-[125%] w-[220vw] -translate-x-1/2 bg-white will-change-transform">
@@ -1143,30 +1377,25 @@ export function Journey() {
             {milestones.map((item, i) => (
               <div
                 key={i}
+                data-journey-index={i}
                 className={`relative flex flex-col items-start sm:flex-row ${
                   i % 2 === 0 ? "sm:flex-row-reverse" : ""
                 }`}
               >
-                {(i <= 4 || i === 6) && (
+                {timelineBackgroundClasses[i] ? (
                   <div
-                    className={`pointer-events-none absolute left-1/2 top-1/2 z-0 h-[calc(100%+80vh)] w-screen -translate-x-1/2 -translate-y-1/2 blur-[18px] ${
-                      i === 0
-                        ? "bg-[radial-gradient(circle_at_18%_16%,rgba(255,255,255,.36),transparent_24%),radial-gradient(circle_at_86%_26%,rgba(255,132,142,.3),transparent_30%),linear-gradient(135deg,#fff7f8_0%,rgba(238,49,68,.82)_42%,rgba(179,16,34,.72)_100%)]"
-                        : i === 1
-                          ? "bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,.3),transparent_24%),radial-gradient(circle_at_86%_78%,rgba(255,106,0,.28),transparent_34%),linear-gradient(135deg,#eef6ff_0%,rgba(8,104,216,.72)_34%,rgba(126,42,161,.66)_68%,rgba(255,90,18,.62)_100%)]"
-                          : i === 2
-                            ? "bg-[radial-gradient(circle_at_78%_22%,rgba(215,162,58,.28),transparent_32%),radial-gradient(circle_at_18%_86%,rgba(215,162,58,.36),transparent_34%),linear-gradient(135deg,#fff8eb_0%,rgba(75,57,25,.64)_30%,rgba(26,26,26,.58)_62%,rgba(9,9,9,.52)_100%)]"
-                            : i === 3
-                              ? "bg-[radial-gradient(circle_at_18%_64%,rgba(168,76,207,.38),transparent_32%),radial-gradient(circle_at_86%_24%,rgba(255,255,255,.23),transparent_28%),linear-gradient(135deg,#fff5ff_0%,rgba(125,49,143,.68)_42%,rgba(17,17,17,.6)_100%)]"
-                              : i === 4
-                                ? "bg-[radial-gradient(circle_at_78%_22%,rgba(200,177,119,.25),transparent_34%),radial-gradient(circle_at_16%_86%,rgba(200,177,119,.34),transparent_36%),linear-gradient(135deg,#fffaf0_0%,rgba(43,38,25,.58)_34%,rgba(7,7,7,.62)_100%)]"
-                                : "bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,.42),transparent_30%),radial-gradient(circle_at_82%_74%,rgba(132,185,211,.35),transparent_40%),linear-gradient(135deg,#eef4f3_0%,rgba(111,135,150,.7)_32%,rgba(28,51,66,.66)_68%,rgba(7,17,27,.62)_100%)]"
-                    } opacity-75 [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,.38)_16%,black_36%,black_64%,rgba(0,0,0,.32)_84%,transparent_100%)]`}
+                    className={`pointer-events-none absolute left-1/2 top-1/2 z-0 h-[calc(100%+80vh)] w-screen -translate-x-1/2 -translate-y-1/2 blur-[18px] ${timelineBackgroundClasses[i]} opacity-75 [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,.38)_16%,black_36%,black_64%,rgba(0,0,0,.32)_84%,transparent_100%)]`}
                   />
-                )}
+                ) : null}
 
                 {/* Connector Marker */}
-                <div className="absolute left-4 z-10 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-black/10 bg-white sm:left-1/2" />
+                <div
+                  className="absolute left-4 top-6 z-30 h-[13px] w-[13px] -translate-x-1/2 rounded-full border-[3px] bg-white shadow-[0_0_0_5px_rgba(255,255,255,.86)] sm:left-1/2"
+                  style={{
+                    borderColor: timelineColors[i] ?? "#ff6a00",
+                    boxShadow: `0 0 0 5px rgba(255,255,255,.86), 0 0 18px ${timelineColors[i] ?? "#ff6a00"}44`,
+                  } as CSSProperties}
+                />
 
                 {/* Content Card Container */}
                 <div className="relative z-10 w-full pl-10 sm:w-[46%] sm:pl-0">
@@ -1197,6 +1426,10 @@ export function Journey() {
                   ) : i === 6 ? (
                     <div data-journey-scene="5">
                       <AvantFeaturedCard item={item} />
+                    </div>
+                  ) : i === 7 ? (
+                    <div data-journey-scene="5">
+                      <ElevaterCaseCard item={item} />
                     </div>
                   ) : i === 8 ? (
                     <div data-journey-scene="0">

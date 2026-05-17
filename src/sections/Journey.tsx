@@ -720,58 +720,58 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0d2635]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#4f7487]/65 sm:rounded-[30px]">
-      <div className="grid grid-cols-[64px_1fr] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-2 py-5 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-[54px_1fr] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-1.5 py-4 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_54%,rgba(255,255,255,.34),transparent_26%),radial-gradient(circle_at_84%_78%,rgba(132,185,211,.32),transparent_42%)]" />
           <div className="pointer-events-none absolute -right-28 top-52 h-72 w-72 rounded-full border border-white/38" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/28" />
           <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-white/24" />
 
-          <div className="relative mt-7 flex flex-col items-center gap-7 text-center sm:mt-14 sm:gap-10">
+          <div className="relative mt-5 flex flex-col items-center gap-4 text-center sm:mt-14 sm:gap-10">
             <Image
               src="/brands/next-ecommerce-logo-transparent.png"
               alt="Next Ecommerce"
               width={325}
               height={286}
-              className="h-auto w-[64px] brightness-0 invert drop-shadow-[0_16px_30px_rgba(0,0,0,.22)] sm:w-[120px]"
-              sizes="(max-width: 640px) 64px, 120px"
+              className="h-auto w-[46px] brightness-0 invert drop-shadow-[0_16px_30px_rgba(0,0,0,.22)] sm:w-[120px]"
+              sizes="(max-width: 640px) 46px, 120px"
               unoptimized
             />
 
-            <span className="h-px w-12 bg-white/50 sm:w-16" />
+            <span className="h-px w-8 bg-white/50 sm:w-16" />
 
             <Image
               src="/brands/avant-mark-transparent.png"
               alt="Avant I.A"
               width={405}
               height={406}
-              className="h-14 w-14 object-contain drop-shadow-[0_12px_28px_rgba(255,255,255,.18)] sm:h-20 sm:w-20"
-              sizes="(max-width: 640px) 56px, 80px"
+              className="h-9 w-9 object-contain drop-shadow-[0_12px_28px_rgba(255,255,255,.18)] sm:h-20 sm:w-20"
+              sizes="(max-width: 640px) 36px, 80px"
               unoptimized
             />
 
-            <span className="h-px w-12 bg-white/50 sm:w-16" />
+            <span className="h-px w-8 bg-white/50 sm:w-16" />
 
             <Image
               src="/brands/elevate-ecom-logo-transparent.png"
               alt="Elevate Ecom."
               width={276}
               height={131}
-              className="h-auto w-[72px] drop-shadow-[0_16px_34px_rgba(0,0,0,.22)] sm:w-[132px]"
-              sizes="(max-width: 640px) 72px, 132px"
+              className="h-auto w-[48px] drop-shadow-[0_16px_34px_rgba(0,0,0,.22)] sm:w-[132px]"
+              sizes="(max-width: 640px) 48px, 132px"
               unoptimized
             />
           </div>
 
-          <div className="relative font-general text-[10px] font-bold uppercase leading-relaxed tracking-[0.1em] sm:text-base">
+          <div className="relative font-general text-[8px] font-bold uppercase leading-relaxed tracking-[0.07em] sm:text-base">
             <span className="block">{start}</span>
             <span className="my-1 block">-</span>
             <span className="block">{end}</span>
           </div>
         </aside>
 
-        <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
-          <div className="mb-5">
+        <div className="min-w-0 px-2.5 py-4 sm:px-9 sm:py-12 lg:px-11">
+          <div className="mb-3 sm:mb-5">
             <CompanyHeader
               label={item.subtitle}
               textClassName="text-[#ff6a00]"
@@ -804,21 +804,21 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
             />
           </div>
 
-          <div className="mb-6 flex items-center gap-2 font-general text-[10px] font-bold uppercase tracking-widest text-[#8a8a8a] sm:text-xs">
-            <Calendar size={14} />
+          <div className="mb-3 flex items-center gap-2 font-general text-[8px] font-bold uppercase tracking-[0.12em] text-[#8a8a8a] sm:mb-6 sm:text-xs">
+            <Calendar size={12} />
             {item.period}
           </div>
 
-          <h3 className="max-w-[480px] break-words font-clash text-[clamp(1.45rem,6vw,2.8rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance">
+          <h3 className="max-w-[480px] break-words font-clash text-[clamp(1.12rem,5.3vw,2.8rem)] font-semibold leading-[1.05] tracking-normal text-[#111] text-balance sm:text-[clamp(1.45rem,6vw,2.8rem)]">
             {item.title}
           </h3>
-          <div className="mt-5 h-1 w-16 rounded-full bg-[#0d2635]" />
+          <div className="mt-3 h-1 w-12 rounded-full bg-[#0d2635] sm:mt-5 sm:w-16" />
 
-          <p className="mt-4 font-general text-[11px] leading-[1.55] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-3 line-clamp-[9] font-general text-[10px] leading-[1.45] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
-          <div className="mt-7 flex flex-wrap gap-2 sm:gap-3">
+          <div className="mt-4 flex flex-wrap gap-1.5 sm:mt-7 sm:gap-3">
             {item.tech?.map((tag) => (
               <StackChip
                 key={tag}
@@ -828,7 +828,7 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
             ))}
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-1.5 sm:mt-6 sm:grid-cols-3 sm:gap-3">
             {["Operations", "Performance", "Scale"].map((label) => (
               <StackChip
                 key={label}

@@ -88,7 +88,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   fill
                   priority
                   sizes="90vw"
-                  className="object-contain"
+                  className="object-cover"
                 />
               ) : (
                 <div className="absolute inset-0">

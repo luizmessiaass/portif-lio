@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Luiz Messias | Desenvolvedor Full Stack",
   description:
     "Portfólio de desenvolvimento full stack com sistemas SaaS, dashboards, automações, integrações, APIs, bancos de dados e IA aplicada a produto.",
+  icons: {
+    icon: "/favicon.jpg",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",

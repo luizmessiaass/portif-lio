@@ -207,6 +207,9 @@ const timelineColors = [
   "#00a4ef",
 ];
 
+const timelineDarkSections = [false, false, false, false, true, false, true, true, false];
+const TIMELINE_LINE_SMOOTH = 0.1;
+
 const timelineGradient = `linear-gradient(180deg, ${timelineColors
   .map((color, index) => `${color} ${(index / (timelineColors.length - 1)) * 100}%`)
   .join(", ")})`;
@@ -230,6 +233,14 @@ function hexToRgb(hex: string) {
     g: parseInt(value.slice(2, 4), 16),
     b: parseInt(value.slice(4, 6), 16),
   };
+}
+
+function lerp(a: number, b: number, t: number) {
+  return a + (b - a) * t;
+}
+
+function clamp01(value: number) {
+  return Math.max(0, Math.min(1, value));
 }
 
 const certificationAssets: Record<
@@ -1228,59 +1239,89 @@ export function Journey() {
   const lineTrackRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const paintCoverRef = useRef<HTMLDivElement>(null);
+  const lineStateRef = useRef({
+    currentR: 255,
+    currentG: 106,
+    currentB: 0,
+    targetR: 255,
+    targetG: 106,
+    targetB: 0,
+    currentPct: 0,
+    targetPct: 0,
+    isDark: false,
+  });
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const paintScene = () => {
-      const sceneCards = gsap.utils.toArray<HTMLElement>("[data-journey-scene]");
+    const getLineSections = () => gsap.utils.toArray<HTMLElement>("[data-journey-line]");
 
-      if (!sectionRef.current || sceneCards.length === 0) return;
+    const getThemeAtScroll = () => {
+      const lineSections = getLineSections();
+      const mid = window.scrollY + window.innerHeight * 0.5;
+      let idx = 0;
+      let blend = 0;
 
-      const viewportCenter = window.innerHeight * 0.5;
-      const sectionRect = sectionRef.current.getBoundingClientRect();
-      const milestoneNodes = gsap.utils.toArray<HTMLElement>("[data-journey-index]");
-      const introCenter = sectionRect.top + window.innerHeight * 0.2;
-      const outroCenter = sectionRect.bottom - window.innerHeight * 0.2;
+      lineSections.forEach((sec, i) => {
+        const top = sec.getBoundingClientRect().top + window.scrollY;
+        const height = Math.max(sec.offsetHeight, 1);
+        const rel = clamp01((mid - top) / height);
 
-      const progressBetween = (from: number, to: number) => {
-        if (to <= from) return 1;
-        const val = (viewportCenter - from) / (to - from);
-        return Math.max(0, Math.min(1, val * val * (3 - 2 * val)));
-      };
-
-      const milestoneCenters = milestoneNodes.map((node) => {
-        const rect = node.getBoundingClientRect();
-        return rect.top + 24;
-      });
-      if (lineTrackRef.current && lineRef.current && milestoneCenters.length > 1) {
-        const trackRect = lineTrackRef.current.getBoundingClientRect();
-        const stops = milestoneCenters.map((center, index) => {
-          const percent = Math.max(0, Math.min(100, ((center - trackRect.top) / trackRect.height) * 100));
-          return `${timelineColors[index] ?? timelineColors[timelineColors.length - 1]} ${percent}%`;
-        });
-        lineRef.current.style.background = `linear-gradient(180deg, ${stops.join(", ")})`;
-      }
-
-      let activeIndex = 0;
-      for (let index = 0; index < milestoneCenters.length - 1; index += 1) {
-        if (viewportCenter >= milestoneCenters[index] && viewportCenter <= milestoneCenters[index + 1]) {
-          activeIndex = index;
-          break;
+        if (mid >= top) {
+          idx = i;
+          blend = rel > 0.65 ? clamp01((rel - 0.65) / 0.35) : 0;
         }
-        if (viewportCenter > milestoneCenters[index + 1]) activeIndex = index + 1;
-      }
-      const fromColor = hexToRgb(timelineColors[activeIndex] ?? timelineColors[0]);
-      const toColor = hexToRgb(timelineColors[Math.min(activeIndex + 1, timelineColors.length - 1)] ?? timelineColors[activeIndex] ?? timelineColors[0]);
-      const fromCenter = milestoneCenters[activeIndex] ?? introCenter;
-      const toCenter = milestoneCenters[Math.min(activeIndex + 1, milestoneCenters.length - 1)] ?? outroCenter;
-      const colorProgress = progressBetween(fromCenter, toCenter);
-      const r = fromColor.r + (toColor.r - fromColor.r) * colorProgress;
-      const g = fromColor.g + (toColor.g - fromColor.g) * colorProgress;
-      const b = fromColor.b + (toColor.b - fromColor.b) * colorProgress;
-      if (lineRef.current) {
-        lineRef.current.style.boxShadow = `0 0 20px rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, 0.2)`;
-      }
+      });
+
+      const currentNode = lineSections[idx];
+      const nextNode = lineSections[Math.min(idx + 1, lineSections.length - 1)] ?? currentNode;
+      const currentColor = currentNode?.dataset.line ?? timelineColors[idx] ?? "#ff6a00";
+      const nextColor = nextNode?.dataset.line ?? timelineColors[Math.min(idx + 1, timelineColors.length - 1)] ?? currentColor;
+      const currentDark = currentNode?.dataset.dark === "1";
+      const nextDark = nextNode?.dataset.dark === "1";
+      const ca = hexToRgb(currentColor);
+      const cb = hexToRgb(nextColor);
+
+      return {
+        r: lerp(ca.r, cb.r, blend),
+        g: lerp(ca.g, cb.g, blend),
+        b: lerp(ca.b, cb.b, blend),
+        dark: blend > 0.5 ? nextDark : currentDark,
+      };
+    };
+
+    const updateLineTargets = () => {
+      if (!lineTrackRef.current) return;
+
+      const trackRect = lineTrackRef.current.getBoundingClientRect();
+      const state = lineStateRef.current;
+      const theme = getThemeAtScroll();
+
+      state.targetPct = clamp01((window.innerHeight * 0.5 - trackRect.top) / Math.max(trackRect.height, 1));
+      state.targetR = theme.r;
+      state.targetG = theme.g;
+      state.targetB = theme.b;
+      state.isDark = theme.dark;
+    };
+
+    const paintLine = () => {
+      if (!lineRef.current || !lineTrackRef.current) return;
+
+      const state = lineStateRef.current;
+      state.currentR = lerp(state.currentR, state.targetR, TIMELINE_LINE_SMOOTH);
+      state.currentG = lerp(state.currentG, state.targetG, TIMELINE_LINE_SMOOTH);
+      state.currentB = lerp(state.currentB, state.targetB, TIMELINE_LINE_SMOOTH);
+      state.currentPct = lerp(state.currentPct, state.targetPct, TIMELINE_LINE_SMOOTH);
+
+      const r = Math.round(state.currentR);
+      const g = Math.round(state.currentG);
+      const b = Math.round(state.currentB);
+      const rgb = `${r}, ${g}, ${b}`;
+
+      lineTrackRef.current.style.background = state.isDark ? "rgba(255, 255, 255, 0.16)" : "rgba(17, 17, 17, 0.08)";
+      lineRef.current.style.height = `${state.currentPct * 100}%`;
+      lineRef.current.style.background = `linear-gradient(to bottom, rgba(${rgb}, 0.3), rgb(${rgb}))`;
+      lineRef.current.style.boxShadow = `0 0 20px rgba(${rgb}, 0.22)`;
     };
 
     const tl = gsap.timeline({
@@ -1294,10 +1335,8 @@ export function Journey() {
 
     if (paintCoverRef.current) {
       gsap.set(paintCoverRef.current, { yPercent: 0 });
+      tl.to(paintCoverRef.current, { yPercent: 100, ease: "none" }, 0);
     }
-
-    tl.to(lineRef.current, { height: "100%", ease: "none" }, 0);
-    tl.to(paintCoverRef.current, { yPercent: 100, ease: "none" }, 0);
 
     const cards = gsap.utils.toArray<HTMLElement>(".journey-card");
     cards.forEach((card) => {
@@ -1318,26 +1357,21 @@ export function Journey() {
       );
     });
 
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top bottom",
-      end: "bottom top",
-      onUpdate: paintScene,
-      onRefresh: paintScene,
-    });
-
     let rafId = 0;
     const renderLoop = () => {
-      paintScene();
+      updateLineTargets();
+      paintLine();
       rafId = requestAnimationFrame(renderLoop);
     };
 
     rafId = requestAnimationFrame(renderLoop);
-    window.addEventListener("resize", paintScene);
+    window.addEventListener("scroll", updateLineTargets, { passive: true });
+    window.addEventListener("resize", updateLineTargets, { passive: true });
 
     return () => {
       cancelAnimationFrame(rafId);
-      window.removeEventListener("resize", paintScene);
+      window.removeEventListener("scroll", updateLineTargets);
+      window.removeEventListener("resize", updateLineTargets);
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -1374,7 +1408,8 @@ export function Journey() {
           <div ref={lineTrackRef} className="absolute left-4 top-6 z-20 h-[calc(100%-1.5rem)] w-[3px] overflow-visible rounded-full bg-black/5 sm:left-1/2 sm:-translate-x-1/2">
             <div
               ref={lineRef}
-              className="h-0 w-full origin-top rounded-full"
+              data-journey-line-fill="1"
+              className="h-0 w-full origin-top rounded-full [will-change:height,background,box-shadow]"
               style={{ background: timelineGradient }}
             />
           </div>
@@ -1390,6 +1425,9 @@ export function Journey() {
               <div
                 key={i}
                 data-journey-index={i}
+                data-journey-line="1"
+                data-line={timelineColors[i] ?? "#ff6a00"}
+                data-dark={timelineDarkSections[i] ? "1" : "0"}
                 className={`relative flex flex-col items-start sm:flex-row ${
                   i % 2 === 0 ? "sm:flex-row-reverse" : ""
                 }`}
@@ -1399,15 +1437,6 @@ export function Journey() {
                     className={`pointer-events-none absolute left-1/2 top-1/2 z-0 h-[calc(100%+80vh)] w-screen -translate-x-1/2 -translate-y-1/2 blur-[18px] ${timelineBackgroundClasses[i]} opacity-75 [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,.38)_16%,black_36%,black_64%,rgba(0,0,0,.32)_84%,transparent_100%)]`}
                   />
                 ) : null}
-
-                {/* Connector Marker */}
-                <div
-                  className="absolute left-4 top-6 z-30 h-[13px] w-[13px] -translate-x-1/2 rounded-full border-[3px] bg-white shadow-[0_0_0_5px_rgba(255,255,255,.86)] sm:left-1/2"
-                  style={{
-                    borderColor: timelineColors[i] ?? "#ff6a00",
-                    boxShadow: `0 0 0 5px rgba(255,255,255,.86), 0 0 18px ${timelineColors[i] ?? "#ff6a00"}44`,
-                  } as CSSProperties}
-                />
 
                 {/* Content Card Container */}
                 <div className="relative z-10 w-full pl-10 sm:w-[46%] sm:pl-0">

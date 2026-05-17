@@ -3,6 +3,20 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
 
+const whatsappUrl = "https://wa.me/5547997539380";
+const socials = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/luiz-henrique-messias/",
+    icon: "/social/linkedin.svg",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/luizmessiaass",
+    icon: "/social/github.svg",
+  },
+];
+
 export function Contact() {
   const containerRef = useRef<HTMLElement>(null);
   const textRef     = useRef<HTMLHeadingElement>(null);
@@ -85,21 +99,47 @@ export function Contact() {
         <a
           ref={btnRef}
           data-cursor="hover"
-          href="mailto:Luiz.messiaass@gmail.com"
-          className="group relative inline-flex min-h-[56px] w-full max-w-[25rem] items-center justify-center overflow-hidden rounded-full bg-white px-6 py-5 text-center font-general text-base font-semibold text-[#111] shadow-2xl sm:w-auto sm:max-w-none sm:px-12 sm:py-6 sm:text-xl"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Conversar pelo WhatsApp"
+          className="group relative inline-flex min-h-[56px] w-full max-w-[25rem] items-center justify-center gap-3 overflow-hidden rounded-full bg-white px-6 py-5 text-center font-general text-base font-semibold text-[#111] shadow-2xl sm:w-auto sm:max-w-none sm:px-12 sm:py-6 sm:text-xl"
         >
-          <div className="absolute inset-0 bg-[#ff6a00] transition-transform duration-500 transform translate-y-[101%] group-hover:translate-y-0" />
-          <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-            Vamos falar sobre o projeto
+          <div className="absolute inset-0 translate-y-[101%] bg-[#25d366] transition-transform duration-500 group-hover:translate-y-0" />
+          <span
+            aria-hidden="true"
+            className="relative z-10 h-6 w-6 shrink-0 bg-[#25d366] transition-colors duration-300 group-hover:bg-white"
+            style={{
+              mask: "url(/stack/whatsapp.svg) center / contain no-repeat",
+              WebkitMask: "url(/stack/whatsapp.svg) center / contain no-repeat",
+            }}
+          />
+          <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+            Vamos falar no WhatsApp
           </span>
         </a>
       </div>
 
       <div className="w-full max-w-[1300px] mt-20 sm:mt-32 flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6 text-[#aaa] text-xs uppercase tracking-widest font-general border-t border-white/10 pt-8 font-semibold">
         <div className="flex gap-6">
-          {["LinkedIn", "GitHub"].map(social => (
-            <a key={social} href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">
-              {social}
+          {socials.map(({ label, href, icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={label}
+              className="flex min-h-[44px] items-center gap-2 transition-colors hover:text-white"
+            >
+              <span
+                aria-hidden="true"
+                className="h-[17px] w-[17px] bg-current"
+                style={{
+                  mask: `url(${icon}) center / contain no-repeat`,
+                  WebkitMask: `url(${icon}) center / contain no-repeat`,
+                }}
+              />
+              {label}
             </a>
           ))}
         </div>

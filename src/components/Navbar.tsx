@@ -100,6 +100,14 @@ export function Navbar() {
     setHiddenByScroll(false);
   };
 
+  const getNavHref = (href: string) => {
+    if (pathname !== "/" && href.startsWith("/#")) {
+      return `/?skipIntro=1${href.slice(1)}`;
+    }
+
+    return href;
+  };
+
   const isActive = (href: string) =>
     href === "/projetos" ? pathname.startsWith("/projetos") : pathname === "/" && href === "/#hero";
 
@@ -124,33 +132,32 @@ export function Navbar() {
         }`}
       >
         {mobileOpen ? (
-          <div className="mb-2 w-[min(18rem,calc(100vw-2rem))] overflow-hidden rounded-[26px] border border-white/10 bg-[#111]/95 p-2 shadow-2xl backdrop-blur-xl">
-            <div className="grid grid-cols-2 gap-1">
-              {navLinks.map(({ name, href, Icon }) => (
-                <Link
-                  key={name}
-                  href={href}
-                  onClick={handleNavClick}
-                  className={`flex min-h-12 items-center gap-2 rounded-[18px] px-3 font-general text-[12px] font-semibold transition-colors ${
-                    isActive(href) ? "bg-white text-[#111]" : "text-white/82 hover:bg-white/8 hover:text-white"
-                  }`}
-                >
-                  <Icon size={17} strokeWidth={2.1} />
-                  {name}
-                </Link>
-              ))}
-            </div>
-
+          <div className="mb-2 flex flex-col items-end gap-2">
+            {navLinks.map(({ name, href, Icon }) => (
+              <Link
+                key={name}
+                href={getNavHref(href)}
+                aria-label={name}
+                onClick={handleNavClick}
+                className={`grid h-12 w-12 place-items-center rounded-full border shadow-2xl backdrop-blur-xl transition-colors ${
+                  isActive(href)
+                    ? "border-white bg-white text-[#111]"
+                    : "border-white/10 bg-[#111]/88 text-white/84 hover:bg-white hover:text-[#111]"
+                }`}
+              >
+                <Icon size={18} strokeWidth={2.1} />
+              </Link>
+            ))}
             <button
               type="button"
+              aria-label="Copiar e-mail"
               onClick={() => {
                 handleCopyEmail();
                 setMobileOpen(false);
               }}
-              className="mt-1 flex min-h-12 w-full items-center justify-center gap-2 rounded-[18px] bg-white font-general text-[12px] font-semibold text-[#111] transition-colors hover:bg-[#ff4d00] hover:text-white"
+              className="grid h-12 w-12 place-items-center rounded-full border border-white/10 bg-white text-[#111] shadow-2xl backdrop-blur-xl transition-colors hover:bg-[#ff4d00] hover:text-white"
             >
               <Mail size={17} strokeWidth={2.1} />
-              E-mail
             </button>
           </div>
         ) : null}
@@ -160,12 +167,12 @@ export function Navbar() {
           onClick={() => setMobileOpen((open) => !open)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-          className={`inline-flex min-h-12 items-center gap-2 rounded-full border px-4 font-general text-[12px] font-semibold shadow-2xl backdrop-blur-xl transition-colors ${
+          className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full border font-general text-[12px] font-semibold shadow-2xl backdrop-blur-xl transition-colors ${
             scrolled ? "border-white/10 bg-[#111]/92 text-white" : "border-white/15 bg-[#111]/76 text-white"
-          }`}
+          } ${mobileOpen ? "w-12 px-0" : "px-4"}`}
         >
           {mobileOpen ? <X size={18} strokeWidth={2.2} /> : <Menu size={18} strokeWidth={2.2} />}
-          {mobileOpen ? "Fechar" : "Menu"}
+          {mobileOpen ? null : "Menu"}
         </button>
       </nav>
 
@@ -184,7 +191,7 @@ export function Navbar() {
               {navLinks.map(({ name, href, Icon }) => (
                 <Link
                   key={name}
-                  href={href}
+                  href={getNavHref(href)}
                   aria-label={name}
                   className={`group/link relative grid h-11 w-11 place-items-center rounded-full transition-colors ${
                     isActive(href) ? "bg-white text-[#111]" : "text-white/78 hover:bg-white/8 hover:text-white"

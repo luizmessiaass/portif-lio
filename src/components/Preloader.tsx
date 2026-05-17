@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "@/lib/gsap";
 
 const greetings = ["Oi", "Hello", "Bem-vindo"];
@@ -11,10 +11,40 @@ export function Preloader({ onComplete }: { onComplete?: () => void }) {
   const wordsRef = useRef<HTMLDivElement>(null);
   const completedRef = useRef(false);
 
+  const shouldSkipIntro = () =>
+    window.location.hash.length > 0 ||
+    new URLSearchParams(window.location.search).get("skipIntro") === "1" ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const cleanupSkipParam = () => {
+    if (new URLSearchParams(window.location.search).get("skipIntro") === "1") {
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.hash}`);
+    }
+  };
+
+  useLayoutEffect(() => {
+    if (!shouldSkipIntro()) return;
+
+    cleanupSkipParam();
+    completedRef.current = true;
+    if (containerRef.current) {
+      containerRef.current.style.display = "none";
+    }
+    window.queueMicrotask(() => {
+      setVisible(false);
+      onComplete?.();
+    });
+  }, [onComplete]);
+
   useEffect(() => {
-    const shouldSkip = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const shouldSkip = shouldSkipIntro();
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    completedRef.current = false;
+    completedRef.current = shouldSkip;
+
+    if (shouldSkip) {
+      cleanupSkipParam();
+      return;
+    }
 
     const finish = () => {
       if (completedRef.current) return;

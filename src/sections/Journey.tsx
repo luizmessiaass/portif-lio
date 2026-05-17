@@ -906,9 +906,8 @@ type ElevaterMarketplace = {
   name: string;
   kind: MarketplaceKind;
   labelColor: string;
-  headline: string;
-  body: string;
-  bullets: string[];
+  contribution: string;
+  items: string[];
 };
 
 const elevaterMarketplaces: ElevaterMarketplace[] = [
@@ -916,33 +915,29 @@ const elevaterMarketplaces: ElevaterMarketplace[] = [
     name: "Mercado Livre",
     kind: "mercado-livre",
     labelColor: "#f2d600",
-    headline: "Ads, margem e decisão por SKU",
-    body: "Centralizou a leitura comercial do Mercado Livre com anúncios, rentabilidade e sinais para priorizar produto vencedor.",
-    bullets: ["Product Ads e Brand Ads", "Curva ABC e mapa de calor", "Relatórios por cliente"],
+    contribution: "Automação de Ads e margem",
+    items: ["Product/Brand Ads", "Curva ABC", "Relatórios"],
   },
   {
     name: "Shopee",
     kind: "shopee",
     labelColor: "#ee4d2d",
-    headline: "Promoções e rentabilidade",
-    body: "Organizou vendas, descontos e margem para o time entender o impacto real das promoções sem depender de planilha.",
-    bullets: ["Central de promoções", "Rentabilidade por produto", "Alertas de permissão Ads"],
+    contribution: "Promoções e rentabilidade",
+    items: ["Descontos", "Margem por SKU", "Permissões Ads"],
   },
   {
     name: "TikTok Shop",
     kind: "tiktok",
     labelColor: "#25f4ee",
-    headline: "Base para operação social commerce",
-    body: "Preparou a estrutura para acompanhar catálogo, campanhas e rotinas comerciais em um canal mais rápido e criativo.",
-    bullets: ["Arquitetura de canal", "Fluxo de catálogo", "Medição de performance"],
+    contribution: "Base para social commerce",
+    items: ["Catálogo", "Campanhas", "Performance"],
   },
   {
     name: "Amazon",
     kind: "amazon",
     labelColor: "#ff9900",
-    headline: "Catálogo e margem em expansão",
-    body: "Criou o caminho para conectar catálogo, rentabilidade e leitura operacional da Amazon dentro da mesma plataforma.",
-    bullets: ["Módulo de catálogo", "Rentabilidade planejada", "Operação multi-marketplace"],
+    contribution: "Catálogo e margem",
+    items: ["Módulo catálogo", "Rentabilidade", "Escala"],
   },
 ];
 
@@ -1041,18 +1036,18 @@ function MarketplaceContributionCard({ marketplace }: { marketplace: ElevaterMar
           <p className="font-general text-[10px] font-bold uppercase tracking-[0.16em] text-[#63757a]">
             {marketplace.name}
           </p>
-          <h4 className="mt-1 font-clash text-[1.05rem] font-semibold leading-tight tracking-normal text-[#101010] sm:text-[1.18rem]">
-            {marketplace.headline}
+          <h4 className="mt-1 break-words font-clash text-[1.05rem] font-semibold leading-tight tracking-normal text-[#101010] text-pretty sm:text-[1.18rem]">
+            {marketplace.contribution}
           </h4>
         </div>
       </div>
 
       <p className="mt-3 font-general text-[12px] leading-relaxed text-[#425156] text-pretty sm:text-[13px]">
-        {marketplace.body}
+        {marketplace.items.join(", ")}
       </p>
 
       <div className="mt-4 grid gap-2">
-        {marketplace.bullets.map((bullet) => (
+        {marketplace.items.map((bullet) => (
           <div key={bullet} className="flex items-start gap-2">
             <span
               className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
@@ -1139,7 +1134,7 @@ function ElevaterCaseCard({ item }: { item: Milestone }) {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-3 p-3 sm:grid-cols-2 sm:p-4">
+            <div className="grid grid-cols-1 gap-3 p-3 sm:p-4">
               {elevaterMarketplaces.map((marketplace) => (
                 <MarketplaceContributionCard key={marketplace.kind} marketplace={marketplace} />
               ))}

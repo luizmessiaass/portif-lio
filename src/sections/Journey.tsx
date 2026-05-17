@@ -33,40 +33,49 @@ interface Milestone {
 const milestones: Milestone[] = [
   {
     type: "job",
-    title: "A Base Técnica e UX",
+    title: "Front-End Engineer & UX Foundation",
     subtitle: "Lince Tech",
     period: "Fev 2021 – Mar 2022",
-    description: "Comecei na Lince Tech, ainda como estagiário, trabalhando com front-end, correção de bugs, ajustes de interface e suporte técnico. Foi meu primeiro contato real com software em produção, onde aprendi que detalhes importam, que experiência do usuário não é apenas uma camada visual e que sistemas precisam ser pensados para funcionar no dia a dia, com estabilidade, clareza e propósito.",
-    tech: ["Front-end", "UI/UX", "Stability"],
+    description: "Na Lince Tech, tive meu primeiro contato real com software em produção. Atuei no desenvolvimento e manutenção de interfaces front-end, correção de bugs no ERP Sienge, e ajustes de componentes de UI com foco em estabilidade e consistência visual. Foi ali que entendi que código que funciona localmente não é o mesmo que código que funciona para o usuário, e que cada detalhe de interface tem impacto direto na experiência real de quem usa o sistema.",
+    tech: ["HTML/CSS", "JavaScript", "UI/UX", "Sienge ERP", "Bug Fixing", "Produção"],
     icon: Monitor,
   },
   {
     type: "job",
-    title: "Automação e Visão Sistêmica",
+    title: "Automação de Processos & Engenharia de Dados",
     subtitle: "Bunge & BRF",
     period: "Set 2022 – Fev 2024",
-    description: "Depois, passei por ambientes bem diferentes. Na Bunge e na BRF, mergulhei em automação de processos fiscais e contábeis, lidando com VBA, SAP, SQL, dados em alta volumetria, auditoria e rotinas críticas. Foi ali que comecei a desenvolver uma visão mais sistêmica: antes de automatizar ou desenvolver qualquer solução, é preciso entender o fluxo, os riscos, os usuários envolvidos e o impacto que aquilo gera na operação.",
-    tech: ["VBA", "SAP", "SQL", "High Volume Data"],
+    description: "Na Bunge e na BRF, desenvolvi automações para processos fiscais e contábeis críticos, trabalhando com SQL em alta volumetria, scripts VBA, Power Automate e integração com SAP. Construí dashboards e pipelines de dados no Power BI para suporte à tomada de decisão em operações de grande escala. Operar em ambientes enterprise onde um erro em produção tem impacto financeiro direto me formou com uma mentalidade que carrego até hoje: antes de escrever qualquer linha de código, é preciso entender o fluxo completo, os riscos envolvidos e o impacto real na operação.",
+    tech: ["SQL", "VBA", "Power BI", "Power Automate", "SAP", "Alta Volumetria", "Ambiente Enterprise"],
     icon: Database,
   },
   {
     type: "job",
-    title: "E-commerce e Integração de Sistemas",
+    title: "Full Stack Developer\nE-commerce & Integrações",
     subtitle: "Mapfit Group",
     period: "Fev 2024 – Dez 2024",
-    description: "Com o tempo, minha atuação foi se aproximando cada vez mais do digital, do e-commerce e da construção de soluções integradas. No Mapfit Group, desenvolvi e estruturei uma operação em WordPress/WooCommerce, integrando site, marketplaces como Mercado Livre, Shopee e Magalu, além do Bling ERP. Essa experiência reforçou algo que se tornou central na minha forma de trabalhar: tecnologia não pode viver isolada. Ela precisa conectar vendas, estoque, faturamento, pedidos, dados e tomada de decisão.",
-    tech: ["WordPress", "WooCommerce", "Bling ERP", "Marketplaces"],
+    description: "Na Mapfit Group, desenvolvi e estruturei uma operação completa de e-commerce sobre WordPress/WooCommerce, integrando APIs de marketplaces como Mercado Livre, Shopee e Magalu, e conectando toda a operação ao ERP Bling. Implementei fluxos que unificavam estoque, pedidos, faturamento e dados em tempo real, eliminando processos manuais e tornando a operação escalável. Foi onde consolidei minha visão de que integração bem feita é tão crítica quanto o produto em si.",
+    tech: ["WordPress", "WooCommerce", "REST APIs", "Bling ERP", "Mercado Livre API", "Shopee API", "Magalu"],
     icon: ShoppingCart,
   },
   {
     type: "job",
-    title: "Liderança e Escala Operacional",
+    title: "Tech Lead & Co-founder\nE-commerce & Automação de Operações",
     subtitle: "Studio416x & Revenda de Calçados",
     period: "Jan 2024 – Jun 2025",
-    description: "Essa visão ganhou ainda mais força em experiências de liderança operacional. No Studio416x, conduzi operações de e-commerce com mais de 26 marcas ativas, olhando para margem, previsibilidade, escala e performance. Na Revenda de Calçados, liderei uma transformação digital do zero, reestruturando modelo comercial, implementando dropshipping, consolidando presença em marketplaces e conectando estoque, vendas e faturamento em uma operação integrada — chegando a entregar crescimento de até R$ 100 mil mensais em faturamento.",
+    description: "Co-fundei a Studio416x, onde liderei tecnicamente uma operação de e-commerce com mais de 26 marcas ativas, tomando decisões de arquitetura com foco em performance, escalabilidade e previsibilidade. A Revenda de Calçados surgiu como cliente da Studio416x e se tornou um dos projetos mais completos que conduzi: uma transformação digital do zero, implementando integração com marketplaces, estruturando o fluxo de dropshipping e conectando estoque, vendas e faturamento em uma operação unificada, chegando a R$ 100 mil mensais em faturamento.",
     impact: "Crescimento de R$ 100 mil mensais em faturamento.",
-    tech: ["Operations", "Performance", "Scale", "Dropshipping"],
+    tech: ["Co-founder", "Tech Lead", "E-commerce", "Integrações", "Dropshipping", "Automação", "Marketplaces", "Escala"],
     icon: TrendingUp,
+  },
+  {
+    type: "job",
+    title: "Analista de Sistemas & Dev",
+    subtitle: "Colcci / AMC Têxtil",
+    period: "Jan 2024 – Jun 2025",
+    description: "Em paralelo à Studio416x, atuei como Analista de Sistemas na AMC Têxtil, empresa por trás da marca Colcci. Desenvolvi e otimizei queries e procedures no SSMS, criei data warehouses para dashboards em QlikView e Power BI, e participei ativamente da migração do ERP Consistem. Atuei no desenvolvimento de aplicações mobile para gestão de facções de costura e monitoramento de rotas logísticas, além de contribuir no desenvolvimento e integração do software PLM, conectando todo o ciclo de vida do produto, do desenvolvimento inicial ao setor comercial, com o ERP.",
+    tech: ["SQL Server", "SSMS", "Power BI", "QlikView", "ERP Consistem", "PLM", "App Mobile", "Data Warehouse"],
+    icon: Database,
   },
   {
     type: "cert-cluster",
@@ -82,11 +91,11 @@ const milestones: Milestone[] = [
   },
   {
     type: "job",
-    title: "Arquitetura Full Stack & Liderança Técnica",
+    title: "Tech Lead & Full Stack Engineer",
     subtitle: "Avant I.A (Grupo Next Ecommerce)",
     period: "Set 2025 – Maio 2026",
-    description: "Uma das experiências mais marcantes veio no Grupo Next Ecommerce, atuando na Avant I.A. Foi ali que consolidei minha atuação como Desenvolvedor Full Stack com mentalidade de liderança técnica, trabalhando com Next.js, React, TypeScript, Supabase, PostgreSQL, integrações com APIs do Mercado Livre e Shopee, infraestrutura em VPS e soluções com IA aplicada usando Claude e OpenAI. Mais do que apenas desenvolver features, passei a atuar em decisões de arquitetura, modelagem de dados, integrações críticas, deploy, performance, segurança e evolução de produto.",
-    tech: ["Next.js", "TypeScript", "Supabase", "OpenAI/Claude"],
+    description: "Na Avant I.A., assumi o papel mais completo que já tive: liderei dois squads de desenvolvimento enquanto continuava na linha de frente como engenheiro. Eram decisões de arquitetura de manhã e pull requests à tarde. Desenvolvemos sistemas full stack para clientes externos, produtos reais, em produção, com usuários reais. Em paralelo, mentorava líderes de indústria na implementação de IA e automações dentro das suas empresas, traduzindo tecnologia em decisão estratégica. Trabalhei com Next.js, React, TypeScript, Supabase e PostgreSQL em sistemas multi-tenant com RBAC, workers de sincronização, integrações com APIs de marketplaces e IA aplicada via Claude. Foi aqui que entendi na prática o que separa um dev sênior de um tech lead: não é só escrever código melhor, é garantir que o time inteiro entregue código bom, e que o cliente saiba o que fazer com ele.",
+    tech: ["Tech Lead", "Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Claude AI", "Workers", "Multi-tenant", "RBAC", "Mentoria", "IA Aplicada"],
     icon: Cpu,
   },
   {
@@ -114,6 +123,12 @@ const milestones: Milestone[] = [
     ],
   },
 ];
+
+const featuredTitleClassName =
+  "mt-3 max-w-full whitespace-pre-line break-words font-clash text-[clamp(1.05rem,3.95vw,1.42rem)] font-semibold leading-[1.06] tracking-normal text-[#111] text-balance sm:mt-7 sm:text-[clamp(1.28rem,2.1vw,1.74rem)] lg:text-[clamp(1.42rem,1.7vw,1.92rem)]";
+
+const compactTitleClassName =
+  "mb-4 max-w-full whitespace-pre-line break-words font-clash text-[clamp(1.05rem,3.9vw,1.42rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance sm:text-[clamp(1.28rem,2.1vw,1.74rem)]";
 
 function LinceLogo() {
   return (
@@ -360,7 +375,7 @@ function CertificationFeaturedCard({ item, variant }: { item: Milestone; variant
             {config.period}
           </div>
 
-          <h3 className="mt-5 max-w-[460px] font-clash text-[clamp(1.6rem,6vw,2.65rem)] font-semibold leading-[1.08] tracking-normal text-[#08090c] text-balance">
+          <h3 className="mt-5 max-w-full whitespace-pre-line break-words font-clash text-[clamp(1.05rem,3.95vw,1.42rem)] font-semibold leading-[1.08] tracking-normal text-[#08090c] text-balance sm:text-[clamp(1.32rem,2.15vw,1.82rem)]">
             {config.headline}
           </h3>
           <span className="mt-5 block h-[3px] w-14 bg-[#f05a1a]" />
@@ -432,7 +447,7 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
               },
             ]}
           />
-          <h3 className="mt-3 max-w-[420px] break-words font-clash text-[clamp(1.12rem,5.4vw,2.55rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance sm:mt-7">
+          <h3 className={featuredTitleClassName}>
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#ff4d00]" />
@@ -482,8 +497,8 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
             <Image
               src="/brands/brf-logo-color-white.png"
               alt="BRF"
-              width={520}
-              height={222}
+              width={1885}
+              height={972}
               className="h-auto w-14 sm:w-32"
               sizes="(max-width: 640px) 96px, 128px"
               unoptimized
@@ -512,15 +527,15 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
               },
               {
                 src: "/brands/brf-logo-color-white.png",
-                width: 520,
-                height: 222,
+                width: 1885,
+                height: 972,
                 imageClassName: "h-auto w-8 sm:w-10",
                 badgeClassName: "bg-[#ff4d00]",
                 sizes: "(max-width: 640px) 32px, 40px",
               },
             ]}
           />
-          <h3 className="mt-3 max-w-[420px] break-words font-clash text-[clamp(1.12rem,5.4vw,2.55rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance sm:mt-7">
+          <h3 className={featuredTitleClassName}>
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#0c63c7] to-[#ff6a00]" />
@@ -561,8 +576,8 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
             <Image
               src="/brands/mapfit-logo-color.png"
               alt="Mapfit Group"
-              width={900}
-              height={325}
+              width={957}
+              height={307}
               className="h-auto w-20 sm:w-36"
               sizes="(max-width: 640px) 112px, 144px"
               unoptimized
@@ -583,15 +598,15 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
             logos={[
               {
                 src: "/brands/mapfit-logo-color.png",
-                width: 900,
-                height: 325,
-                imageClassName: "h-auto w-9 sm:w-11",
-                badgeClassName: "bg-[#171717]",
-                sizes: "(max-width: 640px) 36px, 44px",
+                width: 957,
+                height: 307,
+                imageClassName: "h-auto w-11 sm:w-16",
+                badgeClassName: "!w-14 bg-[#171717] px-1.5 sm:!w-20",
+                sizes: "(max-width: 640px) 44px, 64px",
               },
             ]}
           />
-          <h3 className="mt-3 max-w-[420px] break-words font-clash text-[clamp(1.12rem,5.4vw,2.55rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance sm:mt-7">
+          <h3 className={featuredTitleClassName}>
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#d7a23a]" />
@@ -682,7 +697,7 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
               },
             ]}
           />
-          <h3 className="mt-3 max-w-[420px] break-words font-clash text-[clamp(1.12rem,5.4vw,2.55rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance sm:mt-7">
+          <h3 className={featuredTitleClassName}>
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#a84ccf]" />
@@ -706,6 +721,97 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
                 key={tag}
                 label={tag}
                 className="min-h-9 border-transparent bg-[#fbf0ff] text-[9px] font-bold uppercase tracking-[0.06em] text-[#8d2ca9] shadow-[inset_0_0_0_1px_rgba(141,44,169,.08)] sm:min-h-10 sm:px-4 sm:text-xs"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ColcciAmcFeaturedCard({ item }: { item: Milestone }) {
+  const [start, end] = splitPeriod(item.period);
+
+  return (
+    <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#c8b177]/45 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] transition-all duration-500 hover:border-[#c8b177]/70 sm:rounded-[30px]">
+      <div className="grid grid-cols-1 sm:min-h-[660px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#080807] px-3 py-4 text-white max-sm:min-h-[92px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_18%,rgba(255,255,255,.08),transparent_26%),linear-gradient(180deg,rgba(255,255,255,.05),transparent_30%)]" />
+          <div className="pointer-events-none absolute -right-24 top-28 h-72 w-72 rounded-[48%] border border-[#c8b177]/38 sm:-right-28 sm:top-48" />
+          <div className="pointer-events-none absolute -right-20 bottom-24 h-56 w-80 -rotate-12 rounded-[50%] border border-[#c8b177]/28" />
+          <div className="pointer-events-none absolute -left-24 bottom-16 h-40 w-96 rotate-[-18deg] rounded-[50%] border border-[#c8b177]/24" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-[radial-gradient(circle_at_58%_100%,rgba(200,177,119,.18),transparent_56%)]" />
+
+          <div className="relative flex flex-row items-center gap-4 sm:mt-12 sm:flex-col sm:items-start sm:gap-10">
+            <Image
+              src="/brands/colcci-logo-white.png"
+              alt="Colcci"
+              width={506}
+              height={146}
+              className="h-auto w-[92px] drop-shadow-[0_14px_28px_rgba(255,255,255,.12)] sm:w-[150px]"
+              sizes="(max-width: 640px) 92px, 150px"
+              unoptimized
+            />
+
+            <span className="h-10 w-px bg-[#c8b177] sm:h-px sm:w-16" />
+
+            <Image
+              src="/brands/amc25-logo-white.png"
+              alt="AMC Têxtil 25 anos"
+              width={978}
+              height={1060}
+              className="h-auto w-[54px] drop-shadow-[0_14px_30px_rgba(255,255,255,.14)] sm:w-[118px]"
+              sizes="(max-width: 640px) 54px, 118px"
+              unoptimized
+            />
+          </div>
+
+          <div className="relative text-right font-general text-[9px] font-bold uppercase leading-relaxed tracking-[0.09em] sm:text-left sm:text-base">
+            <span className="block text-[#c8b177]">{start}</span>
+            <span className="my-1 block text-[#c8b177]">-</span>
+            <span className="block text-white">{end}</span>
+          </div>
+        </aside>
+
+        <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
+          <CompanyHeader
+            label={item.subtitle}
+            textClassName="text-[#9b7d35]"
+            logos={[
+              {
+                src: "/brands/colcci-logo-transparent.png",
+                width: 506,
+                height: 146,
+                imageClassName: "h-auto w-11 sm:w-14",
+                badgeClassName: "bg-white",
+                sizes: "(max-width: 640px) 44px, 56px",
+              },
+              {
+                src: "/brands/amc25-logo-transparent.png",
+                width: 978,
+                height: 1060,
+                imageClassName: "h-7 w-7 sm:h-9 sm:w-9",
+                badgeClassName: "bg-[#fbf8ef]",
+                sizes: "(max-width: 640px) 28px, 36px",
+              },
+            ]}
+          />
+          <h3 className={featuredTitleClassName}>
+            {item.title}
+          </h3>
+          <div className="mt-5 h-1 w-16 rounded-full bg-[#c8b177]" />
+
+          <p className="mt-4 font-general text-[11px] leading-[1.55] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+            {item.description}
+          </p>
+
+          <div className="mt-5 flex flex-wrap gap-1.5 sm:mt-9 sm:gap-3">
+            {item.tech?.map((tag) => (
+              <StackChip
+                key={tag}
+                label={tag}
+                className="min-h-9 border-transparent bg-[#faf6ea] text-[9px] font-bold uppercase tracking-[0.06em] text-[#6f5b29] shadow-[inset_0_0_0_1px_rgba(111,91,41,.1)] sm:min-h-10 sm:px-4 sm:text-xs"
               />
             ))}
           </div>
@@ -755,8 +861,8 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
             <Image
               src="/brands/elevate-ecom-logo-transparent.png"
               alt="Elevate Ecom."
-              width={276}
-              height={131}
+              width={769}
+              height={360}
               className="h-auto w-[48px] drop-shadow-[0_16px_34px_rgba(0,0,0,.22)] sm:w-[132px]"
               sizes="(max-width: 640px) 48px, 132px"
               unoptimized
@@ -793,12 +899,12 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
                   sizes: "(max-width: 640px) 24px, 28px",
                 },
                 {
-                  src: "/brands/elevate-ecom-badge.png",
-                  width: 447,
-                  height: 447,
-                  imageClassName: "h-full w-full rounded-2xl object-cover",
-                  badgeClassName: "overflow-hidden bg-transparent",
-                  sizes: "(max-width: 640px) 44px, 56px",
+                  src: "/brands/elevate-ecom-logo-transparent.png",
+                  width: 769,
+                  height: 360,
+                  imageClassName: "h-auto w-8 sm:w-11",
+                  badgeClassName: "bg-[#173345] px-1",
+                  sizes: "(max-width: 640px) 32px, 44px",
                 },
               ]}
             />
@@ -809,7 +915,7 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
             {item.period}
           </div>
 
-          <h3 className="max-w-[480px] break-words font-clash text-[clamp(1.12rem,5.3vw,2.8rem)] font-semibold leading-[1.05] tracking-normal text-[#111] text-balance sm:text-[clamp(1.45rem,6vw,2.8rem)]">
+          <h3 className="max-w-full whitespace-pre-line break-words font-clash text-[clamp(1.05rem,3.95vw,1.42rem)] font-semibold leading-[1.06] tracking-normal text-[#111] text-balance sm:text-[clamp(1.28rem,2.1vw,1.74rem)] lg:text-[clamp(1.42rem,1.7vw,1.92rem)]">
             {item.title}
           </h3>
           <div className="mt-3 h-1 w-12 rounded-full bg-[#0d2635] sm:mt-5 sm:w-16" />
@@ -1041,7 +1147,7 @@ export function Journey() {
                   i % 2 === 0 ? "sm:flex-row-reverse" : ""
                 }`}
               >
-                {(i <= 3 || i === 5) && (
+                {(i <= 4 || i === 6) && (
                   <div
                     className={`pointer-events-none absolute left-1/2 top-1/2 z-0 h-[calc(100%+80vh)] w-screen -translate-x-1/2 -translate-y-1/2 blur-[18px] ${
                       i === 0
@@ -1052,7 +1158,9 @@ export function Journey() {
                             ? "bg-[radial-gradient(circle_at_78%_22%,rgba(215,162,58,.28),transparent_32%),radial-gradient(circle_at_18%_86%,rgba(215,162,58,.36),transparent_34%),linear-gradient(135deg,#fff8eb_0%,rgba(75,57,25,.64)_30%,rgba(26,26,26,.58)_62%,rgba(9,9,9,.52)_100%)]"
                             : i === 3
                               ? "bg-[radial-gradient(circle_at_18%_64%,rgba(168,76,207,.38),transparent_32%),radial-gradient(circle_at_86%_24%,rgba(255,255,255,.23),transparent_28%),linear-gradient(135deg,#fff5ff_0%,rgba(125,49,143,.68)_42%,rgba(17,17,17,.6)_100%)]"
-                              : "bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,.42),transparent_30%),radial-gradient(circle_at_82%_74%,rgba(132,185,211,.35),transparent_40%),linear-gradient(135deg,#eef4f3_0%,rgba(111,135,150,.7)_32%,rgba(28,51,66,.66)_68%,rgba(7,17,27,.62)_100%)]"
+                              : i === 4
+                                ? "bg-[radial-gradient(circle_at_78%_22%,rgba(200,177,119,.25),transparent_34%),radial-gradient(circle_at_16%_86%,rgba(200,177,119,.34),transparent_36%),linear-gradient(135deg,#fffaf0_0%,rgba(43,38,25,.58)_34%,rgba(7,7,7,.62)_100%)]"
+                                : "bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,.42),transparent_30%),radial-gradient(circle_at_82%_74%,rgba(132,185,211,.35),transparent_40%),linear-gradient(135deg,#eef4f3_0%,rgba(111,135,150,.7)_32%,rgba(28,51,66,.66)_68%,rgba(7,17,27,.62)_100%)]"
                     } opacity-75 [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,.38)_16%,black_36%,black_64%,rgba(0,0,0,.32)_84%,transparent_100%)]`}
                   />
                 )}
@@ -1080,13 +1188,17 @@ export function Journey() {
                     </div>
                   ) : i === 4 ? (
                     <div data-journey-scene="0">
-                      <CertificationFeaturedCard item={item} variant="ai-cloud" />
+                      <ColcciAmcFeaturedCard item={item} />
                     </div>
                   ) : i === 5 ? (
+                    <div data-journey-scene="0">
+                      <CertificationFeaturedCard item={item} variant="ai-cloud" />
+                    </div>
+                  ) : i === 6 ? (
                     <div data-journey-scene="5">
                       <AvantFeaturedCard item={item} />
                     </div>
-                  ) : i === 7 ? (
+                  ) : i === 8 ? (
                     <div data-journey-scene="0">
                       <CertificationFeaturedCard item={item} variant="microsoft" />
                     </div>
@@ -1119,7 +1231,7 @@ export function Journey() {
                       </div>
 
                       {/* Milestone Title */}
-                      <h3 className="mb-4 font-clash text-xl font-semibold leading-tight text-[#111] sm:text-3xl">
+                      <h3 className={compactTitleClassName}>
                         {item.title}
                       </h3>
 

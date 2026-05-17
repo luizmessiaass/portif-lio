@@ -9,12 +9,9 @@ import {
   Award,
   BrainCircuit,
   Calendar,
-  Code2,
   Cpu,
   Database,
-  LayoutPanelTop,
   Monitor,
-  ShieldCheck,
   ShoppingCart,
   TrendingUp,
   Zap,
@@ -132,17 +129,6 @@ function LinceLogo() {
   );
 }
 
-function TechChip({ label }: { label: string }) {
-  const Icon = label === "Front-end" ? Code2 : label === "UI/UX" ? LayoutPanelTop : ShieldCheck;
-
-  return (
-    <span className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-[#fff1f1] px-2.5 font-general text-[9px] font-bold uppercase tracking-[0.06em] text-[#b60d18] shadow-[inset_0_0_0_1px_rgba(182,13,24,.06)] sm:min-h-10 sm:gap-2 sm:px-4 sm:text-xs">
-      <Icon size={14} strokeWidth={2.2} />
-      {label}
-    </span>
-  );
-}
-
 function splitPeriod(period: string) {
   return period.split(/\s+[–-]\s+/);
 }
@@ -213,7 +199,7 @@ const certificationAssets: Record<
     period: "SET - NOV 2025",
     accent: "#f05a1a",
     topIcon: BrainCircuit,
-    minHeight: "sm:min-h-[640px]",
+    minHeight: "sm:min-h-[560px]",
     headerLogos: [
       { kind: "google" },
       { kind: "oracle" },
@@ -231,7 +217,7 @@ const certificationAssets: Record<
     period: "JAN - ABR 2026",
     accent: "#f05a1a",
     topIcon: Award,
-    minHeight: "sm:min-h-[690px]",
+    minHeight: "sm:min-h-[560px]",
     headerLogos: [
       { kind: "microsoft" },
     ],
@@ -292,10 +278,14 @@ function CertificationBrandLogo({
 
   if (kind === "oracle") {
     return (
-      <MaskLogo
-        src="/stack/oracle.svg"
-        color="#f80000"
-        className={compact ? "h-5 w-16" : "h-8 w-24"}
+      <Image
+        src="/certifications/oracle-logo.jpeg"
+        alt="Oracle"
+        width={compact ? 78 : 124}
+        height={compact ? 24 : 38}
+        className={`${compact ? "h-auto w-16" : "h-auto w-28"} object-contain mix-blend-multiply`}
+        sizes={compact ? "64px" : "112px"}
+        unoptimized
       />
     );
   }
@@ -326,10 +316,14 @@ function CertificationBrandLogo({
   }
 
   return (
-    <MaskLogo
-      src="/stack/google.svg"
-      color="#4285f4"
-      className={compact ? "h-8 w-8" : "h-10 w-10"}
+    <Image
+      src="/certifications/google-logo.jpeg"
+      alt="Google"
+      width={compact ? 34 : 44}
+      height={compact ? 34 : 44}
+      className={`${compact ? "h-8 w-8" : "h-10 w-10"} rounded-full object-cover mix-blend-multiply`}
+      sizes={compact ? "32px" : "40px"}
+      unoptimized
     />
   );
 }
@@ -340,60 +334,55 @@ function CertificationFeaturedCard({ item, variant }: { item: Milestone; variant
 
   return (
     <div className="journey-card relative min-w-0 max-w-full rounded-[28px] bg-transparent sm:rounded-[34px]">
-      <div className="pointer-events-none absolute -left-8 -top-12 hidden h-[calc(100%+6rem)] w-[3px] rounded-full bg-[#f05a1a] sm:block">
-        <span className="absolute -left-[11px] top-9 h-7 w-7 rounded-full border-[5px] border-[#f05a1a] bg-white shadow-[0_0_0_6px_rgba(240,90,26,.08)]" />
-        <span className="absolute -left-[11px] bottom-14 h-7 w-7 rounded-full border-[5px] border-[#f05a1a] bg-white shadow-[0_0_0_6px_rgba(240,90,26,.08)]" />
-      </div>
-
-      <div className={`relative overflow-hidden rounded-[28px] border border-[#f3d9c9] bg-[#fffdf9] p-5 shadow-[0_26px_80px_rgba(140,82,36,.12)] sm:rounded-[34px] sm:p-8 lg:p-10 ${config.minHeight}`}>
+      <div className={`relative overflow-hidden rounded-[24px] border border-[#f3d9c9] bg-[#fffdf9] p-4 shadow-[0_24px_70px_rgba(140,82,36,.1)] sm:rounded-[30px] sm:p-6 lg:p-7 ${config.minHeight}`}>
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_10%,rgba(255,138,73,.08),transparent_30%),radial-gradient(circle_at_96%_84%,rgba(255,138,73,.08),transparent_36%)]" />
         <div className="pointer-events-none absolute bottom-0 right-0 h-48 w-64 rounded-tl-full bg-[repeating-linear-gradient(135deg,rgba(240,90,26,.05)_0,rgba(240,90,26,.05)_1px,transparent_1px,transparent_7px)]" />
 
-        <div className="relative flex items-center gap-5">
-          <div className="grid h-20 w-20 shrink-0 place-items-center rounded-[24px] border border-[#f3d9c9] bg-[#fff2e9] text-[#f05a1a] shadow-[inset_0_1px_0_rgba(255,255,255,.85),0_14px_30px_rgba(240,90,26,.14)]">
-            <TopIcon size={38} strokeWidth={1.55} />
+        <div className="relative flex items-center gap-3 sm:gap-4">
+          <div className="grid h-14 w-14 shrink-0 place-items-center rounded-[18px] border border-[#f3d9c9] bg-[#fff2e9] text-[#f05a1a] shadow-[inset_0_1px_0_rgba(255,255,255,.85),0_12px_26px_rgba(240,90,26,.12)] sm:h-16 sm:w-16 sm:rounded-[20px]">
+            <TopIcon size={30} strokeWidth={1.55} />
           </div>
-          <span className="h-12 w-px bg-black/12" />
-          <div className="flex min-w-0 flex-wrap items-center gap-5">
+          <span className="h-9 w-px bg-black/12 sm:h-10" />
+          <div className="flex min-w-0 flex-wrap items-center gap-3 sm:gap-4">
             {config.headerLogos.map((logo) => (
               <CertificationBrandLogo key={logo.kind} kind={logo.kind} />
             ))}
           </div>
         </div>
 
-        <div className="relative mt-9">
-          <p className="font-general text-[13px] font-bold uppercase tracking-[0.42em] text-[#e85a1b] sm:text-[15px]">
+        <div className="relative mt-6">
+          <p className="font-general text-[11px] font-bold uppercase tracking-[0.32em] text-[#e85a1b] sm:text-[12px]">
             {config.eyebrow}
           </p>
 
-          <div className="mt-7 flex items-center gap-4 font-general text-[22px] font-semibold uppercase tracking-[0.28em] text-[#8b8b8b]">
-            <Calendar size={26} strokeWidth={1.8} />
+          <div className="mt-5 flex items-center gap-3 font-general text-[14px] font-semibold uppercase tracking-[0.24em] text-[#8b8b8b] sm:text-[16px]">
+            <Calendar size={18} strokeWidth={1.8} />
             {config.period}
           </div>
 
-          <h3 className="mt-7 max-w-[720px] font-clash text-[clamp(2.05rem,8vw,4.4rem)] font-semibold leading-[1.05] tracking-normal text-[#08090c] text-balance">
+          <h3 className="mt-5 max-w-[460px] font-clash text-[clamp(1.6rem,6vw,2.65rem)] font-semibold leading-[1.08] tracking-normal text-[#08090c] text-balance">
             {config.headline}
           </h3>
-          <span className="mt-8 block h-[3px] w-16 bg-[#f05a1a]" />
+          <span className="mt-5 block h-[3px] w-14 bg-[#f05a1a]" />
         </div>
 
-        <div className="relative mt-9 grid gap-5">
+        <div className="relative mt-6 grid gap-3">
           {item.certs?.map((cert, index) => {
             const logo = config.certLogos[index] ?? config.certLogos[0];
 
             return (
               <div
                 key={cert.name}
-                className="grid min-h-[78px] grid-cols-[64px_1px_minmax(0,1fr)_auto] items-center gap-4 rounded-[22px] border border-[#efd8c9] bg-white/82 px-4 shadow-[0_14px_34px_rgba(140,82,36,.11)] sm:min-h-[86px] sm:grid-cols-[74px_1px_minmax(0,1fr)_auto] sm:gap-5 sm:px-6"
+                className="grid min-h-[58px] grid-cols-[44px_1px_minmax(0,1fr)_auto] items-center gap-3 rounded-[18px] border border-[#efd8c9] bg-white/82 px-3 shadow-[0_12px_26px_rgba(140,82,36,.09)] sm:min-h-[64px] sm:grid-cols-[52px_1px_minmax(0,1fr)_auto] sm:gap-4 sm:px-4"
               >
-                <span className="grid h-14 w-14 place-items-center rounded-full border border-[#efd8c9] bg-white shadow-[0_8px_18px_rgba(140,82,36,.12)] sm:h-16 sm:w-16">
+                <span className="grid h-10 w-10 place-items-center rounded-full border border-[#efd8c9] bg-white shadow-[0_8px_18px_rgba(140,82,36,.1)] sm:h-12 sm:w-12">
                   <CertificationBrandLogo kind={logo.kind} compact />
                 </span>
-                <span className="h-10 w-px bg-black/12" />
-                <span className="min-w-0 font-general text-[16px] font-medium leading-tight text-[#08090c] sm:text-[24px]">
+                <span className="h-8 w-px bg-black/12" />
+                <span className="min-w-0 font-general text-[12px] font-medium leading-tight text-[#08090c] sm:text-[15px]">
                   {cert.name}
                 </span>
-                <span className="shrink-0 font-general text-[15px] font-medium text-[#909090] sm:text-[22px]">
+                <span className="shrink-0 font-general text-[11px] font-medium text-[#909090] sm:text-[14px]">
                   {cert.date}
                 </span>
               </div>
@@ -410,25 +399,25 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d90416]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#d90416]/60 sm:rounded-[30px]">
-      <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-3 py-6 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-[64px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-2 py-5 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,.12),transparent_34%),radial-gradient(circle_at_38%_18%,rgba(255,255,255,.14),transparent_22%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/14" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/12" />
           <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-white/10" />
 
-          <div className="relative mt-10 scale-90 sm:mt-20 sm:scale-100">
+          <div className="relative mt-8 scale-75 sm:mt-20 sm:scale-100">
             <LinceLogo />
           </div>
 
-          <div className="relative font-general text-[11px] font-bold uppercase leading-relaxed tracking-[0.1em] sm:text-base">
+          <div className="relative font-general text-[9px] font-bold uppercase leading-relaxed tracking-[0.08em] sm:text-base">
             <span className="block">{start}</span>
             <span className="my-1 block">-</span>
             <span className="block">{end}</span>
           </div>
         </aside>
 
-        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
+        <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
           <CompanyHeader
             label={item.subtitle}
             textClassName="text-[#ff4d00]"
@@ -443,18 +432,22 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
               },
             ]}
           />
-          <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
+          <h3 className="mt-3 max-w-[420px] break-words font-clash text-[clamp(1.12rem,5.4vw,2.55rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#ff4d00]" />
 
-          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-4 font-general text-[11px] leading-[1.55] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-2 sm:gap-3">
+          <div className="mt-5 flex flex-wrap gap-1.5 sm:mt-9 sm:gap-3">
             {item.tech?.map((tag) => (
-              <TechChip key={tag} label={tag} />
+              <StackChip
+                key={tag}
+                label={tag}
+                className="min-h-9 border-transparent bg-[#fff1f1] text-[9px] font-bold uppercase tracking-[0.06em] text-[#b60d18] shadow-[inset_0_0_0_1px_rgba(182,13,24,.06)] sm:min-h-10 sm:px-4 sm:text-xs"
+              />
             ))}
           </div>
         </div>
@@ -468,8 +461,8 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0c63c7]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#ff4d00]/55 sm:rounded-[30px]">
-      <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-3 py-6 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-[64px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-2 py-5 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,.14),transparent_24%),linear-gradient(140deg,rgba(255,255,255,.12),transparent_36%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/18" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/14" />
@@ -504,7 +497,7 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
           </div>
         </aside>
 
-        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
+        <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
           <CompanyHeader
             label={item.subtitle}
             textClassName="text-[#0c63c7]"
@@ -527,16 +520,16 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
               },
             ]}
           />
-          <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
+          <h3 className="mt-3 max-w-[420px] break-words font-clash text-[clamp(1.12rem,5.4vw,2.55rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#0c63c7] to-[#ff6a00]" />
 
-          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-4 font-general text-[11px] leading-[1.55] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-2 sm:gap-3">
+          <div className="mt-5 flex flex-wrap gap-1.5 sm:mt-9 sm:gap-3">
             {item.tech?.map((tag) => (
               <StackChip
                 key={tag}
@@ -556,8 +549,8 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d7a23a]/40 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#d7a23a]/65 sm:rounded-[30px]">
-      <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-3 py-6 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-[64px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-2 py-5 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_92%,rgba(209,155,45,.42),transparent_30%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_32%)]" />
           <div className="pointer-events-none absolute -right-28 top-44 h-72 w-72 rounded-full border border-[#d7a23a]/55" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-[#d7a23a]/45" />
@@ -583,7 +576,7 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
           </div>
         </aside>
 
-        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
+        <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
           <CompanyHeader
             label={item.subtitle}
             textClassName="text-[#b88319]"
@@ -598,16 +591,16 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
               },
             ]}
           />
-          <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
+          <h3 className="mt-3 max-w-[420px] break-words font-clash text-[clamp(1.12rem,5.4vw,2.55rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#d7a23a]" />
 
-          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-4 font-general text-[11px] leading-[1.55] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-2 sm:gap-3">
+          <div className="mt-5 flex flex-wrap gap-1.5 sm:mt-9 sm:gap-3">
             {item.tech?.map((tag) => (
               <StackChip
                 key={tag}
@@ -627,8 +620,8 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#a84ccf]/40 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#a84ccf]/65 sm:rounded-[30px]">
-      <div className="grid grid-cols-[95px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#111111] px-3 py-6 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-[64px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#111111] px-2 py-5 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_68%,rgba(145,42,182,.5),transparent_28%),linear-gradient(180deg,rgba(255,255,255,.035),transparent_36%)]" />
           <div className="pointer-events-none absolute -right-28 top-44 h-72 w-72 rounded-full border border-[#d779ff]/55" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-[#d779ff]/45" />
@@ -666,7 +659,7 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
           </div>
         </aside>
 
-        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
+        <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
           <CompanyHeader
             label={item.subtitle}
             textClassName="text-[#9a35b8]"
@@ -689,12 +682,12 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
               },
             ]}
           />
-          <h3 className="mt-4 max-w-[420px] break-words font-clash text-[clamp(1.25rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-normal text-[#111] text-balance sm:mt-7">
+          <h3 className="mt-3 max-w-[420px] break-words font-clash text-[clamp(1.12rem,5.4vw,2.55rem)] font-semibold leading-[1.08] tracking-normal text-[#111] text-balance sm:mt-7">
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#a84ccf]" />
 
-          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-4 font-general text-[11px] leading-[1.55] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
@@ -727,8 +720,8 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0d2635]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#4f7487]/65 sm:rounded-[30px]">
-      <div className="grid grid-cols-[95px_1fr] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-3 py-6 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-[64px_1fr] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-2 py-5 text-white sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_54%,rgba(255,255,255,.34),transparent_26%),radial-gradient(circle_at_84%_78%,rgba(132,185,211,.32),transparent_42%)]" />
           <div className="pointer-events-none absolute -right-28 top-52 h-72 w-72 rounded-full border border-white/38" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/28" />
@@ -777,7 +770,7 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
           </div>
         </aside>
 
-        <div className="min-w-0 px-4 py-6 sm:px-9 sm:py-12 lg:px-11">
+        <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
           <div className="mb-5">
             <CompanyHeader
               label={item.subtitle}
@@ -821,7 +814,7 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#0d2635]" />
 
-          <p className="mt-5 font-general text-[12px] leading-[1.7] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-4 font-general text-[11px] leading-[1.55] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
@@ -837,9 +830,11 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
 
           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {["Operations", "Performance", "Scale"].map((label) => (
-              <span key={label} className="inline-flex min-h-10 items-center justify-center rounded-full bg-[#f5f5f5] px-3 text-center font-general text-[9px] font-bold uppercase tracking-[0.04em] text-[#1b1b1b] sm:text-xs">
-                {label}
-              </span>
+              <StackChip
+                key={label}
+                label={label}
+                className="min-h-10 justify-center border-transparent bg-[#f5f5f5] px-3 text-center text-[9px] font-bold uppercase tracking-[0.04em] text-[#1b1b1b] sm:text-xs"
+              />
             ))}
           </div>
         </div>

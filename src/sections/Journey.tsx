@@ -897,185 +897,74 @@ function ElevaterWordmark({ className = "" }: { className?: string }) {
   );
 }
 
-function ElevaterBanner({ period }: { period: string }) {
-  return (
-    <div className="relative h-full min-h-[240px] overflow-hidden bg-[#001015] text-white sm:min-h-full">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_12%,rgba(0,105,140,.22),transparent_30%),linear-gradient(180deg,#00070b_0%,#001625_34%,#004d63_69%,#007181_100%)]" />
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 360 1536"
-        preserveAspectRatio="none"
-        className="pointer-events-none absolute inset-0 h-full w-full"
-      >
-        <defs>
-          <linearGradient id="elevaterArc" x1="0" x2="360" y1="900" y2="600" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#13e5f3" stopOpacity="0.02" />
-            <stop offset="0.58" stopColor="#20e8f7" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#20e8f7" stopOpacity="0.02" />
-          </linearGradient>
-          <linearGradient id="elevaterArcSoft" x1="0" x2="360" y1="1210" y2="1040" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#16e5f2" stopOpacity="0.02" />
-            <stop offset="0.5" stopColor="#16e5f2" stopOpacity="0.84" />
-            <stop offset="1" stopColor="#16e5f2" stopOpacity="0.04" />
-          </linearGradient>
-        </defs>
-        <path d="M0 0H360V398C255 352 152 310 0 258V0Z" fill="#000912" opacity="0.98" />
-        <path d="M0 400C112 466 221 526 360 574V768C218 722 101 654 0 608V400Z" fill="#00364e" opacity="0.76" />
-        <path d="M0 565C108 640 234 703 360 744V957C214 913 106 834 0 781V565Z" fill="#00465d" opacity="0.72" />
-        <path d="M0 744C122 802 222 858 360 879V1138C223 1125 101 1055 0 1007V744Z" fill="#006478" opacity="0.72" />
-        <path d="M0 956C118 1016 232 1065 360 1078V1536H0V956Z" fill="#007d8b" opacity="0.78" />
-        <path d="M-24 1022C64 847 186 752 392 702" fill="none" stroke="url(#elevaterArc)" strokeWidth="3.2" />
-        <path d="M-35 1268C68 1122 174 1056 392 1017" fill="none" stroke="url(#elevaterArcSoft)" strokeWidth="3.1" />
-        <path d="M-38 1314C92 1214 225 1161 392 1144" fill="none" stroke="#64edf7" strokeOpacity="0.12" strokeWidth="1.2" />
-        <path d="M-10 1424C95 1366 217 1330 384 1316" fill="none" stroke="#a7f8ff" strokeOpacity="0.09" strokeWidth="1" />
-      </svg>
-
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.3),transparent_28%,transparent_76%,rgba(0,0,0,.16))]" />
-
-      <div className="relative z-10 flex h-full min-h-[240px] flex-col items-center px-5 text-center sm:min-h-full">
-        <div className="mt-[14%] flex flex-col items-center max-sm:mt-9 sm:mt-[clamp(5rem,6.6vw,7rem)]">
-          <ElevaterWordmark className="text-[42px] text-white/95 drop-shadow-[0_0_18px_rgba(255,255,255,.12)] sm:text-[clamp(1.9rem,2.3vw,3.3rem)]" />
-          <span className="mt-8 h-[2px] w-28 rounded-full bg-[radial-gradient(circle,#3cf6ff_0%,#00bed0_34%,rgba(0,190,208,0)_72%)] shadow-[0_0_18px_rgba(25,232,245,.9)] sm:mt-[15%]" />
-          <p className="mt-7 max-w-[190px] font-general text-[13px] font-light leading-[1.45] text-white/58 sm:mt-[12%] sm:text-[clamp(.68rem,.86vw,1rem)]">
-            Gestão inteligente de campanhas no Mercado Livre
-          </p>
-        </div>
-
-        <div className="relative mt-auto hidden w-full pb-[13%] sm:block">
-          <div className="flex items-center justify-center gap-4 text-left">
-            <Calendar size={29} strokeWidth={1.35} className="shrink-0 text-[#12b8c9]" />
-            <div className="font-general text-[clamp(.8rem,1vw,1.15rem)] font-semibold uppercase leading-[1.95] tracking-[0.03em] text-white">
-              <span className="block">{period.split(" ")[0]}</span>
-              <span className="my-1 block h-[3px] w-10 rounded-full bg-[#0ea6b9]" />
-              <span className="block">{period.split(" ").slice(1).join(" ")}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function ElevaterCaseCard({ item }: { item: Milestone }) {
+  const [start, ...rest] = item.period.split(" ");
+  const end = rest.join(" ");
+
   return (
-    <div data-elevater-case-card className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[30px] border-[3px] border-[#007887] bg-[#f8fafb] p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#0096a6] sm:rounded-[42px]">
-      <div className="grid grid-cols-1 bg-[#f8fafb] sm:aspect-[2/3] sm:grid-cols-[35%_65%]">
-        <aside className="relative min-w-0 overflow-hidden max-sm:min-h-[240px]">
-          <ElevaterBanner period={item.period} />
+    <div data-elevater-case-card className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#007485]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#007485]/65 sm:rounded-[30px]">
+      <div className="grid grid-cols-1 sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#001015_0%,#002a36_34%,#005f70_68%,#007485_100%)] px-3 py-4 text-white max-sm:min-h-[84px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_12%,rgba(34,237,247,.22),transparent_30%),linear-gradient(140deg,rgba(255,255,255,.1),transparent_36%)]" />
+          <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/18" />
+          <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/14" />
+          <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-white/12" />
+
+          <div className="relative flex flex-row items-center gap-3 sm:mt-16 sm:flex-col sm:gap-8">
+            <ElevaterWordmark className="text-[30px] text-white/95 drop-shadow-[0_0_18px_rgba(255,255,255,.12)] sm:text-[42px]" />
+            <span className="h-px w-8 rounded-full bg-[#3cf6ff]/70 sm:w-16" />
+            <span className="grid h-10 w-10 place-items-center rounded-2xl border border-white/25 bg-white/10 text-[#3cf6ff] shadow-[0_12px_28px_rgba(0,0,0,.12)] sm:h-16 sm:w-16">
+              <Zap size={22} strokeWidth={1.8} className="sm:h-8 sm:w-8" />
+            </span>
+          </div>
+
+          <div className="relative text-right font-general text-[9px] font-bold uppercase leading-relaxed tracking-[0.09em] sm:text-left sm:text-base">
+            <span className="block text-[#3cf6ff]">{start}</span>
+            {end ? (
+              <>
+                <span className="my-1 block text-[#3cf6ff]">-</span>
+                <span className="block text-white">{end}</span>
+              </>
+            ) : null}
+          </div>
         </aside>
 
-        <div className="min-w-0 px-7 py-9 text-[#071533] sm:px-[7.5%] sm:pb-[5.8%] sm:pt-[clamp(3rem,3.4vw,4rem)]">
-          <div className="flex items-start justify-between gap-4">
-            <div className="min-w-0">
-              <div className="inline-flex min-h-14 items-center rounded-[18px] border border-[#6fcbd3] bg-white px-4 shadow-[0_14px_28px_rgba(0,120,135,.08)]">
-                <ElevaterWordmark className="text-[28px] text-[#071533] sm:text-[clamp(1.5rem,2vw,2.2rem)]" />
-              </div>
-              <p className="mt-4 font-general text-[11px] font-bold uppercase leading-none tracking-[0.22em] text-[#007887] sm:text-[clamp(.62rem,.72vw,.82rem)]">
-                {item.period}
-              </p>
+        <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#e6fbfd] text-[#007485] shadow-[0_12px_28px_rgba(0,116,133,.08)] ring-1 ring-[#007485]/15 sm:h-14 sm:w-14 sm:rounded-2xl">
+              <Zap size={20} strokeWidth={1.8} className="sm:h-7 sm:w-7" />
             </div>
-
-            <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-[#007887] text-[#071533] sm:h-[clamp(3.35rem,3.8vw,4.6rem)] sm:w-[clamp(3.35rem,3.8vw,4.6rem)]">
-              <svg aria-hidden="true" viewBox="0 0 64 64" className="h-[54%] w-[54%]">
-                <path d="M10 47V34h10v13H10Z" fill="none" stroke="currentColor" strokeWidth="3" />
-                <path d="M28 47V25h10v22H28Z" fill="none" stroke="currentColor" strokeWidth="3" />
-                <path d="M46 47V18h10v29H46Z" fill="none" stroke="currentColor" strokeWidth="3" />
-                <path d="M9 28 24 13l11 9L55 2" fill="none" stroke="currentColor" strokeLinecap="square" strokeWidth="3" />
-                <path d="M43 2h12v12" fill="none" stroke="currentColor" strokeWidth="3" />
-              </svg>
-            </div>
+            <p className="min-w-0 break-words font-general text-[9px] font-bold uppercase leading-snug tracking-[0.12em] text-[#007485] sm:text-sm sm:tracking-[0.16em]">
+              {item.subtitle}
+            </p>
           </div>
 
-          <h3 className="mt-[8%] font-general text-[clamp(2.25rem,2.75vw,4rem)] font-light leading-[1.08] tracking-normal text-[#071533] text-balance">
+          <h3 className={featuredTitleClassName}>
             {item.title}
           </h3>
-          <span className="mt-[5%] block h-[2px] w-[96px] rounded-full bg-[radial-gradient(circle,#00a8b8_0%,#00a8b8_40%,rgba(0,168,184,0)_72%)]" />
+          <div className="mt-5 h-1 w-16 rounded-full bg-[#007485]" />
 
-          <p className="mt-[5%] font-general text-[15px] font-normal leading-[1.5] tracking-normal text-[#15213a] sm:text-[clamp(.78rem,.88vw,1rem)]">
+          <p className="mt-4 font-general text-[11px] leading-[1.55] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
             {item.description}
           </p>
 
-          <div className="mt-[6%] overflow-hidden rounded-[18px] border border-[#67cbd4] bg-white shadow-[0_16px_34px_rgba(0,120,135,.07)]">
-            <div className="flex items-center justify-between gap-3 border-b border-[#c6edf1] px-4 py-3">
-              <span className="font-general text-[9px] font-bold uppercase tracking-[0.18em] text-[#007887]">
-                Produto em operação
-              </span>
-              <span className="rounded-full bg-[#e6fbfd] px-2 py-1 font-general text-[8px] font-bold uppercase tracking-[0.12em] text-[#007887]">
-                Mercado Livre
+          {item.impact && (
+            <div className="mt-6 inline-flex items-center gap-3 rounded-[16px] border border-[#007485]/20 bg-[#007485]/5 px-4 py-3">
+              <TrendingUp size={18} className="shrink-0 text-[#007485]" />
+              <span className="font-general text-[11px] font-bold uppercase leading-snug tracking-[0.05em] text-[#111] sm:text-xs">
+                {item.impact}
               </span>
             </div>
+          )}
 
-            <div className="grid grid-cols-[1fr_.75fr] gap-0">
-              <div className="border-r border-[#c6edf1] p-4">
-                <p className="font-general text-[9px] font-bold uppercase tracking-[0.12em] text-[#6d8192]">
-                  Economia direta
-                </p>
-                <p className="mt-2 font-general text-[22px] font-bold leading-none tracking-normal text-[#071533]">
-                  R$ 30k
-                </p>
-                <p className="mt-1 font-general text-[9px] font-bold uppercase tracking-[0.16em] text-[#007887]">
-                  por mês
-                </p>
-                <div className="mt-4 grid gap-1.5">
-                  {[82, 64, 91].map((width, index) => (
-                    <span key={index} className="h-1.5 rounded-full bg-[#e0f6f8]">
-                      <span
-                        className="block h-full rounded-full bg-[#0aa9bb]"
-                        style={{ width: `${width}%` }}
-                      />
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid content-center gap-2 p-4">
-                {["Carteira", "Ads", "DRE"].map((label) => (
-                  <div key={label} className="flex items-center justify-between gap-2 rounded-[10px] bg-[#f2fbfc] px-3 py-2">
-                    <span className="font-general text-[8px] font-bold uppercase tracking-[0.12em] text-[#071533]">
-                      {label}
-                    </span>
-                    <span className="h-2 w-2 rounded-full bg-[#08b6c8] shadow-[0_0_10px_rgba(8,182,200,.7)]" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-[5%] grid grid-cols-2 gap-2">
-            {[
-              { label: item.tech?.[0] ?? "Product Architecture", kind: "target" },
-              { label: item.tech?.[1] ?? "Cost Optimization", kind: "chart" },
-              { label: item.tech?.[2] ?? "VPS", kind: "rocket" },
-            ].map((chip, index) => (
-              <span
-                key={chip.label}
-                className={`inline-flex min-h-10 min-w-0 items-center justify-center gap-1 rounded-full border border-[#071533] px-2 font-general text-[8px] font-semibold uppercase tracking-[0.04em] text-[#071533] sm:min-h-10 sm:text-[clamp(.5rem,.58vw,.7rem)] ${index === 2 ? "col-span-2" : ""}`}
-              >
-                {chip.kind === "target" ? (
-                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3 w-3 shrink-0">
-                    <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
-                  </svg>
-                ) : chip.kind === "chart" ? (
-                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3 w-3 shrink-0">
-                    <path d="M4 19V9M10 19V5M16 19v-7M4 19h16M13 8l4-4h3v3" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                  </svg>
-                ) : (
-                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3 w-3 shrink-0">
-                    <path d="M12 3c3 1 5 3 6 6l-6 6-6-6c1-3 3-5 6-6Z" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                    <path d="M9 15 6 18M15 15l3 3M10 9h4" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
-                  </svg>
-                )}
-                <span className="whitespace-nowrap">{chip.label}</span>
-              </span>
+          <div className={`${item.impact ? "mt-7" : "mt-5"} flex flex-wrap gap-1.5 sm:mt-9 sm:gap-3`}>
+            {item.tech?.map((tag) => (
+              <StackChip
+                key={tag}
+                label={tag}
+                className="min-h-9 border-transparent bg-[#eefafa] text-[9px] font-bold uppercase tracking-[0.06em] text-[#006c7a] shadow-[inset_0_0_0_1px_rgba(0,116,133,.08)] sm:min-h-10 sm:px-4 sm:text-xs"
+              />
             ))}
-          </div>
-
-          <div className="mt-6 flex items-center justify-center gap-4 font-general text-[12px] font-semibold uppercase tracking-[0.08em] text-[#071533] sm:hidden">
-            <Calendar size={18} strokeWidth={1.5} className="text-[#12b8c9]" />
-            <span>{item.period}</span>
-            <span className="h-[2px] w-6 bg-[#0ea6b9]" />
-            <span>{item.impact}</span>
           </div>
         </div>
       </div>

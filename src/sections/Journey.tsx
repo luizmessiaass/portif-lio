@@ -1145,7 +1145,7 @@ function ElevaterCaseCard({ item }: { item: Milestone }) {
               ))}
             </div>
 
-            <div className="grid grid-cols-1 gap-px border-t border-[#d1eef2] bg-[#d1eef2] sm:grid-cols-2">
+            <div className="hidden">
               {["Integração completa", "Menos custo e retrabalho", "Otimização de processos", "Mais vendas e performance"].map((result) => (
                 <div key={result} className="flex min-h-[48px] items-center gap-2 bg-white px-3 py-3">
                   <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#007485] text-white">
@@ -1325,6 +1325,42 @@ export function Journey() {
     const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
+    const getLineSections = () => gsap.utils.toArray<HTMLElement>("[data-journey-line]");
+
+    const getThemeAtScroll = (viewportRatio = 0.5) => {
+      const lineSections = getLineSections();
+      const mid = window.scrollY + window.innerHeight * viewportRatio;
+      let idx = 0;
+      let blend = 0;
+
+      lineSections.forEach((sec, i) => {
+        const top = sec.getBoundingClientRect().top + window.scrollY;
+        const height = Math.max(sec.offsetHeight, 1);
+        const rel = clamp01((mid - top) / height);
+
+        if (mid >= top) {
+          idx = i;
+          blend = rel > 0.65 ? clamp01((rel - 0.65) / 0.35) : 0;
+        }
+      });
+
+      const currentNode = lineSections[idx];
+      const nextNode = lineSections[Math.min(idx + 1, lineSections.length - 1)] ?? currentNode;
+      const currentColor = currentNode?.dataset.line ?? timelineColors[idx] ?? "#ff6a00";
+      const nextColor = nextNode?.dataset.line ?? timelineColors[Math.min(idx + 1, timelineColors.length - 1)] ?? currentColor;
+      const currentDark = currentNode?.dataset.dark === "1";
+      const nextDark = nextNode?.dataset.dark === "1";
+      const ca = hexToRgb(currentColor);
+      const cb = hexToRgb(nextColor);
+
+      return {
+        r: lerp(ca.r, cb.r, blend),
+        g: lerp(ca.g, cb.g, blend),
+        b: lerp(ca.b, cb.b, blend),
+        dark: blend > 0.5 ? nextDark : currentDark,
+      };
+    };
+
     if (shouldReduceMotion) {
       if (lineRef.current) {
         lineRef.current.style.height = "100%";
@@ -1378,11 +1414,13 @@ export function Journey() {
 
         const trackRect = lineTrackRef.current.getBoundingClientRect();
         const progress = clamp01((window.innerHeight * 0.56 - trackRect.top) / Math.max(trackRect.height, 1));
-        const theme = getComputedStyle(document.documentElement).getPropertyValue("--color-accent-orange").trim() || "#ff6a00";
+        const theme = getThemeAtScroll(0.56);
+        const rgb = `${Math.round(theme.r)}, ${Math.round(theme.g)}, ${Math.round(theme.b)}`;
 
+        lineTrackRef.current.style.background = theme.dark ? "rgba(255, 255, 255, 0.16)" : "rgba(17, 17, 17, 0.08)";
         lineRef.current.style.height = `${progress * 100}%`;
-        lineRef.current.style.background = `linear-gradient(to bottom, ${theme}55, ${theme})`;
-        lineRef.current.style.boxShadow = `0 0 14px ${theme}40`;
+        lineRef.current.style.background = `linear-gradient(to bottom, rgba(${rgb}, 0.3), rgb(${rgb}))`;
+        lineRef.current.style.boxShadow = `0 0 14px rgba(${rgb}, 0.28)`;
 
         if (paintCoverRef.current) {
           paintCoverRef.current.style.transform = `translate3d(-50%, ${progress * 100}%, 0)`;
@@ -1408,42 +1446,6 @@ export function Journey() {
 
     gsap.registerPlugin(ScrollTrigger);
     const initialTriggers = new Set(ScrollTrigger.getAll());
-
-    const getLineSections = () => gsap.utils.toArray<HTMLElement>("[data-journey-line]");
-
-    const getThemeAtScroll = () => {
-      const lineSections = getLineSections();
-      const mid = window.scrollY + window.innerHeight * 0.5;
-      let idx = 0;
-      let blend = 0;
-
-      lineSections.forEach((sec, i) => {
-        const top = sec.getBoundingClientRect().top + window.scrollY;
-        const height = Math.max(sec.offsetHeight, 1);
-        const rel = clamp01((mid - top) / height);
-
-        if (mid >= top) {
-          idx = i;
-          blend = rel > 0.65 ? clamp01((rel - 0.65) / 0.35) : 0;
-        }
-      });
-
-      const currentNode = lineSections[idx];
-      const nextNode = lineSections[Math.min(idx + 1, lineSections.length - 1)] ?? currentNode;
-      const currentColor = currentNode?.dataset.line ?? timelineColors[idx] ?? "#ff6a00";
-      const nextColor = nextNode?.dataset.line ?? timelineColors[Math.min(idx + 1, timelineColors.length - 1)] ?? currentColor;
-      const currentDark = currentNode?.dataset.dark === "1";
-      const nextDark = nextNode?.dataset.dark === "1";
-      const ca = hexToRgb(currentColor);
-      const cb = hexToRgb(nextColor);
-
-      return {
-        r: lerp(ca.r, cb.r, blend),
-        g: lerp(ca.g, cb.g, blend),
-        b: lerp(ca.b, cb.b, blend),
-        dark: blend > 0.5 ? nextDark : currentDark,
-      };
-    };
 
     const updateLineTargets = () => {
       if (!lineTrackRef.current) return;

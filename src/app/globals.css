@@ -20,7 +20,7 @@ html {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  scroll-padding-bottom: 7rem;
+  scroll-padding: 2rem 0;
   -webkit-font-smoothing: antialiased;
 }
 

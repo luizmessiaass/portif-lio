@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, type CSSProperties } from "react";
 import {
+  ArrowRight,
   ArrowUpRight,
   BarChart3,
   Bot,
@@ -59,10 +60,12 @@ function ServiceTag({ label }: { label: string }) {
 
 export function About() {
   const containerRef = useRef<HTMLElement>(null);
+  const servicesTrackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+    let cleanupCarousel: (() => void) | undefined;
 
     const ctx = gsap.context(() => {
       gsap.from(".about-label", {
@@ -91,19 +94,76 @@ export function About() {
         scrollTrigger: { trigger: ".about-left", start: "top 80%" },
       });
 
-      gsap.utils.toArray<HTMLElement>(".service-card").forEach((card, index) => {
-        gsap.from(card, {
-          y: isMobile ? 34 : 70,
+      const serviceCards = gsap.utils.toArray<HTMLElement>(".service-card");
+
+      if (isMobile && servicesTrackRef.current) {
+        const track = servicesTrackRef.current;
+
+        gsap.set(serviceCards, {
+          x: 34,
+          y: 0,
           opacity: 0,
-          duration: isMobile ? 0.62 : 0.9,
-          ease: "power3.out",
-          delay: index * (isMobile ? 0.06 : 0.13),
-          scrollTrigger: { trigger: card, start: "top 88%" },
+          scale: 0.96,
+          transformOrigin: "center top",
         });
-      });
+
+        gsap.to(serviceCards, {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.78,
+          ease: "power3.out",
+          stagger: 0.08,
+          scrollTrigger: { trigger: track, start: "top 86%" },
+        });
+
+        const renderCarouselDepth = () => {
+          const trackRect = track.getBoundingClientRect();
+          const trackCenter = trackRect.left + trackRect.width / 2;
+
+          serviceCards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.left + rect.width / 2;
+            const distance = Math.min(1, Math.abs(cardCenter - trackCenter) / rect.width);
+            const focus = 1 - distance;
+
+            gsap.to(card, {
+              y: 0,
+              scale: 0.94 + focus * 0.06,
+              opacity: 0.64 + focus * 0.36,
+              duration: 0.22,
+              ease: "power2.out",
+              overwrite: "auto",
+            });
+          });
+        };
+
+        track.addEventListener("scroll", renderCarouselDepth, { passive: true });
+        window.addEventListener("resize", renderCarouselDepth);
+        requestAnimationFrame(renderCarouselDepth);
+
+        cleanupCarousel = () => {
+          track.removeEventListener("scroll", renderCarouselDepth);
+          window.removeEventListener("resize", renderCarouselDepth);
+        };
+      } else {
+        serviceCards.forEach((card, index) => {
+          gsap.from(card, {
+            y: 70,
+            opacity: 0,
+            duration: 0.9,
+            ease: "power3.out",
+            delay: index * 0.13,
+            scrollTrigger: { trigger: card, start: "top 88%" },
+          });
+        });
+      }
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      cleanupCarousel?.();
+      ctx.revert();
+    };
   }, []);
 
   const h2Words1 = ["Desenvolvimento", "full", "stack"];
@@ -140,15 +200,22 @@ export function About() {
             <p className="about-body max-w-[460px] font-general text-[17px] leading-relaxed text-[#666] text-pretty sm:text-lg">
               {profile.summary}
             </p>
+            <div className="about-body mt-2 flex items-center gap-2 text-[13px] font-bold uppercase tracking-widest text-[var(--color-accent-orange)] lg:hidden">
+              <ArrowRight size={16} className="animate-pulse" />
+              Arraste para ver os serviços
+            </div>
           </div>
         </div>
 
-        <div className="flex w-full flex-col gap-5 pb-12 sm:gap-6 sm:pb-20 lg:w-[65%] lg:gap-8 lg:pb-[10vh]">
+        <div
+          ref={servicesTrackRef}
+          className="-mx-6 flex w-[calc(100%+3rem)] max-w-[100vw] snap-x snap-mandatory items-stretch gap-4 overflow-x-auto overscroll-x-contain px-6 pb-12 pt-2 sm:-mx-8 sm:w-[calc(100%+4rem)] sm:gap-5 sm:px-8 sm:pb-20 lg:mx-0 lg:w-[65%] lg:max-w-none lg:flex-col lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-[10vh] lg:pt-0 hide-scrollbar"
+        >
           {capabilities.map((service, index) => (
             <div
               key={service.id}
               data-cursor="hover"
-              className="service-card group relative flex w-full flex-col overflow-hidden rounded-[24px] border border-white/90 bg-[#fffefd] p-5 shadow-[0_16px_34px_rgba(0,0,0,0.07)] transition-all duration-500 sm:rounded-[30px] sm:p-7 lg:sticky lg:top-[var(--service-top)] lg:min-h-[38vh] lg:p-9 lg:shadow-[0_20px_50px_rgba(0,0,0,0.08)] xl:p-10"
+              className="service-card group relative flex min-h-[610px] w-[84vw] max-w-[350px] shrink-0 snap-center flex-col overflow-hidden rounded-[24px] border border-white/90 bg-[#fffefd] p-5 shadow-[0_16px_34px_rgba(0,0,0,0.07)] transition-shadow duration-500 sm:min-h-[640px] sm:w-[60vw] sm:max-w-[520px] sm:rounded-[30px] sm:p-7 lg:sticky lg:top-[var(--service-top)] lg:min-h-[38vh] lg:w-full lg:max-w-none lg:p-9 lg:shadow-[0_20px_50px_rgba(0,0,0,0.08)] xl:p-10"
               style={{
                 "--service-top": `calc(15vh + ${index * 40}px)`,
                 zIndex: index + 1,

@@ -103,9 +103,9 @@ const milestones: Milestone[] = [
     title: "Elevater: De Ferramenta a Produto",
     subtitle: "Avant I.A",
     period: "Case de Sucesso",
-    description: "Entre os projetos desse período, o que mais me marcou foi o Elevater: uma plataforma construída do zero para substituir uma ferramenta externa que custava cerca de R$ 30 mil por mês. O projeto saiu do papel, foi para produção e depois evoluiu para um produto comercializável. Foi uma experiência que exigiu não só execução técnica, mas também visão de produto, priorização, tomada de decisão, entendimento de negócio e responsabilidade sobre a qualidade da solução entregue.",
+    description: "Usávamos o Adman, uma ferramenta externa que custava cerca de R$ 30 mil por mês. A partir dessa dor, construí o Elevater: uma plataforma própria que impulsiona a operação em marketplaces. Do zero a um produto robusto, o Elevater conecta, automatiza e otimiza a gestão em Shopee, TikTok Shop, Mercado Livre e Amazon. Mais que tecnologia, o projeto exigiu visão de produto, priorização, integração e performance para gerar resultados reais e sustentáveis para o negócio.",
     impact: "Economia direta de R$ 30 mil/mês.",
-    tech: ["Product Architecture", "Cost Optimization", "VPS"],
+    tech: ["Marketplaces", "Integração", "Performance", "Automação", "Crescimento", "Escalabilidade"],
     icon: Zap,
   },
   {
@@ -889,57 +889,142 @@ function ColcciAmcFeaturedCard({ item }: { item: Milestone }) {
   );
 }
 
-function ElevaterWordmark({ className = "" }: { className?: string }) {
+type MarketplaceKind = "shopee" | "tiktok" | "mercado-livre" | "amazon";
+
+const elevaterMarketplaces: { name: string; kind: MarketplaceKind; labelColor: string }[] = [
+  { name: "Shopee", kind: "shopee", labelColor: "#ee4d2d" },
+  { name: "TikTok Shop", kind: "tiktok", labelColor: "#25f4ee" },
+  { name: "Mercado Livre", kind: "mercado-livre", labelColor: "#f2d600" },
+  { name: "Amazon", kind: "amazon", labelColor: "#ff9900" },
+];
+
+function MarketplaceLogo({ kind, className = "" }: { kind: MarketplaceKind; className?: string }) {
+  if (kind === "shopee") {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className={className}>
+        <path
+          fill="currentColor"
+          d="M15.9414 17.9633c.229-1.879-.981-3.077-4.1758-4.0969-1.548-.528-2.277-1.22-2.26-2.1719.065-1.056 1.048-1.825 2.352-1.85a5.2898 5.2898 0 0 1 2.8838.89c.116.072.197.06.263-.039.09-.145.315-.494.39-.62.051-.081.061-.187-.068-.281-.185-.1369-.704-.4149-.983-.5319a6.4697 6.4697 0 0 0-2.5118-.514c-1.909.008-3.4129 1.215-3.5389 2.826-.082 1.1629.494 2.1078 1.73 2.8278.262.152 1.6799.716 2.2438.892 1.774.552 2.695 1.5419 2.478 2.6969-.197 1.047-1.299 1.7239-2.818 1.7439-1.2039-.046-2.2878-.537-3.1278-1.19l-.141-.11c-.104-.08-.218-.075-.287.03-.05.077-.376.547-.458.67-.077.108-.035.168.045.234.35.293.817.613 1.134.775a6.7097 6.7097 0 0 0 2.8289.727 4.9048 4.9048 0 0 0 2.0759-.354c1.095-.465 1.8029-1.394 1.9449-2.554zM11.9986 1.4009c-2.068 0-3.7539 1.95-3.8329 4.3899h7.6657c-.08-2.44-1.765-4.3899-3.8328-4.3899zm7.8516 22.5981-.08.001-15.7843-.002c-1.074-.04-1.863-.91-1.971-1.991l-.01-.195L1.298 6.2858a.459.459 0 0 1 .45-.494h4.9748C6.8448 2.568 9.1607 0 11.9996 0c2.8388 0 5.1537 2.5689 5.2757 5.7898h4.9678a.459.459 0 0 1 .458.483l-.773 15.5883-.007.131c-.094 1.094-.979 1.9769-2.0709 2.0059z"
+        />
+      </svg>
+    );
+  }
+
+  if (kind === "tiktok") {
+    const path =
+      "M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z";
+
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className={className}>
+        <path d={path} fill="#25f4ee" transform="translate(-1.1 .8)" />
+        <path d={path} fill="#fe2c55" transform="translate(1.1 -.5)" />
+        <path d={path} fill="#ffffff" />
+      </svg>
+    );
+  }
+
+  if (kind === "mercado-livre") {
+    return (
+      <Image
+        src="/brands/mercado-livre-logo.webp"
+        alt=""
+        width={374}
+        height={242}
+        className={className}
+        sizes="88px"
+        unoptimized
+      />
+    );
+  }
+
   return (
-    <span className={`font-general font-light leading-none tracking-normal ${className}`}>
-      Elevater
-    </span>
+    <svg aria-hidden="true" viewBox="0 0 64 64" className={className}>
+      <text x="20" y="42" fill="#111111" fontFamily="Arial, Helvetica, sans-serif" fontSize="42" fontWeight="700">
+        a
+      </text>
+      <path
+        d="M17 45.5c9.5 6.5 22.5 6.4 32.8-.2"
+        fill="none"
+        stroke="#ff9900"
+        strokeLinecap="round"
+        strokeWidth="3.5"
+      />
+      <path d="m46.5 43.3 6.6 1.1-3 5.8" fill="none" stroke="#ff9900" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3.2" />
+    </svg>
+  );
+}
+
+function MarketplaceBadge({
+  kind,
+}: {
+  name: string;
+  kind: MarketplaceKind;
+  labelColor: string;
+}) {
+  const badgeClassName =
+    kind === "shopee"
+      ? "bg-[#ee4d2d] text-white"
+      : kind === "tiktok"
+        ? "bg-black text-white"
+        : kind === "mercado-livre"
+          ? "bg-[#fff159] text-[#263283]"
+          : "bg-white text-[#111]";
+
+  return (
+    <div className="min-w-0 text-center">
+      <span
+        className={`mx-auto grid h-12 w-12 place-items-center overflow-hidden rounded-[14px] shadow-[0_10px_22px_rgba(0,0,0,.09)] ring-1 ring-black/5 sm:h-14 sm:w-14 ${badgeClassName}`}
+      >
+        <MarketplaceLogo
+          kind={kind}
+          className={kind === "mercado-livre" ? "h-full w-full object-cover" : "h-7 w-7 sm:h-8 sm:w-8"}
+        />
+      </span>
+    </div>
   );
 }
 
 function ElevaterCaseCard({ item }: { item: Milestone }) {
-  const [start, ...rest] = item.period.split(" ");
-  const end = rest.join(" ");
-
   return (
-    <div data-elevater-case-card className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#007485]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#007485]/65 sm:rounded-[30px]">
-      <div className="grid grid-cols-1 sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#001015_0%,#002a36_34%,#005f70_68%,#007485_100%)] px-3 py-4 text-white max-sm:min-h-[84px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_12%,rgba(34,237,247,.22),transparent_30%),linear-gradient(140deg,rgba(255,255,255,.1),transparent_36%)]" />
-          <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/18" />
-          <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/14" />
-          <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-white/12" />
+    <div data-elevater-case-card className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#007485]/55 bg-[#f2fbfc] p-0 shadow-[0_24px_70px_rgba(0,116,133,0.12)] transition-all duration-500 hover:border-[#007485]/80 sm:rounded-[30px]">
+      <div className="grid grid-cols-1 bg-[radial-gradient(circle_at_82%_12%,rgba(0,116,133,.12),transparent_26%),linear-gradient(135deg,#f8ffff_0%,#eefafa_46%,#ffffff_100%)] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-start overflow-hidden border-b border-[#65c7d1]/45 bg-[#001015] px-3 py-4 text-white max-sm:min-h-[112px] max-sm:items-center sm:border-b-0 sm:border-r sm:px-7 sm:py-10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_12%,rgba(0,105,140,.22),transparent_30%),linear-gradient(180deg,#00070b_0%,#001625_34%,#004d63_69%,#007181_100%)]" />
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 360 1536"
+            preserveAspectRatio="none"
+            className="pointer-events-none absolute inset-0 h-full w-full"
+          >
+            <path d="M0 0H360V398C255 352 152 310 0 258V0Z" fill="#000912" opacity="0.98" />
+            <path d="M0 400C112 466 221 526 360 574V768C218 722 101 654 0 608V400Z" fill="#00364e" opacity="0.76" />
+            <path d="M0 565C108 640 234 703 360 744V957C214 913 106 834 0 781V565Z" fill="#00465d" opacity="0.72" />
+            <path d="M0 744C122 802 222 858 360 879V1138C223 1125 101 1055 0 1007V744Z" fill="#006478" opacity="0.72" />
+            <path d="M0 956C118 1016 232 1065 360 1078V1536H0V956Z" fill="#007d8b" opacity="0.78" />
+            <path d="M-38 1314C92 1214 225 1161 392 1144" fill="none" stroke="#64edf7" strokeOpacity="0.12" strokeWidth="1.2" />
+            <path d="M-10 1424C95 1366 217 1330 384 1316" fill="none" stroke="#a7f8ff" strokeOpacity="0.09" strokeWidth="1" />
+          </svg>
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.3),transparent_28%,transparent_76%,rgba(0,0,0,.16))]" />
 
-          <div className="relative flex flex-row items-center gap-3 sm:mt-16 sm:flex-col sm:gap-8">
-            <ElevaterWordmark className="text-[30px] text-white/95 drop-shadow-[0_0_18px_rgba(255,255,255,.12)] sm:text-[42px]" />
-            <span className="h-px w-8 rounded-full bg-[#3cf6ff]/70 sm:w-16" />
-            <span className="grid h-10 w-10 place-items-center rounded-2xl border border-white/25 bg-white/10 text-[#3cf6ff] shadow-[0_12px_28px_rgba(0,0,0,.12)] sm:h-16 sm:w-16">
-              <Zap size={22} strokeWidth={1.8} className="sm:h-8 sm:w-8" />
-            </span>
-          </div>
-
-          <div className="relative text-right font-general text-[9px] font-bold uppercase leading-relaxed tracking-[0.09em] sm:text-left sm:text-base">
-            <span className="block text-[#3cf6ff]">{start}</span>
-            {end ? (
-              <>
-                <span className="my-1 block text-[#3cf6ff]">-</span>
-                <span className="block text-white">{end}</span>
-              </>
-            ) : null}
+          <div className="relative flex flex-col items-center text-center max-sm:mt-0 sm:mt-2">
+            <Image
+              src="/brands/elevater-logo-transparent.png"
+              alt="Elevater"
+              width={281}
+              height={85}
+              className="h-auto w-[116px] drop-shadow-[0_0_18px_rgba(255,255,255,.12)] sm:w-[154px]"
+              sizes="(max-width: 640px) 116px, 154px"
+              unoptimized
+            />
+            <span className="mt-2 h-[2px] w-12 rounded-full bg-[radial-gradient(circle,#3cf6ff_0%,#00bed0_34%,rgba(0,190,208,0)_72%)] shadow-[0_0_18px_rgba(25,232,245,.9)] sm:mt-8 sm:w-28" />
+            <p className="mt-2 max-w-[160px] font-general text-[9px] font-light leading-snug text-white/54 sm:mt-7 sm:max-w-[190px] sm:text-[13px] sm:leading-[1.45]">
+              Gestão inteligente de campanhas no Mercado Livre
+            </p>
           </div>
         </aside>
 
         <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
-          <div className="flex min-w-0 items-center gap-3">
-            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#e6fbfd] text-[#007485] shadow-[0_12px_28px_rgba(0,116,133,.08)] ring-1 ring-[#007485]/15 sm:h-14 sm:w-14 sm:rounded-2xl">
-              <Zap size={20} strokeWidth={1.8} className="sm:h-7 sm:w-7" />
-            </div>
-            <p className="min-w-0 break-words font-general text-[9px] font-bold uppercase leading-snug tracking-[0.12em] text-[#007485] sm:text-sm sm:tracking-[0.16em]">
-              {item.subtitle}
-            </p>
-          </div>
-
-          <h3 className={featuredTitleClassName}>
+          <h3 className="max-w-full whitespace-nowrap font-clash text-[clamp(1rem,4vw,1.2rem)] font-semibold leading-[1.06] tracking-normal text-[#111] sm:mt-2 sm:text-[clamp(1.08rem,1.45vw,1.35rem)] lg:text-[clamp(1.08rem,1.3vw,1.42rem)]">
             {item.title}
           </h3>
           <div className="mt-5 h-1 w-16 rounded-full bg-[#007485]" />
@@ -956,6 +1041,44 @@ function ElevaterCaseCard({ item }: { item: Milestone }) {
               </span>
             </div>
           )}
+
+          <div className="mt-5 overflow-hidden rounded-[18px] border border-[#9fd8df] bg-[#f7feff] shadow-[0_16px_34px_rgba(0,116,133,.07)] sm:mt-7">
+            <div className="flex items-start gap-3 border-b border-[#d1eef2] px-4 py-4">
+              <TrendingUp size={22} strokeWidth={2.1} className="mt-0.5 shrink-0 text-[#007485]" />
+              <p className="font-general text-[11px] font-bold uppercase leading-relaxed tracking-[0.12em] text-[#111] sm:text-[13px]">
+                Economia e escala em{" "}
+                <span style={{ color: elevaterMarketplaces[0].labelColor } as CSSProperties}>Shopee</span>
+                <span>, </span>
+                <span style={{ color: elevaterMarketplaces[1].labelColor } as CSSProperties}>TikTok Shop</span>
+                <span>, </span>
+                <span style={{ color: elevaterMarketplaces[2].labelColor } as CSSProperties}>Mercado Livre</span>
+                <span> e </span>
+                <span style={{ color: elevaterMarketplaces[3].labelColor } as CSSProperties}>Amazon</span>
+                <span>.</span>
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 px-4 py-4 sm:grid-cols-4">
+              {elevaterMarketplaces.map((marketplace) => (
+                <MarketplaceBadge key={marketplace.kind} {...marketplace} />
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 gap-px border-t border-[#d1eef2] bg-[#d1eef2] sm:grid-cols-2">
+              {["Integração completa", "Menos custo e retrabalho", "Otimização de processos", "Mais vendas e performance"].map((result) => (
+                <div key={result} className="flex min-h-[48px] items-center gap-2 bg-white px-3 py-3">
+                  <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#007485] text-white">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" className="h-3 w-3">
+                      <path d="m3.5 8 2.8 2.8 6.2-6.4" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                    </svg>
+                  </span>
+                  <span className="font-general text-[10px] font-semibold leading-tight tracking-normal text-[#1c2b31] sm:text-[11px]">
+                    {result}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
 
           <div className={`${item.impact ? "mt-7" : "mt-5"} flex flex-wrap gap-1.5 sm:mt-9 sm:gap-3`}>
             {item.tech?.map((tag) => (

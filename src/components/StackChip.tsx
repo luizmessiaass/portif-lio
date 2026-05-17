@@ -153,7 +153,7 @@ export function StackChip({
           ) : null}
         </span>
       ) : null}
-      <span className="truncate">{label}</span>
+      <span className="whitespace-nowrap">{label}</span>
     </span>
   );
 }

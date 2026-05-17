@@ -157,7 +157,7 @@ function CompanyHeader({
         {logos.map((logo) => (
           <div
             key={logo.src}
-            className={`grid h-11 w-11 place-items-center rounded-2xl shadow-[0_12px_28px_rgba(0,0,0,.08)] ring-1 ring-white/75 sm:h-14 sm:w-14 ${logo.badgeClassName}`}
+            className={`grid h-9 w-9 place-items-center rounded-xl shadow-[0_12px_28px_rgba(0,0,0,.08)] ring-1 ring-white/75 sm:h-14 sm:w-14 sm:rounded-2xl ${logo.badgeClassName}`}
           >
             <Image
               src={logo.src}
@@ -171,7 +171,7 @@ function CompanyHeader({
           </div>
         ))}
       </div>
-      <p className={`min-w-0 break-words font-general text-[10px] font-bold uppercase leading-snug tracking-[0.16em] sm:text-sm ${textClassName}`}>
+      <p className={`min-w-0 break-words font-general text-[9px] font-bold uppercase leading-snug tracking-[0.12em] sm:text-sm sm:tracking-[0.16em] ${textClassName}`}>
         {label}
       </p>
     </div>
@@ -399,14 +399,14 @@ function LinceFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d90416]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#d90416]/60 sm:rounded-[30px]">
-      <div className="grid grid-cols-[64px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-2 py-5 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-1 sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#d90416] px-3 py-4 text-white max-sm:min-h-[84px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,.12),transparent_34%),radial-gradient(circle_at_38%_18%,rgba(255,255,255,.14),transparent_22%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/14" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/12" />
           <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-white/10" />
 
-          <div className="relative mt-8 scale-75 sm:mt-20 sm:scale-100">
+          <div className="relative scale-75 sm:mt-20 sm:scale-100">
             <LinceLogo />
           </div>
 
@@ -461,30 +461,30 @@ function BungeBrfFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0c63c7]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#ff4d00]/55 sm:rounded-[30px]">
-      <div className="grid grid-cols-[64px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-2 py-5 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-1 sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#005dcc_0%,#263aa5_42%,#9d2378_68%,#ff4d00_100%)] px-3 py-4 text-white max-sm:min-h-[84px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,.14),transparent_24%),linear-gradient(140deg,rgba(255,255,255,.12),transparent_36%)]" />
           <div className="pointer-events-none absolute -right-28 top-40 h-72 w-72 rounded-full border border-white/18" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/14" />
           <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-white/12" />
 
-          <div className="relative mt-8 flex flex-col items-center gap-6 sm:mt-16 sm:gap-8">
+          <div className="relative flex flex-row items-center gap-3 sm:mt-16 sm:flex-col sm:gap-8">
             <Image
               src="/brands/bunge-logo-white.png"
               alt="Bunge"
               width={720}
               height={214}
-              className="h-auto w-28 sm:w-36"
+              className="h-auto w-16 sm:w-36"
               sizes="(max-width: 640px) 112px, 144px"
               unoptimized
             />
-            <span className="h-1 w-12 rounded-full bg-white/90 sm:w-16" />
+            <span className="h-8 w-px rounded-full bg-white/70 sm:h-1 sm:w-16" />
             <Image
               src="/brands/brf-logo-color-white.png"
               alt="BRF"
               width={520}
               height={222}
-              className="h-auto w-24 sm:w-32"
+              className="h-auto w-14 sm:w-32"
               sizes="(max-width: 640px) 96px, 128px"
               unoptimized
             />
@@ -549,21 +549,21 @@ function MapfitFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#d7a23a]/40 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#d7a23a]/65 sm:rounded-[30px]">
-      <div className="grid grid-cols-[64px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-2 py-5 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-1 sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#171717] px-3 py-4 text-white max-sm:min-h-[84px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_92%,rgba(209,155,45,.42),transparent_30%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_32%)]" />
           <div className="pointer-events-none absolute -right-28 top-44 h-72 w-72 rounded-full border border-[#d7a23a]/55" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-[#d7a23a]/45" />
           <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-[#d7a23a]/40" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(circle_at_45%_100%,rgba(214,157,43,.34),transparent_62%)]" />
 
-          <div className="relative mt-12 flex justify-center sm:mt-20">
+          <div className="relative flex justify-center sm:mt-20">
             <Image
               src="/brands/mapfit-logo-color.png"
               alt="Mapfit Group"
               width={900}
               height={325}
-              className="h-auto w-28 sm:w-36"
+              className="h-auto w-20 sm:w-36"
               sizes="(max-width: 640px) 112px, 144px"
               unoptimized
             />
@@ -620,15 +620,15 @@ function StudioFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#a84ccf]/40 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#a84ccf]/65 sm:rounded-[30px]">
-      <div className="grid grid-cols-[64px_1fr] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#111111] px-2 py-5 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-1 sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[#111111] px-3 py-4 text-white max-sm:min-h-[84px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_68%,rgba(145,42,182,.5),transparent_28%),linear-gradient(180deg,rgba(255,255,255,.035),transparent_36%)]" />
           <div className="pointer-events-none absolute -right-28 top-44 h-72 w-72 rounded-full border border-[#d779ff]/55" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-[#d779ff]/45" />
           <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-[#d779ff]/36" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-[radial-gradient(circle_at_12%_70%,rgba(116,31,154,.46),transparent_58%)]" />
 
-          <div className="relative mt-8 flex flex-col items-center gap-7 text-center sm:mt-14 sm:gap-10">
+          <div className="relative flex flex-row items-center gap-3 text-center sm:mt-14 sm:flex-col sm:gap-10">
             <Image
               src="/brands/studio416x-logo-transparent.png"
               alt="Studio 416X"
@@ -720,14 +720,14 @@ function AvantFeaturedCard({ item }: { item: Milestone }) {
 
   return (
     <div className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#0d2635]/35 bg-white p-0 shadow-[0_24px_70px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#4f7487]/65 sm:rounded-[30px]">
-      <div className="grid grid-cols-[54px_1fr] sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-1.5 py-4 text-white sm:px-7 sm:py-10">
+      <div className="grid grid-cols-1 sm:min-h-[690px] sm:grid-cols-[220px_1fr]">
+        <aside className="relative flex min-w-0 flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,#06111a_0%,#173345_28%,#a6b7bd_53%,#4f7487_74%,#07111b_100%)] px-3 py-4 text-white max-sm:min-h-[84px] max-sm:flex-row max-sm:items-center sm:px-7 sm:py-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_54%,rgba(255,255,255,.34),transparent_26%),radial-gradient(circle_at_84%_78%,rgba(132,185,211,.32),transparent_42%)]" />
           <div className="pointer-events-none absolute -right-28 top-52 h-72 w-72 rounded-full border border-white/38" />
           <div className="pointer-events-none absolute -right-16 bottom-28 h-40 w-64 rotate-12 rounded-[50%] border border-white/28" />
           <div className="pointer-events-none absolute -left-16 bottom-16 h-28 w-72 -rotate-6 rounded-[50%] border border-white/24" />
 
-          <div className="relative mt-5 flex flex-col items-center gap-4 text-center sm:mt-14 sm:gap-10">
+          <div className="relative flex flex-row items-center gap-3 text-center sm:mt-14 sm:flex-col sm:gap-10">
             <Image
               src="/brands/next-ecommerce-logo-transparent.png"
               alt="Next Ecommerce"

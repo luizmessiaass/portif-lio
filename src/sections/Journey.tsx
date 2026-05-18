@@ -1374,8 +1374,7 @@ export function Journey() {
       let scrollFrame = 0;
 
       if (paintCoverRef.current) {
-        paintCoverRef.current.style.display = "";
-        paintCoverRef.current.style.transform = "translate3d(-50%, 0%, 0)";
+        paintCoverRef.current.style.display = "none";
       }
 
       cards.forEach((card) => {
@@ -1418,10 +1417,6 @@ export function Journey() {
         lineRef.current.style.height = `${progress * 100}%`;
         lineRef.current.style.background = `linear-gradient(to bottom, rgba(${rgb}, 0.3), rgb(${rgb}))`;
         lineRef.current.style.boxShadow = `0 0 14px rgba(${rgb}, 0.28)`;
-
-        if (paintCoverRef.current) {
-          paintCoverRef.current.style.transform = `translate3d(-50%, ${progress * 100}%, 0)`;
-        }
       };
 
       const requestMobileLinePaint = () => {
@@ -1599,7 +1594,7 @@ export function Journey() {
             />
           </div>
 
-          <div ref={paintCoverRef} className="pointer-events-none absolute left-1/2 top-0 z-[1] h-[125%] w-[220vw] -translate-x-1/2 bg-white will-change-transform">
+          <div ref={paintCoverRef} className="pointer-events-none absolute left-1/2 top-0 z-[1] hidden h-[125%] w-[220vw] -translate-x-1/2 bg-white will-change-transform sm:block">
             <div className="absolute -top-40 left-0 h-40 w-full bg-gradient-to-b from-transparent via-white/85 to-white blur-sm" />
             <div className="absolute -top-72 left-1/2 h-72 w-full -translate-x-1/2 bg-[radial-gradient(ellipse_at_16%_64%,rgba(255,255,255,.95),transparent_42%),radial-gradient(ellipse_at_48%_44%,rgba(255,255,255,.9),transparent_48%),radial-gradient(ellipse_at_82%_58%,rgba(255,255,255,.96),transparent_40%)] blur-[32px]" />
           </div>

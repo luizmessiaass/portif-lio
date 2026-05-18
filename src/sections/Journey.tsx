@@ -1024,11 +1024,11 @@ function MarketplaceBadge({ kind }: { kind: MarketplaceKind }) {
 
   return (
     <span
-      className={`grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-[12px] shadow-[0_10px_22px_rgba(0,0,0,.09)] ring-1 ring-black/5 max-[360px]:h-8 max-[360px]:w-8 sm:h-12 sm:w-12 ${badgeClassName}`}
+      className={`grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-[14px] shadow-[0_10px_22px_rgba(0,0,0,.09)] ring-1 ring-black/5 sm:h-12 sm:w-12 ${badgeClassName}`}
     >
       <MarketplaceLogo
         kind={kind}
-        className={kind === "mercado-livre" ? "h-full w-full object-cover" : "h-5 w-5 max-[360px]:h-4 max-[360px]:w-4 sm:h-7 sm:w-7"}
+        className={kind === "mercado-livre" ? "h-full w-full object-cover" : "h-6 w-6 sm:h-7 sm:w-7"}
       />
     </span>
   );
@@ -1037,7 +1037,7 @@ function MarketplaceBadge({ kind }: { kind: MarketplaceKind }) {
 function MarketplaceContributionCard({ marketplace }: { marketplace: ElevaterMarketplace }) {
   return (
     <article
-      className="relative flex min-h-[124px] min-w-0 flex-col overflow-hidden rounded-[16px] border bg-white p-3 shadow-[0_12px_24px_rgba(0,116,133,.055)] max-[360px]:min-h-[118px] max-[360px]:p-2 sm:min-h-[136px] sm:p-4"
+      className="relative flex min-h-[132px] min-w-0 flex-col items-center overflow-hidden rounded-[16px] border bg-white p-3 text-center shadow-[0_12px_24px_rgba(0,116,133,.055)] sm:min-h-[136px] sm:items-stretch sm:p-4 sm:text-left"
       style={{ borderColor: `${marketplace.labelColor}55` } as CSSProperties}
     >
       <span
@@ -1045,22 +1045,21 @@ function MarketplaceContributionCard({ marketplace }: { marketplace: ElevaterMar
         className="absolute inset-x-0 top-0 h-1"
         style={{ backgroundColor: marketplace.labelColor } as CSSProperties}
       />
-      <div className="flex items-start gap-2.5 max-[360px]:flex-col max-[360px]:gap-1.5 sm:gap-3">
+      <div className="flex min-w-0 flex-col items-center gap-2 sm:flex-row sm:items-start sm:gap-3">
         <MarketplaceBadge kind={marketplace.kind} />
         <div className="min-w-0">
-          <p className="font-general text-[9px] font-bold uppercase tracking-normal text-[#63757a] max-[360px]:text-[7px] sm:text-[10px]">
-            <span className="max-[360px]:hidden">{marketplace.name}</span>
-            <span className="hidden max-[360px]:inline">{marketplace.shortName}</span>
+          <p className="font-general text-[9px] font-bold uppercase tracking-[0.06em] text-[#63757a] sm:text-[10px]">
+            <span className="hidden sm:inline">{marketplace.name}</span>
+            <span className="sm:hidden">{marketplace.shortName}</span>
           </p>
-          <h4 className="mt-1 break-words font-clash text-[0.86rem] font-semibold leading-tight tracking-normal text-[#101010] text-pretty max-[360px]:text-[0.64rem] sm:text-[1rem]">
-            <span className="max-[360px]:hidden">{marketplace.contribution}</span>
-            <span className="hidden max-[360px]:inline">{marketplace.shortContribution}</span>
+          <h4 className="mt-1 whitespace-nowrap font-clash text-[1rem] font-semibold leading-tight tracking-normal text-[#101010] sm:whitespace-normal sm:text-[1rem]">
+            <span className="hidden sm:inline">{marketplace.contribution}</span>
+            <span className="sm:hidden">{marketplace.shortContribution}</span>
           </h4>
         </div>
       </div>
-      <p className="mt-auto pt-3 font-general text-[9px] font-semibold leading-snug text-[#1c2b31] text-pretty max-[360px]:pt-2 max-[360px]:text-[7px] sm:text-[11px]">
-        <span className="max-[360px]:hidden">{marketplace.items.join(" / ")}</span>
-        <span className="hidden max-[360px]:inline">{marketplace.shortItems.join(" / ")}</span>
+      <p className="mt-auto hidden pt-3 font-general text-[11px] font-semibold leading-snug text-[#1c2b31] text-pretty sm:block">
+        <span>{marketplace.items.join(" / ")}</span>
       </p>
     </article>
   );

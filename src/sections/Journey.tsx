@@ -904,40 +904,55 @@ type MarketplaceKind = "shopee" | "tiktok" | "mercado-livre" | "amazon";
 
 type ElevaterMarketplace = {
   name: string;
+  shortName: string;
   kind: MarketplaceKind;
   labelColor: string;
   contribution: string;
+  shortContribution: string;
   items: string[];
+  shortItems: string[];
 };
 
 const elevaterMarketplaces: ElevaterMarketplace[] = [
   {
     name: "Mercado Livre",
+    shortName: "MeLi",
     kind: "mercado-livre",
     labelColor: "#f2d600",
-    contribution: "Automação de Ads e margem",
-    items: ["Product/Brand Ads", "Curva ABC", "Relatórios"],
+    contribution: "Ads e margem",
+    shortContribution: "Ads",
+    items: ["Ads", "Curva ABC", "Relatórios"],
+    shortItems: ["Ads", "ABC", "Relat."],
   },
   {
     name: "Shopee",
+    shortName: "Shopee",
     kind: "shopee",
     labelColor: "#ee4d2d",
-    contribution: "Promoções e rentabilidade",
-    items: ["Descontos", "Margem por SKU", "Permissões Ads"],
+    contribution: "Promoções e margem",
+    shortContribution: "Promo",
+    items: ["Descontos", "Margem SKU", "Ads"],
+    shortItems: ["Desc.", "SKU", "Ads"],
   },
   {
     name: "TikTok Shop",
+    shortName: "TikTok",
     kind: "tiktok",
     labelColor: "#25f4ee",
-    contribution: "Base para social commerce",
+    contribution: "Social commerce",
+    shortContribution: "Social",
     items: ["Catálogo", "Campanhas", "Performance"],
+    shortItems: ["Cat.", "Camp.", "Perf."],
   },
   {
     name: "Amazon",
+    shortName: "Amazon",
     kind: "amazon",
     labelColor: "#ff9900",
     contribution: "Catálogo e margem",
-    items: ["Módulo catálogo", "Rentabilidade", "Escala"],
+    shortContribution: "Catálogo",
+    items: ["Catálogo", "Rentabilidade", "Escala"],
+    shortItems: ["Cat.", "Rentab.", "Escala"],
   },
 ];
 
@@ -1009,11 +1024,11 @@ function MarketplaceBadge({ kind }: { kind: MarketplaceKind }) {
 
   return (
     <span
-      className={`grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-[14px] shadow-[0_10px_22px_rgba(0,0,0,.09)] ring-1 ring-black/5 sm:h-12 sm:w-12 ${badgeClassName}`}
+      className={`grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-[12px] shadow-[0_10px_22px_rgba(0,0,0,.09)] ring-1 ring-black/5 max-[360px]:h-8 max-[360px]:w-8 sm:h-12 sm:w-12 ${badgeClassName}`}
     >
       <MarketplaceLogo
         kind={kind}
-        className={kind === "mercado-livre" ? "h-full w-full object-cover" : "h-6 w-6 sm:h-7 sm:w-7"}
+        className={kind === "mercado-livre" ? "h-full w-full object-cover" : "h-5 w-5 max-[360px]:h-4 max-[360px]:w-4 sm:h-7 sm:w-7"}
       />
     </span>
   );
@@ -1022,7 +1037,7 @@ function MarketplaceBadge({ kind }: { kind: MarketplaceKind }) {
 function MarketplaceContributionCard({ marketplace }: { marketplace: ElevaterMarketplace }) {
   return (
     <article
-      className="relative min-w-0 overflow-hidden rounded-[18px] border bg-white p-4 shadow-[0_14px_28px_rgba(0,116,133,.06)] sm:p-5"
+      className="relative flex min-h-[124px] min-w-0 flex-col overflow-hidden rounded-[16px] border bg-white p-3 shadow-[0_12px_24px_rgba(0,116,133,.055)] max-[360px]:min-h-[118px] max-[360px]:p-2 sm:min-h-[136px] sm:p-4"
       style={{ borderColor: `${marketplace.labelColor}55` } as CSSProperties}
     >
       <span
@@ -1030,35 +1045,23 @@ function MarketplaceContributionCard({ marketplace }: { marketplace: ElevaterMar
         className="absolute inset-x-0 top-0 h-1"
         style={{ backgroundColor: marketplace.labelColor } as CSSProperties}
       />
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-2.5 max-[360px]:flex-col max-[360px]:gap-1.5 sm:gap-3">
         <MarketplaceBadge kind={marketplace.kind} />
         <div className="min-w-0">
-          <p className="font-general text-[10px] font-bold uppercase tracking-[0.16em] text-[#63757a]">
-            {marketplace.name}
+          <p className="font-general text-[9px] font-bold uppercase tracking-normal text-[#63757a] max-[360px]:text-[7px] sm:text-[10px]">
+            <span className="max-[360px]:hidden">{marketplace.name}</span>
+            <span className="hidden max-[360px]:inline">{marketplace.shortName}</span>
           </p>
-          <h4 className="mt-1 break-words font-clash text-[1.05rem] font-semibold leading-tight tracking-normal text-[#101010] text-pretty sm:text-[1.18rem]">
-            {marketplace.contribution}
+          <h4 className="mt-1 break-words font-clash text-[0.86rem] font-semibold leading-tight tracking-normal text-[#101010] text-pretty max-[360px]:text-[0.64rem] sm:text-[1rem]">
+            <span className="max-[360px]:hidden">{marketplace.contribution}</span>
+            <span className="hidden max-[360px]:inline">{marketplace.shortContribution}</span>
           </h4>
         </div>
       </div>
-
-      <p className="mt-3 font-general text-[12px] leading-relaxed text-[#425156] text-pretty sm:text-[13px]">
-        {marketplace.items.join(", ")}
+      <p className="mt-auto pt-3 font-general text-[9px] font-semibold leading-snug text-[#1c2b31] text-pretty max-[360px]:pt-2 max-[360px]:text-[7px] sm:text-[11px]">
+        <span className="max-[360px]:hidden">{marketplace.items.join(" / ")}</span>
+        <span className="hidden max-[360px]:inline">{marketplace.shortItems.join(" / ")}</span>
       </p>
-
-      <div className="mt-4 grid gap-2">
-        {marketplace.items.map((bullet) => (
-          <div key={bullet} className="flex items-start gap-2">
-            <span
-              className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-              style={{ backgroundColor: marketplace.labelColor } as CSSProperties}
-            />
-            <span className="font-general text-[11px] font-semibold leading-snug text-[#1c2b31] sm:text-[12px]">
-              {bullet}
-            </span>
-          </div>
-        ))}
-      </div>
     </article>
   );
 }
@@ -1066,8 +1069,8 @@ function MarketplaceContributionCard({ marketplace }: { marketplace: ElevaterMar
 function ElevaterCaseCard({ item }: { item: Milestone }) {
   return (
     <div data-elevater-case-card className="journey-card relative min-w-0 max-w-full overflow-hidden rounded-[24px] border-2 border-[#007485]/55 bg-[#f2fbfc] p-0 shadow-[0_24px_70px_rgba(0,116,133,0.12)] transition-all duration-500 hover:border-[#007485]/80 sm:rounded-[30px]">
-      <div className="grid grid-cols-1 bg-[radial-gradient(circle_at_82%_12%,rgba(0,116,133,.12),transparent_26%),linear-gradient(135deg,#f8ffff_0%,#eefafa_46%,#ffffff_100%)] sm:min-h-[640px] sm:grid-cols-[220px_1fr]">
-        <aside className="relative flex min-w-0 flex-col justify-start overflow-hidden border-b border-[#65c7d1]/45 bg-[#001015] px-3 py-4 text-white max-sm:min-h-[112px] max-sm:items-center sm:border-b-0 sm:border-r sm:px-7 sm:py-10">
+      <div className="bg-[radial-gradient(circle_at_82%_12%,rgba(0,116,133,.12),transparent_26%),linear-gradient(135deg,#f8ffff_0%,#eefafa_46%,#ffffff_100%)] sm:min-h-[640px]">
+        <aside className="relative flex min-w-0 items-center overflow-hidden border-b border-[#65c7d1]/45 bg-[#001015] px-4 py-4 text-white sm:px-9 sm:py-6">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_12%,rgba(0,105,140,.22),transparent_30%),linear-gradient(180deg,#00070b_0%,#001625_34%,#004d63_69%,#007181_100%)]" />
           <svg
             aria-hidden="true"
@@ -1085,37 +1088,37 @@ function ElevaterCaseCard({ item }: { item: Milestone }) {
           </svg>
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.3),transparent_28%,transparent_76%,rgba(0,0,0,.16))]" />
 
-          <div className="relative flex flex-col items-center text-center max-sm:mt-0 sm:mt-2">
+          <div className="relative flex w-full items-center justify-center gap-4 sm:justify-between">
             <Image
               src="/brands/elevater-logo-transparent.png"
               alt="Elevater"
               width={281}
               height={85}
-              className="h-auto w-[116px] drop-shadow-[0_0_18px_rgba(255,255,255,.12)] sm:w-[154px]"
+              className="h-auto w-[116px] shrink-0 drop-shadow-[0_0_18px_rgba(255,255,255,.12)] sm:w-[154px]"
               sizes="(max-width: 640px) 116px, 154px"
               unoptimized
             />
-            <span className="mt-2 h-[2px] w-12 rounded-full bg-[radial-gradient(circle,#3cf6ff_0%,#00bed0_34%,rgba(0,190,208,0)_72%)] shadow-[0_0_18px_rgba(25,232,245,.9)] sm:mt-8 sm:w-28" />
-            <p className="mt-2 max-w-[160px] font-general text-[9px] font-light leading-snug text-white/54 sm:mt-7 sm:max-w-[190px] sm:text-[13px] sm:leading-[1.45]">
+            <span className="hidden h-12 w-px shrink-0 rounded-full bg-[radial-gradient(circle,#3cf6ff_0%,#00bed0_34%,rgba(0,190,208,0)_72%)] shadow-[0_0_18px_rgba(25,232,245,.9)] sm:block" />
+            <p className="hidden max-w-[260px] text-right font-general text-[13px] font-light leading-[1.45] text-white/62 sm:block">
               Gestão inteligente de campanhas no Mercado Livre
             </p>
           </div>
         </aside>
 
-        <div className="min-w-0 px-3 py-5 sm:px-9 sm:py-12 lg:px-11">
-          <h3 className="max-w-full whitespace-nowrap font-clash text-[clamp(1rem,4vw,1.2rem)] font-semibold leading-[1.06] tracking-normal text-[#111] sm:mt-2 sm:text-[clamp(1.08rem,1.45vw,1.35rem)] lg:text-[clamp(1.08rem,1.3vw,1.42rem)]">
+        <div className="min-w-0 px-4 py-5 sm:px-9 sm:py-9 lg:px-10">
+          <h3 className="max-w-full break-words font-clash text-[clamp(1.12rem,5vw,1.55rem)] font-semibold leading-[1.06] tracking-normal text-[#111] text-balance sm:mt-1 sm:text-[clamp(1.4rem,2vw,1.82rem)]">
             {item.title}
           </h3>
-          <div className="mt-5 h-1 w-16 rounded-full bg-[#007485]" />
+          <div className="mt-4 h-1 w-16 rounded-full bg-[#007485]" />
 
-          <p className="mt-4 font-general text-[11px] leading-[1.55] text-[#242424] text-pretty sm:mt-8 sm:text-[16px] sm:leading-[1.9]">
+          <p className="mt-4 font-general text-[11px] leading-[1.6] text-[#242424] text-pretty sm:mt-6 sm:text-[15px] sm:leading-[1.72]">
             {item.description}
           </p>
 
           {item.impact && (
-            <div className="mt-6 inline-flex items-center gap-3 rounded-[16px] border border-[#007485]/20 bg-[#007485]/5 px-4 py-3">
-              <TrendingUp size={18} className="shrink-0 text-[#007485]" />
-              <span className="font-general text-[11px] font-bold uppercase leading-snug tracking-[0.05em] text-[#111] sm:text-xs">
+            <div className="mt-4 inline-flex items-center gap-2 rounded-[14px] border border-[#007485]/20 bg-[#007485]/5 px-3 py-2">
+              <TrendingUp size={16} className="shrink-0 text-[#007485]" />
+              <span className="font-general text-[10px] font-bold uppercase leading-snug tracking-[0.05em] text-[#111] sm:text-[11px]">
                 {item.impact}
               </span>
             </div>
@@ -1123,18 +1126,18 @@ function ElevaterCaseCard({ item }: { item: Milestone }) {
 
           <div className="mt-5 overflow-hidden rounded-[18px] border border-[#9fd8df] bg-[#f7feff] shadow-[0_16px_34px_rgba(0,116,133,.07)] sm:mt-7">
             <div className="flex items-start gap-3 border-b border-[#d1eef2] px-4 py-4 sm:px-5">
-              <TrendingUp size={22} strokeWidth={2.1} className="mt-0.5 shrink-0 text-[#007485]" />
+              <TrendingUp size={20} strokeWidth={2.1} className="mt-0.5 shrink-0 text-[#007485]" />
               <div className="min-w-0">
-                <p className="font-general text-[11px] font-bold uppercase leading-relaxed tracking-[0.12em] text-[#111] sm:text-[13px]">
+                <p className="font-general text-[11px] font-bold uppercase leading-relaxed tracking-[0.1em] text-[#111] sm:text-[13px]">
                   Marketplace OS: automações e leitura operacional por canal.
                 </p>
-                <p className="mt-1 font-general text-[11px] leading-relaxed text-[#51666b] sm:text-[12px]">
+                <p className="mt-1 font-general text-[10px] leading-relaxed text-[#51666b] sm:text-[12px]">
                   O Elevater separa cada marketplace em uma rotina própria, sem perder o painel único da operação.
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-3 p-3 sm:p-4">
+            <div className="grid grid-cols-2 gap-2 p-2 sm:gap-3 sm:p-4">
               {elevaterMarketplaces.map((marketplace) => (
                 <MarketplaceContributionCard key={marketplace.kind} marketplace={marketplace} />
               ))}
@@ -1156,12 +1159,12 @@ function ElevaterCaseCard({ item }: { item: Milestone }) {
             </div>
           </div>
 
-          <div className={`${item.impact ? "mt-7" : "mt-5"} flex flex-wrap gap-1.5 sm:mt-9 sm:gap-3`}>
+          <div className={`${item.impact ? "mt-6" : "mt-5"} flex flex-wrap gap-1.5 sm:mt-8 sm:gap-3`}>
             {item.tech?.map((tag) => (
               <StackChip
                 key={tag}
                 label={tag}
-                className="min-h-9 border-transparent bg-[#eefafa] text-[9px] font-bold uppercase tracking-[0.06em] text-[#006c7a] shadow-[inset_0_0_0_1px_rgba(0,116,133,.08)] sm:min-h-10 sm:px-4 sm:text-xs"
+                className="min-h-8 border-transparent bg-[#eefafa] text-[9px] font-bold uppercase tracking-[0.06em] text-[#006c7a] shadow-[inset_0_0_0_1px_rgba(0,116,133,.08)] sm:min-h-10 sm:px-4 sm:text-xs"
               />
             ))}
           </div>

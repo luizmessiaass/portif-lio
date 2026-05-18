@@ -5,9 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BriefcaseBusiness,
-  Check,
   Home,
-  Mail,
   Menu,
   MessageCircle,
   Route,
@@ -29,10 +27,11 @@ const navLinks: NavLink[] = [
   { name: "Contato", href: "/#contact", Icon: MessageCircle },
 ];
 
+const whatsappUrl = "https://wa.me/5547997539380";
+
 export function Navbar() {
   const pathname = usePathname();
   const [time, setTime] = useState("");
-  const [toastVisible, setToastVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hiddenByScroll, setHiddenByScroll] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -89,12 +88,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleCopyEmail = () => {
-    void navigator.clipboard.writeText("Luiz.messiaass@gmail.com");
-    setToastVisible(true);
-    setTimeout(() => setToastVisible(false), 2500);
-  };
-
   const handleNavClick = () => {
     setMobileOpen(false);
     setHiddenByScroll(false);
@@ -113,15 +106,6 @@ export function Navbar() {
 
   return (
     <>
-      <div
-        className={`fixed bottom-20 right-4 z-[9999] flex items-center gap-3 rounded-full border border-white/10 bg-[#111] px-5 py-2.5 text-white shadow-2xl transition-all duration-300 sm:bottom-8 sm:right-20 ${
-          toastVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
-        }`}
-      >
-        <span className="font-general text-sm">E-mail copiado!</span>
-        <Check size={16} className="text-[#ff4d00]" />
-      </div>
-
       <nav
         data-cursor="hover"
         aria-label="Navegação principal"
@@ -148,17 +132,23 @@ export function Navbar() {
                 <Icon size={18} strokeWidth={2.1} />
               </Link>
             ))}
-            <button
-              type="button"
-              aria-label="Copiar e-mail"
-              onClick={() => {
-                handleCopyEmail();
-                setMobileOpen(false);
-              }}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Conversar pelo WhatsApp"
+              onClick={() => setMobileOpen(false)}
               className="grid h-12 w-12 place-items-center rounded-full border border-white/10 bg-white text-[#111] shadow-2xl backdrop-blur-xl transition-colors hover:bg-[#ff4d00] hover:text-white"
             >
-              <Mail size={17} strokeWidth={2.1} />
-            </button>
+              <span
+                aria-hidden="true"
+                className="h-[18px] w-[18px] bg-current"
+                style={{
+                  mask: "url(/stack/whatsapp.svg) center / contain no-repeat",
+                  WebkitMask: "url(/stack/whatsapp.svg) center / contain no-repeat",
+                }}
+              />
+            </a>
           </div>
         ) : null}
 
@@ -207,17 +197,25 @@ export function Navbar() {
 
             <div className="mx-auto my-1.5 h-px w-6 bg-white/10" />
 
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              aria-label="Copiar e-mail"
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Conversar pelo WhatsApp"
               className="group/link relative grid h-11 w-11 place-items-center rounded-full bg-white text-[#111] transition-colors hover:bg-[#ff4d00] hover:text-white"
             >
-              <Mail size={18} strokeWidth={2.1} />
+              <span
+                aria-hidden="true"
+                className="h-[18px] w-[18px] bg-current"
+                style={{
+                  mask: "url(/stack/whatsapp.svg) center / contain no-repeat",
+                  WebkitMask: "url(/stack/whatsapp.svg) center / contain no-repeat",
+                }}
+              />
               <span className="pointer-events-none absolute right-[calc(100%+0.65rem)] top-1/2 -translate-y-1/2 translate-x-1 whitespace-nowrap rounded-full border border-white/10 bg-[#111] px-3 py-1.5 font-general text-[11px] font-semibold text-white opacity-0 shadow-xl transition-all duration-200 group-hover/link:translate-x-0 group-hover/link:opacity-100 group-focus-visible/link:translate-x-0 group-focus-visible/link:opacity-100">
-                E-mail
+                WhatsApp
               </span>
-            </button>
+            </a>
           </div>
 
           <span className="hidden rounded-full border border-black/5 bg-white/80 px-2.5 py-1 font-general text-[10px] font-semibold tabular-nums text-[#666] shadow-lg backdrop-blur lg:block">

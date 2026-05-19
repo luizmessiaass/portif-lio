@@ -12,7 +12,7 @@ const socials = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/luizmessiaass",
+    href: "https://github.com/LuizHenriiqueeMessias",
     icon: "/social/github.svg",
   },
 ];
